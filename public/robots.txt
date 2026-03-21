@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://reallawgroup.com
+
+# Sitemaps
+Sitemap: https://reallawgroup.com/sitemap.xml
