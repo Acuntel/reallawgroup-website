@@ -47,26 +47,51 @@ h1, h2, h3, h4, h5, h6 {
 
   .btn-primary {
     @apply inline-flex items-center justify-center px-8 py-3.5 bg-secondary text-white font-semibold rounded-lg
-    transition-all duration-200 hover:bg-opacity-90 hover:shadow-lg text-sm tracking-wide uppercase;
+    transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 text-sm tracking-wide uppercase;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 8px 24px rgba(200, 169, 110, 0.25);
   }
 
   .btn-outline {
     @apply inline-flex items-center justify-center px-8 py-3.5 border-2 border-white text-white font-semibold rounded-lg
-    transition-all duration-200 hover:bg-white hover:text-primary text-sm tracking-wide uppercase;
+    transition-all duration-200 hover:bg-white hover:text-primary hover:-translate-y-0.5 text-sm tracking-wide uppercase;
   }
 
   .btn-navy {
     @apply inline-flex items-center justify-center px-8 py-3.5 bg-primary text-white font-semibold rounded-lg
-    transition-all duration-200 hover:bg-opacity-90 hover:shadow-lg text-sm tracking-wide uppercase;
+    transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 text-sm tracking-wide uppercase;
   }
 
   .page-hero {
-    @apply relative py-20 md:py-28 text-white;
+    @apply relative py-20 md:py-28 text-white overflow-hidden;
     background: linear-gradient(135deg, #0F1923 0%, #1B2D4F 100%);
   }
 
+  .page-hero::before {
+    content: '';
+    @apply absolute inset-0 pointer-events-none;
+    opacity: 0.03;
+    background-image:
+      linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .page-hero::after {
+    content: '';
+    @apply absolute pointer-events-none rounded-full;
+    width: 400px;
+    height: 400px;
+    top: -100px;
+    right: -100px;
+    background: rgba(200, 169, 110, 0.08);
+    filter: blur(100px);
+  }
+
   .page-hero h1 {
-    @apply text-white;
+    @apply text-white relative;
   }
 
   .gold-border-left {

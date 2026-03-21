@@ -1,12 +1,13 @@
 import { Metadata } from 'next';
 import HeroSection from '@/components/sections/HeroSection';
+import TrustBar from '@/components/sections/TrustBar';
 import StatsBar from '@/components/sections/StatsBar';
+import ProcessSection from '@/components/sections/ProcessSection';
 import WhyChooseUs from '@/components/sections/WhyChooseUs';
 import PracticeAreasSection from '@/components/sections/PracticeAreasSection';
 import TestimonialCarousel from '@/components/sections/TestimonialCarousel';
 import AboutPreview from '@/components/sections/AboutPreview';
 import CTABanner from '@/components/sections/CTABanner';
-import TrustBar from '@/components/sections/TrustBar';
 import ServiceAreas from '@/components/sections/ServiceAreas';
 
 export const metadata: Metadata = {
@@ -25,8 +26,9 @@ export default function HomePage() {
       <HeroSection />
       <TrustBar />
       <StatsBar />
-      <WhyChooseUs />
+      <ProcessSection />
       <PracticeAreasSection />
+      <WhyChooseUs />
       <TestimonialCarousel />
       <AboutPreview />
       <CTABanner />

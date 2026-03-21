@@ -30,9 +30,9 @@ export default function ContactPage() {
       />
       <section className="page-hero">
         <div className="container-custom">
-          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">Contact Us</h1>
+          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">Schedule Your Free Consultation</h1>
           <p className="text-gray-300 text-lg max-w-2xl">
-            Get in touch with our team for a consultation.
+            Tell us about your situation and our team will get back to you within one business day.
           </p>
         </div>
       </section>
@@ -44,9 +44,9 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Form */}
             <div>
-              <h2 className="text-2xl font-heading font-semibold mb-2">Send Us a Message</h2>
+              <h2 className="text-2xl font-heading font-semibold mb-2">Get Started</h2>
               <p className="text-text-muted text-sm mb-8">
-                Fill out the form below and we&apos;ll get back to you within one business day.
+                No obligation, no pressure. Tell us what you need and we&apos;ll take it from there.
               </p>
               <ContactForm />
             </div>

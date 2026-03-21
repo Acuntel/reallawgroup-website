@@ -57,9 +57,9 @@ export default function Header() {
                   {link.label}
                   {link.children && <ChevronDown className="w-3.5 h-3.5" />}
                 </Link>
-                {isActive(link.href) && (
-                  <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-secondary" />
-                )}
+                <span className={`absolute bottom-0 left-4 right-4 h-0.5 bg-secondary transition-transform duration-300 origin-right group-hover:origin-left group-hover:scale-x-100 ${
+                  isActive(link.href) ? 'scale-x-100' : 'scale-x-0'
+                }`} />
                 {link.children && (
                   <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                     <div className="bg-white rounded-lg shadow-xl border border-border py-2 min-w-[220px]">

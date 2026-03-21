@@ -1,41 +1,76 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
+
+const highlights = [
+  { value: '2016', label: 'Founded' },
+  { value: '50%+', label: 'Clients from referrals' },
+  { value: '4', label: 'Dedicated team members' },
+];
 
 export default function AboutPreview() {
   return (
     <section className="section-padding bg-background">
       <div className="container-custom">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Logo / Office image */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left: visual card with quote + stats */}
           <AnimateOnScroll direction="left">
-          <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl aspect-[4/3] flex items-center justify-center relative overflow-hidden">
-            <div className="text-center p-8">
-              <Image
-                src="/images/logo-icon.png"
-                alt="REAL Law Group"
-                width={120}
-                height={120}
-                className="mx-auto mb-4"
-              />
-              <p className="text-text-muted text-sm">REAL Law Group, P.C.</p>
-              <p className="text-text-muted text-xs mt-1">Hard Work. Integrity. Reliability.</p>
+            <div className="relative">
+              {/* Stats row */}
+              <div className="grid grid-cols-3 gap-4 mb-6">
+                {highlights.map((h, i) => (
+                  <div
+                    key={i}
+                    className="bg-white rounded-xl border border-border p-5 text-center hover:shadow-md transition-shadow"
+                  >
+                    <span className="block text-2xl md:text-3xl font-heading font-bold text-primary">
+                      {h.value}
+                    </span>
+                    <span className="text-xs text-text-muted font-medium mt-1 block">
+                      {h.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Quote card */}
+              <div className="bg-primary rounded-xl p-8 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full blur-[60px]" />
+                <div className="relative">
+                  <span className="text-5xl text-secondary/30 font-heading leading-none block mb-2">&ldquo;</span>
+                  <p className="text-white/80 text-sm leading-relaxed italic mb-4">
+                    We are the first members of our families to attend college and the only lawyers within our entire extended families. Mindful of our earlier days, when we were unfamiliar with and even intimidated by the law, we strive to relate to our clients.
+                  </p>
+                  <p className="text-secondary text-xs font-semibold tracking-wide uppercase">
+                    Vincent Incopero, Managing Partner
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
           </AnimateOnScroll>
 
-          {/* Content */}
+          {/* Right: content */}
           <AnimateOnScroll direction="right">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">Our Story</h2>
-            <div className="w-16 h-1 bg-secondary mb-8" />
-            <p className="text-text-muted leading-relaxed mb-6">
-              In 2016, REAL Law Group was founded on the principles of hard work, integrity, and reliability. Born and raised in Chicago and the surrounding suburbs, we know the people and the communities we serve. We are the first members of our families to attend college and the only lawyers within our entire extended families. Mindful of our earlier days, we strive to educate our clients and work closely with them.
-            </p>
-            <Link href="/about" className="btn-navy">
-              Meet Our Team
-            </Link>
-          </div>
+            <div>
+              <p className="section-label">About the Firm</p>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">
+                Built on Principles,{' '}
+                <span className="text-secondary">Not Privilege</span>
+              </h2>
+              <p className="text-text-muted leading-relaxed mb-5">
+                In 2016, REAL Law Group was founded on hard work, integrity, and reliability. Born and raised in Chicago and the surrounding suburbs, we know the people and the communities we serve.
+              </p>
+              <p className="text-text-muted leading-relaxed mb-8">
+                We view ourselves as a strategic partner in your endeavors. Through communication, availability, and close personal attention, we build the trust that is the cornerstone of any lasting attorney-client relationship.
+              </p>
+              <Link
+                href="/about"
+                className="group inline-flex items-center gap-2 text-sm font-semibold text-secondary hover:text-primary transition-colors"
+              >
+                Meet Our Team
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
           </AnimateOnScroll>
         </div>
       </div>
