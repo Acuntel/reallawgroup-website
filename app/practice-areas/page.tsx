@@ -3,6 +3,7 @@ import { Home, Building, FileText } from 'lucide-react';
 import BreadcrumbNav from '@/components/layout/BreadcrumbNav';
 import PracticeAreaCard from '@/components/cards/PracticeAreaCard';
 import CTABanner from '@/components/sections/CTABanner';
+import { generateBreadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Practice Areas',
@@ -38,6 +39,15 @@ const areas = [
 export default function PracticeAreasPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Practice Areas' },
+          ])),
+        }}
+      />
       <section className="page-hero">
         <div className="container-custom">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">Practice Areas</h1>

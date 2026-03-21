@@ -6,6 +6,7 @@ import PracticeAreasSection from '@/components/sections/PracticeAreasSection';
 import TestimonialCarousel from '@/components/sections/TestimonialCarousel';
 import AboutPreview from '@/components/sections/AboutPreview';
 import CTABanner from '@/components/sections/CTABanner';
+import TrustBar from '@/components/sections/TrustBar';
 import ServiceAreas from '@/components/sections/ServiceAreas';
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <TrustBar />
       <StatsBar />
       <WhyChooseUs />
       <PracticeAreasSection />

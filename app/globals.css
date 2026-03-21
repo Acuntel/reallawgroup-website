@@ -171,6 +171,20 @@ select:focus-visible {
   transform: scaleX(1);
 }
 
+/* ── Trust Bar Infinite Scroll ── */
+@keyframes trust-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.trust-scroll-track {
+  animation: trust-scroll 25s linear infinite;
+}
+
+.trust-scroll-track:hover {
+  animation-play-state: paused;
+}
+
 /* ── Testimonial Offset ── */
 @media (min-width: 768px) {
   .testimonial-offset:nth-child(3n+2) {

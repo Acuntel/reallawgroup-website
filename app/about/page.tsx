@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import BreadcrumbNav from '@/components/layout/BreadcrumbNav';
 import TeamMemberCard from '@/components/cards/TeamMemberCard';
 import CTABanner from '@/components/sections/CTABanner';
+import { generateBreadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -46,6 +47,15 @@ const teamMembers = [
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'About' },
+          ])),
+        }}
+      />
       {/* Hero */}
       <section className="page-hero">
         <div className="container-custom">

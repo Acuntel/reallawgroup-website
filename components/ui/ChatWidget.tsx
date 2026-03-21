@@ -201,7 +201,7 @@ export default function ChatWidget() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-6 lg:bottom-6 max-lg:bottom-[72px] right-6 z-50">
       {/* Widget Panel */}
       {state !== 'closed' && (
         <div className="absolute bottom-16 right-0 w-[340px] sm:w-[380px] bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden mb-2 flex flex-col max-h-[min(520px,calc(100vh-120px))]">

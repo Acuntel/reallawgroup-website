@@ -4,6 +4,7 @@ import BreadcrumbNav from '@/components/layout/BreadcrumbNav';
 import ContactForm from '@/components/ui/ContactForm';
 import GoogleMapsEmbed from '@/components/ui/GoogleMapsEmbed';
 import { CONTACT } from '@/lib/constants';
+import { generateBreadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Contact Us',
@@ -18,6 +19,15 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Contact Us' },
+          ])),
+        }}
+      />
       <section className="page-hero">
         <div className="container-custom">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">Contact Us</h1>

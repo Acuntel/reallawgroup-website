@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import { CheckCircle } from 'lucide-react';
 import BreadcrumbNav from '@/components/layout/BreadcrumbNav';
 import CTABanner from '@/components/sections/CTABanner';
+import FAQAccordion from '@/components/ui/FAQAccordion';
+import { generateFAQSchema, generateBreadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Business Law',
@@ -29,9 +31,43 @@ const services = [
   'Non-Disclosure Agreements',
 ];
 
+const faqs = [
+  {
+    question: 'Should I form an LLC or a corporation for my business?',
+    answer: 'It depends on your goals. An LLC offers flexible management and pass-through taxation, making it popular for small businesses. A corporation may be better if you plan to seek outside investors or go public. Our team analyzes your specific situation — business type, number of owners, tax implications — and recommends the best structure.',
+  },
+  {
+    question: 'How long does it take to form a business entity in Illinois?',
+    answer: 'Filing with the Illinois Secretary of State typically takes 5-10 business days for standard processing. Expedited options are available for an additional fee. REAL Law Group handles the full process including articles of organization, EIN applications, and operating agreements.',
+  },
+  {
+    question: 'Do I need an operating agreement for my LLC?',
+    answer: 'While Illinois does not legally require an operating agreement, operating without one is risky. An operating agreement defines ownership percentages, management structure, profit distribution, and what happens if a member leaves. Without one, Illinois default rules apply — which may not align with your intentions.',
+  },
+  {
+    question: 'What is a non-compete agreement and are they enforceable in Illinois?',
+    answer: 'A non-compete restricts an employee from working for competitors or starting a competing business for a set period after leaving. Illinois enforces reasonable non-competes — they must be limited in time, geography, and scope, and the employee must receive adequate consideration. Our team drafts agreements that protect your business while remaining enforceable.',
+  },
+];
+
 export default function BusinessLawPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Practice Areas', url: '/practice-areas' },
+            { name: 'Business Law' },
+          ])),
+        }}
+      />
+
       <section className="page-hero">
         <div className="container-custom">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">Business Law</h1>
@@ -53,7 +89,7 @@ export default function BusinessLawPage() {
           <h2 className="text-2xl font-heading font-semibold mb-6">Our Business Law Services</h2>
           <div className="w-12 h-1 bg-secondary mb-8" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-16">
             {services.map((service, i) => (
               <div key={i} className="flex items-start gap-3 py-2">
                 <CheckCircle className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
@@ -61,6 +97,11 @@ export default function BusinessLawPage() {
               </div>
             ))}
           </div>
+
+          {/* FAQ */}
+          <h2 className="text-2xl md:text-3xl font-heading font-semibold mb-6">Frequently Asked Questions</h2>
+          <div className="w-12 h-1 bg-secondary mb-8" />
+          <FAQAccordion items={faqs} />
         </div>
       </section>
 

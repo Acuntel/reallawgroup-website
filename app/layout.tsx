@@ -8,6 +8,7 @@ import ScrollToTop from '@/components/ui/ScrollToTop';
 import ChatWidget from '@/components/ui/ChatWidget';
 import PageLoader from '@/components/ui/PageLoader';
 import GrainOverlay from '@/components/ui/GrainOverlay';
+import MobileCTA from '@/components/ui/MobileCTA';
 import { generateLocalBusinessSchema, generateAttorneySchema } from '@/lib/schema';
 
 const playfair = Playfair_Display({
@@ -66,6 +67,7 @@ export default function RootLayout({
         <Footer />
         <ScrollToTop />
         <ChatWidget />
+        <MobileCTA />
         {process.env.NEXT_PUBLIC_GTM_ID && (
           <Script
             id="gtm"

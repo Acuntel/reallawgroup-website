@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import { CheckCircle } from 'lucide-react';
 import BreadcrumbNav from '@/components/layout/BreadcrumbNav';
 import CTABanner from '@/components/sections/CTABanner';
+import FAQAccordion from '@/components/ui/FAQAccordion';
+import { generateFAQSchema, generateBreadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Real Estate Law',
@@ -37,9 +39,47 @@ const commercialServices = [
   'Joint Ventures',
 ];
 
+const faqs = [
+  {
+    question: 'Do I need a real estate attorney for a home purchase in Illinois?',
+    answer: 'While Illinois does not legally require an attorney for real estate transactions, it is strongly recommended. An attorney reviews contracts, negotiates terms, resolves title issues, and ensures your interests are protected from contract through closing. Most transactions in the Chicago area involve attorneys on both sides.',
+  },
+  {
+    question: 'What does a real estate attorney do at closing?',
+    answer: 'Your attorney reviews all closing documents including the settlement statement, deed, mortgage documents, and title commitment. They ensure all financial figures are accurate, resolve any last-minute issues, and make sure the transaction is properly recorded with the county.',
+  },
+  {
+    question: 'How much does a real estate attorney cost in Illinois?',
+    answer: 'Fees vary depending on the complexity of the transaction. REAL Law Group provides transparent, competitive pricing. Contact us for a quote specific to your transaction — we are happy to discuss fees upfront during a consultation.',
+  },
+  {
+    question: 'What is a 1031 exchange and how does it work?',
+    answer: 'A 1031 exchange (tax-deferred exchange) allows you to defer capital gains taxes when selling an investment property by reinvesting the proceeds into a like-kind property. Strict timelines and rules apply — you have 45 days to identify replacement properties and 180 days to close. Our team guides clients through every step.',
+  },
+  {
+    question: 'What is the difference between a quit claim deed and a warranty deed?',
+    answer: 'A warranty deed guarantees the seller holds clear title and has the right to sell. A quit claim deed transfers whatever interest the seller has — with no guarantees. Quit claim deeds are common for family transfers, divorces, and moving property into trusts, but they carry more risk for buyers.',
+  },
+];
+
 export default function RealEstatePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Practice Areas', url: '/practice-areas' },
+            { name: 'Real Estate Law' },
+          ])),
+        }}
+      />
+
       <section className="page-hero">
         <div className="container-custom">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">Real Estate Law</h1>
@@ -54,7 +94,6 @@ export default function RealEstatePage() {
 
       <section className="section-padding bg-white">
         <div className="container-custom max-w-4xl">
-          {/* Residential */}
           <div className="mb-16">
             <h2 className="text-2xl md:text-3xl font-heading font-semibold mb-6">Residential Real Estate</h2>
             <div className="w-12 h-1 bg-secondary mb-8" />
@@ -71,8 +110,7 @@ export default function RealEstatePage() {
             </div>
           </div>
 
-          {/* Commercial */}
-          <div>
+          <div className="mb-16">
             <h2 className="text-2xl md:text-3xl font-heading font-semibold mb-6">Commercial Real Estate</h2>
             <div className="w-12 h-1 bg-secondary mb-8" />
             <p className="text-text-muted leading-relaxed mb-8">
@@ -86,6 +124,13 @@ export default function RealEstatePage() {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* FAQ */}
+          <div>
+            <h2 className="text-2xl md:text-3xl font-heading font-semibold mb-6">Frequently Asked Questions</h2>
+            <div className="w-12 h-1 bg-secondary mb-8" />
+            <FAQAccordion items={faqs} />
           </div>
         </div>
       </section>

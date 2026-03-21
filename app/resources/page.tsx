@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import BreadcrumbNav from '@/components/layout/BreadcrumbNav';
 import ResourceCard from '@/components/cards/ResourceCard';
 import CTABanner from '@/components/sections/CTABanner';
+import { generateBreadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Resources & Guides',
@@ -39,6 +40,15 @@ const resources = [
 export default function ResourcesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Resources' },
+          ])),
+        }}
+      />
       <section className="page-hero">
         <div className="container-custom">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">Resources &amp; Guides</h1>
