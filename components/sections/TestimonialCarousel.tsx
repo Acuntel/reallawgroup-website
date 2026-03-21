@@ -33,15 +33,16 @@ export default function TestimonialCarousel() {
     <section className="section-padding bg-white">
       <div className="container-custom">
         <div className="text-center mb-14">
+          <p className="section-label">Testimonials</p>
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">What Our Clients Say</h2>
           <div className="w-16 h-1 bg-secondary mx-auto" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, i) => (
-            <AnimateOnScroll key={i} delay={i * 0.15}>
+            <AnimateOnScroll key={i} delay={i * 0.15} className="testimonial-offset">
             <div
-              className="bg-background rounded-xl p-8 border border-border relative h-full"
+              className="card-hover-border bg-background rounded-xl p-8 border border-border relative h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, j) => (

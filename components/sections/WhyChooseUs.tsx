@@ -29,6 +29,7 @@ export default function WhyChooseUs() {
     <section className="section-padding bg-white">
       <div className="container-custom">
         <div className="text-center mb-14">
+          <p className="section-label">Our Difference</p>
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
             Why Choose REAL Law Group?
           </h2>
@@ -38,8 +39,8 @@ export default function WhyChooseUs() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {reasons.map((reason, i) => (
             <AnimateOnScroll key={i} delay={i * 0.1}>
-              <div className="text-center p-8 rounded-xl bg-background border border-border hover:shadow-lg hover:border-secondary/30 transition-all duration-300 h-full">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-light-gold mb-5">
+              <div className="group card-hover-border text-center p-8 rounded-xl bg-background border border-border hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-light-gold mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
                   <reason.icon className="w-6 h-6 text-secondary" />
                 </div>
                 <h3 className="text-lg font-heading font-semibold mb-3">{reason.title}</h3>

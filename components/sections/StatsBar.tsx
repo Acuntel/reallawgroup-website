@@ -1,10 +1,19 @@
-import { Star, Award, ThumbsUp } from 'lucide-react';
+import { Star, Award, ThumbsUp, LucideIcon } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
+import AnimatedCounter from '@/components/ui/AnimatedCounter';
 
-const stats = [
-  { icon: Star, value: '200+', label: 'Five Star Reviews' },
-  { icon: Award, value: '25+', label: 'Years Combined Experience' },
-  { icon: ThumbsUp, value: 'Top Rated', label: 'on Expertise.com' },
+interface Stat {
+  icon: LucideIcon;
+  numericValue?: number;
+  suffix?: string;
+  textValue?: string;
+  label: string;
+}
+
+const stats: Stat[] = [
+  { icon: Star, numericValue: 200, suffix: '+', label: 'Five Star Reviews' },
+  { icon: Award, numericValue: 25, suffix: '+', label: 'Years Combined Experience' },
+  { icon: ThumbsUp, textValue: 'Top Rated', label: 'on Expertise.com' },
 ];
 
 export default function StatsBar() {
@@ -16,7 +25,13 @@ export default function StatsBar() {
             <AnimateOnScroll key={i} delay={i * 0.15}>
               <div className="flex flex-col items-center gap-2">
                 <stat.icon className="w-7 h-7 text-secondary mb-1" />
-                <span className="text-2xl md:text-3xl font-heading font-bold text-primary">{stat.value}</span>
+                <span className="text-2xl md:text-3xl font-heading font-bold text-primary">
+                  {stat.numericValue ? (
+                    <AnimatedCounter target={stat.numericValue} suffix={stat.suffix} />
+                  ) : (
+                    stat.textValue
+                  )}
+                </span>
                 <span className="text-sm text-text-muted font-medium">{stat.label}</span>
               </div>
             </AnimateOnScroll>

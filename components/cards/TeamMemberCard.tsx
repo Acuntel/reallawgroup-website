@@ -13,7 +13,7 @@ interface TeamMemberCardProps {
 
 export default function TeamMemberCard({ name, title, initials, bio, image, education, barAdmissions, affiliations }: TeamMemberCardProps) {
   return (
-    <div className="bg-white rounded-xl border border-border overflow-hidden hover:shadow-lg transition-shadow duration-300">
+    <div className="card-hover-border bg-white rounded-xl border border-border overflow-hidden hover:shadow-lg transition-shadow duration-300">
       {/* Avatar */}
       <div className="bg-gradient-to-br from-primary to-accent h-48 flex items-center justify-center relative">
         {image ? (

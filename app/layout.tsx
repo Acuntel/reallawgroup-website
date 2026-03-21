@@ -6,6 +6,8 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ScrollToTop from '@/components/ui/ScrollToTop';
 import ChatWidget from '@/components/ui/ChatWidget';
+import PageLoader from '@/components/ui/PageLoader';
+import GrainOverlay from '@/components/ui/GrainOverlay';
 import { generateLocalBusinessSchema, generateAttorneySchema } from '@/lib/schema';
 
 const playfair = Playfair_Display({
@@ -57,6 +59,8 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body min-h-screen flex flex-col">
+        <PageLoader />
+        <GrainOverlay />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

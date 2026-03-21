@@ -72,6 +72,16 @@ h1, h2, h3, h4, h5, h6 {
   .gold-border-left {
     @apply border-l-4 border-secondary;
   }
+
+  .section-label {
+    @apply inline-flex items-center gap-2 text-xs font-bold text-secondary uppercase tracking-[0.14em] mb-3;
+  }
+
+  .section-label::before,
+  .section-label::after {
+    content: '';
+    @apply w-5 h-px bg-secondary/40;
+  }
 }
 
 a:focus-visible,
@@ -98,4 +108,72 @@ select:focus-visible {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #a1a1a1;
+}
+
+/* ── Page Loader Animations ── */
+@keyframes slide-up {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes load-bar {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-slide-up-delay {
+  transform: translateY(100%);
+  animation: slide-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.08s forwards;
+}
+
+.animate-load-bar {
+  animation: load-bar 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.duration-600 {
+  transition-duration: 600ms;
+}
+
+/* ── Hero Glow Pulse ── */
+@keyframes gentle-pulse {
+  0% { opacity: 0.08; transform: scale(1); }
+  100% { opacity: 0.15; transform: scale(1.1); }
+}
+
+.animate-gentle-pulse {
+  animation: gentle-pulse 8s ease-in-out infinite alternate;
+}
+
+/* ── Enhanced Card Hovers ── */
+.card-hover-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-hover-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--secondary), #E8C567);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-hover-border:hover::before {
+  transform: scaleX(1);
+}
+
+/* ── Testimonial Offset ── */
+@media (min-width: 768px) {
+  .testimonial-offset:nth-child(3n+2) {
+    transform: translateY(24px);
+  }
 }
