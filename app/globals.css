@@ -21,6 +21,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -211,7 +212,7 @@ select:focus-visible {
 }
 
 /* ── Testimonial Offset ── */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .testimonial-offset:nth-child(3n+2) {
     transform: translateY(24px);
   }

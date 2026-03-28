@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, phone, service, transcript } = await req.json();
+    const { name, email, phone, service, transcript, attachments } = await req.json();
 
     if (!name || !email) {
       return NextResponse.json(
@@ -31,6 +31,18 @@ export async function POST(req: NextRequest) {
             ),
           ]
         : ['(User just started chatting — transcript will follow when conversation ends.)']),
+      ...(attachments && attachments.length > 0
+        ? [
+            '',
+            '--- Attachments ---',
+            ...attachments.map(
+              (a: { name: string; type: string; size: string }) =>
+                `${a.name} (${a.type}, ${a.size})`
+            ),
+            '',
+            'Note: Files were attached in the chat widget. Follow up with the client to receive the actual files.',
+          ]
+        : []),
     ]
       .filter(Boolean)
       .join('\n');

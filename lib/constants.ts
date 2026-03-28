@@ -17,6 +17,7 @@ export const CONTACT = {
   email: 'info@reallawgroup.com',
   address: '381 N York St Suite 1, Elmhurst, IL 60126',
   hours: 'Mon-Fri: 8AM-7PM | Sat: 8AM-3PM',
+  schedulingUrl: process.env.NEXT_PUBLIC_SCHEDULING_URL || '/contact',
   googleMapsUrl: 'https://g.page/reallawgroup?share',
   facebook: 'https://www.facebook.com/reallawgroup',
   instagram: 'https://www.instagram.com/reallawgroup/',

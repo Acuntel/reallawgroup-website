@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, FormEvent } from 'react';
-import { MessageCircle, X, Send, Phone, ArrowRight, Loader2 } from 'lucide-react';
+import { MessageCircle, X, Send, Phone, ArrowRight, Loader2, Paperclip } from 'lucide-react';
 import { CONTACT } from '@/lib/constants';
 
 interface Message {
@@ -38,8 +38,10 @@ export default function ChatWidget() {
   const [input, setInput] = useState('');
   const [isStreaming, setIsStreaming] = useState(false);
   const [chatError, setChatError] = useState('');
+  const [attachments, setAttachments] = useState<File[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Auto-scroll to bottom when messages change
   useEffect(() => {
@@ -79,13 +81,19 @@ export default function ChatWidget() {
 
   const sendLeadNotification = async (includeTranscript = false) => {
     try {
+      const payload: Record<string, unknown> = { ...leadInfo };
+      if (includeTranscript) payload.transcript = messages;
+      if (attachments.length > 0) {
+        payload.attachments = attachments.map((f) => ({
+          name: f.name,
+          type: f.type,
+          size: `${(f.size / 1024).toFixed(1)} KB`,
+        }));
+      }
       await fetch('/api/chat/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...leadInfo,
-          ...(includeTranscript ? { transcript: messages } : {}),
-        }),
+        body: JSON.stringify(payload),
       });
     } catch {
       // Silently fail — don't block chat UX for notification
@@ -189,6 +197,28 @@ export default function ChatWidget() {
     }
   };
 
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files || []);
+    const validFiles = files.filter((f) => {
+      const maxSize = 10 * 1024 * 1024; // 10MB
+      const allowedTypes = [
+        'application/pdf',
+        'image/jpeg',
+        'image/png',
+        'image/webp',
+        'application/msword',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      ];
+      return f.size <= maxSize && allowedTypes.includes(f.type);
+    });
+    setAttachments((prev) => [...prev, ...validFiles].slice(0, 3));
+    if (fileInputRef.current) fileInputRef.current.value = '';
+  };
+
+  const removeAttachment = (index: number) => {
+    setAttachments((prev) => prev.filter((_, i) => i !== index));
+  };
+
   const handleLeadChange = (field: keyof LeadInfo, value: string) => {
     setLeadInfo((prev) => ({ ...prev, [field]: value }));
     if (formErrors[field]) {
@@ -201,10 +231,10 @@ export default function ChatWidget() {
   };
 
   return (
-    <div className="fixed bottom-6 lg:bottom-6 max-lg:bottom-[72px] right-6 z-50">
+    <div className="fixed bottom-6 lg:bottom-6 max-lg:bottom-[72px] right-4 sm:right-6 z-50">
       {/* Widget Panel */}
       {state !== 'closed' && (
-        <div className="absolute bottom-16 right-0 w-[340px] sm:w-[380px] bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden mb-2 flex flex-col max-h-[min(520px,calc(100vh-120px))]">
+        <div className="absolute bottom-16 right-0 w-[calc(100vw-2rem)] sm:w-[380px] bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden mb-2 flex flex-col max-h-[min(520px,calc(100vh-160px))] max-lg:max-h-[min(520px,calc(100vh-180px))]">
           {/* Header */}
           <div className="bg-[#1B2D4F] px-4 py-3 flex items-center justify-between shrink-0">
             <div className="flex items-center gap-2.5">
@@ -215,7 +245,7 @@ export default function ChatWidget() {
                 <h3 className="text-white font-semibold text-sm leading-tight">
                   REAL Law Group
                 </h3>
-                <p className="text-gray-400 text-[10px]">
+                <p className="text-gray-400 text-[11px]">
                   {state === 'chatting' ? 'Online • Typically replies instantly' : 'Virtual Assistant'}
                 </p>
               </div>
@@ -341,23 +371,64 @@ export default function ChatWidget() {
               {/* Quick Actions */}
               <div className="px-4 pb-2 flex gap-2 shrink-0">
                 <a
-                  href="/contact"
-                  className="flex-1 text-center text-[11px] font-medium py-1.5 rounded-full border border-[#1B2D4F] text-[#1B2D4F] hover:bg-[#1B2D4F] hover:text-white transition-colors"
+                  href={CONTACT.schedulingUrl}
+                  target={CONTACT.schedulingUrl.startsWith('http') ? '_blank' : undefined}
+                  rel={CONTACT.schedulingUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="flex-1 text-center text-xs font-medium py-2 rounded-full border border-[#1B2D4F] text-[#1B2D4F] hover:bg-[#1B2D4F] hover:text-white transition-colors"
                 >
                   Schedule Consultation
                 </a>
                 <a
                   href={CONTACT.phoneHref}
-                  className="flex-1 text-center text-[11px] font-medium py-1.5 rounded-full bg-[#1B2D4F] text-white hover:bg-[#0F1923] transition-colors flex items-center justify-center gap-1"
+                  className="flex-1 text-center text-xs font-medium py-2 rounded-full bg-[#1B2D4F] text-white hover:bg-[#0F1923] transition-colors flex items-center justify-center gap-1"
                 >
-                  <Phone className="w-3 h-3" />
+                  <Phone className="w-3.5 h-3.5" />
                   Call Now
                 </a>
               </div>
 
+              {/* Attachments Preview */}
+              {attachments.length > 0 && (
+                <div className="px-3 pb-1 flex flex-wrap gap-1.5 shrink-0">
+                  {attachments.map((file, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center gap-1 bg-gray-100 rounded-full px-2.5 py-1 text-[11px] text-gray-600"
+                    >
+                      <Paperclip className="w-3 h-3" />
+                      <span className="max-w-[100px] truncate">{file.name}</span>
+                      <button
+                        onClick={() => removeAttachment(i)}
+                        className="text-gray-400 hover:text-red-500 ml-0.5"
+                        aria-label={`Remove ${file.name}`}
+                      >
+                        <X className="w-3 h-3" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
+
               {/* Input */}
               <div className="border-t border-gray-100 px-3 py-2.5 shrink-0">
                 <div className="flex items-center gap-2">
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    onChange={handleFileSelect}
+                    accept=".pdf,.jpg,.jpeg,.png,.webp,.doc,.docx"
+                    multiple
+                    className="hidden"
+                  />
+                  <button
+                    onClick={() => fileInputRef.current?.click()}
+                    disabled={isStreaming || attachments.length >= 3}
+                    className="w-9 h-9 rounded-full text-gray-400 hover:text-[#1B2D4F] hover:bg-gray-100 flex items-center justify-center transition-colors disabled:opacity-40 disabled:cursor-not-allowed shrink-0"
+                    aria-label="Attach file"
+                    title="Attach a file (PDF, image, or document)"
+                  >
+                    <Paperclip className="w-4 h-4" />
+                  </button>
                   <input
                     ref={inputRef}
                     type="text"
