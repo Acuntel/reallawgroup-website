@@ -1,4 +1,5 @@
 import { NextRequest } from 'next/server';
+import Anthropic from '@anthropic-ai/sdk';
 
 const SYSTEM_PROMPT = `You are the AI assistant for REAL Law Group, P.C. — a Chicago-area law firm founded in 2016 by Vincent Anthony Incopero. You are embedded on their website to help potential clients learn about services and guide them toward scheduling a consultation.
 
@@ -85,7 +86,7 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    const apiKey = process.env.GROQ_API_KEY;
+    const apiKey = process.env.ANTHROPIC_API_KEY;
     if (!apiKey) {
       return new Response(
         JSON.stringify({ error: 'Chat service is not configured.' }),
@@ -102,72 +103,32 @@ export async function POST(req: NextRequest) {
       contextPrompt += `\nAddress the user by their first name. Tailor your responses to their stated interest.`;
     }
 
-    const groqMessages = [
-      { role: 'system', content: contextPrompt },
-      ...messages.slice(-20), // Keep last 20 messages for context
-    ];
+    // Convert messages to Anthropic format (no system role in messages array)
+    const anthropicMessages = messages.slice(-20).map((msg: { role: string; content: string }) => ({
+      role: msg.role as 'user' | 'assistant',
+      content: msg.content,
+    }));
 
-    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        model: 'llama-3.3-70b-versatile',
-        messages: groqMessages,
-        temperature: 0.7,
-        max_tokens: 500,
-        stream: true,
-      }),
+    const client = new Anthropic({ apiKey });
+
+    const stream = await client.messages.stream({
+      model: process.env.ANTHROPIC_MODEL || 'claude-sonnet-4-20250514',
+      max_tokens: 500,
+      system: contextPrompt,
+      messages: anthropicMessages,
     });
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error('Groq API error:', errorText);
-      return new Response(
-        JSON.stringify({ error: 'Failed to get response. Please try again.' }),
-        { status: 500, headers: { 'Content-Type': 'application/json' } }
-      );
-    }
-
-    // Stream the response back
+    // Stream the response back as plain text
     const encoder = new TextEncoder();
-    const stream = new ReadableStream({
+    const readableStream = new ReadableStream({
       async start(controller) {
-        const reader = response.body?.getReader();
-        if (!reader) {
-          controller.close();
-          return;
-        }
-
-        const decoder = new TextDecoder();
-        let buffer = '';
-
         try {
-          while (true) {
-            const { done, value } = await reader.read();
-            if (done) break;
-
-            buffer += decoder.decode(value, { stream: true });
-            const lines = buffer.split('\n');
-            buffer = lines.pop() || '';
-
-            for (const line of lines) {
-              const trimmed = line.trim();
-              if (!trimmed || !trimmed.startsWith('data: ')) continue;
-              const data = trimmed.slice(6);
-              if (data === '[DONE]') continue;
-
-              try {
-                const parsed = JSON.parse(data);
-                const content = parsed.choices?.[0]?.delta?.content;
-                if (content) {
-                  controller.enqueue(encoder.encode(content));
-                }
-              } catch {
-                // Skip malformed JSON chunks
-              }
+          for await (const event of stream) {
+            if (
+              event.type === 'content_block_delta' &&
+              event.delta.type === 'text_delta'
+            ) {
+              controller.enqueue(encoder.encode(event.delta.text));
             }
           }
         } catch (error) {
@@ -178,7 +139,7 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    return new Response(stream, {
+    return new Response(readableStream, {
       headers: {
         'Content-Type': 'text/plain; charset=utf-8',
         'Cache-Control': 'no-cache',
