@@ -12,13 +12,14 @@ export default function HeroSection() {
       {/* Background image */}
       <Image
         src="/images/hero-skyline.png"
-        alt=""
+        alt="Chicago skyline"
         fill
         className="object-cover"
+        sizes="100vw"
         priority
       />
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0F1923]/90 via-[#1B2D4F]/80 to-[#2A5F8F]/60" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0F1923]/70 via-[#1B2D4F]/55 to-[#2A5F8F]/35" />
 
       {/* Subtle glow */}
       <div className="absolute top-[10%] left-[15%] w-[500px] h-[500px] rounded-full bg-[#C8A96E]/10 blur-[120px] animate-gentle-pulse" />
@@ -47,7 +48,7 @@ export default function HeroSection() {
           </motion.div>
 
           {/* Line-by-line reveal */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-6">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-6">
             <span className="block overflow-hidden">
               <motion.span
                 className="block"
