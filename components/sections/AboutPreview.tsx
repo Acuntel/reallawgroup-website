@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 
 const highlights = [
-  { value: "2016", label: "Founded" },
+  { value: "10+", label: "Years Serving Chicagoland" },
   { value: "50%+", label: "Clients from referrals" },
   { value: "6", label: "Dedicated team members" },
 ];

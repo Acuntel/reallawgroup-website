@@ -1,26 +1,30 @@
-import { Users, Phone, Monitor, TrendingUp } from 'lucide-react';
-import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
+import { Users, Phone, Monitor, TrendingUp } from "lucide-react";
+import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 
 const reasons = [
   {
     icon: Users,
-    title: 'Personalized Service',
-    description: 'We prioritize strong, lasting relationships with every client. As proud Chicago natives, we understand the unique needs of Chicagoland residents.',
+    title: "Personalized Service",
+    description:
+      "We prioritize strong, lasting relationships with every client. As proud Chicago natives, we understand the unique needs of Chicagoland residents.",
   },
   {
     icon: Phone,
-    title: 'Direct Attorney Access',
-    description: 'Direct access to managing partner Vincent Incopero and his dedicated legal team. No runaround, no gatekeepers.',
+    title: "Direct Attorney Access",
+    description:
+      "Direct access to managing partner Vincent Incopero and his dedicated legal team. No runaround, no gatekeepers.",
   },
   {
     icon: Monitor,
-    title: 'Cutting-Edge Technology',
-    description: 'Legal technology that simplifies and streamlines your real estate transaction, from contract to closing.',
+    title: "Online Portal & E-Signatures",
+    description:
+      "Track your closing in real time with our secure client portal and sign documents electronically.",
   },
   {
     icon: TrendingUp,
-    title: 'Results-Driven',
-    description: 'Efficient, results-driven workflows designed to resolve legal issues quickly and effectively.',
+    title: "Proven Track Record",
+    description:
+      "Over 275 five-star Google reviews and a consistent record of client satisfaction across thousands of transactions.",
   },
 ];
 
@@ -43,8 +47,12 @@ export default function WhyChooseUs() {
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-light-gold mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
                   <reason.icon className="w-6 h-6 text-secondary" />
                 </div>
-                <h3 className="text-lg font-heading font-semibold mb-3">{reason.title}</h3>
-                <p className="text-sm text-text-muted leading-relaxed">{reason.description}</p>
+                <h3 className="text-lg font-heading font-semibold mb-3">
+                  {reason.title}
+                </h3>
+                <p className="text-sm text-text-muted leading-relaxed">
+                  {reason.description}
+                </p>
               </div>
             </AnimateOnScroll>
           ))}

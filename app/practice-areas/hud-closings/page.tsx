@@ -1,21 +1,16 @@
-import { Metadata } from "next";
 import { CheckCircle } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import CTABanner from "@/components/sections/CTABanner";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import { generatePageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "HUD Closings",
+export const metadata = generatePageMetadata({
+  title: "HUD & Government Property Closing Attorney — Chicago",
   description:
-    "REAL Law Group handles HUD home closings throughout Chicagoland. Experienced attorneys guiding buyers through HUD-specific timelines, contracts, and closing requirements.",
-  openGraph: {
-    title: "HUD Closings | REAL Law Group",
-    description:
-      "Experienced HUD closing attorneys serving buyers throughout the Chicago area. From bid acceptance to final closing.",
-    url: "/practice-areas/hud-closings",
-  },
-};
+    "REAL Law Group handles HUD home closings throughout Chicagoland. Experienced attorneys guiding buyers through HUD-specific timelines, contracts, and closing requirements. Call (630) 299-7600 for a free consultation.",
+  path: "/practice-areas/hud-closings",
+});
 
 const hudClosingSteps = [
   "Buyer submits an offer through HUD\u2019s online bidding system (HUDHomeStore.com)",
@@ -217,6 +212,45 @@ export default function HUDClosingsPage() {
         text="Our attorneys handle every step of the HUD closing process so you can focus on your new home."
         buttonText="Contact Us Today"
       />
+
+      <section className="py-12 bg-light-gold">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading text-2xl text-primary mb-6">
+            Related Practice Areas
+          </h2>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="/practice-areas/real-estate"
+              className="text-primary hover:text-secondary font-semibold underline"
+            >
+              Real Estate Law
+            </a>
+            <a
+              href="/practice-areas/building-violations"
+              className="text-primary hover:text-secondary font-semibold underline"
+            >
+              Building Violations
+            </a>
+          </div>
+          <h3 className="font-heading text-lg text-primary mt-6 mb-3">
+            Helpful Resources
+          </h3>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="/resources/closing-cost-calculator"
+              className="text-primary hover:text-secondary font-semibold underline"
+            >
+              Closing Cost Calculator
+            </a>
+            <a
+              href="/emd"
+              className="text-primary hover:text-secondary font-semibold underline"
+            >
+              Earnest Money Deposits
+            </a>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

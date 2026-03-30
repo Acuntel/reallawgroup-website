@@ -1,20 +1,15 @@
-import { Metadata } from "next";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import TeamMemberCard from "@/components/cards/TeamMemberCard";
 import CTABanner from "@/components/sections/CTABanner";
 import { generateBreadcrumbSchema } from "@/lib/schema";
+import { generatePageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "About Us",
+export const metadata = generatePageMetadata({
+  title: "About REAL Law Group — Elmhurst Real Estate Attorneys",
   description:
-    "Learn about REAL Law Group, P.C. - founded in 2016 on hard work, integrity, and reliability. Meet our team of experienced Chicago attorneys.",
-  openGraph: {
-    title: "About Us | REAL Law Group",
-    description:
-      "Founded in 2016 on hard work, integrity, and reliability. Meet our team of experienced Chicago attorneys.",
-    url: "/about",
-  },
-};
+    "Learn about REAL Law Group, P.C. - founded in 2016 on hard work, integrity, and reliability. Meet our team of experienced Chicago attorneys. Call (630) 299-7600 for a free consultation.",
+  path: "/about",
+});
 
 const teamMembers = [
   {

@@ -5,26 +5,32 @@ const testimonials = [
   {
     text: "Vince and his team made our closing completely seamless. Professional, responsive, and always available when we had questions. Highly recommend!",
     author: "M.R.",
+    context: "Home Buyer, Elmhurst",
   },
   {
     text: "Best real estate attorney in Chicagoland. They handled everything from contract to closing and explained every step clearly.",
     author: "J.P.",
+    context: "Real Estate Client, Naperville",
   },
   {
     text: "They handled our LLC formation quickly and explained everything in plain language. First-class service from start to finish.",
     author: "L.S.",
+    context: "Business Formation Client",
   },
   {
     text: "As first-time homebuyers, we had a million questions. Vince was patient, thorough, and made us feel confident every step of the way.",
     author: "K.D.",
+    context: "First-Time Home Buyer, Chicago",
   },
   {
     text: "Sarah and the team were incredible during our commercial closing. The attention to detail on the loan documents saved us from a costly mistake.",
     author: "R.T.",
+    context: "Commercial Real Estate Client",
   },
   {
     text: "We used REAL Law Group for our estate planning. They took the time to understand our family situation and created a plan that gave us real peace of mind.",
     author: "A.M.",
+    context: "Estate Planning Client, Hinsdale",
   },
 ];
 
@@ -48,7 +54,11 @@ export default function TestimonialCarousel() {
               className="testimonial-offset"
             >
               <div className="card-hover-border bg-background rounded-xl p-8 border border-border relative h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                <div className="flex gap-1 mb-4">
+                <div
+                  aria-label="5 out of 5 stars"
+                  role="img"
+                  className="flex gap-1 mb-4"
+                >
                   {[...Array(5)].map((_, j) => (
                     <Star
                       key={j}
@@ -60,7 +70,12 @@ export default function TestimonialCarousel() {
                   &ldquo;{testimonial.text}&rdquo;
                 </p>
                 <p className="text-primary font-semibold text-sm">
-                  &mdash; {testimonial.author}
+                  &mdash; {testimonial.author}{" "}
+                  {testimonial.context && (
+                    <span className="font-normal text-text-muted">
+                      — {testimonial.context}
+                    </span>
+                  )}
                 </p>
               </div>
             </AnimateOnScroll>

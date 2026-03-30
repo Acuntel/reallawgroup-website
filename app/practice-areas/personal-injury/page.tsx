@@ -1,21 +1,16 @@
-import { Metadata } from "next";
 import { CheckCircle } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import CTABanner from "@/components/sections/CTABanner";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import { generatePageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Car Accident & Personal Injury",
+export const metadata = generatePageMetadata({
+  title: "Personal Injury Attorney Referrals — Chicago & Suburbs",
   description:
-    "Injured in a car accident? REAL Law Group connects you with experienced personal injury attorneys who fight for the compensation you deserve. Free consultation.",
-  openGraph: {
-    title: "Car Accident & Personal Injury | REAL Law Group",
-    description:
-      "Get experienced legal representation for car accidents and personal injury claims. Free consultation, no fee unless you win.",
-    url: "/practice-areas/personal-injury",
-  },
-};
+    "Injured in a car accident? REAL Law Group connects you with experienced personal injury attorneys who fight for the compensation you deserve. Free consultation. Call (630) 299-7600.",
+  path: "/practice-areas/personal-injury",
+});
 
 const caseTypes = [
   "Car and truck accidents",
@@ -227,6 +222,28 @@ export default function PersonalInjuryPage() {
         text="Call REAL Law Group at (630) 299-7600 or schedule a consultation to discuss your case with an experienced personal injury attorney."
         buttonText="Free Consultation"
       />
+
+      <section className="py-12 bg-light-gold">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading text-2xl text-primary mb-6">
+            Related Practice Areas
+          </h2>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="/practice-areas/real-estate"
+              className="text-primary hover:text-secondary font-semibold underline"
+            >
+              Real Estate Law
+            </a>
+            <a
+              href="/practice-areas/business-law"
+              className="text-primary hover:text-secondary font-semibold underline"
+            >
+              Business Law
+            </a>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

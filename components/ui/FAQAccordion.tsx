@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 interface FAQItem {
   question: string;
@@ -29,22 +29,27 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
             className="border border-border rounded-xl overflow-hidden transition-colors hover:border-secondary/30"
           >
             <button
+              id={`faq-question-${i}`}
               onClick={() => toggle(i)}
               className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left bg-white hover:bg-gray-50/50 transition-colors"
               aria-expanded={isOpen}
+              aria-controls={`faq-answer-${i}`}
             >
               <span className="text-sm font-semibold text-primary leading-snug pr-4">
                 {item.question}
               </span>
               <ChevronDown
                 className={`w-4 h-4 text-secondary shrink-0 transition-transform duration-300 ${
-                  isOpen ? 'rotate-180' : ''
+                  isOpen ? "rotate-180" : ""
                 }`}
               />
             </button>
             <div
+              id={`faq-answer-${i}`}
+              role="region"
+              aria-labelledby={`faq-question-${i}`}
               className={`grid transition-[grid-template-rows] duration-300 ease-out ${
-                isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+                isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
               }`}
             >
               <div className="overflow-hidden">

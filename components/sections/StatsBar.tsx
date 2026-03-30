@@ -11,14 +11,14 @@ interface Stat {
 }
 
 const stats: Stat[] = [
-  { icon: Star, numericValue: 275, suffix: "+", label: "Five Star Reviews" },
+  { icon: Star, textValue: "4.9 Stars", label: "275+ Google Reviews" },
   {
     icon: Award,
     numericValue: 25,
     suffix: "+",
     label: "Years Combined Experience",
   },
-  { icon: ThumbsUp, textValue: "Top Rated", label: "on Expertise.com" },
+  { icon: ThumbsUp, textValue: "Top Rated", label: "Expertise.com 2024" },
 ];
 
 export default function StatsBar() {

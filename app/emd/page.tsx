@@ -1,21 +1,16 @@
-import { Metadata } from "next";
 import { CheckCircle, AlertTriangle } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import CTABanner from "@/components/sections/CTABanner";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import { generatePageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Earnest Money Deposits",
+export const metadata = generatePageMetadata({
+  title: "Earnest Money Deposits in Illinois — What Buyers Need to Know",
   description:
-    "Learn how earnest money deposits work in Illinois real estate transactions. REAL Law Group explains EMD amounts, refund conditions, and how to protect your deposit.",
-  openGraph: {
-    title: "Earnest Money Deposits in Illinois | REAL Law Group",
-    description:
-      "Understand earnest money deposits in Illinois — typical amounts, when you get it back, and how to protect your good faith deposit.",
-    url: "/emd",
-  },
-};
+    "Learn how earnest money deposits work in Illinois real estate transactions. REAL Law Group explains EMD amounts, refund conditions, and how to protect your deposit. Call (630) 299-7600 for a free consultation.",
+  path: "/emd",
+});
 
 const refundReasons = [
   {

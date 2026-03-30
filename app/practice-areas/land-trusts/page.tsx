@@ -1,21 +1,16 @@
-import { Metadata } from "next";
 import { CheckCircle } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import CTABanner from "@/components/sections/CTABanner";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import { generatePageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Illinois Land Trusts",
+export const metadata = generatePageMetadata({
+  title: "Illinois Land Trust Attorney — Formation & Administration",
   description:
-    "Protect your property with an Illinois land trust. REAL Law Group helps property owners establish land trusts for privacy, asset protection, and simplified estate planning in Chicagoland.",
-  openGraph: {
-    title: "Illinois Land Trusts | REAL Law Group",
-    description:
-      "Protect your property with an Illinois land trust. Privacy, asset protection, and simplified estate planning for Chicagoland property owners.",
-    url: "/practice-areas/land-trusts",
-  },
-};
+    "Protect your property with an Illinois land trust. REAL Law Group helps property owners establish land trusts for privacy, asset protection, and simplified estate planning in Chicagoland. Call (630) 299-7600 for a free consultation.",
+  path: "/practice-areas/land-trusts",
+});
 
 const benefits = [
   {
@@ -328,6 +323,34 @@ export default function LandTrustsPage() {
         text="Contact REAL Law Group to discuss how an Illinois land trust fits into your overall real estate and estate planning strategy."
         buttonText="Contact Us Today"
       />
+
+      <section className="py-12 bg-light-gold">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading text-2xl text-primary mb-6">
+            Related Practice Areas
+          </h2>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="/practice-areas/real-estate"
+              className="text-primary hover:text-secondary font-semibold underline"
+            >
+              Real Estate Law
+            </a>
+            <a
+              href="/practice-areas/estate-planning"
+              className="text-primary hover:text-secondary font-semibold underline"
+            >
+              Estate Planning
+            </a>
+            <a
+              href="/practice-areas/building-violations"
+              className="text-primary hover:text-secondary font-semibold underline"
+            >
+              Building Violations
+            </a>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

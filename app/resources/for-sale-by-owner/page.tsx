@@ -1,21 +1,16 @@
-import { Metadata } from "next";
 import { CheckCircle } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import CTABanner from "@/components/sections/CTABanner";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import { generatePageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = generatePageMetadata({
   title: "For Sale By Owner Legal Services in Illinois",
   description:
-    "REAL Law Group provides legal representation for FSBO sellers in Illinois. Contract drafting, title work, closing coordination, and full attorney support without an agent.",
-  openGraph: {
-    title: "For Sale By Owner Legal Services | REAL Law Group",
-    description:
-      "Selling your home without an agent? REAL Law Group handles the legal side of FSBO transactions throughout Chicagoland.",
-    url: "/resources/for-sale-by-owner",
-  },
-};
+    "REAL Law Group provides legal representation for FSBO sellers in Illinois. Contract drafting, title work, closing coordination, and full attorney support without an agent. Call (630) 299-7600 for a free consultation.",
+  path: "/resources/for-sale-by-owner",
+});
 
 const fsboServices = [
   "Contract drafting and review",
@@ -247,6 +242,23 @@ export default function ForSaleByOwnerPage() {
         text="REAL Law Group provides full legal representation for FSBO sellers across Chicagoland. Call (630) 299-7600 or schedule a consultation."
         buttonText="Schedule a Consultation"
       />
+
+      <section className="py-8 bg-light-gold">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap gap-4">
+          <a
+            href="/practice-areas/real-estate"
+            className="text-primary hover:text-secondary font-semibold underline"
+          >
+            Real Estate Law
+          </a>
+          <a
+            href="/resources/closing-cost-calculator"
+            className="text-primary hover:text-secondary font-semibold underline"
+          >
+            Closing Cost Calculator
+          </a>
+        </div>
+      </section>
     </>
   );
 }

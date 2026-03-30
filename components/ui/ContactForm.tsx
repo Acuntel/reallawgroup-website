@@ -1,38 +1,38 @@
-'use client';
+"use client";
 
-import { useState, FormEvent } from 'react';
-import { Send, CheckCircle } from 'lucide-react';
+import { useState, FormEvent } from "react";
+import { Send, CheckCircle } from "lucide-react";
 
 const serviceOptions = [
-  'Real Estate Transaction',
-  'Business Formation',
-  'Estate Planning',
-  'Property Tax Appeal',
-  'Other',
+  "Real Estate Transaction",
+  "Business Formation",
+  "Estate Planning",
+  "Property Tax Appeal",
+  "Other",
 ];
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState('');
+  const [submitError, setSubmitError] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: "",
   });
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
-    if (!formData.name.trim()) newErrors.name = 'Full name is required';
+    if (!formData.name.trim()) newErrors.name = "Full name is required";
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email';
+      newErrors.email = "Please enter a valid email";
     }
-    if (!formData.message.trim()) newErrors.message = 'Message is required';
+    if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -41,24 +41,26 @@ export default function ContactForm() {
     e.preventDefault();
     if (!validate()) return;
     setSubmitting(true);
-    setSubmitError('');
+    setSubmitError("");
 
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
       if (!res.ok) {
         const data = await res.json();
-        throw new Error(data.error || 'Failed to send message');
+        throw new Error(data.error || "Failed to send message");
       }
 
       setSubmitted(true);
     } catch (err) {
       setSubmitError(
-        err instanceof Error ? err.message : 'Something went wrong. Please try again.'
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again.",
       );
     } finally {
       setSubmitting(false);
@@ -80,9 +82,12 @@ export default function ContactForm() {
     return (
       <div className="bg-success/10 border border-success/30 rounded-xl p-10 text-center">
         <CheckCircle className="w-12 h-12 text-success mx-auto mb-4" />
-        <h3 className="text-xl font-heading font-semibold text-primary mb-2">Message Sent!</h3>
+        <h3 className="text-xl font-heading font-semibold text-primary mb-2">
+          Message Sent!
+        </h3>
         <p className="text-text-muted text-sm">
-          Thank you for reaching out. Our team will get back to you within one business day.
+          Thank you for reaching out. Our team will get back to you within one
+          business day.
         </p>
       </div>
     );
@@ -92,89 +97,124 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} noValidate className="space-y-5">
       {/* Name */}
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-primary mb-1.5">
+        <label
+          htmlFor="name"
+          className="block text-sm font-medium text-primary mb-1.5"
+        >
           Full Name <span className="text-red-500">*</span>
         </label>
         <input
           id="name"
           type="text"
+          autoComplete="name"
           value={formData.name}
-          onChange={(e) => handleChange('name', e.target.value)}
+          onChange={(e) => handleChange("name", e.target.value)}
+          aria-describedby={errors.name ? "name-error" : undefined}
           className={`w-full px-4 py-3 rounded-lg border bg-white text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary ${
-            errors.name ? 'border-red-400' : 'border-border'
+            errors.name ? "border-red-400" : "border-border"
           }`}
           placeholder="Your full name"
         />
-        {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+        {errors.name && (
+          <p id="name-error" className="text-red-500 text-xs mt-1">
+            {errors.name}
+          </p>
+        )}
       </div>
 
       {/* Email */}
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-primary mb-1.5">
+        <label
+          htmlFor="email"
+          className="block text-sm font-medium text-primary mb-1.5"
+        >
           Email <span className="text-red-500">*</span>
         </label>
         <input
           id="email"
           type="email"
+          autoComplete="email"
           value={formData.email}
-          onChange={(e) => handleChange('email', e.target.value)}
+          onChange={(e) => handleChange("email", e.target.value)}
+          aria-describedby={errors.email ? "email-error" : undefined}
           className={`w-full px-4 py-3 rounded-lg border bg-white text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary ${
-            errors.email ? 'border-red-400' : 'border-border'
+            errors.email ? "border-red-400" : "border-border"
           }`}
           placeholder="your@email.com"
         />
-        {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+        {errors.email && (
+          <p id="email-error" className="text-red-500 text-xs mt-1">
+            {errors.email}
+          </p>
+        )}
       </div>
 
       {/* Phone */}
       <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-primary mb-1.5">
-          Phone <span className="text-text-muted text-xs">(optional)</span>
+        <label
+          htmlFor="phone"
+          className="block text-sm font-medium text-primary mb-1.5"
+        >
+          Phone <span className="text-red-500">*</span>
         </label>
         <input
           id="phone"
           type="tel"
+          autoComplete="tel"
           value={formData.phone}
-          onChange={(e) => handleChange('phone', e.target.value)}
-          className="w-full px-4 py-3 rounded-lg border border-border bg-white text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary"
+          onChange={(e) => handleChange("phone", e.target.value)}
+          aria-describedby={errors.phone ? "phone-error" : undefined}
+          className={`w-full px-4 py-3 rounded-lg border bg-white text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary ${
+            errors.phone ? "border-red-400" : "border-border"
+          }`}
           placeholder="(555) 123-4567"
         />
+        {errors.phone && (
+          <p id="phone-error" className="text-red-500 text-xs mt-1">
+            {errors.phone}
+          </p>
+        )}
       </div>
 
       {/* Service */}
       <div>
-        <label htmlFor="service" className="block text-sm font-medium text-primary mb-1.5">
+        <label
+          htmlFor="service"
+          className="block text-sm font-medium text-primary mb-1.5"
+        >
           Service Interested In
         </label>
         <select
           id="service"
           value={formData.service}
-          onChange={(e) => handleChange('service', e.target.value)}
+          onChange={(e) => handleChange("service", e.target.value)}
           className="w-full px-4 py-3 rounded-lg border border-border bg-white text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary"
         >
           <option value="">Select a service...</option>
           {serviceOptions.map((option) => (
-            <option key={option} value={option}>{option}</option>
+            <option key={option} value={option}>
+              {option}
+            </option>
           ))}
         </select>
       </div>
 
       {/* Message */}
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-primary mb-1.5">
-          Message <span className="text-red-500">*</span>
+        <label
+          htmlFor="message"
+          className="block text-sm font-medium text-primary mb-1.5"
+        >
+          Message <span className="text-text-muted text-xs">(Optional)</span>
         </label>
         <textarea
           id="message"
           rows={5}
           value={formData.message}
-          onChange={(e) => handleChange('message', e.target.value)}
-          className={`w-full px-4 py-3 rounded-lg border bg-white text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary resize-vertical ${
-            errors.message ? 'border-red-400' : 'border-border'
-          }`}
+          onChange={(e) => handleChange("message", e.target.value)}
+          className="w-full px-4 py-3 rounded-lg border border-border bg-white text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary resize-vertical"
           placeholder="How can we help you?"
         />
-        {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
       </div>
 
       {submitError && (
@@ -182,6 +222,14 @@ export default function ContactForm() {
           {submitError}
         </div>
       )}
+
+      <div className="flex items-center justify-center gap-4 text-xs text-text-muted mb-4">
+        <span>Free & Confidential</span>
+        <span className="w-1 h-1 rounded-full bg-text-muted" />
+        <span>No Obligation</span>
+        <span className="w-1 h-1 rounded-full bg-text-muted" />
+        <span>Response Within 24 Hours</span>
+      </div>
 
       <button
         type="submit"
@@ -196,13 +244,15 @@ export default function ContactForm() {
         ) : (
           <>
             <Send className="w-4 h-4" />
-            Send Message
+            Get My Free Consultation
           </>
         )}
       </button>
 
       <p className="text-[11px] text-gray-400 leading-relaxed mt-3">
-        Submitting this form does not establish an attorney-client relationship. Please do not include confidential or sensitive information in your message.
+        Submitting this form does not establish an attorney-client relationship.
+        Please do not include confidential or sensitive information in your
+        message.
       </p>
     </form>
   );

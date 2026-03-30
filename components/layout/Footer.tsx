@@ -14,9 +14,19 @@ import { CONTACT } from "@/lib/constants";
 const quickLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
+  { label: "Our Team", href: "/about#team" },
   { label: "Practice Areas", href: "/practice-areas" },
   { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },
+];
+
+const resourceLinks = [
+  {
+    label: "Closing Cost Calculator",
+    href: "/resources/closing-cost-calculator",
+  },
+  { label: "Title Insurance FAQ", href: "/resources/title-insurance-faq" },
+  { label: "Prevent Wire Fraud", href: "/resources/prevent-wire-fraud" },
 ];
 
 const practiceLinks = [
@@ -63,9 +73,9 @@ export default function Footer() {
 
       {/* Main footer */}
       <div className="container-custom py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Col 1: Brand */}
-          <div>
+          <div className="lg:col-span-1">
             <Link href="/" className="inline-block">
               <Image
                 src="/images/logo-banner.png"
@@ -148,7 +158,26 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 4: Contact */}
+          {/* Col 4: Resources */}
+          <div>
+            <h3 className="text-white text-xs font-semibold uppercase tracking-[0.12em] mb-5">
+              Resources
+            </h3>
+            <ul className="space-y-2.5">
+              {resourceLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-gray-400 hover:text-secondary transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 5: Contact */}
           <div>
             <h3 className="text-white text-xs font-semibold uppercase tracking-[0.12em] mb-5">
               Contact
@@ -156,7 +185,14 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 mt-0.5 text-secondary shrink-0" />
-                <span className="text-sm">{CONTACT.address}</span>
+                <a
+                  href="https://g.page/reallawgroup?share"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm hover:text-secondary transition-colors"
+                >
+                  {CONTACT.address}
+                </a>
               </li>
               <li>
                 <a

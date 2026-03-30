@@ -4,14 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { Phone, Star } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function HeroSection() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <section className="relative py-24 md:py-36 text-white overflow-hidden">
       {/* Background image */}
       <Image
-        src="/images/hero-skyline.png"
+        src="/images/hero-skyline.webp"
         alt="Chicago skyline"
         fill
         className="object-cover"
@@ -39,11 +41,15 @@ export default function HeroSection() {
           {/* Social proof badge */}
           <motion.div
             className="inline-flex items-center gap-2 bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] rounded-full px-4 py-2 mb-8"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={prefersReducedMotion ? {} : { opacity: 0, y: 10 }}
+            animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
           >
-            <div className="flex gap-0.5">
+            <div
+              aria-label="5 out of 5 stars"
+              role="img"
+              className="flex gap-0.5"
+            >
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
@@ -61,8 +67,8 @@ export default function HeroSection() {
             <span className="block overflow-hidden">
               <motion.span
                 className="block"
-                initial={{ y: "110%" }}
-                animate={{ y: 0 }}
+                initial={prefersReducedMotion ? {} : { y: "110%" }}
+                animate={prefersReducedMotion ? {} : { y: 0 }}
                 transition={{
                   duration: 0.8,
                   ease: [0.22, 1, 0.36, 1],
@@ -75,8 +81,8 @@ export default function HeroSection() {
             <span className="block overflow-hidden">
               <motion.span
                 className="block"
-                initial={{ y: "110%" }}
-                animate={{ y: 0 }}
+                initial={prefersReducedMotion ? {} : { y: "110%" }}
+                animate={prefersReducedMotion ? {} : { y: 0 }}
                 transition={{
                   duration: 0.8,
                   ease: [0.22, 1, 0.36, 1],
@@ -93,8 +99,8 @@ export default function HeroSection() {
 
           <motion.p
             className="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed max-w-2xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+            animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
             transition={{
               duration: 0.8,
               ease: [0.22, 1, 0.36, 1],
@@ -107,8 +113,8 @@ export default function HeroSection() {
 
           <motion.div
             className="flex flex-col sm:flex-row gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+            animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.8 }}
           >
             <Link href="/contact" className="btn-primary text-center">

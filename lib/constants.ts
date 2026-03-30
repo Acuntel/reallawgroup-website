@@ -1,6 +1,6 @@
 export const COLORS = {
   primary: "#1B2D4F",
-  secondary: "#C8A96E",
+  secondary: "#866A2D",
   accent: "#2A5F8F",
   background: "#FAFAF8",
   dark: "#0F1923",
@@ -25,8 +25,8 @@ export const CONTACT = {
 };
 
 export const NAV_LINKS = [
-  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
+  { label: "Our Team", href: "/about#team" },
   {
     label: "Practice Areas",
     href: "/practice-areas",

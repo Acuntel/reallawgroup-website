@@ -3,7 +3,10 @@ export function generateLocalBusinessSchema() {
     "@context": "https://schema.org",
     "@type": "LegalService",
     name: "REAL Law Group, P.C.",
+    description:
+      "REAL Law Group provides personalized legal guidance for real estate transactions, business law, and estate planning. Serving Chicagoland since 2016.",
     image: "https://reallawgroup.com/images/logo-banner.png",
+    logo: "https://reallawgroup.com/images/logo-banner.png",
     "@id": "https://reallawgroup.com",
     url: "https://reallawgroup.com",
     telephone: "+16302997600",
@@ -41,6 +44,11 @@ export function generateLocalBusinessSchema() {
       reviewCount: "275",
     },
     priceRange: "$$",
+    founder: {
+      "@type": "Person",
+      name: "Vincent Anthony Incopero",
+      url: "https://reallawgroup.com/about",
+    },
     areaServed: {
       "@type": "GeoCircle",
       geoMidpoint: {
@@ -49,6 +57,61 @@ export function generateLocalBusinessSchema() {
         longitude: -87.6298,
       },
       geoRadius: "50000",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Legal Services",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Real Estate Law",
+            description:
+              "Residential and commercial real estate transactions, closings, and contract review",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Business Law",
+            description: "Business formation, contracts, and corporate counsel",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Estate Planning",
+            description: "Wills, trusts, and estate administration",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "HUD Closings",
+            description: "HUD and government-insured property closings",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Building Violations",
+            description: "Chicago building code violation defense",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Land Trusts",
+            description: "Illinois land trust formation and administration",
+          },
+        },
+      ],
     },
     sameAs: [
       "https://www.facebook.com/reallawgroup",
@@ -61,12 +124,17 @@ export function generateLocalBusinessSchema() {
 export function generateAttorneySchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "Attorney",
+    "@type": "Person",
     name: "Vincent Anthony Incopero",
     jobTitle: "Managing Partner",
+    url: "https://reallawgroup.com/about",
+    image: "https://reallawgroup.com/images/logo-banner.png",
+    telephone: "+16302997600",
+    email: "info@reallawgroup.com",
     worksFor: {
       "@type": "LegalService",
       name: "REAL Law Group, P.C.",
+      url: "https://reallawgroup.com",
     },
     alumniOf: [
       {
@@ -89,6 +157,20 @@ export function generateAttorneySchema() {
       },
       { "@type": "Organization", name: "Justinian Society of Lawyers" },
     ],
+  };
+}
+
+export function generateWebSiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "REAL Law Group",
+    url: "https://reallawgroup.com",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://reallawgroup.com/practice-areas?q={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
   };
 }
 

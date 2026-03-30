@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 interface TeamMemberCardProps {
   name: string;
@@ -11,16 +11,33 @@ interface TeamMemberCardProps {
   affiliations?: string;
 }
 
-export default function TeamMemberCard({ name, title, initials, bio, image, education, barAdmissions, affiliations }: TeamMemberCardProps) {
+export default function TeamMemberCard({
+  name,
+  title,
+  initials,
+  bio,
+  image,
+  education,
+  barAdmissions,
+  affiliations,
+}: TeamMemberCardProps) {
   return (
     <div className="card-hover-border bg-white rounded-xl border border-border overflow-hidden hover:shadow-lg transition-shadow duration-300">
       {/* Avatar */}
       <div className="bg-gradient-to-br from-primary to-accent h-48 flex items-center justify-center relative">
         {image ? (
-          <Image src={image} alt={name} fill className="object-cover" />
+          <Image
+            src={image}
+            alt={name}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
         ) : (
           <div className="w-24 h-24 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
-            <span className="font-heading text-3xl font-bold text-white">{initials}</span>
+            <span className="font-heading text-3xl font-bold text-white">
+              {initials}
+            </span>
           </div>
         )}
       </div>
@@ -32,22 +49,34 @@ export default function TeamMemberCard({ name, title, initials, bio, image, educ
 
         {education && (
           <div className="mb-3">
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-primary mb-1">Education</h4>
-            <p className="text-text-muted text-xs leading-relaxed">{education}</p>
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-primary mb-1">
+              Education
+            </h4>
+            <p className="text-text-muted text-[13px] leading-relaxed">
+              {education}
+            </p>
           </div>
         )}
 
         {barAdmissions && (
           <div className="mb-3">
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-primary mb-1">Bar Admissions</h4>
-            <p className="text-text-muted text-xs leading-relaxed">{barAdmissions}</p>
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-primary mb-1">
+              Bar Admissions
+            </h4>
+            <p className="text-text-muted text-[13px] leading-relaxed">
+              {barAdmissions}
+            </p>
           </div>
         )}
 
         {affiliations && (
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-primary mb-1">Affiliations</h4>
-            <p className="text-text-muted text-xs leading-relaxed">{affiliations}</p>
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-primary mb-1">
+              Affiliations
+            </h4>
+            <p className="text-text-muted text-[13px] leading-relaxed">
+              {affiliations}
+            </p>
           </div>
         )}
       </div>

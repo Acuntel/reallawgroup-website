@@ -1,20 +1,15 @@
-import { Metadata } from "next";
 import { Video } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import CTABanner from "@/components/sections/CTABanner";
 import { generateBreadcrumbSchema } from "@/lib/schema";
+import { generatePageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = generatePageMetadata({
   title: "Videos & Resources",
   description:
-    "Educational video library from REAL Law Group covering real estate closings, attorney review, earnest money, closing costs, estate planning, land trusts, and more.",
-  openGraph: {
-    title: "Videos & Resources | REAL Law Group",
-    description:
-      "Watch educational videos on real estate law, estate planning, and business law from REAL Law Group.",
-    url: "/resources/videos",
-  },
-};
+    "Educational video library from REAL Law Group covering real estate closings, attorney review, earnest money, closing costs, estate planning, land trusts, and more. Call (630) 299-7600 for a free consultation.",
+  path: "/resources/videos",
+});
 
 const videos = [
   {

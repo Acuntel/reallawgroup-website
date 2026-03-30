@@ -1,21 +1,16 @@
-import { Metadata } from "next";
 import { CheckCircle } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import CTABanner from "@/components/sections/CTABanner";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import { generatePageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = generatePageMetadata({
   title: "Inherited Property & Probate Real Estate",
   description:
-    "Guidance on inherited property and probate real estate in Illinois. Learn your options for keeping, selling, or transferring inherited homes and land.",
-  openGraph: {
-    title: "Inherited Property & Probate Real Estate | REAL Law Group",
-    description:
-      "Navigate inherited property decisions with experienced Illinois real estate attorneys.",
-    url: "/resources/inherited-property",
-  },
-};
+    "Guidance on inherited property and probate real estate in Illinois. Learn your options for keeping, selling, or transferring inherited homes and land. Call (630) 299-7600 for a free consultation.",
+  path: "/resources/inherited-property",
+});
 
 const sellingServices = [
   "Probate court filings and approval",
@@ -284,6 +279,29 @@ export default function InheritedPropertyPage() {
         text="Our experienced real estate attorneys guide families through every step of the inherited property process."
         buttonText="Schedule a Consultation"
       />
+
+      <section className="py-8 bg-light-gold">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap gap-4">
+          <a
+            href="/practice-areas/estate-planning"
+            className="text-primary hover:text-secondary font-semibold underline"
+          >
+            Estate Planning
+          </a>
+          <a
+            href="/practice-areas/real-estate"
+            className="text-primary hover:text-secondary font-semibold underline"
+          >
+            Real Estate Law
+          </a>
+          <a
+            href="/practice-areas/land-trusts"
+            className="text-primary hover:text-secondary font-semibold underline"
+          >
+            Land Trusts
+          </a>
+        </div>
+      </section>
     </>
   );
 }

@@ -1,20 +1,15 @@
-import { Metadata } from "next";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import ResourceCard from "@/components/cards/ResourceCard";
 import CTABanner from "@/components/sections/CTABanner";
 import { generateBreadcrumbSchema } from "@/lib/schema";
+import { generatePageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = generatePageMetadata({
   title: "Resources & Guides",
   description:
-    "Legal resources and guides from REAL Law Group covering wire fraud prevention, quit claim deeds, data breach prevention, and title insurance.",
-  openGraph: {
-    title: "Resources & Guides | REAL Law Group",
-    description:
-      "Legal resources and guides covering wire fraud prevention, quit claim deeds, and more.",
-    url: "/resources",
-  },
-};
+    "Legal resources and guides from REAL Law Group covering wire fraud prevention, quit claim deeds, data breach prevention, and title insurance. Call (630) 299-7600 for a free consultation.",
+  path: "/resources",
+});
 
 const resources = [
   {
@@ -64,12 +59,6 @@ const resources = [
     excerpt:
       "Common questions about title insurance answered, including what it covers and why it matters.",
     href: "/resources/title-insurance-faq",
-  },
-  {
-    title: "Videos & Resources",
-    excerpt:
-      "Watch educational videos about real estate law, estate planning, and business law from our team.",
-    href: "/resources/videos",
   },
 ];
 

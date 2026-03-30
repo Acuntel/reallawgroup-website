@@ -1,5 +1,6 @@
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import Anthropic from "@anthropic-ai/sdk";
+import { checkRateLimit } from "@/lib/rate-limit";
 
 const SYSTEM_PROMPT = `You are the AI assistant for REAL Law Group, P.C. — a Chicago-area law firm founded in 2016 by Vincent Anthony Incopero. You are embedded on their website to help potential clients learn about services and guide them toward scheduling a consultation.
 
@@ -146,6 +147,19 @@ CRITICAL RULES:
 
 export async function POST(req: NextRequest) {
   try {
+    const ip = req.headers.get("x-forwarded-for") || "unknown";
+    if (!checkRateLimit(ip, 10)) {
+      return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+    }
+
+    const contentType = req.headers.get("content-type");
+    if (!contentType || !contentType.includes("application/json")) {
+      return NextResponse.json(
+        { error: "Content-Type must be application/json" },
+        { status: 400 },
+      );
+    }
+
     const { messages, leadInfo } = await req.json();
 
     if (!messages || !Array.isArray(messages)) {
@@ -153,6 +167,18 @@ export async function POST(req: NextRequest) {
         status: 400,
         headers: { "Content-Type": "application/json" },
       });
+    }
+
+    // Validate message content length
+    for (const msg of messages) {
+      if (typeof msg.content === "string" && msg.content.length > 5000) {
+        return NextResponse.json(
+          {
+            error: "Message content exceeds maximum length of 5000 characters.",
+          },
+          { status: 400 },
+        );
+      }
     }
 
     const apiKey = process.env.ANTHROPIC_API_KEY;

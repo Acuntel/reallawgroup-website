@@ -1,19 +1,14 @@
-import { Metadata } from "next";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import CTABanner from "@/components/sections/CTABanner";
 import ClosingCostCalculator from "@/components/ui/ClosingCostCalculator";
+import { generatePageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = generatePageMetadata({
   title: "Closing Cost Calculator",
   description:
-    "Estimate your closing costs for buying or selling property in Illinois. Free interactive calculator covering transfer taxes, title insurance, attorney fees, and more.",
-  openGraph: {
-    title: "Illinois Closing Cost Calculator | REAL Law Group",
-    description:
-      "Estimate buyer or seller closing costs for Illinois real estate transactions. Covers transfer taxes, title insurance, commissions, and more.",
-    url: "/resources/closing-cost-calculator",
-  },
-};
+    "Estimate your closing costs for buying or selling property in Illinois. Free interactive calculator covering transfer taxes, title insurance, attorney fees, and more. Call (630) 299-7600 for a free consultation.",
+  path: "/resources/closing-cost-calculator",
+});
 
 export default function ClosingCostCalculatorPage() {
   return (
@@ -56,6 +51,29 @@ export default function ClosingCostCalculatorPage() {
         heading="Want an exact estimate for your transaction?"
         text="Our experienced real estate attorneys can provide a detailed closing cost breakdown specific to your purchase or sale. Call us at (630) 299-7600 or reach out online."
       />
+
+      <section className="py-8 bg-light-gold">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap gap-4">
+          <a
+            href="/practice-areas/real-estate"
+            className="text-primary hover:text-secondary font-semibold underline"
+          >
+            Real Estate Law
+          </a>
+          <a
+            href="/resources/title-insurance-faq"
+            className="text-primary hover:text-secondary font-semibold underline"
+          >
+            Title Insurance FAQ
+          </a>
+          <a
+            href="/resources/prevent-wire-fraud"
+            className="text-primary hover:text-secondary font-semibold underline"
+          >
+            Prevent Wire Fraud
+          </a>
+        </div>
+      </section>
     </>
   );
 }

@@ -1,30 +1,26 @@
-'use client';
-
-const credentials = [
-  { icon: '⭐', label: 'Top Rated on Expertise.com' },
-  { icon: '⚖️', label: 'Illinois State Bar Association' },
-  { icon: '🏛️', label: 'Chicago Bar Association' },
-  { icon: '📋', label: 'DuPage County Bar Association' },
-  { icon: '🏠', label: 'IL Real Estate Lawyers Association' },
-  { icon: '🤝', label: 'Justinian Society of Lawyers' },
+const CREDENTIALS = [
+  { name: "Top Rated — Expertise.com", year: "2024" },
+  { name: "Illinois State Bar Association" },
+  { name: "Chicago Bar Association" },
+  { name: "DuPage County Bar Association" },
+  { name: "IL Real Estate Lawyers Association" },
+  { name: "Justinian Society of Lawyers" },
 ];
 
 export default function TrustBar() {
-  // Double the items for seamless loop
-  const items = [...credentials, ...credentials];
-
   return (
-    <section className="bg-white border-b border-border overflow-hidden py-5">
-      <div className="trust-scroll-track flex gap-12 items-center w-max">
-        {items.map((item, i) => (
-          <div
-            key={i}
-            className="flex items-center gap-2.5 whitespace-nowrap text-text-muted text-sm font-medium select-none"
-          >
-            <span className="text-lg">{item.icon}</span>
-            <span>{item.label}</span>
-          </div>
-        ))}
+    <section className="py-6 bg-light-gold border-y border-border">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+          {CREDENTIALS.map((cred) => (
+            <span
+              key={cred.name}
+              className="text-sm font-semibold text-primary tracking-wide whitespace-nowrap"
+            >
+              {cred.name}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,4 +1,3 @@
-import { Metadata } from "next";
 import {
   Home,
   Building,
@@ -12,18 +11,14 @@ import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import PracticeAreaCard from "@/components/cards/PracticeAreaCard";
 import CTABanner from "@/components/sections/CTABanner";
 import { generateBreadcrumbSchema } from "@/lib/schema";
+import { generatePageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = generatePageMetadata({
   title: "Practice Areas",
   description:
-    "REAL Law Group provides expert legal services in real estate law, business law, and estate planning throughout Chicagoland.",
-  openGraph: {
-    title: "Practice Areas | REAL Law Group",
-    description:
-      "Expert legal services in real estate law, business law, and estate planning throughout Chicagoland.",
-    url: "/practice-areas",
-  },
-};
+    "REAL Law Group provides expert legal services in real estate law, business law, and estate planning throughout Chicagoland. Call (630) 299-7600 for a free consultation.",
+  path: "/practice-areas",
+});
 
 const areas = [
   {

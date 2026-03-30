@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { Phone } from 'lucide-react';
-import { CONTACT } from '@/lib/constants';
+import Link from "next/link";
+import { Phone } from "lucide-react";
+import { CONTACT } from "@/lib/constants";
 
 interface CTABannerProps {
   heading?: string;
@@ -10,10 +10,10 @@ interface CTABannerProps {
 }
 
 export default function CTABanner({
-  heading = 'Ready to take the next step?',
-  text = 'Get trusted, local legal support from a team that knows Chicago real estate and business law inside and out.',
-  buttonText = 'Contact Us Now',
-  buttonHref = '/contact',
+  heading = "Ready to take the next step?",
+  text = "Get trusted, local legal support from a team that knows Chicago real estate and business law inside and out.",
+  buttonText = "Contact Us Now",
+  buttonHref = "/contact",
 }: CTABannerProps) {
   return (
     <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
@@ -25,8 +25,12 @@ export default function CTABanner({
         </div>
 
         <div className="relative z-10">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-5">{heading}</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">{text}</p>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-5">
+            {heading}
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+            {text}
+          </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href={buttonHref}
@@ -41,6 +45,13 @@ export default function CTABanner({
               <Phone className="w-4 h-4" />
               {CONTACT.phone}
             </a>
+          </div>
+          <div className="flex items-center justify-center gap-3 mt-6 text-sm text-white/80">
+            <span>Free & Confidential</span>
+            <span className="w-1 h-1 rounded-full bg-white/60" />
+            <span>No Obligation</span>
+            <span className="w-1 h-1 rounded-full bg-white/60" />
+            <span>Response Within 24 Hours</span>
           </div>
         </div>
       </div>

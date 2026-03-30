@@ -1,21 +1,16 @@
-import { Metadata } from "next";
 import { CheckCircle } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import CTABanner from "@/components/sections/CTABanner";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import { generatePageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Chicago Building Code Violations",
+export const metadata = generatePageMetadata({
+  title: "Chicago Building Code Violation Defense Attorney",
   description:
-    "REAL Law Group defends property owners, landlords, and developers facing Chicago building code violations. Representation at administrative hearings, fine reduction, and compliance strategies.",
-  openGraph: {
-    title: "Chicago Building Code Violations | REAL Law Group",
-    description:
-      "Experienced attorneys defending property owners against Chicago building code violations and administrative hearing cases.",
-    url: "/practice-areas/building-violations",
-  },
-};
+    "REAL Law Group defends property owners, landlords, and developers facing Chicago building code violations. Representation at administrative hearings, fine reduction, and compliance strategies. Call (630) 299-7600 for a free consultation.",
+  path: "/practice-areas/building-violations",
+});
 
 const commonViolations = [
   "Unpermitted construction or renovation work",
@@ -223,6 +218,34 @@ export default function BuildingViolationsPage() {
         text="Contact our team today to discuss your case and explore your options."
         buttonText="Schedule a Consultation"
       />
+
+      <section className="py-12 bg-light-gold">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading text-2xl text-primary mb-6">
+            Related Practice Areas
+          </h2>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="/practice-areas/real-estate"
+              className="text-primary hover:text-secondary font-semibold underline"
+            >
+              Real Estate Law
+            </a>
+            <a
+              href="/practice-areas/land-trusts"
+              className="text-primary hover:text-secondary font-semibold underline"
+            >
+              Land Trusts
+            </a>
+            <a
+              href="/practice-areas/hud-closings"
+              className="text-primary hover:text-secondary font-semibold underline"
+            >
+              HUD Closings
+            </a>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
