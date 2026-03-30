@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Play, Video } from "lucide-react";
+import { Video } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import CTABanner from "@/components/sections/CTABanner";
 import { generateBreadcrumbSchema } from "@/lib/schema";
@@ -7,7 +7,7 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Videos & Resources",
   description:
-    "Educational video library from REAL Law Group covering real estate law, estate planning, and business law in Illinois.",
+    "Educational video library from REAL Law Group covering real estate closings, attorney review, earnest money, closing costs, estate planning, land trusts, and more.",
   openGraph: {
     title: "Videos & Resources | REAL Law Group",
     description:
@@ -16,46 +16,78 @@ export const metadata: Metadata = {
   },
 };
 
-const placeholderVideos = [
+const videos = [
   {
-    title: "Understanding Attorney Review in Illinois",
+    title: "The Real Estate Closing Process",
     description:
-      "What happens during the five-day attorney review period and why it matters for buyers and sellers.",
+      "A step-by-step walkthrough of what happens from contract signing through closing day in Illinois.",
+    src: "/videos/closing-process.mp4",
+    category: "Real Estate",
   },
   {
-    title: "Closing Day: What to Expect",
+    title: "Attorney Review in Illinois",
     description:
-      "A walkthrough of the closing process for residential real estate transactions in Chicagoland.",
+      "What happens during the 5-business-day attorney review period and why you should never skip it.",
+    src: "/videos/attorney-review.mp4",
+    category: "Buyer Tips",
   },
   {
-    title: "Estate Planning Basics for Homeowners",
+    title: "Earnest Money Deposits",
     description:
-      "How trusts, wills, and powers of attorney protect your property and your family.",
+      "How earnest money works, how much to put down, and when you can get it back in Illinois.",
+    src: "/videos/earnest-money.mp4",
+    category: "Buyer Tips",
   },
   {
-    title: "Earnest Money Explained",
+    title: "Closing Costs Explained",
     description:
-      "How earnest money deposits work in Illinois and when you can get your money back.",
+      "Understand what buyers and sellers each pay at closing, including Illinois and Cook County transfer taxes.",
+    src: "/videos/closing-costs.mp4",
+    category: "Real Estate",
   },
   {
-    title: "Starting a Business in Illinois",
+    title: "Estate Planning Basics",
     description:
-      "LLC vs. corporation, operating agreements, and the legal steps to form your business correctly.",
+      "Wills, trusts, powers of attorney, and healthcare directives — the essentials every homeowner should know.",
+    src: "/videos/estate-planning.mp4",
+    category: "Estate Planning",
   },
   {
-    title: "Title Insurance: Do You Need It?",
+    title: "Illinois Land Trusts",
     description:
-      "What title insurance covers, who pays for it, and why it protects your investment.",
+      "How land trusts provide privacy, asset protection, and probate avoidance for Illinois property owners.",
+    src: "/videos/land-trusts.mp4",
+    category: "Real Estate",
+  },
+  {
+    title: "Selling FSBO in Illinois",
+    description:
+      "Why for-sale-by-owner sellers in Illinois still need a real estate attorney and how much you can save.",
+    src: "/videos/fsbo.mp4",
+    category: "Seller Tips",
+  },
+  {
+    title: "HUD Home Closings",
+    description:
+      "The HUD home buying process, strict timelines, as-is purchases, and extension request fees.",
+    src: "/videos/hud-closings.mp4",
+    category: "Real Estate",
+  },
+  {
+    title: "Inherited Property Guide",
+    description:
+      "Your options when you inherit property in Illinois — probate, selling, transferring, and working with cash buyers.",
+    src: "/videos/inherited-property.mp4",
+    category: "Estate Planning",
   },
 ];
 
 const categories = [
+  "All",
   "Real Estate",
   "Estate Planning",
-  "Business Law",
   "Buyer Tips",
   "Seller Tips",
-  "FAQ",
 ];
 
 export default function VideosPage() {
@@ -83,7 +115,8 @@ export default function VideosPage() {
             </h1>
           </div>
           <p className="text-gray-300 text-lg max-w-2xl">
-            Educational video content from REAL Law Group.
+            Educational video content covering real estate law, estate planning,
+            and more.
           </p>
         </div>
       </section>
@@ -97,27 +130,21 @@ export default function VideosPage() {
       />
 
       <section className="section-padding bg-white">
-        <div className="container-custom max-w-5xl">
-          <p className="text-text-muted leading-relaxed mb-6 text-lg max-w-3xl">
-            REAL Law Group&apos;s video library features educational content
-            covering real estate law, estate planning, and business law in
-            Illinois. Whether you are buying your first home, setting up a
-            trust, or forming a business entity, these resources break down the
-            legal concepts you need to understand.
-          </p>
-          <p className="text-text-muted leading-relaxed mb-12">
-            New videos are added regularly. Check back often or contact our
-            office at{" "}
+        <div className="container-custom max-w-6xl">
+          <p className="text-text-muted leading-relaxed mb-12 text-lg max-w-3xl">
+            Short educational videos from REAL Law Group breaking down the legal
+            concepts Illinois buyers, sellers, and property owners need to
+            understand. Have a topic you want us to cover? Call{" "}
             <a
               href="tel:6302997600"
               className="text-secondary font-semibold hover:underline transition-colors duration-200"
             >
               (630) 299-7600
-            </a>{" "}
-            if you have a topic you would like us to cover.
+            </a>
+            .
           </p>
 
-          {/* Categories */}
+          {/* Category pills */}
           <div className="flex flex-wrap gap-2 mb-12">
             {categories.map((category) => (
               <span
@@ -130,21 +157,28 @@ export default function VideosPage() {
           </div>
 
           {/* Video Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {placeholderVideos.map((video, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {videos.map((video, i) => (
               <div
                 key={i}
-                className="rounded-xl bg-background border border-border overflow-hidden group"
+                className="rounded-xl bg-background border border-border overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="aspect-video bg-primary/5 flex flex-col items-center justify-center gap-3 relative">
-                  <div className="w-14 h-14 rounded-full bg-secondary/10 flex items-center justify-center group-hover:bg-secondary/20 transition-colors duration-200">
-                    <Play className="w-6 h-6 text-secondary ml-0.5" />
-                  </div>
-                  <span className="text-xs font-semibold text-text-muted/60 uppercase tracking-wider">
-                    Coming Soon
-                  </span>
+                <div className="aspect-video bg-primary/5 relative">
+                  <video
+                    className="w-full h-full object-cover"
+                    controls
+                    preload="metadata"
+                    playsInline
+                    poster=""
+                  >
+                    <source src={video.src} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
                 <div className="p-5">
+                  <span className="inline-block text-xs font-semibold text-secondary uppercase tracking-wider mb-2">
+                    {video.category}
+                  </span>
                   <h3 className="text-base font-heading font-semibold text-primary mb-2 leading-snug">
                     {video.title}
                   </h3>
