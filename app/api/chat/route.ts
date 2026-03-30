@@ -1,5 +1,5 @@
-import { NextRequest } from 'next/server';
-import Anthropic from '@anthropic-ai/sdk';
+import { NextRequest } from "next/server";
+import Anthropic from "@anthropic-ai/sdk";
 
 const SYSTEM_PROMPT = `You are the AI assistant for REAL Law Group, P.C. — a Chicago-area law firm founded in 2016 by Vincent Anthony Incopero. You are embedded on their website to help potential clients learn about services and guide them toward scheduling a consultation.
 
@@ -11,8 +11,8 @@ FIRM IDENTITY:
 - Hours: Mon-Fri 8AM-7PM, Sat 8AM-3PM
 - Philosophy: Hard Work. Integrity. Reliability.
 - Managing Partner: Vincent Anthony Incopero, J.D. (John Marshall Law School), B.S. Finance & Economics (Elmhurst College). Vince is a Chicago native, first in his family to attend college and the only lawyer in his extended family. He founded the firm to provide approachable, relatable legal services.
-- Team: Sarah Marie Roth (Director of Operations), Stephanie Milnamow (Managing Paralegal), Gina Zardetto (Paralegal & Social Media Manager)
-- Over 200 five-star Google reviews. 50%+ of new clients come from referrals.
+- Team: Eva Boozer (Attorney), Sarah Marie Roth (Director of Operations), Alyssa Witnik (Purchases), Stephanie Milnamow (Managing Paralegal), Gina Zardetto (Paralegal & Social Media Manager)
+- Over 275 five-star Google reviews. 50%+ of new clients come from referrals.
 - Serves all of Chicagoland including Elmhurst, DuPage County, Naperville, Hinsdale, Lisle, Woodridge, Skokie, Niles, Oak Brook, Downers Grove, Wheaton, and greater Chicago.
 
 PRACTICE AREAS:
@@ -28,6 +28,28 @@ Entity formation (LLC, Corp, etc.), operating agreements, bylaws, EIN assistance
 
 3. ESTATE PLANNING:
 Wills, living wills, living trusts, powers of attorney, land trusts, trust administration, probate administration, asset protection plans, beneficiary designations, guardianship designations, healthcare directives.
+
+4. BUILDING CODE VIOLATIONS:
+We represent property owners, landlords, and developers facing Chicago building code violations. This includes unpermitted construction, porch/deck deficiencies, fire safety violations, electrical/plumbing code issues, zoning violations, failed inspections, illegal conversions, and missing permits. We represent clients in administrative hearings.
+
+5. LAND TRUSTS:
+Illinois land trusts offer privacy, asset protection, probate avoidance, and simplified property transfers. We help clients establish and manage land trusts for residential and investment properties.
+
+6. FOR SALE BY OWNER (FSBO):
+We provide legal services for FSBO sellers who are selling their home without a real estate agent. We handle contract drafting, attorney review, title work, closing coordination, and disclosure compliance.
+
+7. INHERITED PROPERTY & PROBATE REAL ESTATE:
+We help families who have inherited property navigate the probate process, understand their options (sell, keep, transfer), and coordinate with buyers or investors if they need to sell quickly. We handle probate court filings, title clearing, and closing.
+
+8. PERSONAL INJURY (Through Network):
+Through our network of trusted personal injury attorneys, we help car accident and injury victims recover compensation. Free consultations available.
+
+ADDITIONAL RESOURCES ON OUR WEBSITE:
+- Closing Cost Calculator: Interactive tool to estimate buyer/seller closing costs at /resources/closing-cost-calculator
+- Earnest Money Deposit guide at /emd
+- For Sale By Owner resources at /resources/for-sale-by-owner
+- Inherited Property guide at /resources/inherited-property
+- Videos & educational content at /resources/videos
 
 KEY FAQ KNOWLEDGE:
 
@@ -127,17 +149,17 @@ export async function POST(req: NextRequest) {
     const { messages, leadInfo } = await req.json();
 
     if (!messages || !Array.isArray(messages)) {
-      return new Response(JSON.stringify({ error: 'Messages are required.' }), {
+      return new Response(JSON.stringify({ error: "Messages are required." }), {
         status: 400,
-        headers: { 'Content-Type': 'application/json' },
+        headers: { "Content-Type": "application/json" },
       });
     }
 
     const apiKey = process.env.ANTHROPIC_API_KEY;
     if (!apiKey) {
       return new Response(
-        JSON.stringify({ error: 'Chat service is not configured.' }),
-        { status: 500, headers: { 'Content-Type': 'application/json' } }
+        JSON.stringify({ error: "Chat service is not configured." }),
+        { status: 500, headers: { "Content-Type": "application/json" } },
       );
     }
 
@@ -146,20 +168,23 @@ export async function POST(req: NextRequest) {
     if (leadInfo) {
       contextPrompt += `\n\nCURRENT USER INFO:\n- Name: ${leadInfo.name}\n- Email: ${leadInfo.email}`;
       if (leadInfo.phone) contextPrompt += `\n- Phone: ${leadInfo.phone}`;
-      if (leadInfo.service) contextPrompt += `\n- Interested in: ${leadInfo.service}`;
+      if (leadInfo.service)
+        contextPrompt += `\n- Interested in: ${leadInfo.service}`;
       contextPrompt += `\nAddress the user by their first name. Tailor your responses to their stated interest.`;
     }
 
     // Convert messages to Anthropic format (no system role in messages array)
-    const anthropicMessages = messages.slice(-20).map((msg: { role: string; content: string }) => ({
-      role: msg.role as 'user' | 'assistant',
-      content: msg.content,
-    }));
+    const anthropicMessages = messages
+      .slice(-20)
+      .map((msg: { role: string; content: string }) => ({
+        role: msg.role as "user" | "assistant",
+        content: msg.content,
+      }));
 
     const client = new Anthropic({ apiKey });
 
     const stream = await client.messages.stream({
-      model: process.env.ANTHROPIC_MODEL || 'claude-sonnet-4-20250514',
+      model: process.env.ANTHROPIC_MODEL || "claude-sonnet-4-20250514",
       max_tokens: 500,
       system: contextPrompt,
       messages: anthropicMessages,
@@ -172,14 +197,14 @@ export async function POST(req: NextRequest) {
         try {
           for await (const event of stream) {
             if (
-              event.type === 'content_block_delta' &&
-              event.delta.type === 'text_delta'
+              event.type === "content_block_delta" &&
+              event.delta.type === "text_delta"
             ) {
               controller.enqueue(encoder.encode(event.delta.text));
             }
           }
         } catch (error) {
-          console.error('Stream error:', error);
+          console.error("Stream error:", error);
         } finally {
           controller.close();
         }
@@ -188,15 +213,15 @@ export async function POST(req: NextRequest) {
 
     return new Response(readableStream, {
       headers: {
-        'Content-Type': 'text/plain; charset=utf-8',
-        'Cache-Control': 'no-cache',
+        "Content-Type": "text/plain; charset=utf-8",
+        "Cache-Control": "no-cache",
       },
     });
   } catch (error) {
-    console.error('Chat API error:', error);
+    console.error("Chat API error:", error);
     return new Response(
-      JSON.stringify({ error: 'An unexpected error occurred.' }),
-      { status: 500, headers: { 'Content-Type': 'application/json' } }
+      JSON.stringify({ error: "An unexpected error occurred." }),
+      { status: 500, headers: { "Content-Type": "application/json" } },
     );
   }
 }

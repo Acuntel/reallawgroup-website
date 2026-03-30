@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { Phone, Star } from 'lucide-react';
-import { CONTACT } from '@/lib/constants';
-import { motion } from 'framer-motion';
+import Image from "next/image";
+import Link from "next/link";
+import { Phone, Star } from "lucide-react";
+import { CONTACT } from "@/lib/constants";
+import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
@@ -25,10 +25,14 @@ export default function HeroSection() {
       <div className="absolute top-[10%] left-[15%] w-[500px] h-[500px] rounded-full bg-[#C8A96E]/10 blur-[120px] animate-gentle-pulse" />
 
       {/* Grid pattern */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: 'linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px)',
-        backgroundSize: '60px 60px',
-      }} />
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
 
       <div className="container-custom relative z-10">
         <div className="max-w-3xl">
@@ -41,10 +45,15 @@ export default function HeroSection() {
           >
             <div className="flex gap-0.5">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-3 h-3 fill-[#C8A96E] text-[#C8A96E]" />
+                <Star
+                  key={i}
+                  className="w-3 h-3 fill-[#C8A96E] text-[#C8A96E]"
+                />
               ))}
             </div>
-            <span className="text-white/70 text-xs font-medium">4.9 from 200+ Google Reviews</span>
+            <span className="text-white/70 text-xs font-medium">
+              4.9 from 275+ Google Reviews
+            </span>
           </motion.div>
 
           {/* Line-by-line reveal */}
@@ -52,9 +61,13 @@ export default function HeroSection() {
             <span className="block overflow-hidden">
               <motion.span
                 className="block"
-                initial={{ y: '110%' }}
+                initial={{ y: "110%" }}
                 animate={{ y: 0 }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+                transition={{
+                  duration: 0.8,
+                  ease: [0.22, 1, 0.36, 1],
+                  delay: 0.3,
+                }}
               >
                 Chicago&apos;s Trusted
               </motion.span>
@@ -62,11 +75,15 @@ export default function HeroSection() {
             <span className="block overflow-hidden">
               <motion.span
                 className="block"
-                initial={{ y: '110%' }}
+                initial={{ y: "110%" }}
                 animate={{ y: 0 }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.45 }}
+                transition={{
+                  duration: 0.8,
+                  ease: [0.22, 1, 0.36, 1],
+                  delay: 0.45,
+                }}
               >
-                Real Estate{' '}
+                Real Estate{" "}
                 <span className="bg-gradient-to-r from-[#C8A96E] to-[#E8C567] bg-clip-text text-transparent">
                   Attorneys
                 </span>
@@ -78,9 +95,14 @@ export default function HeroSection() {
             className="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed max-w-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.65 }}
+            transition={{
+              duration: 0.8,
+              ease: [0.22, 1, 0.36, 1],
+              delay: 0.65,
+            }}
           >
-            Personalized legal guidance for real estate, business, and estate planning. Serving Chicagoland since 2016.
+            Personalized legal guidance for real estate, business, and estate
+            planning. Serving Chicagoland since 2016.
           </motion.p>
 
           <motion.div

@@ -1,6 +1,6 @@
-import { Star, Award, ThumbsUp, LucideIcon } from 'lucide-react';
-import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
-import AnimatedCounter from '@/components/ui/AnimatedCounter';
+import { Star, Award, ThumbsUp, LucideIcon } from "lucide-react";
+import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
+import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
 interface Stat {
   icon: LucideIcon;
@@ -11,9 +11,14 @@ interface Stat {
 }
 
 const stats: Stat[] = [
-  { icon: Star, numericValue: 200, suffix: '+', label: 'Five Star Reviews' },
-  { icon: Award, numericValue: 25, suffix: '+', label: 'Years Combined Experience' },
-  { icon: ThumbsUp, textValue: 'Top Rated', label: 'on Expertise.com' },
+  { icon: Star, numericValue: 275, suffix: "+", label: "Five Star Reviews" },
+  {
+    icon: Award,
+    numericValue: 25,
+    suffix: "+",
+    label: "Years Combined Experience",
+  },
+  { icon: ThumbsUp, textValue: "Top Rated", label: "on Expertise.com" },
 ];
 
 export default function StatsBar() {
@@ -27,12 +32,17 @@ export default function StatsBar() {
                 <stat.icon className="w-7 h-7 text-secondary mb-1" />
                 <span className="text-2xl md:text-3xl font-heading font-bold text-primary">
                   {stat.numericValue ? (
-                    <AnimatedCounter target={stat.numericValue} suffix={stat.suffix} />
+                    <AnimatedCounter
+                      target={stat.numericValue}
+                      suffix={stat.suffix}
+                    />
                   ) : (
                     stat.textValue
                   )}
                 </span>
-                <span className="text-sm text-text-muted font-medium">{stat.label}</span>
+                <span className="text-sm text-text-muted font-medium">
+                  {stat.label}
+                </span>
               </div>
             </AnimateOnScroll>
           ))}
