@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import {
   Facebook,
   Instagram,
@@ -77,13 +76,13 @@ export default function Footer() {
           {/* Col 1: Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block">
-              <Image
-                src="/images/logo-banner.png"
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/logo-banner-white.png"
                 alt="REAL Law Group"
                 width={180}
                 height={45}
-                className="h-10 w-auto brightness-0 invert bg-transparent"
-                style={{ background: "transparent" }}
+                className="h-10 w-auto"
               />
             </Link>
             <p className="mt-3 text-sm text-secondary font-medium tracking-wide">
