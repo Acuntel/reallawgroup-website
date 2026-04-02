@@ -9,11 +9,10 @@ import TestimonialCarousel from "@/components/sections/TestimonialCarousel";
 import AboutPreview from "@/components/sections/AboutPreview";
 import CTABanner from "@/components/sections/CTABanner";
 import ServiceAreas from "@/components/sections/ServiceAreas";
-
 export const metadata: Metadata = {
   title: "Chicago's Trusted Real Estate Attorneys | REAL Law Group",
   description:
-    "Personalized legal guidance for real estate, business, and estate planning. Serving Chicagoland since 2016. 275+ five star reviews. Call (630) 299-7600 for a free consultation.",
+    "Personalized legal guidance for real estate, business, and estate planning. Serving Chicagoland since 2016. 300+ five star reviews. Call (630) 299-7600 for a free consultation.",
   alternates: { canonical: "https://reallawgroup.com/" },
   openGraph: {
     title: "Chicago's Trusted Real Estate Attorneys | REAL Law Group",

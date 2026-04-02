@@ -13,7 +13,7 @@ import { CONTACT } from "@/lib/constants";
 const quickLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Our Team", href: "/about#team" },
+  { label: "Our Team", href: "/our-team" },
   { label: "Practice Areas", href: "/practice-areas" },
   { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },

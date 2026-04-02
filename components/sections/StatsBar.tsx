@@ -11,7 +11,7 @@ interface Stat {
 }
 
 const stats: Stat[] = [
-  { icon: Star, textValue: "4.9 Stars", label: "275+ Google Reviews" },
+  { icon: Star, textValue: "4.9 Stars", label: "300+ Google Reviews" },
   {
     icon: Award,
     numericValue: 25,

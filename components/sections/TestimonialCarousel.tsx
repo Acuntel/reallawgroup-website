@@ -84,7 +84,7 @@ export default function TestimonialCarousel() {
 
         <div className="text-center mt-10">
           <p className="text-text-muted text-sm font-medium mb-4">
-            275+ Five Star Reviews on Google
+            300+ Five Star Reviews on Google
           </p>
           <a
             href="https://search.google.com/local/reviews?placeid=ChIJSTV-k-pODogRyKP49MSt_a8"

@@ -37,6 +37,18 @@ const resources = [
     href: "/emd",
   },
   {
+    title: "Transfer Stamps",
+    excerpt:
+      "View transfer stamp tax ordinances and rates for municipalities across the Chicago area.",
+    href: "/resources/transfer-stamps",
+  },
+  {
+    title: "Real Estate Contract",
+    excerpt:
+      "Access the Multi-Board Residential Real Estate Contract used in Chicagoland transactions.",
+    href: "/resources/real-estate-contract",
+  },
+  {
     title: "Prevent Wire Fraud",
     excerpt:
       "Learn how to protect yourself from wire fraud during real estate transactions with these essential tips.",

@@ -24,7 +24,7 @@ const reasons = [
     icon: TrendingUp,
     title: "Proven Track Record",
     description:
-      "Over 275 five-star Google reviews and a consistent record of client satisfaction across thousands of transactions.",
+      "Over 300 five-star Google reviews and a consistent record of client satisfaction across thousands of transactions.",
   },
 ];
 

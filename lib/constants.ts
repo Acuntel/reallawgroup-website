@@ -26,7 +26,7 @@ export const CONTACT = {
 
 export const NAV_LINKS = [
   { label: "About", href: "/about" },
-  { label: "Our Team", href: "/about#team" },
+  { label: "Our Team", href: "/our-team" },
   {
     label: "Practice Areas",
     href: "/practice-areas",
@@ -54,6 +54,11 @@ export const NAV_LINKS = [
       { label: "For Sale By Owner", href: "/resources/for-sale-by-owner" },
       { label: "Inherited Property", href: "/resources/inherited-property" },
       { label: "Earnest Money Deposits", href: "/emd" },
+      { label: "Transfer Stamps", href: "/resources/transfer-stamps" },
+      {
+        label: "Real Estate Contract",
+        href: "/resources/real-estate-contract",
+      },
       { label: "Prevent Wire Fraud", href: "/resources/prevent-wire-fraud" },
       {
         label: "Illinois Quit Claim Deeds",

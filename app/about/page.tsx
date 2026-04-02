@@ -1,5 +1,5 @@
+import Link from "next/link";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
-import TeamMemberCard from "@/components/cards/TeamMemberCard";
 import CTABanner from "@/components/sections/CTABanner";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
@@ -7,60 +7,9 @@ import { generatePageMetadata } from "@/lib/metadata";
 export const metadata = generatePageMetadata({
   title: "About REAL Law Group — Elmhurst Real Estate Attorneys",
   description:
-    "Learn about REAL Law Group, P.C. - founded in 2016 on hard work, integrity, and reliability. Meet our team of experienced Chicago attorneys. Call (630) 299-7600 for a free consultation.",
+    "Learn about REAL Law Group, P.C. - founded in 2016 on hard work, integrity, and reliability. Experienced Chicago real estate attorneys. Call (630) 299-7600 for a free consultation.",
   path: "/about",
 });
-
-const teamMembers = [
-  {
-    name: "Vincent Anthony Incopero",
-    title: "Managing Partner",
-    initials: "VI",
-    bio: "Vincent Anthony Incopero concentrates his practice in three complementary areas of law: real estate sales/purchases, business organizations, and estate planning. Vincent's educational background in finance and economics, coupled with his legal training and experience, has provided him with the analytical skills necessary to provide practical, cost-effective solutions. Prior to founding REAL Law Group, P.C., Vincent worked at Chicago's most recognized title company and practiced law with Chicago's largest Plaintiff's personal injury firm.",
-    education:
-      "The John Marshall Law School, J.D. (2014) | Elmhurst College, B.S., Double Major, Finance & Economics (2010)",
-    barAdmissions:
-      "Illinois | U.S. District Court for the Northern District of Illinois",
-    affiliations:
-      "Chicago Bar Association, DuPage County Bar Association, Illinois State Bar Association, Illinois Real Estate Lawyers Association, Justinian Society of Lawyers",
-  },
-  {
-    name: "Eva Boozer",
-    title: "Attorney",
-    initials: "EB",
-    bio: "Eva Boozer is an attorney at REAL Law Group, P.C. where she assists clients with real estate transactions, contract review, and closings throughout Chicagoland. Eva works closely with Managing Partner Vincent Incopero to provide personalized legal guidance to every client the firm serves.",
-  },
-  {
-    name: "Sarah Marie Roth",
-    title: "Director of Operations",
-    initials: "SR",
-    bio: "Sarah Marie Roth is the Director of Operations at REAL Law Group, P.C. where she concentrates on residential and commercial real estate transactions, as well as handling Agricultural Real Estate and Estate Planning. Sarah has an unparalleled level of experience working on distressed transactions, including short sales, deed-in-lieus and REO sales (bank owned real estate), and she works directly with Buyers, Sellers, Brokers, and Lenders from contract to closing.",
-  },
-  {
-    name: "Alyssa Witnik",
-    title: "Purchase Coordinator",
-    initials: "AW",
-    bio: "Alyssa Witnik handles purchase transactions at REAL Law Group, P.C., guiding buyers through every step of the closing process. From contract to keys, Alyssa coordinates with lenders, title companies, and agents to ensure a seamless experience for every client.",
-  },
-  {
-    name: "Ava",
-    title: "Office Manager",
-    initials: "A",
-    bio: "Ava serves as the Office Manager at REAL Law Group, P.C., ensuring the day-to-day operations of the firm run smoothly. She is the first point of contact for many of the firm's clients, providing a welcoming and organized experience from the moment you walk through the door.",
-  },
-  {
-    name: "Stephanie Milnamow",
-    title: "Managing Paralegal",
-    initials: "SM",
-    bio: "Stephanie Milnamow is a paralegal at REAL Law Group, P.C. and works sales contracts. Stephanie graduated from Eastern Illinois University before acquiring her Paralegal Certificate in 2014. She worked as a team lead at a large Chicago based collections law firm before joining REAL Law Group in 2019.",
-  },
-  {
-    name: "Gina Zardetto",
-    title: "Paralegal & Social Media Manager",
-    initials: "GZ",
-    bio: "Gina Zardetto is a paralegal and social media manager for REAL Law Group, P.C. She attended DePaul University and studied political science, mass media, and marketing. She assists with paralegal duties and manages the firm's marketing and social media presence.",
-  },
-];
 
 export default function AboutPage() {
   return (
@@ -124,23 +73,15 @@ export default function AboutPage() {
               attorney-client relationship.
             </p>
           </div>
-        </div>
-      </section>
 
-      {/* Team */}
-      <section className="section-padding bg-background">
-        <div className="container-custom">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-              Meet the Team
-            </h2>
-            <div className="w-16 h-1 bg-secondary mx-auto" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {teamMembers.map((member, i) => (
-              <TeamMemberCard key={i} {...member} />
-            ))}
+          <div className="text-center">
+            <Link
+              href="/our-team"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-secondary text-white rounded-lg font-semibold hover:bg-[#b8994e] transition-colors"
+            >
+              Meet Our Team
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
           </div>
         </div>
       </section>

@@ -12,8 +12,8 @@ FIRM IDENTITY:
 - Hours: Mon-Fri 8AM-7PM, Sat 8AM-3PM
 - Philosophy: Hard Work. Integrity. Reliability.
 - Managing Partner: Vincent Anthony Incopero, J.D. (John Marshall Law School), B.S. Finance & Economics (Elmhurst College). Vince is a Chicago native, first in his family to attend college and the only lawyer in his extended family. He founded the firm to provide approachable, relatable legal services.
-- Team: Eva Boozer (Attorney), Sarah Marie Roth (Director of Operations), Alyssa Witnik (Purchases), Stephanie Milnamow (Managing Paralegal), Gina Zardetto (Paralegal & Social Media Manager)
-- Over 275 five-star Google reviews. 50%+ of new clients come from referrals.
+- Team: Eva Boozer (Legal Assistant), Sarah Marie Roth (Director of Operations), Alyssa Witnik (Purchase Coordinator), Stephanie Milnamow (Managing Paralegal), Gina Zardetto (Paralegal & Social Media Manager)
+- Over 300 five-star Google reviews. 50%+ of new clients come from referrals.
 - Serves all of Chicagoland including Elmhurst, DuPage County, Naperville, Hinsdale, Lisle, Woodridge, Skokie, Niles, Oak Brook, Downers Grove, Wheaton, and greater Chicago.
 
 PRACTICE AREAS:
