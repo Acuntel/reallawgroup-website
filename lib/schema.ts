@@ -2,62 +2,85 @@ export function generateLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "LegalService",
-    name: "REAL Law Group, P.C.",
+    name: "The Kryder Law Group, LLC",
     description:
-      "REAL Law Group provides personalized legal guidance for real estate transactions, business law, and estate planning. Serving Chicagoland since 2016.",
-    image: "https://reallawgroup.com/images/logo-banner.png",
-    logo: "https://reallawgroup.com/images/logo-banner.png",
-    "@id": "https://reallawgroup.com",
-    url: "https://reallawgroup.com",
-    telephone: "+16302997600",
-    email: "info@reallawgroup.com",
+      "The Kryder Law Group is a Chicago personal injury law firm with over $100 million recovered for clients. Injuries hurt — we make the legal process painless. Free consultations 24/7.",
+    image: "https://kryderlaw.com/images/logo-banner.png",
+    logo: "https://kryderlaw.com/images/logo-banner.png",
+    "@id": "https://kryderlaw.com",
+    url: "https://kryderlaw.com",
+    telephone: "+13122231700",
+    email: "akryder@kryderlaw.com",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "381 N York St Suite 1",
-      addressLocality: "Elmhurst",
+      streetAddress: "134 N LaSalle St, Suite 1515",
+      addressLocality: "Chicago",
       addressRegion: "IL",
-      postalCode: "60126",
+      postalCode: "60602",
       addressCountry: "US",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 41.8959,
-      longitude: -87.9403,
+      latitude: 41.8819,
+      longitude: -87.6328,
     },
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "08:00",
-        closes: "19:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Saturday",
-        opens: "08:00",
-        closes: "15:00",
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ],
+        opens: "00:00",
+        closes: "23:59",
       },
     ],
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
-      reviewCount: "300",
+      reviewCount: "535",
     },
-    priceRange: "$$",
+    priceRange: "Free Consultation",
     founder: {
       "@type": "Person",
-      name: "Vincent Anthony Incopero",
-      url: "https://reallawgroup.com/about",
+      name: "Andrew S. Kryder",
+      url: "https://kryderlaw.com/about",
     },
-    areaServed: {
-      "@type": "GeoCircle",
-      geoMidpoint: {
-        "@type": "GeoCoordinates",
-        latitude: 41.8781,
-        longitude: -87.6298,
+    areaServed: [
+      {
+        "@type": "State",
+        name: "Illinois",
       },
-      geoRadius: "50000",
-    },
+      {
+        "@type": "State",
+        name: "Indiana",
+      },
+      {
+        "@type": "State",
+        name: "Iowa",
+      },
+      {
+        "@type": "State",
+        name: "Kentucky",
+      },
+      {
+        "@type": "State",
+        name: "Michigan",
+      },
+      {
+        "@type": "State",
+        name: "Missouri",
+      },
+      {
+        "@type": "State",
+        name: "Wisconsin",
+      },
+    ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Legal Services",
@@ -66,57 +89,64 @@ export function generateLocalBusinessSchema() {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Real Estate Law",
+            name: "Car Accident Claims",
             description:
-              "Residential and commercial real estate transactions, closings, and contract review",
+              "Representation for car accident victims including head-on collisions, rear-end impacts, hit-and-run, and rideshare accidents",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Business Law",
-            description: "Business formation, contracts, and corporate counsel",
+            name: "Truck Accident Claims",
+            description:
+              "Commercial vehicle collision representation including rear-end, rollover, jackknife, and underride accidents",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Estate Planning",
-            description: "Wills, trusts, and estate administration",
+            name: "Medical Malpractice",
+            description:
+              "Diagnostic errors, treatment failures, surgical complications, and medication errors",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "HUD Closings",
-            description: "HUD and government-insured property closings",
+            name: "Workers' Compensation",
+            description:
+              "Filing claims, negotiating with insurance, covering medical bills and occupational illness claims",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Building Violations",
-            description: "Chicago building code violation defense",
+            name: "Wrongful Death",
+            description:
+              "Claims filed under the Illinois Wrongful Death Act and Survival Act",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Land Trusts",
-            description: "Illinois land trust formation and administration",
+            name: "Catastrophic Injury",
+            description:
+              "TBI, spinal cord injuries, amputations, severe burns, and internal organ damage",
           },
         },
       ],
     },
     sameAs: [
-      "https://www.facebook.com/reallawgroup",
-      "https://www.instagram.com/reallawgroup/",
-      "https://www.linkedin.com/company/reallawgroup",
+      "https://www.facebook.com/kryderlawgroup/",
+      "https://www.instagram.com/kryderlawgroupllc/",
+      "https://www.linkedin.com/company/the-kryder-law-group-llc-accident-and-injury-lawyers/about/",
+      "https://twitter.com/kryderlawgroup",
+      "https://www.youtube.com/@thekryderlawgroupllc",
     ],
   };
 }
@@ -125,37 +155,39 @@ export function generateAttorneySchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Vincent Anthony Incopero",
-    jobTitle: "Managing Partner",
-    url: "https://reallawgroup.com/about",
-    image: "https://reallawgroup.com/images/logo-banner.png",
-    telephone: "+16302997600",
-    email: "info@reallawgroup.com",
+    name: "Andrew S. Kryder",
+    jobTitle: "Founding Partner",
+    url: "https://kryderlaw.com/about",
+    image: "https://kryderlaw.com/images/logo-banner.png",
+    telephone: "+13122231700",
+    email: "akryder@kryderlaw.com",
     worksFor: {
       "@type": "LegalService",
-      name: "REAL Law Group, P.C.",
-      url: "https://reallawgroup.com",
+      name: "The Kryder Law Group, LLC",
+      url: "https://kryderlaw.com",
     },
     alumniOf: [
       {
         "@type": "EducationalOrganization",
-        name: "The John Marshall Law School",
+        name: "DePaul Law School",
       },
       {
         "@type": "EducationalOrganization",
-        name: "Elmhurst College",
+        name: "Ohio State University",
       },
     ],
-    knowsAbout: ["Real Estate Law", "Business Law", "Estate Planning"],
+    knowsAbout: [
+      "Personal Injury Law",
+      "Car Accidents",
+      "Truck Accidents",
+      "Medical Malpractice",
+      "Workers' Compensation",
+      "Wrongful Death",
+    ],
     memberOf: [
       { "@type": "Organization", name: "Chicago Bar Association" },
-      { "@type": "Organization", name: "DuPage County Bar Association" },
       { "@type": "Organization", name: "Illinois State Bar Association" },
-      {
-        "@type": "Organization",
-        name: "Illinois Real Estate Lawyers Association",
-      },
-      { "@type": "Organization", name: "Justinian Society of Lawyers" },
+      { "@type": "Organization", name: "Lake County Bar Association" },
     ],
   };
 }
@@ -164,11 +196,11 @@ export function generateWebSiteSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "REAL Law Group",
-    url: "https://reallawgroup.com",
+    name: "The Kryder Law Group",
+    url: "https://kryderlaw.com",
     potentialAction: {
       "@type": "SearchAction",
-      target: "https://reallawgroup.com/practice-areas?q={search_term_string}",
+      target: "https://kryderlaw.com/practice-areas?q={search_term_string}",
       "query-input": "required name=search_term_string",
     },
   };
@@ -184,7 +216,7 @@ export function generateBreadcrumbSchema(
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      ...(item.url && { item: `https://reallawgroup.com${item.url}` }),
+      ...(item.url && { item: `https://kryderlaw.com${item.url}` }),
     })),
   };
 }

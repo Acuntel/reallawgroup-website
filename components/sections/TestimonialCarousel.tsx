@@ -3,34 +3,34 @@ import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 
 const testimonials = [
   {
-    text: "Vince and his team made our closing completely seamless. Professional, responsive, and always available when we had questions. Highly recommend!",
+    text: "Andrew and his team fought hard for us after a devastating car accident. They secured a settlement far beyond what the insurance company initially offered. We are forever grateful.",
+    author: "D.K.",
+    context: "Car Accident Client, Chicago",
+  },
+  {
+    text: "After my construction site injury, I didn't know where to turn. The Kryder Law Group handled everything — medical bills, lost wages, the works. They made a terrible situation manageable.",
     author: "M.R.",
-    context: "Home Buyer, Elmhurst",
+    context: "Construction Accident Client",
   },
   {
-    text: "Best real estate attorney in Chicagoland. They handled everything from contract to closing and explained every step clearly.",
-    author: "J.P.",
-    context: "Real Estate Client, Naperville",
+    text: "From our first phone call to the final settlement, every person at this firm was professional, compassionate, and responsive. They truly care about their clients.",
+    author: "S.L.",
+    context: "Truck Accident Client, Schaumburg",
   },
   {
-    text: "They handled our LLC formation quickly and explained everything in plain language. First-class service from start to finish.",
-    author: "L.S.",
-    context: "Business Formation Client",
+    text: "They took my workers' comp case when other firms turned me away. Not only did they win, but they got me more than I ever expected. I can't recommend them enough.",
+    author: "J.H.",
+    context: "Workers' Compensation Client",
   },
   {
-    text: "As first-time homebuyers, we had a million questions. Vince was patient, thorough, and made us feel confident every step of the way.",
-    author: "K.D.",
-    context: "First-Time Home Buyer, Chicago",
+    text: "The team at Kryder Law was incredible during the most difficult time in our family's life. They handled our wrongful death case with both aggressiveness and compassion.",
+    author: "P.W.",
+    context: "Wrongful Death Client, Aurora",
   },
   {
-    text: "Sarah and the team were incredible during our commercial closing. The attention to detail on the loan documents saved us from a costly mistake.",
-    author: "R.T.",
-    context: "Commercial Real Estate Client",
-  },
-  {
-    text: "We used REAL Law Group for our estate planning. They took the time to understand our family situation and created a plan that gave us real peace of mind.",
-    author: "A.M.",
-    context: "Estate Planning Client, Hinsdale",
+    text: "I slipped and fell at a grocery store and didn't think I had a case. The Kryder Law Group proved otherwise and got me a settlement that covered all my medical expenses and then some.",
+    author: "A.T.",
+    context: "Slip and Fall Client, Orland Park",
   },
 ];
 
@@ -84,10 +84,10 @@ export default function TestimonialCarousel() {
 
         <div className="text-center mt-10">
           <p className="text-text-muted text-sm font-medium mb-4">
-            300+ Five Star Reviews on Google
+            535+ Five Star Reviews on Google
           </p>
           <a
-            href="https://search.google.com/local/reviews?placeid=ChIJSTV-k-pODogRyKP49MSt_a8"
+            href="https://search.google.com/local/reviews?placeid=ChIJe4HqVi4tDogRkryderlaw"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-secondary hover:text-primary font-semibold text-sm transition-colors"

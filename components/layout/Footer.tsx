@@ -7,6 +7,7 @@ import {
   Mail,
   MapPin,
   Clock,
+  Youtube,
 } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
 
@@ -15,27 +16,29 @@ const quickLinks = [
   { label: "About", href: "/about" },
   { label: "Our Team", href: "/our-team" },
   { label: "Practice Areas", href: "/practice-areas" },
-  { label: "Resources", href: "/resources" },
+  { label: "Results", href: "/results" },
   { label: "Contact", href: "/contact" },
 ];
 
-const resourceLinks = [
-  {
-    label: "Closing Cost Calculator",
-    href: "/resources/closing-cost-calculator",
-  },
-  { label: "Title Insurance FAQ", href: "/resources/title-insurance-faq" },
-  { label: "Prevent Wire Fraud", href: "/resources/prevent-wire-fraud" },
-];
-
 const practiceLinks = [
-  { label: "Real Estate Law", href: "/practice-areas/real-estate" },
-  { label: "Business Law", href: "/practice-areas/business-law" },
-  { label: "Estate Planning", href: "/practice-areas/estate-planning" },
-  { label: "HUD Closings", href: "/practice-areas/hud-closings" },
-  { label: "Building Violations", href: "/practice-areas/building-violations" },
-  { label: "Land Trusts", href: "/practice-areas/land-trusts" },
-  { label: "Personal Injury", href: "/practice-areas/personal-injury" },
+  { label: "Car Accidents", href: "/practice-areas/car-accidents" },
+  { label: "Truck Accidents", href: "/practice-areas/truck-accidents" },
+  {
+    label: "Motorcycle Accidents",
+    href: "/practice-areas/motorcycle-accidents",
+  },
+  { label: "Medical Malpractice", href: "/practice-areas/medical-malpractice" },
+  {
+    label: "Workers' Compensation",
+    href: "/practice-areas/workers-compensation",
+  },
+  { label: "Wrongful Death", href: "/practice-areas/wrongful-death" },
+  { label: "Catastrophic Injury", href: "/practice-areas/catastrophic-injury" },
+  { label: "Slip and Fall", href: "/practice-areas/slip-and-fall" },
+  {
+    label: "Construction Accidents",
+    href: "/practice-areas/construction-accidents",
+  },
 ];
 
 export default function Footer() {
@@ -46,10 +49,10 @@ export default function Footer() {
         <div className="container-custom py-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h3 className="text-white font-heading text-xl font-semibold mb-1">
-              Ready for a free consultation?
+              Injured? Get the compensation you deserve.
             </h3>
             <p className="text-gray-400 text-sm">
-              Call us today or schedule online — no obligation.
+              Call us 24/7 or schedule online — no fees unless we win.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
@@ -62,9 +65,9 @@ export default function Footer() {
             </a>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-6 py-3 bg-secondary rounded-lg text-white text-sm font-semibold hover:bg-[#b8994e] transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 bg-secondary rounded-lg text-white text-sm font-semibold hover:bg-[#c99b2e] transition-colors"
             >
-              Schedule Online
+              Free Case Review
             </Link>
           </div>
         </div>
@@ -72,23 +75,18 @@ export default function Footer() {
 
       {/* Main footer */}
       <div className="container-custom py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Col 1: Brand */}
-          <div className="lg:col-span-1">
+          <div>
             <Link href="/" className="inline-block">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/logo-banner-white.png"
-                alt="REAL Law Group"
-                width={180}
-                height={45}
-                className="h-10 w-auto"
-              />
+              <span className="text-xl font-heading font-bold text-white">
+                The Kryder Law Group
+              </span>
             </Link>
             <p className="mt-3 text-sm text-secondary font-medium tracking-wide">
-              Hard Work. Integrity. Reliability.
+              Injuries hurt. We make the legal process painless.
             </p>
-            <div className="flex items-center gap-4 mt-5">
+            <div className="flex items-center gap-3 mt-5">
               <a
                 href={CONTACT.facebook}
                 target="_blank"
@@ -115,6 +113,15 @@ export default function Footer() {
                 className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-secondary hover:text-white transition-all"
               >
                 <Linkedin className="w-4 h-4" />
+              </a>
+              <a
+                href={CONTACT.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-secondary hover:text-white transition-all"
+              >
+                <Youtube className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -157,26 +164,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 4: Resources */}
-          <div>
-            <h3 className="text-white text-xs font-semibold uppercase tracking-[0.12em] mb-5">
-              Resources
-            </h3>
-            <ul className="space-y-2.5">
-              {resourceLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-gray-400 hover:text-secondary transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Col 5: Contact */}
+          {/* Col 4: Contact */}
           <div>
             <h3 className="text-white text-xs font-semibold uppercase tracking-[0.12em] mb-5">
               Contact
@@ -184,14 +172,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 mt-0.5 text-secondary shrink-0" />
-                <a
-                  href="https://g.page/reallawgroup?share"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm hover:text-secondary transition-colors"
-                >
-                  {CONTACT.address}
-                </a>
+                <span className="text-sm">{CONTACT.address}</span>
               </li>
               <li>
                 <a
@@ -213,7 +194,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Clock className="w-4 h-4 mt-0.5 text-secondary shrink-0" />
-                <span className="text-sm">{CONTACT.hours}</span>
+                <span className="text-sm">Available 24/7</span>
               </li>
             </ul>
           </div>
@@ -224,8 +205,8 @@ export default function Footer() {
       <div className="border-t border-white/5">
         <div className="container-custom py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
           <p>
-            &copy; {new Date().getFullYear()} REAL Law Group, P.C. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} The Kryder Law Group, LLC. All
+            rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <Link

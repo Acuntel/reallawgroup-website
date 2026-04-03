@@ -35,13 +35,13 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "REAL Law Group | Elmhurst Real Estate Attorney",
-    template: "%s | REAL Law Group",
+    default: "The Kryder Law Group | Chicago Personal Injury Lawyers",
+    template: "%s | The Kryder Law Group",
   },
   description:
-    "Chicago real estate attorneys providing personalized legal guidance for real estate transactions, business law, and estate planning. Serving Chicagoland since 2016.",
-  metadataBase: new URL("https://reallawgroup.com"),
-  authors: [{ name: "REAL Law Group, P.C." }],
+    "Chicago personal injury lawyers with over $100 million recovered. Car accidents, truck accidents, medical malpractice, wrongful death. Free consultations 24/7. Call (312) 223-1700.",
+  metadataBase: new URL("https://kryderlaw.com"),
+  authors: [{ name: "The Kryder Law Group, LLC" }],
   robots: { index: true, follow: true },
   icons: {
     icon: "/favicon.png",
@@ -50,13 +50,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "REAL Law Group",
+    siteName: "The Kryder Law Group",
     images: [
       {
         url: "/images/logo-banner.png",
         width: 1200,
         height: 630,
-        alt: "REAL Law Group",
+        alt: "The Kryder Law Group",
       },
     ],
   },

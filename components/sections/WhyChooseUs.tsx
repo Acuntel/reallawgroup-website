@@ -1,30 +1,30 @@
-import { Users, Phone, Monitor, TrendingUp } from "lucide-react";
+import { Users, DollarSign, Scale, Clock } from "lucide-react";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 
 const reasons = [
   {
+    icon: DollarSign,
+    title: "No Fee Unless We Win",
+    description:
+      "We work on a contingency fee basis. You pay nothing upfront — we only get paid when you get compensated. We advance all case costs.",
+  },
+  {
+    icon: Scale,
+    title: "$100M+ Recovered",
+    description:
+      "With over $100 million recovered across thousands of cases, our track record speaks for itself. We fight for maximum compensation.",
+  },
+  {
     icon: Users,
-    title: "Personalized Service",
+    title: "Experienced Trial Team",
     description:
-      "We prioritize strong, lasting relationships with every client. As proud Chicago natives, we understand the unique needs of Chicagoland residents.",
+      "Our attorneys have 20+ years of litigation experience, are admitted in 10+ state and federal courts, and have argued before the Illinois Appellate Court.",
   },
   {
-    icon: Phone,
-    title: "Direct Attorney Access",
+    icon: Clock,
+    title: "Available 24/7",
     description:
-      "Direct access to managing partner Vincent Incopero and his dedicated legal team. No runaround, no gatekeepers.",
-  },
-  {
-    icon: Monitor,
-    title: "Online Portal & E-Signatures",
-    description:
-      "Track your closing in real time with our secure client portal and sign documents electronically.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Proven Track Record",
-    description:
-      "Over 300 five-star Google reviews and a consistent record of client satisfaction across thousands of transactions.",
+      "Accidents don't wait for business hours. Our team is available around the clock to take your call and start building your case immediately.",
   },
 ];
 
@@ -35,7 +35,7 @@ export default function WhyChooseUs() {
         <div className="text-center mb-14">
           <p className="section-label">Our Difference</p>
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-            Why Choose REAL Law Group?
+            Why Choose The Kryder Law Group?
           </h2>
           <div className="w-16 h-1 bg-secondary mx-auto" />
         </div>

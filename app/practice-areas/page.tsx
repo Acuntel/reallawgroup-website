@@ -1,11 +1,13 @@
 import {
-  Home,
-  Building,
-  FileText,
-  Landmark,
-  AlertTriangle,
-  Shield,
   Car,
+  Truck,
+  Bike,
+  Stethoscope,
+  HardHat,
+  Heart,
+  AlertTriangle,
+  Footprints,
+  Shield,
 } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import PracticeAreaCard from "@/components/cards/PracticeAreaCard";
@@ -14,61 +16,75 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Practice Areas",
+  title: "Practice Areas — Personal Injury Law",
   description:
-    "REAL Law Group provides expert legal services in real estate law, business law, and estate planning throughout Chicagoland. Call (630) 299-7600 for a free consultation.",
+    "The Kryder Law Group handles car accidents, truck accidents, motorcycle accidents, medical malpractice, workers' compensation, wrongful death, and more. Call (312) 223-1700.",
   path: "/practice-areas",
 });
 
 const areas = [
   {
-    icon: Home,
-    title: "Real Estate Law",
+    icon: Car,
+    title: "Car Accidents",
     description:
-      "We serve the residential and commercial real estate needs of clients located in Northern Illinois. From contract through the closing, we protect our clients' interests while helping them understand the business, tax, and legal implications pertaining to their real estate transaction.",
-    href: "/practice-areas/real-estate",
+      "Head-on collisions, rear-end impacts, side-impact crashes, hit-and-run, rideshare accidents, and fatal car accidents. We handle all types of auto collision claims.",
+    href: "/practice-areas/car-accidents",
   },
   {
-    icon: Building,
-    title: "Business Law",
+    icon: Truck,
+    title: "Truck Accidents",
     description:
-      "REAL Law Group advises small to medium-sized businesses operating in a variety of industries. Drawing on our financial and business backgrounds, we assist our clients with challenges faced by business owners and offer proactive solutions.",
-    href: "/practice-areas/business-law",
+      "Commercial vehicle collisions including rear-end, rollover, jackknife, underride, and tire blowout cases. We investigate trucking records and pursue multi-party liability.",
+    href: "/practice-areas/truck-accidents",
   },
   {
-    icon: FileText,
-    title: "Estate Planning",
+    icon: Bike,
+    title: "Motorcycle Accidents",
     description:
-      "More than just structuring the transfer of assets, we create unique estate and business plans that preserve assets and minimize taxes during life and for many years beyond. We provide the counsel necessary to advise and plan for you and your family.",
-    href: "/practice-areas/estate-planning",
+      "Rear-end, left-turn, intersection, lane splitting, and multi-vehicle motorcycle accident claims. We fight for riders injured by negligent drivers.",
+    href: "/practice-areas/motorcycle-accidents",
   },
   {
-    icon: Landmark,
-    title: "HUD Closings",
+    icon: Stethoscope,
+    title: "Medical Malpractice",
     description:
-      "We serve as HUD closing attorneys, handling all aspects of HUD-related real estate transactions. From reviewing settlement statements to coordinating with lenders and title companies, we ensure full compliance with federal requirements.",
-    href: "/practice-areas/hud-closings",
+      "Diagnostic errors, treatment failures, surgical complications, medication errors, and failure to obtain informed consent. We hold healthcare providers accountable.",
+    href: "/practice-areas/medical-malpractice",
+  },
+  {
+    icon: HardHat,
+    title: "Workers' Compensation",
+    description:
+      "Filing claims, negotiating with insurance, covering medical bills, occupational illness claims, and survivor benefits under the Illinois Workers' Compensation Act.",
+    href: "/practice-areas/workers-compensation",
+  },
+  {
+    icon: Heart,
+    title: "Catastrophic Injury",
+    description:
+      "Traumatic brain injuries, spinal cord injuries, amputations, multiple fractures, severe burns, and internal organ damage from any type of accident.",
+    href: "/practice-areas/catastrophic-injury",
   },
   {
     icon: AlertTriangle,
-    title: "Building Violations",
+    title: "Wrongful Death",
     description:
-      "Facing a Chicago building code violation? We represent property owners, landlords, and developers in administrative hearings and help resolve violations from unpermitted work, safety issues, and failed inspections.",
-    href: "/practice-areas/building-violations",
+      "Claims filed under the Illinois Wrongful Death Act and Survival Act. Only the personal representative of the estate can file — we guide families through this difficult process.",
+    href: "/practice-areas/wrongful-death",
+  },
+  {
+    icon: Footprints,
+    title: "Slip and Fall",
+    description:
+      "Premises liability cases involving dangerous conditions on someone else's property. We prove negligence and fight for full compensation for your injuries.",
+    href: "/practice-areas/slip-and-fall",
   },
   {
     icon: Shield,
-    title: "Land Trusts",
+    title: "Construction Accidents",
     description:
-      "Illinois land trusts offer privacy, asset protection, and simplified estate planning for property owners. We help clients establish and manage land trusts to protect their real estate investments.",
-    href: "/practice-areas/land-trusts",
-  },
-  {
-    icon: Car,
-    title: "Personal Injury",
-    description:
-      "If you or a loved one has been injured in a car accident, we connect you with experienced personal injury attorneys through our trusted network. Free consultations available.",
-    href: "/practice-areas/personal-injury",
+      "Falls from heights, electrocutions, struck by falling objects, caught-in-between, machinery accidents, and chemical exposures. Workers' comp and third-party claims.",
+    href: "/practice-areas/construction-accidents",
   },
 ];
 
@@ -92,8 +108,8 @@ export default function PracticeAreasPage() {
             Practice Areas
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl">
-            REAL Law Group, P.C. is committed to providing the highest quality
-            legal services.
+            The Kryder Law Group represents injured clients across a wide range
+            of personal injury and accident cases.
           </p>
         </div>
       </section>

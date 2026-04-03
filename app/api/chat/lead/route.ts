@@ -83,8 +83,8 @@ export async function POST(req: NextRequest) {
           Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
         },
         body: JSON.stringify({
-          from: "REAL Law Group Website <noreply@reallawgroup.com>",
-          to: ["info@reallawgroup.com"],
+          from: "Kryder Law Group Website <noreply@kryderlaw.com>",
+          to: ["ljimenez@kryderlaw.com"],
           reply_to: email,
           subject: isFollowUp
             ? `AI Chat Complete: ${name} — ${service || "General"}`

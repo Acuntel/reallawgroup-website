@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://reallawgroup.com",
+  siteUrl: "https://kryderlaw.com",
   generateRobotsTxt: true,
   changefreq: "weekly",
   priority: 0.7,

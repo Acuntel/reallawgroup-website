@@ -3,9 +3,9 @@ import { ArrowRight } from "lucide-react";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 
 const highlights = [
-  { value: "10+", label: "Years Serving Chicagoland" },
-  { value: "50%+", label: "Clients from referrals" },
-  { value: "6", label: "Dedicated team members" },
+  { value: "22+", label: "Years in Practice" },
+  { value: "$100M+", label: "Recovered for Clients" },
+  { value: "17", label: "Office Locations" },
 ];
 
 export default function AboutPreview() {
@@ -41,14 +41,13 @@ export default function AboutPreview() {
                     &ldquo;
                   </span>
                   <p className="text-white/80 text-sm leading-relaxed italic mb-4">
-                    We are the first members of our families to attend college
-                    and the only lawyers within our entire extended families.
-                    Mindful of our earlier days, when we were unfamiliar with
-                    and even intimidated by the law, we strive to relate to our
-                    clients.
+                    Injuries hurt, that&apos;s why we make the legal process
+                    painless. We believe every injured person deserves
+                    aggressive, compassionate representation — regardless of
+                    their ability to pay upfront.
                   </p>
                   <p className="text-secondary text-xs font-semibold tracking-wide uppercase">
-                    Vincent Incopero, Managing Partner
+                    Andrew S. Kryder, Founding Partner
                   </p>
                 </div>
               </div>
@@ -60,25 +59,25 @@ export default function AboutPreview() {
             <div>
               <p className="section-label">About the Firm</p>
               <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">
-                Built on Principles,{" "}
-                <span className="text-secondary">Not Privilege</span>
+                Fighting for the <span className="text-secondary">Injured</span>{" "}
+                Since 2002
               </h2>
               <p className="text-text-muted leading-relaxed mb-5">
-                In 2016, REAL Law Group was founded on hard work, integrity, and
-                reliability. Born and raised in Chicago and the surrounding
-                suburbs, we know the people and the communities we serve.
+                Founded by Andrew S. Kryder, The Kryder Law Group has spent over
+                two decades fighting for accident and injury victims across
+                Illinois and the Midwest. With 17 offices across 8 states, we
+                bring big-firm resources with small-firm attention.
               </p>
               <p className="text-text-muted leading-relaxed mb-8">
-                We view ourselves as a strategic partner in your endeavors.
-                Through communication, availability, and close personal
-                attention, we build the trust that is the cornerstone of any
-                lasting attorney-client relationship.
+                Our contingency fee model means you pay nothing unless we win
+                your case. We advance all costs and fight for the maximum
+                compensation you deserve — whether through negotiation or trial.
               </p>
               <Link
                 href="/about"
                 className="group inline-flex items-center gap-2 text-sm font-semibold text-secondary hover:text-primary transition-colors"
               >
-                Meet Our Team
+                Learn More About Us
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>

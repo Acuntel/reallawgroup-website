@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Phone, Menu, ChevronDown } from "lucide-react";
 import { NAV_LINKS, CONTACT } from "@/lib/constants";
@@ -35,14 +34,9 @@ export default function Header() {
         <div className="container-custom flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <Image
-              src="/images/logo-banner.png"
-              alt="REAL Law Group"
-              width={200}
-              height={50}
-              className="h-10 md:h-12 w-auto"
-              priority
-            />
+            <span className="text-xl md:text-2xl font-heading font-bold text-primary">
+              The Kryder Law Group
+            </span>
           </Link>
 
           {/* Desktop Nav */}
@@ -148,11 +142,10 @@ export default function Header() {
 
           {/* Phone + CTA + Mobile Toggle */}
           <div className="flex items-center gap-4">
-            {/* Phone icon always visible on mobile */}
             <a
               href={CONTACT.phoneHref}
               className="sm:hidden p-2"
-              aria-label="Call REAL Law Group"
+              aria-label="Call The Kryder Law Group"
             >
               <Phone className="w-5 h-5 text-primary" />
             </a>

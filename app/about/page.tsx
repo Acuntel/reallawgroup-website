@@ -5,9 +5,9 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "About REAL Law Group — Elmhurst Real Estate Attorneys",
+  title: "About The Kryder Law Group — Chicago Personal Injury Lawyers",
   description:
-    "Learn about REAL Law Group, P.C. - founded in 2016 on hard work, integrity, and reliability. Experienced Chicago real estate attorneys. Call (630) 299-7600 for a free consultation.",
+    "Learn about The Kryder Law Group, LLC — founded in 2002, over $100 million recovered for injured clients across Illinois and the Midwest. Call (312) 223-1700.",
   path: "/about",
 });
 
@@ -29,11 +29,11 @@ export default function AboutPage() {
       <section className="page-hero">
         <div className="container-custom">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-            Our Story
+            About Our Firm
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl">
-            Founded in 2016 on the principles of hard work, integrity, and
-            reliability.
+            Over two decades of fighting for the injured. Over $100 million
+            recovered.
           </p>
         </div>
       </section>
@@ -46,40 +46,52 @@ export default function AboutPage() {
       <section className="section-padding bg-white">
         <div className="container-custom max-w-4xl">
           <p className="text-text-muted leading-relaxed text-lg mb-8">
-            In 2016, REAL Law Group, P.C. was founded on the principles of
-            hard-work, integrity, and reliability. These qualities, instilled in
-            us at young ages, are what separates us from our competition. Born
-            and raised in Chicago and the surrounding suburbs, we know the
-            people and the communities we serve. Our collegiate and legal
-            educations were obtained at some of the finest institutions in
-            Illinois. Not only are we the first members of our families to
-            attend college, we are also the only lawyers within our entire
-            extended families. Mindful of our earlier days, when we were
-            unfamiliar with and even intimidated by the law, we strive to relate
-            to our clients, and educate them as we work closely to assist with
-            their legal needs.
+            The Kryder Law Group, LLC was founded in 2002 by Andrew S. Kryder
+            with a simple mission: make the legal process painless for people
+            who are already hurting. For over 22 years, we have represented
+            thousands of accident and injury victims across Illinois, Indiana,
+            Iowa, Kentucky, Michigan, Missouri, Ohio, and Wisconsin — recovering
+            over $100 million in compensation along the way.
           </p>
 
           <div className="gold-border-left pl-8 py-2 mb-8">
             <h3 className="text-2xl font-heading font-semibold mb-4">
-              Our Philosophy: Hard Work, Integrity, Reliability
+              Our Philosophy: Injuries Hurt. We Make It Right.
+            </h3>
+            <p className="text-text-muted leading-relaxed mb-4">
+              We believe every injured person deserves aggressive, compassionate
+              legal representation — regardless of their ability to pay upfront.
+              That&apos;s why we work on a contingency fee basis: you pay
+              nothing unless we win your case. We advance all costs and fight
+              for maximum compensation, whether through negotiation or trial.
+            </p>
+            <p className="text-text-muted leading-relaxed">
+              With 17 office locations across 8 states, we bring big-firm
+              resources and multi-state expertise with the personal attention of
+              a boutique practice. Our attorneys are admitted to practice in
+              over 10 state and federal courts, including the U.S. Supreme
+              Court.
+            </p>
+          </div>
+
+          <div className="bg-light-gold rounded-xl p-8 mb-8">
+            <h3 className="text-xl font-heading font-semibold mb-4">
+              No Fee Guarantee
             </h3>
             <p className="text-text-muted leading-relaxed">
-              We are committed to providing the highest quality, personalized
-              legal services to our clients. We view ourselves as a strategic
-              partner in your endeavors, both current and future. Through
-              communication, availability, and close personal attention, we
-              build trust. Trust is the cornerstone of any long lasting
-              attorney-client relationship.
+              We work on a contingency fee basis of 30-40% depending on case
+              complexity. There are no hourly rates, no retainers, and no
+              upfront costs. Our firm advances all case expenses. If we
+              don&apos;t win your case, you owe us nothing.
             </p>
           </div>
 
           <div className="text-center">
             <Link
               href="/our-team"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-secondary text-white rounded-lg font-semibold hover:bg-[#b8994e] transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-secondary text-white rounded-lg font-semibold hover:bg-[#c99b2e] transition-colors"
             >
-              Meet Our Team
+              Meet Our Attorneys
               <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>

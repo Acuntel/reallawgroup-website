@@ -2,25 +2,25 @@ import { MapPin } from "lucide-react";
 
 const areas = [
   "Chicago",
-  "Elmhurst",
-  "Naperville",
-  "Hinsdale",
-  "Oak Brook",
-  "Downers Grove",
-  "Wheaton",
-  "Glen Ellyn",
-  "Lombard",
-  "Villa Park",
-  "Lisle",
-  "Woodridge",
-  "Berwyn",
-  "Oak Park",
-  "Skokie",
-  "Niles",
   "Schaumburg",
-  "Arlington Heights",
-  "Park Ridge",
+  "Elgin",
+  "Des Plaines",
+  "Orland Park",
+  "Aurora",
+  "Davenport, IA",
+  "Des Moines, IA",
+  "Indianapolis, IN",
+  "Louisville, KY",
+  "Grand Rapids, MI",
+  "Lansing, MI",
+  "St. Louis, MO",
+  "Columbus, OH",
+  "Milwaukee, WI",
+  "Cook County",
   "DuPage County",
+  "Lake County",
+  "Will County",
+  "Kane County",
 ];
 
 export default function ServiceAreas() {
@@ -31,12 +31,13 @@ export default function ServiceAreas() {
           <div className="flex items-center gap-2 mb-3">
             <MapPin className="w-5 h-5 text-secondary" />
             <h2 className="text-2xl font-heading font-bold text-primary">
-              Proudly Serving Chicagoland
+              Serving Illinois & the Midwest
             </h2>
           </div>
           <p className="text-text-muted text-sm max-w-xl">
-            From the city to the suburbs, REAL Law Group represents clients
-            across Cook County, DuPage County, and the greater Chicagoland area.
+            With 17 offices across 8 states, The Kryder Law Group represents
+            injured clients throughout Illinois, Indiana, Iowa, Kentucky,
+            Michigan, Missouri, Ohio, and Wisconsin.
           </p>
         </div>
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">

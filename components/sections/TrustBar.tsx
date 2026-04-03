@@ -1,10 +1,10 @@
 const CREDENTIALS = [
-  { name: "Top Rated — Expertise.com", year: "2024" },
+  { name: "Super Lawyers Rising Star 2022-2024" },
   { name: "Illinois State Bar Association" },
   { name: "Chicago Bar Association" },
-  { name: "DuPage County Bar Association" },
-  { name: "IL Real Estate Lawyers Association" },
-  { name: "Justinian Society of Lawyers" },
+  { name: "Lake County Bar Association" },
+  { name: "U.S. Supreme Court Admitted" },
+  { name: "Top 10 Under 40 — NAPIA" },
 ];
 
 export default function TrustBar() {

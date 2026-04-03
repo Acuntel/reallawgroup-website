@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --primary: #1b2d4f;
-  --secondary: #866a2d;
-  --accent: #2a5f8f;
+  --primary: #1e2c4b;
+  --secondary: #dcac35;
+  --accent: #32405d;
   --background: #fafaf8;
-  --dark: #0f1923;
+  --dark: #0c1a36;
   --text: #1a1a1a;
   --text-muted: #5a6475;
   --success: #2d7a4f;
@@ -85,7 +85,7 @@ h6 {
 
   .page-hero {
     @apply relative py-20 md:py-28 text-white overflow-hidden;
-    background: linear-gradient(135deg, #0f1923 0%, #1b2d4f 100%);
+    background: linear-gradient(135deg, #0c1a36 0%, #1e2c4b 100%);
   }
 
   .page-hero::before {
@@ -133,7 +133,7 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 2px solid #1b2d4f;
+  outline: 2px solid #1e2c4b;
   outline-offset: 2px;
 }
 
@@ -154,7 +154,7 @@ select:focus-visible {
   transform: translateX(-50%);
   z-index: 9999;
   padding: 0.75rem 1.5rem;
-  background: #1b2d4f;
+  background: #1e2c4b;
   color: white;
   font-weight: 600;
   border-radius: 0 0 0.5rem 0.5rem;

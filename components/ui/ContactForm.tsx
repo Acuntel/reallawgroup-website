@@ -4,11 +4,15 @@ import { useState, FormEvent } from "react";
 import { Send, CheckCircle } from "lucide-react";
 
 const serviceOptions = [
-  "Real Estate Transaction",
-  "Business Formation",
-  "Estate Planning",
-  "Property Tax Appeal",
-  "Other",
+  "Car Accident",
+  "Truck Accident",
+  "Motorcycle Accident",
+  "Medical Malpractice",
+  "Workers' Compensation",
+  "Wrongful Death",
+  "Slip and Fall",
+  "Construction Accident",
+  "Other Injury",
 ];
 
 export default function ContactForm() {
@@ -83,11 +87,11 @@ export default function ContactForm() {
       <div className="bg-success/10 border border-success/30 rounded-xl p-10 text-center">
         <CheckCircle className="w-12 h-12 text-success mx-auto mb-4" />
         <h3 className="text-xl font-heading font-semibold text-primary mb-2">
-          Message Sent!
+          Case Review Submitted!
         </h3>
         <p className="text-text-muted text-sm">
-          Thank you for reaching out. Our team will get back to you within one
-          business day.
+          Thank you for reaching out. Our team will review your case and get
+          back to you within one business day.
         </p>
       </div>
     );
@@ -182,7 +186,7 @@ export default function ContactForm() {
           htmlFor="service"
           className="block text-sm font-medium text-primary mb-1.5"
         >
-          Service Interested In
+          Type of Injury
         </label>
         <select
           id="service"
@@ -190,7 +194,7 @@ export default function ContactForm() {
           onChange={(e) => handleChange("service", e.target.value)}
           className="w-full px-4 py-3 rounded-lg border border-border bg-white text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary"
         >
-          <option value="">Select a service...</option>
+          <option value="">Select injury type...</option>
           {serviceOptions.map((option) => (
             <option key={option} value={option}>
               {option}
@@ -205,7 +209,8 @@ export default function ContactForm() {
           htmlFor="message"
           className="block text-sm font-medium text-primary mb-1.5"
         >
-          Message <span className="text-text-muted text-xs">(Optional)</span>
+          Tell Us What Happened{" "}
+          <span className="text-text-muted text-xs">(Optional)</span>
         </label>
         <textarea
           id="message"
@@ -213,7 +218,7 @@ export default function ContactForm() {
           value={formData.message}
           onChange={(e) => handleChange("message", e.target.value)}
           className="w-full px-4 py-3 rounded-lg border border-border bg-white text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary resize-vertical"
-          placeholder="How can we help you?"
+          placeholder="Briefly describe your accident or injury..."
         />
       </div>
 
@@ -226,9 +231,9 @@ export default function ContactForm() {
       <div className="flex items-center justify-center gap-4 text-xs text-text-muted mb-4">
         <span>Free & Confidential</span>
         <span className="w-1 h-1 rounded-full bg-text-muted" />
-        <span>No Obligation</span>
+        <span>No Fee Unless We Win</span>
         <span className="w-1 h-1 rounded-full bg-text-muted" />
-        <span>Response Within 24 Hours</span>
+        <span>Available 24/7</span>
       </div>
 
       <button
@@ -244,7 +249,7 @@ export default function ContactForm() {
         ) : (
           <>
             <Send className="w-4 h-4" />
-            Get My Free Consultation
+            Get My Free Case Review
           </>
         )}
       </button>

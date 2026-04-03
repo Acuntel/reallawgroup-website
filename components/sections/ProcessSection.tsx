@@ -1,24 +1,27 @@
-import { Phone, FileSearch, Shield } from 'lucide-react';
-import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
+import { Phone, FileSearch, Shield } from "lucide-react";
+import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 
 const steps = [
   {
-    num: '01',
+    num: "01",
     icon: Phone,
-    title: 'Free Consultation',
-    description: 'Call us or fill out our contact form. We listen to your situation, answer your questions, and outline how we can help — no obligation, no pressure.',
+    title: "Free Case Review",
+    description:
+      "Call us 24/7 or fill out our contact form. We listen to what happened, answer your questions, and explain your legal options — no obligation, no cost.",
   },
   {
-    num: '02',
+    num: "02",
     icon: FileSearch,
-    title: 'Strategy & Review',
-    description: 'We analyze your contracts, documents, and legal position. You get a clear plan with transparent pricing before we move forward.',
+    title: "Investigation & Strategy",
+    description:
+      "We gather evidence, review medical records, consult experts, and build a strong case. You focus on healing while we handle the legal work.",
   },
   {
-    num: '03',
+    num: "03",
     icon: Shield,
-    title: 'We Handle Everything',
-    description: 'From negotiation through closing or resolution, our team manages every detail. You stay informed at every step with direct attorney access.',
+    title: "Maximum Compensation",
+    description:
+      "We negotiate aggressively with insurance companies and are fully prepared to go to trial if needed. You don't pay unless we win.",
   },
 ];
 
@@ -29,10 +32,10 @@ export default function ProcessSection() {
         <div className="text-center mb-14">
           <p className="section-label">How It Works</p>
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-            Working With Us Is Simple
+            Getting Started Is Simple
           </h2>
           <p className="text-text-muted max-w-xl mx-auto">
-            We make the legal process straightforward so you can focus on what matters.
+            We handle the legal burden so you can focus on your recovery.
           </p>
         </div>
 
@@ -40,12 +43,9 @@ export default function ProcessSection() {
           {steps.map((step, i) => (
             <AnimateOnScroll key={i} delay={i * 0.15}>
               <div className="relative flex flex-col items-center text-center px-6 py-8 md:py-0">
-                {/* Connecting line (desktop only) */}
                 {i < steps.length - 1 && (
                   <div className="hidden md:block absolute top-10 left-[calc(50%+32px)] w-[calc(100%-64px)] h-px bg-border z-0" />
                 )}
-
-                {/* Number + icon */}
                 <div className="relative z-10 mb-5">
                   <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center shadow-lg">
                     <step.icon className="w-7 h-7 text-secondary" />
@@ -54,9 +54,12 @@ export default function ProcessSection() {
                     {step.num}
                   </span>
                 </div>
-
-                <h3 className="text-lg font-heading font-semibold mb-3">{step.title}</h3>
-                <p className="text-sm text-text-muted leading-relaxed">{step.description}</p>
+                <h3 className="text-lg font-heading font-semibold mb-3">
+                  {step.title}
+                </h3>
+                <p className="text-sm text-text-muted leading-relaxed">
+                  {step.description}
+                </p>
               </div>
             </AnimateOnScroll>
           ))}

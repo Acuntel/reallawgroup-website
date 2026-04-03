@@ -5,54 +5,49 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Our Team — REAL Law Group Attorneys & Staff",
+  title: "Our Attorneys — The Kryder Law Group",
   description:
-    "Meet the REAL Law Group team — experienced attorneys, paralegals, and staff serving Chicagoland real estate, business law, and estate planning clients. Call (630) 299-7600.",
+    "Meet the experienced personal injury attorneys at The Kryder Law Group. Over $100 million recovered. Admitted in 10+ courts. Call (312) 223-1700.",
   path: "/our-team",
 });
 
 const teamMembers = [
   {
-    name: "Vincent Anthony Incopero",
-    title: "Managing Partner",
-    initials: "VI",
-    bio: "Vincent Anthony Incopero concentrates his practice in three complementary areas of law: real estate sales/purchases, business organizations, and estate planning. Vincent's educational background in finance and economics, coupled with his legal training and experience, has provided him with the analytical skills necessary to provide practical, cost-effective solutions. Prior to founding REAL Law Group, P.C., Vincent worked at Chicago's most recognized title company and practiced law with Chicago's largest Plaintiff's personal injury firm.",
+    name: "Andrew S. Kryder, Esq.",
+    title: "Founding Partner",
+    initials: "AK",
+    bio: "Andrew S. Kryder founded The Kryder Law Group in 2002 with a mission to make the legal process painless for injury victims. With over 20 years of litigation experience, he has recovered over $100 million in compensation across thousands of cases. Andrew has argued multiple cases before the Illinois Appellate Court and is admitted to practice before the U.S. Supreme Court. Notable results include a $7.5M construction worker recovery, $3M wrongful death settlement, and $2.2M auto collision verdict.",
     education:
-      "The John Marshall Law School, J.D. (2014) | Elmhurst College, B.S., Double Major, Finance & Economics (2010)",
+      "DePaul Law School, J.D. (1998) | Ohio State University, B.A. (1995)",
     barAdmissions:
-      "Illinois | U.S. District Court for the Northern District of Illinois",
+      "Illinois | Indiana | Iowa | Kentucky | Michigan | Minnesota | Missouri | Wisconsin | N.D. Illinois | N.D. Indiana | U.S. Supreme Court",
     affiliations:
-      "Chicago Bar Association, DuPage County Bar Association, Illinois State Bar Association, Illinois Real Estate Lawyers Association, Justinian Society of Lawyers",
+      "Chicago Bar Association, CBA Judicial Evaluation Committee, Illinois State Bar Association, Lake County Bar Association",
   },
   {
-    name: "Sarah Marie Roth",
-    title: "Director of Operations",
-    initials: "SR",
-    bio: "Sarah Marie Roth is the Director of Operations at REAL Law Group, P.C. where she concentrates on residential and commercial real estate transactions, as well as handling Agricultural Real Estate and Estate Planning. Sarah has an unparalleled level of experience working on distressed transactions, including short sales, deed-in-lieus and REO sales (bank owned real estate), and she works directly with Buyers, Sellers, Brokers, and Lenders from contract to closing.",
+    name: "Justin Hare, Esq.",
+    title: "Partner",
+    initials: "JH",
+    bio: "Justin Hare has recovered over $30 million for clients through trials, arbitrations, mediations, and settlements. He believes that clear communication and truly listening to clients are the keys to successful outcomes. Justin brings a client-first approach to every case, ensuring injured victims receive the compensation and attention they deserve.",
+    education: "Chicago-Kent College of Law, J.D. | Denison University, B.A.",
   },
   {
-    name: "Stephanie Milnamow",
-    title: "Managing Paralegal",
-    initials: "SM",
-    bio: "Stephanie Milnamow is a paralegal at REAL Law Group, P.C. and works sales contracts. Stephanie graduated from Eastern Illinois University before acquiring her Paralegal Certificate in 2014. She worked as a team lead at a large Chicago based collections law firm before joining REAL Law Group in 2019.",
+    name: "Alexander Gerteis, Esq.",
+    title: "Partner",
+    initials: "AG",
+    bio: "Alexander Gerteis joined the firm in 2015 and focuses on auto/trucking accidents, premises liability, dog attacks, and product liability cases. He has been named a Super Lawyers Rising Star from 2022-2024 and was recognized as a Top 10 Under 40 by the National Academy of Personal Injury Attorneys in 2018. His seven-figure motorcycle accident recovery was featured in the Chicago Daily Law Bulletin.",
+    education:
+      "DePaul University College of Law, J.D. (magna cum laude) | University of Wisconsin-Madison, B.A. Political Science",
+    affiliations:
+      "Super Lawyers Rising Star (2022-2024), Top 10 Under 40 — NAPIA (2018)",
   },
   {
-    name: "Alyssa Witnik",
-    title: "Purchase Coordinator",
-    initials: "AW",
-    bio: "Alyssa Witnik handles purchase transactions at REAL Law Group, P.C., guiding buyers through every step of the closing process. From contract to keys, Alyssa coordinates with lenders, title companies, and agents to ensure a seamless experience for every client.",
-  },
-  {
-    name: "Eva Boozer",
-    title: "Legal Assistant",
-    initials: "EB",
-    bio: "Eva serves as the Legal Assistant at REAL Law Group, P.C., providing essential administrative and organizational support to attorneys, helping ensure the efficient operation of a legal office. This role involves preparing and reviewing legal documents, managing case files, scheduling appointments and court dates, and maintaining accurate records.",
-  },
-  {
-    name: "Gina Zardetto",
-    title: "Paralegal & Social Media Manager",
-    initials: "GZ",
-    bio: "Gina Zardetto is a paralegal and social media manager for REAL Law Group, P.C. She attended DePaul University and studied political science, mass media, and marketing. She assists with paralegal duties and manages the firm's marketing and social media presence.",
+    name: "Nick Friel, Esq.",
+    title: "Associate Attorney",
+    initials: "NF",
+    bio: "Nick Friel is a third-generation lawyer who has secured over $21 million for clients, including a $1M policy limit wrongful death settlement and multiple six-figure recoveries. His passion for justice and tenacious advocacy make him a powerful asset for clients facing insurance companies and negligent parties.",
+    education:
+      "Loyola Law School, J.D. (2021) | Indiana University, B.S. History & Political Science (2018)",
   },
 ];
 
@@ -74,10 +69,11 @@ export default function OurTeamPage() {
       <section className="page-hero">
         <div className="container-custom">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-            Our Team
+            Our Attorneys
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl">
-            The people behind REAL Law Group — dedicated to serving you.
+            Experienced trial lawyers fighting for the injured across Illinois
+            and the Midwest.
           </p>
         </div>
       </section>
