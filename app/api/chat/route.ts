@@ -178,6 +178,10 @@ export async function POST(req: NextRequest) {
 
     const anthropicMessages = messages
       .slice(-20)
+      .filter(
+        (msg: { role: string; content: string }, i: number) =>
+          !(i === 0 && msg.role === "assistant"),
+      )
       .map((msg: { role: string; content: string }) => ({
         role: msg.role as "user" | "assistant",
         content: msg.content,
