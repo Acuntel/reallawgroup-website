@@ -3,6 +3,11 @@ import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 
 const testimonials = [
   {
+    text: "I've been working with Vince and the team at Real Law Group for over 10 years, and I honestly can't imagine navigating the legal side of my business without them. Vince is the kind of attorney who actually listens, breaks things down in plain language, and never makes you feel like you're just another file on his desk. Highly recommend without hesitation.",
+    author: "Oleg G.",
+    context: "Business Owner, 10+ Year Client",
+  },
+  {
     text: "Andrew and his team fought hard for us after a devastating car accident. They secured a settlement far beyond what the insurance company initially offered. We are forever grateful.",
     author: "D.K.",
     context: "Car Accident Client, Chicago",
