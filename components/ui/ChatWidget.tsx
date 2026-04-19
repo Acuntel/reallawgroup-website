@@ -27,11 +27,10 @@ interface LeadInfo {
 type WidgetState = "closed" | "lead-form" | "chatting";
 
 const serviceOptions = [
-  "Car Accident",
-  "Truck Accident",
-  "Medical Malpractice",
-  "Workers' Compensation",
-  "Other Injury",
+  "Real Estate Transaction",
+  "Business Law",
+  "Estate Planning",
+  "Other / Not Sure",
 ];
 
 export default function ChatWidget() {
@@ -67,7 +66,7 @@ export default function ChatWidget() {
 
   // Proactive chat bubble
   useEffect(() => {
-    if (sessionStorage.getItem("klg-chat-dismissed")) return;
+    if (sessionStorage.getItem("rlg-chat-dismissed")) return;
     const timer = setTimeout(() => setShowBubble(true), 20000);
     return () => clearTimeout(timer);
   }, []);
@@ -133,7 +132,7 @@ export default function ChatWidget() {
 
     const greeting: Message = {
       role: "assistant",
-      content: `Hi ${firstName}! I'm The Kryder Law Group virtual assistant.${serviceText} How can I help you today?`,
+      content: `Hi ${firstName}! I'm the REAL Law Group virtual assistant.${serviceText} How can I help you today?`,
     };
 
     setMessages([greeting]);
@@ -258,19 +257,19 @@ export default function ChatWidget() {
       {isOpen && (
         <div
           role="dialog"
-          aria-label="Chat with The Kryder Law Group"
+          aria-label="Chat with REAL Law Group"
           aria-modal="true"
           className="absolute bottom-16 right-0 w-[calc(100vw-2rem)] sm:w-[380px] bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden mb-2 flex flex-col max-h-[min(520px,calc(100vh-160px))] max-lg:max-h-[min(520px,calc(100vh-180px))]"
         >
           {/* Header */}
-          <div className="bg-[#1e2c4b] px-4 py-3 flex items-center justify-between shrink-0">
+          <div className="bg-[#1B2D4F] px-4 py-3 flex items-center justify-between shrink-0">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-[#dcac35]/20 flex items-center justify-center">
-                <MessageCircle className="w-4 h-4 text-[#dcac35]" />
+              <div className="w-8 h-8 rounded-full bg-[#C8A96E]/20 flex items-center justify-center">
+                <MessageCircle className="w-4 h-4 text-[#C8A96E]" />
               </div>
               <div>
                 <h3 className="text-white font-semibold text-sm leading-tight">
-                  The Kryder Law Group
+                  REAL Law Group
                 </h3>
                 <p className="text-gray-400 text-[11px]">
                   {state === "chatting"
@@ -306,7 +305,7 @@ export default function ChatWidget() {
                   autoComplete="name"
                   value={leadInfo.name}
                   onChange={(e) => handleLeadChange("name", e.target.value)}
-                  className={`w-full px-3 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-[#dcac35]/50 focus:border-[#dcac35] ${
+                  className={`w-full px-3 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-[#C8A96E]/50 focus:border-[#C8A96E] ${
                     formErrors.name ? "border-red-400" : "border-gray-200"
                   }`}
                 />
@@ -325,7 +324,7 @@ export default function ChatWidget() {
                   autoComplete="email"
                   value={leadInfo.email}
                   onChange={(e) => handleLeadChange("email", e.target.value)}
-                  className={`w-full px-3 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-[#dcac35]/50 focus:border-[#dcac35] ${
+                  className={`w-full px-3 py-2.5 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-[#C8A96E]/50 focus:border-[#C8A96E] ${
                     formErrors.email ? "border-red-400" : "border-gray-200"
                   }`}
                 />
@@ -343,14 +342,14 @@ export default function ChatWidget() {
                 autoComplete="tel"
                 value={leadInfo.phone}
                 onChange={(e) => handleLeadChange("phone", e.target.value)}
-                className="w-full px-3 py-2.5 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#dcac35]/50 focus:border-[#dcac35]"
+                className="w-full px-3 py-2.5 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#C8A96E]/50 focus:border-[#C8A96E]"
               />
 
               <select
                 value={leadInfo.service}
                 aria-label="Select a service"
                 onChange={(e) => handleLeadChange("service", e.target.value)}
-                className="w-full px-3 py-2.5 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#dcac35]/50 focus:border-[#dcac35] text-gray-600"
+                className="w-full px-3 py-2.5 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#C8A96E]/50 focus:border-[#C8A96E] text-gray-600"
               >
                 <option value="">What can we help with?</option>
                 {serviceOptions.map((opt) => (
@@ -362,7 +361,7 @@ export default function ChatWidget() {
 
               <button
                 type="submit"
-                className="w-full bg-[#dcac35] hover:bg-[#c99b2e] text-white font-medium py-2.5 rounded-lg text-sm transition-colors flex items-center justify-center gap-2"
+                className="w-full bg-[#C8A96E] hover:bg-[#b8994e] text-white font-medium py-2.5 rounded-lg text-sm transition-colors flex items-center justify-center gap-2"
               >
                 Start Chat
                 <ArrowRight className="w-4 h-4" />
@@ -371,7 +370,7 @@ export default function ChatWidget() {
               <div className="text-center pt-1">
                 <a
                   href={CONTACT.phoneHref}
-                  className="text-[11px] text-gray-400 hover:text-[#1e2c4b] transition-colors"
+                  className="text-[11px] text-gray-400 hover:text-[#1B2D4F] transition-colors"
                 >
                   Prefer to talk? Call {CONTACT.phone}
                 </a>
@@ -395,7 +394,7 @@ export default function ChatWidget() {
                     <div
                       className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
                         msg.role === "user"
-                          ? "bg-[#dcac35] text-white rounded-br-md"
+                          ? "bg-[#C8A96E] text-white rounded-br-md"
                           : "bg-gray-100 text-gray-800 rounded-bl-md"
                       }`}
                     >
@@ -429,13 +428,13 @@ export default function ChatWidget() {
                       ? "noopener noreferrer"
                       : undefined
                   }
-                  className="flex-1 text-center text-xs font-medium py-2.5 rounded-full border border-[#1e2c4b] text-[#1e2c4b] hover:bg-[#1e2c4b] hover:text-white transition-colors"
+                  className="flex-1 text-center text-xs font-medium py-2.5 rounded-full border border-[#1B2D4F] text-[#1B2D4F] hover:bg-[#1B2D4F] hover:text-white transition-colors"
                 >
                   Schedule Consultation
                 </a>
                 <a
                   href={CONTACT.phoneHref}
-                  className="flex-1 text-center text-xs font-medium py-2.5 rounded-full bg-[#1e2c4b] text-white hover:bg-[#0c1a36] transition-colors flex items-center justify-center gap-1"
+                  className="flex-1 text-center text-xs font-medium py-2.5 rounded-full bg-[#1B2D4F] text-white hover:bg-[#0F1923] transition-colors flex items-center justify-center gap-1"
                 >
                   <Phone className="w-3.5 h-3.5" />
                   Call Now
@@ -480,7 +479,7 @@ export default function ChatWidget() {
                   <button
                     onClick={() => fileInputRef.current?.click()}
                     disabled={isStreaming || attachments.length >= 3}
-                    className="w-11 h-11 rounded-full text-gray-400 hover:text-[#1e2c4b] hover:bg-gray-100 flex items-center justify-center transition-colors disabled:opacity-40 disabled:cursor-not-allowed shrink-0"
+                    className="w-11 h-11 rounded-full text-gray-400 hover:text-[#1B2D4F] hover:bg-gray-100 flex items-center justify-center transition-colors disabled:opacity-40 disabled:cursor-not-allowed shrink-0"
                     aria-label="Attach file"
                     title="Attach a file (PDF, image, or document)"
                   >
@@ -495,12 +494,12 @@ export default function ChatWidget() {
                     placeholder="Type your question..."
                     aria-label="Type your question"
                     disabled={isStreaming}
-                    className="flex-1 px-3 py-2 rounded-full border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#dcac35]/50 focus:border-[#dcac35] disabled:opacity-50"
+                    className="flex-1 px-3 py-2 rounded-full border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#C8A96E]/50 focus:border-[#C8A96E] disabled:opacity-50"
                   />
                   <button
                     onClick={handleSendMessage}
                     disabled={!input.trim() || isStreaming}
-                    className="w-11 h-11 rounded-full bg-[#dcac35] text-white flex items-center justify-center hover:bg-[#c99b2e] transition-colors disabled:opacity-40 disabled:cursor-not-allowed shrink-0"
+                    className="w-11 h-11 rounded-full bg-[#C8A96E] text-white flex items-center justify-center hover:bg-[#b8994e] transition-colors disabled:opacity-40 disabled:cursor-not-allowed shrink-0"
                     aria-label="Send message"
                   >
                     {isStreaming ? (
@@ -522,7 +521,7 @@ export default function ChatWidget() {
           <button
             onClick={() => {
               setShowBubble(false);
-              sessionStorage.setItem("klg-chat-dismissed", "1");
+              sessionStorage.setItem("rlg-chat-dismissed", "1");
             }}
             className="absolute -top-2 -right-2 w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center text-xs"
             aria-label="Dismiss"
@@ -530,7 +529,7 @@ export default function ChatWidget() {
             x
           </button>
           <p className="text-sm text-text">
-            Injured? Chat with us about your case!
+            Questions about your closing? Chat with us!
           </p>
         </div>
       )}
@@ -538,7 +537,7 @@ export default function ChatWidget() {
       {/* FAB Button */}
       <button
         onClick={handleToggle}
-        className="w-14 h-14 rounded-full bg-[#dcac35] text-white shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center hover:scale-105"
+        className="w-14 h-14 rounded-full bg-[#C8A96E] text-white shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center hover:scale-105"
         aria-label={isOpen ? "Close chat" : "Open chat"}
       >
         {isOpen ? (

@@ -10,15 +10,15 @@ import AboutPreview from "@/components/sections/AboutPreview";
 import CTABanner from "@/components/sections/CTABanner";
 import ServiceAreas from "@/components/sections/ServiceAreas";
 export const metadata: Metadata = {
-  title: "Chicago Personal Injury Lawyers | The Kryder Law Group",
+  title: "Chicago's Trusted Real Estate Attorneys | REAL Law Group",
   description:
-    "Over $100 million recovered for injured clients. Car accidents, truck accidents, medical malpractice, wrongful death. Free consultations 24/7. Call (312) 223-1700.",
-  alternates: { canonical: "https://kryderlaw.com/" },
+    "Personalized legal guidance for real estate, business, and estate planning. Serving Chicagoland since 2016. 300+ five star reviews. Call (630) 299-7600 for a free consultation.",
+  alternates: { canonical: "https://reallawgroup.com/" },
   openGraph: {
-    title: "Chicago Personal Injury Lawyers | The Kryder Law Group",
+    title: "Chicago's Trusted Real Estate Attorneys | REAL Law Group",
     description:
-      "Over $100 million recovered. Injuries hurt — we make the legal process painless. Free consultations 24/7.",
-    url: "https://kryderlaw.com/",
+      "Personalized legal guidance for real estate, business, and estate planning. Serving Chicagoland since 2016.",
+    url: "https://reallawgroup.com/",
   },
 };
 
@@ -36,24 +36,23 @@ export default function HomePage() {
       <section className="py-12 sm:py-16 bg-light-gold">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="font-heading text-2xl sm:text-3xl text-primary mb-4">
-            Ready to Get the Compensation You Deserve?
+            Ready to Get Started?
           </h2>
           <p className="text-text-muted mb-6">
-            Talk to an experienced injury attorney today — it&apos;s free and
-            confidential.
+            Schedule your free consultation with an experienced attorney today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/contact"
               className="btn-primary px-8 py-3.5 rounded-lg font-semibold text-center"
             >
-              Free Case Review
+              Free Consultation
             </a>
             <a
-              href="tel:+13122231700"
+              href="tel:+16302997600"
               className="btn-outline px-8 py-3.5 rounded-lg font-semibold text-center"
             >
-              Call (312) 223-1700
+              Call (630) 299-7600
             </a>
           </div>
         </div>

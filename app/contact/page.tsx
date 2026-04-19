@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Users } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import ContactForm from "@/components/ui/ContactForm";
 import GoogleMapsEmbed from "@/components/ui/GoogleMapsEmbed";
@@ -7,9 +7,9 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Contact Our Chicago Personal Injury Lawyers",
+  title: "Contact Our Elmhurst Real Estate Attorneys",
   description:
-    "Contact The Kryder Law Group for a free case review. Car accidents, truck accidents, medical malpractice, wrongful death. Call (312) 223-1700 — available 24/7.",
+    "Contact REAL Law Group for real estate, business, and estate planning legal services. Call (630) 299-7600 or visit us in Elmhurst, IL.",
   path: "/contact",
 });
 
@@ -30,11 +30,11 @@ export default function ContactPage() {
       <section className="page-hero">
         <div className="container-custom">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-            Free Case Review
+            Schedule Your Free Consultation
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl">
-            Tell us about your injury and our team will review your case for
-            free — no obligation, no fees unless we win.
+            Tell us about your situation and our team will get back to you
+            within one business day.
           </p>
         </div>
       </section>
@@ -52,7 +52,7 @@ export default function ContactPage() {
                 Get Started
               </h2>
               <p className="text-text-muted text-sm mb-8">
-                No obligation, no pressure. Tell us what happened and we&apos;ll
+                No obligation, no pressure. Tell us what you need and we&apos;ll
                 take it from there.
               </p>
               <ContactForm />
@@ -105,7 +105,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-xs uppercase tracking-wider text-text-muted font-medium mb-1">
-                      Main Office
+                      Address
                     </p>
                     <p className="text-primary font-medium">
                       {CONTACT.address}
@@ -119,12 +119,10 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-xs uppercase tracking-wider text-text-muted font-medium mb-1">
-                      Availability
+                      Hours
                     </p>
-                    <p className="text-primary font-medium">Available 24/7</p>
-                    <p className="text-text-muted text-sm">
-                      Free consultations anytime
-                    </p>
+                    <p className="text-primary font-medium">Mon-Fri: 8AM-7PM</p>
+                    <p className="text-primary font-medium">Sat: 8AM-3PM</p>
                   </div>
                 </div>
               </div>
@@ -134,11 +132,12 @@ export default function ContactPage() {
                 <GoogleMapsEmbed />
               </div>
 
-              {/* No fee note */}
+              {/* Referral note */}
               <div className="flex items-start gap-4 bg-light-gold rounded-xl p-6">
+                <Users className="w-6 h-6 text-secondary shrink-0 mt-0.5" />
                 <p className="text-sm text-text-muted leading-relaxed italic">
-                  &ldquo;No fees unless we win. We advance all case costs. You
-                  focus on healing — we handle the rest.&rdquo;
+                  &ldquo;Over 50% of our new clients are referrals by prior
+                  clients and other practicing lawyers.&rdquo;
                 </p>
               </div>
             </div>

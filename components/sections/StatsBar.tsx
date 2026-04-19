@@ -1,16 +1,24 @@
-import { Star, Award, DollarSign, LucideIcon } from "lucide-react";
+import { Star, Award, ThumbsUp, LucideIcon } from "lucide-react";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
+import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
 interface Stat {
   icon: LucideIcon;
-  textValue: string;
+  numericValue?: number;
+  suffix?: string;
+  textValue?: string;
   label: string;
 }
 
 const stats: Stat[] = [
-  { icon: Star, textValue: "4.9 Stars", label: "535+ Google Reviews" },
-  { icon: DollarSign, textValue: "$100M+", label: "Recovered for Clients" },
-  { icon: Award, textValue: "20+ Years", label: "Of Litigation Experience" },
+  { icon: Star, textValue: "4.9 Stars", label: "300+ Google Reviews" },
+  {
+    icon: Award,
+    numericValue: 25,
+    suffix: "+",
+    label: "Years Combined Experience",
+  },
+  { icon: ThumbsUp, textValue: "Top Rated", label: "Expertise.com 2024" },
 ];
 
 export default function StatsBar() {
@@ -23,7 +31,14 @@ export default function StatsBar() {
               <div className="flex flex-col items-center gap-2">
                 <stat.icon className="w-7 h-7 text-secondary mb-1" />
                 <span className="text-2xl md:text-3xl font-heading font-bold text-primary">
-                  {stat.textValue}
+                  {stat.numericValue ? (
+                    <AnimatedCounter
+                      target={stat.numericValue}
+                      suffix={stat.suffix}
+                    />
+                  ) : (
+                    stat.textValue
+                  )}
                 </span>
                 <span className="text-sm text-text-muted font-medium">
                   {stat.label}

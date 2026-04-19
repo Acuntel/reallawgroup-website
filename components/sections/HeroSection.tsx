@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Phone, Star } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
@@ -10,11 +11,20 @@ export default function HeroSection() {
 
   return (
     <section className="relative py-24 md:py-36 text-white overflow-hidden">
-      {/* Dark gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0c1a36]/95 via-[#1e2c4b]/90 to-[#32405d]/80" />
+      {/* Background image */}
+      <Image
+        src="/images/hero-skyline.webp"
+        alt="Chicago skyline"
+        fill
+        className="object-cover"
+        sizes="100vw"
+        priority
+      />
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0F1923]/70 via-[#1B2D4F]/55 to-[#2A5F8F]/35" />
 
       {/* Subtle glow */}
-      <div className="absolute top-[10%] left-[15%] w-[500px] h-[500px] rounded-full bg-[#dcac35]/10 blur-[120px] animate-gentle-pulse" />
+      <div className="absolute top-[10%] left-[15%] w-[500px] h-[500px] rounded-full bg-[#C8A96E]/10 blur-[120px] animate-gentle-pulse" />
 
       {/* Grid pattern */}
       <div
@@ -43,12 +53,12 @@ export default function HeroSection() {
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
-                  className="w-3 h-3 fill-[#dcac35] text-[#dcac35]"
+                  className="w-3 h-3 fill-[#C8A96E] text-[#C8A96E]"
                 />
               ))}
             </div>
             <span className="text-white/70 text-xs font-medium">
-              4.9 from 535+ Google Reviews
+              4.9 from 300+ Google Reviews
             </span>
           </motion.div>
 
@@ -65,7 +75,7 @@ export default function HeroSection() {
                   delay: 0.3,
                 }}
               >
-                Injuries Hurt.
+                Chicago&apos;s Trusted
               </motion.span>
             </span>
             <span className="block overflow-hidden">
@@ -79,9 +89,9 @@ export default function HeroSection() {
                   delay: 0.45,
                 }}
               >
-                We Make the Legal Process{" "}
-                <span className="bg-gradient-to-r from-[#dcac35] to-[#e8c567] bg-clip-text text-transparent">
-                  Painless.
+                Real Estate{" "}
+                <span className="bg-gradient-to-r from-[#C8A96E] to-[#E8C567] bg-clip-text text-transparent">
+                  Attorneys
                 </span>
               </motion.span>
             </span>
@@ -97,8 +107,8 @@ export default function HeroSection() {
               delay: 0.65,
             }}
           >
-            Over $100 million recovered for injured clients across Illinois and
-            the Midwest. No fees unless we win your case.
+            Personalized legal guidance for real estate, business, and estate
+            planning. Serving Chicagoland since 2016.
           </motion.p>
 
           <motion.div
@@ -108,7 +118,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.8 }}
           >
             <Link href="/contact" className="btn-primary text-center">
-              Free Case Review
+              Free Consultation
             </Link>
             <a href={CONTACT.phoneHref} className="btn-outline text-center">
               <Phone className="w-4 h-4 mr-2" />

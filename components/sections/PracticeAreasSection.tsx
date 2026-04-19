@@ -1,28 +1,28 @@
-import { Car, Truck, Stethoscope } from "lucide-react";
+import { Home, Building, FileText } from "lucide-react";
 import PracticeAreaCard from "../cards/PracticeAreaCard";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 
 const areas = [
   {
-    icon: Car,
-    title: "Car Accidents",
+    icon: Home,
+    title: "Real Estate Law",
     description:
-      "Head-on collisions, rear-end impacts, hit-and-run, rideshare accidents, and more. We fight for full compensation.",
-    href: "/practice-areas/car-accidents",
+      "Residential and commercial transactions, closings, contract negotiation, short sales, and more.",
+    href: "/practice-areas/real-estate",
   },
   {
-    icon: Truck,
-    title: "Truck Accidents",
+    icon: Building,
+    title: "Business Law",
     description:
-      "Commercial vehicle collisions involving rear-end, rollover, jackknife, and underride accidents. Multi-party liability expertise.",
-    href: "/practice-areas/truck-accidents",
+      "Entity formation, operating agreements, corporate governance, succession planning, and business transactions.",
+    href: "/practice-areas/business-law",
   },
   {
-    icon: Stethoscope,
-    title: "Medical Malpractice",
+    icon: FileText,
+    title: "Estate Planning",
     description:
-      "Diagnostic errors, surgical complications, medication errors, and failure to obtain informed consent.",
-    href: "/practice-areas/medical-malpractice",
+      "Wills, trusts, powers of attorney, probate administration, and asset protection plans.",
+    href: "/practice-areas/estate-planning",
   },
 ];
 
@@ -48,13 +48,13 @@ export default function PracticeAreasSection() {
 
         <div className="text-center mt-12">
           <p className="text-text-muted mb-4">
-            Injured and not sure where to start?
+            Not sure which service you need?
           </p>
           <a
             href="/contact"
             className="btn-primary inline-block px-8 py-3 rounded-lg font-semibold"
           >
-            Get a Free Case Review
+            Get a Free Consultation
           </a>
         </div>
       </div>

@@ -13,7 +13,7 @@ export function generatePageMetadata({
   path,
   noindex,
 }: PageMetadataParams): Metadata {
-  const url = `https://kryderlaw.com${path}`;
+  const url = `https://reallawgroup.com${path}`;
   return {
     title,
     description,
@@ -22,7 +22,7 @@ export function generatePageMetadata({
     },
     ...(noindex && { robots: { index: false, follow: true } }),
     openGraph: {
-      title: `${title} | The Kryder Law Group`,
+      title: `${title} | REAL Law Group`,
       description,
       url,
       type: "website",
@@ -31,13 +31,13 @@ export function generatePageMetadata({
           url: "/images/logo-banner.png",
           width: 1200,
           height: 630,
-          alt: "The Kryder Law Group",
+          alt: "REAL Law Group",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${title} | The Kryder Law Group`,
+      title: `${title} | REAL Law Group`,
       description,
       images: ["/images/logo-banner.png"],
     },

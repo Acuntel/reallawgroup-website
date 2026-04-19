@@ -10,18 +10,18 @@ interface CTABannerProps {
 }
 
 export default function CTABanner({
-  heading = "Injured? Let us fight for you.",
-  text = "Get the compensation you deserve from a team with over $100 million in recoveries. Free consultation — no fees unless we win.",
-  buttonText = "Get Your Free Case Review",
+  heading = "Ready to take the next step?",
+  text = "Get trusted, local legal support from a team that knows Chicago real estate and business law inside and out.",
+  buttonText = "Contact Us Now",
   buttonHref = "/contact",
 }: CTABannerProps) {
   return (
     <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto bg-[#0c1a36] rounded-2xl md:rounded-3xl px-8 py-16 md:px-16 md:py-20 text-center relative overflow-hidden">
+      <div className="max-w-5xl mx-auto bg-[#0F1923] rounded-2xl md:rounded-3xl px-8 py-16 md:px-16 md:py-20 text-center relative overflow-hidden">
         {/* Gradient glows */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-[30%] w-[400px] h-[400px] bg-[#32405d]/20 rounded-full blur-[120px]" />
-          <div className="absolute bottom-0 right-[20%] w-[300px] h-[300px] bg-[#dcac35]/10 rounded-full blur-[100px]" />
+          <div className="absolute top-0 left-[30%] w-[400px] h-[400px] bg-[#2A5F8F]/20 rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 right-[20%] w-[300px] h-[300px] bg-[#C8A96E]/10 rounded-full blur-[100px]" />
         </div>
 
         <div className="relative z-10">
@@ -34,7 +34,7 @@ export default function CTABanner({
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href={buttonHref}
-              className="inline-flex items-center justify-center px-8 py-3.5 bg-secondary text-white font-semibold rounded-lg transition-all duration-200 hover:shadow-[0_8px_32px_rgba(220,172,53,0.3)] hover:-translate-y-0.5 text-sm tracking-wide uppercase"
+              className="inline-flex items-center justify-center px-8 py-3.5 bg-secondary text-white font-semibold rounded-lg transition-all duration-200 hover:shadow-[0_8px_32px_rgba(200,169,110,0.3)] hover:-translate-y-0.5 text-sm tracking-wide uppercase"
             >
               {buttonText}
             </Link>
@@ -49,9 +49,9 @@ export default function CTABanner({
           <div className="flex items-center justify-center gap-3 mt-6 text-sm text-white/80">
             <span>Free & Confidential</span>
             <span className="w-1 h-1 rounded-full bg-white/60" />
-            <span>No Fee Unless We Win</span>
+            <span>No Obligation</span>
             <span className="w-1 h-1 rounded-full bg-white/60" />
-            <span>Available 24/7</span>
+            <span>Response Within 24 Hours</span>
           </div>
         </div>
       </div>

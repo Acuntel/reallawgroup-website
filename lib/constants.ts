@@ -1,9 +1,9 @@
 export const COLORS = {
-  primary: "#1e2c4b",
-  secondary: "#dcac35",
-  accent: "#32405d",
+  primary: "#1B2D4F",
+  secondary: "#866A2D",
+  accent: "#2A5F8F",
   background: "#FAFAF8",
-  dark: "#0c1a36",
+  dark: "#0F1923",
   text: "#1A1A1A",
   textMuted: "#5A6475",
   success: "#2D7A4F",
@@ -12,19 +12,16 @@ export const COLORS = {
 };
 
 export const CONTACT = {
-  phone: "(312) 223-1700",
-  phoneHref: "tel:+13122231700",
-  email: "akryder@kryderlaw.com",
-  address: "134 N LaSalle St, Suite 1515, Chicago, IL 60602",
-  hours: "24/7 — Free Consultations Available Anytime",
+  phone: "(630) 299-7600",
+  phoneHref: "tel:+16302997600",
+  email: "info@reallawgroup.com",
+  address: "381 N York St Suite 1, Elmhurst, IL 60126",
+  hours: "Mon-Fri: 8AM-7PM | Sat: 8AM-3PM",
   schedulingUrl: process.env.NEXT_PUBLIC_SCHEDULING_URL || "/contact",
-  googleMapsUrl: "https://g.page/kryderlawgroup?share",
-  facebook: "https://www.facebook.com/kryderlawgroup/",
-  instagram: "https://www.instagram.com/kryderlawgroupllc/",
-  linkedin:
-    "https://www.linkedin.com/company/the-kryder-law-group-llc-accident-and-injury-lawyers/about/",
-  twitter: "https://twitter.com/kryderlawgroup",
-  youtube: "https://www.youtube.com/@thekryderlawgroupllc",
+  googleMapsUrl: "https://g.page/reallawgroup?share",
+  facebook: "https://www.facebook.com/reallawgroup",
+  instagram: "https://www.instagram.com/reallawgroup/",
+  linkedin: "https://www.linkedin.com/company/reallawgroup",
 };
 
 export const NAV_LINKS = [
@@ -34,32 +31,45 @@ export const NAV_LINKS = [
     label: "Practice Areas",
     href: "/practice-areas",
     children: [
-      { label: "Car Accidents", href: "/practice-areas/car-accidents" },
-      { label: "Truck Accidents", href: "/practice-areas/truck-accidents" },
+      { label: "Real Estate Law", href: "/practice-areas/real-estate" },
+      { label: "Business Law", href: "/practice-areas/business-law" },
+      { label: "Estate Planning", href: "/practice-areas/estate-planning" },
+      { label: "HUD Closings", href: "/practice-areas/hud-closings" },
       {
-        label: "Motorcycle Accidents",
-        href: "/practice-areas/motorcycle-accidents",
+        label: "Building Violations",
+        href: "/practice-areas/building-violations",
       },
-      {
-        label: "Medical Malpractice",
-        href: "/practice-areas/medical-malpractice",
-      },
-      {
-        label: "Workers' Compensation",
-        href: "/practice-areas/workers-compensation",
-      },
-      {
-        label: "Catastrophic Injury",
-        href: "/practice-areas/catastrophic-injury",
-      },
-      { label: "Wrongful Death", href: "/practice-areas/wrongful-death" },
-      { label: "Slip and Fall", href: "/practice-areas/slip-and-fall" },
-      {
-        label: "Construction Accidents",
-        href: "/practice-areas/construction-accidents",
-      },
+      { label: "Land Trusts", href: "/practice-areas/land-trusts" },
+      { label: "Personal Injury", href: "/practice-areas/personal-injury" },
     ],
   },
-  { label: "Results", href: "/results" },
+  {
+    label: "Resources",
+    href: "/resources",
+    children: [
+      {
+        label: "Closing Cost Calculator",
+        href: "/resources/closing-cost-calculator",
+      },
+      { label: "For Sale By Owner", href: "/resources/for-sale-by-owner" },
+      { label: "Inherited Property", href: "/resources/inherited-property" },
+      { label: "Earnest Money FAQs", href: "/emd" },
+      { label: "Transfer Stamps", href: "/resources/transfer-stamps" },
+      {
+        label: "Real Estate Contract",
+        href: "/resources/real-estate-contract",
+      },
+      { label: "Prevent Wire Fraud", href: "/resources/prevent-wire-fraud" },
+      {
+        label: "Quit Claim Deeds",
+        href: "/resources/quit-claim-deeds-illinois",
+      },
+      { label: "Title Insurance FAQ", href: "/resources/title-insurance-faq" },
+    ],
+  },
+  {
+    label: "Real Estate Investors",
+    href: "/real-estate-investors",
+  },
   { label: "Contact Us", href: "/contact" },
 ];

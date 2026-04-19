@@ -60,8 +60,8 @@ export async function POST(req: NextRequest) {
           Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
         },
         body: JSON.stringify({
-          from: "Kryder Law Group Website <noreply@kryderlaw.com>",
-          to: ["ljimenez@kryderlaw.com"],
+          from: "REAL Law Group Website <noreply@reallawgroup.com>",
+          to: ["info@reallawgroup.com"],
           reply_to: email,
           subject: `New Contact: ${name} - ${service || "General Inquiry"}`,
           text: emailBody,
