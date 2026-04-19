@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { X, ChevronDown, Phone, Mail } from "lucide-react";
+import { X, ChevronDown, Phone, Mail, Globe } from "lucide-react";
 import { NAV_LINKS, CONTACT } from "@/lib/constants";
 
 interface MobileMenuProps {
@@ -152,6 +152,34 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
               )}
             </div>
           ))}
+
+          {/* Language switcher */}
+          <div className="mt-2 px-6 pt-4 border-t border-border">
+            <p className="flex items-center gap-2 text-xs font-semibold text-text-muted uppercase tracking-wide mb-3">
+              <Globe className="w-3.5 h-3.5" />
+              Language
+            </p>
+            <div className="flex gap-2 flex-wrap">
+              <Link
+                href="/"
+                className="text-sm text-primary hover:text-secondary px-3 py-1.5 rounded border border-border"
+              >
+                English
+              </Link>
+              <Link
+                href="/es"
+                className="text-sm text-primary hover:text-secondary px-3 py-1.5 rounded border border-border"
+              >
+                Español
+              </Link>
+              <Link
+                href="/pl"
+                className="text-sm text-primary hover:text-secondary px-3 py-1.5 rounded border border-border"
+              >
+                Polski
+              </Link>
+            </div>
+          </div>
 
           {/* Contact info */}
           <div className="mt-6 px-6 pt-6 border-t border-border space-y-4">
