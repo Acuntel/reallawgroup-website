@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Phone, Menu, ChevronDown } from "lucide-react";
+import { Phone, Menu, ChevronDown, Globe } from "lucide-react";
 import { NAV_LINKS, CONTACT } from "@/lib/constants";
 import MobileMenu from "./MobileMenu";
 
@@ -12,6 +12,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [langOpen, setLangOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -148,6 +149,52 @@ export default function Header() {
 
           {/* Phone + CTA + Mobile Toggle */}
           <div className="flex items-center gap-4">
+            {/* Language Switcher */}
+            <div
+              className="relative hidden md:block"
+              onMouseEnter={() => setLangOpen(true)}
+              onMouseLeave={() => setLangOpen(false)}
+            >
+              <button
+                type="button"
+                aria-haspopup="true"
+                aria-expanded={langOpen}
+                onFocus={() => setLangOpen(true)}
+                onKeyDown={(e) => {
+                  if (e.key === "Escape") setLangOpen(false);
+                }}
+                className="flex items-center gap-1 text-primary hover:text-secondary text-sm font-semibold transition-colors px-2 py-2"
+              >
+                <Globe className="w-4 h-4" />
+                <span>EN</span>
+                <ChevronDown className="w-3.5 h-3.5" />
+              </button>
+              {langOpen && (
+                <div className="absolute top-full right-0 pt-2 z-50">
+                  <div className="bg-white rounded-lg shadow-xl border border-border py-2 min-w-[160px]">
+                    <Link
+                      href="/"
+                      className="block px-5 py-2 text-sm text-text hover:text-secondary hover:bg-gray-50"
+                    >
+                      English
+                    </Link>
+                    <Link
+                      href="/es"
+                      className="block px-5 py-2 text-sm text-text hover:text-secondary hover:bg-gray-50"
+                    >
+                      Español
+                    </Link>
+                    <Link
+                      href="/pl"
+                      className="block px-5 py-2 text-sm text-text hover:text-secondary hover:bg-gray-50"
+                    >
+                      Polski
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+
             {/* Phone icon always visible on mobile */}
             <a
               href={CONTACT.phoneHref}
