@@ -50,7 +50,6 @@ ADDITIONAL RESOURCES ON OUR WEBSITE:
 - Earnest Money Deposit guide at /emd
 - For Sale By Owner resources at /resources/for-sale-by-owner
 - Inherited Property guide at /resources/inherited-property
-- Videos & educational content at /resources/videos
 
 KEY FAQ KNOWLEDGE:
 
