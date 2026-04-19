@@ -6,9 +6,9 @@ import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Earnest Money Deposits in Illinois — What Buyers Need to Know",
+  title: "Earnest Money FAQs — REAL Law Group",
   description:
-    "Learn how earnest money deposits work in Illinois real estate transactions. REAL Law Group explains EMD amounts, refund conditions, and how to protect your deposit. Call (630) 299-7600 for a free consultation.",
+    "Earnest money FAQs from REAL Law Group: how earnest money works, when it is refundable, and when it is forfeited. Call (630) 299-7600 for a free consultation.",
   path: "/emd",
 });
 
@@ -16,45 +16,30 @@ const refundReasons = [
   {
     title: "During the attorney review period",
     description:
-      "Illinois residential contracts include a five-business-day attorney review period. Either party can cancel the contract during this window, and the buyer receives a full refund of their earnest money.",
+      "Residential contracts generally include an attorney review period. Either party can cancel during this contingency.",
   },
   {
-    title: "Failed home inspection contingency",
+    title: "During home inspection",
     description:
-      "If the home inspection reveals material defects and the buyer and seller cannot agree on repairs or credits, the buyer can terminate the contract and recover their deposit under the inspection contingency.",
+      "If the parties cannot agree on the inspection response, the buyer can terminate under the inspection contingency.",
   },
   {
     title: "Financing contingency (mortgage denial)",
     description:
-      "When a buyer is unable to secure mortgage financing despite a good faith effort, the financing contingency protects the deposit. The buyer must provide documentation of the denial to receive a refund.",
+      "When a buyer is unable to secure a written mortgage commitment, the financing contingency protects the deposit.",
   },
   {
-    title: "Title defects discovered during title search",
+    title: "Title defects",
     description:
-      "If the title search reveals liens, encumbrances, or ownership disputes that the seller cannot resolve, the buyer can cancel the contract and reclaim their earnest money.",
-  },
-  {
-    title: "Seller fails to meet contractual obligations",
-    description:
-      "If the seller breaches the contract — for example, by failing to make agreed-upon repairs, missing deadlines, or being unable to deliver clear title — the buyer is entitled to a refund of the earnest money deposit.",
+      "If the title cannot be cleared as required under the contract, the buyer can cancel the contract.",
   },
 ];
 
 const forfeitReasons = [
   {
-    title: "Backing out after contingencies expire",
+    title: "Canceling after contingencies have expired",
     description:
-      "Once all contingency periods have passed and the contract is fully binding, walking away from the deal without a contractual basis means the seller is typically entitled to keep the earnest money as liquidated damages.",
-  },
-  {
-    title: "Missing contractual deadlines",
-    description:
-      "Failing to meet deadlines outlined in the contract — such as providing mortgage commitment letters or completing inspections within the specified timeframe — can put your deposit at risk.",
-  },
-  {
-    title: "Failing to secure financing after waiving contingency",
-    description:
-      "If a buyer waives the financing contingency to make their offer more competitive and then cannot obtain a mortgage, the seller may have grounds to retain the earnest money deposit.",
+      "Once all contingencies have been satisfied, cancellation without a contractual basis generally entitles the seller to keep the earnest money as liquidated damages.",
   },
 ];
 
@@ -62,32 +47,32 @@ const faqs = [
   {
     question: "How much earnest money should I put down in Chicagoland?",
     answer:
-      "In the Chicago metropolitan area, earnest money deposits typically range from 1% to 3% of the purchase price. On a $350,000 home, that means $3,500 to $10,500. In highly competitive neighborhoods or multiple-offer situations, buyers sometimes offer more to demonstrate stronger commitment. Your real estate attorney can advise on an appropriate amount based on the specific market and property.",
+      "In the Chicago metropolitan area, earnest money deposits typically range from 1% to 3% of the purchase price. On a $350,000 home, that means $3,500 to $10,500. In competitive neighborhoods or multiple-offer situations, buyers sometimes offer more to demonstrate stronger commitment. Your real estate attorney can advise on an appropriate amount based on the specific market and property.",
   },
   {
-    question: "Who holds the earnest money deposit in Illinois?",
+    question: "Who holds the earnest money deposit?",
     answer:
-      "In Illinois, the earnest money is typically held in escrow by the seller's attorney or a title company. The funds are deposited into a dedicated escrow account and are not released to either party until closing or until both parties agree to a disbursement. This arrangement protects both the buyer and seller during the transaction.",
+      "Earnest money is typically held in escrow by the listing agent or the title company. The funds remain in escrow and are not released until closing or until both parties agree to a disbursement.",
   },
   {
     question: "When is the earnest money deposit due?",
     answer:
-      "The earnest money deposit is usually due within a few days of the seller accepting the buyer's offer — the exact timeline is specified in the purchase contract. In most Chicagoland transactions, the deposit is delivered within one to three business days of contract acceptance, often before the attorney review period begins.",
+      "The earnest money deposit is typically due within one to three days after the contract is accepted. The deadline is generally written into the purchase contract.",
   },
   {
     question: "Is earnest money the same as a down payment?",
     answer:
-      "No, but they are related. The earnest money deposit is a good faith payment made when the contract is signed to show the buyer is serious. At closing, the earnest money is typically credited toward the buyer's down payment and closing costs. If the deal falls through, the earnest money is handled according to the contract terms — it may be refunded or forfeited depending on the circumstances.",
+      "No, but they are related. The earnest money deposit is a good-faith payment made when the contract is signed. At closing, it is typically credited toward the buyer's down payment and closing costs. If the deal falls through, the earnest money is handled according to the contract terms.",
   },
   {
     question:
       "What happens if there is a dispute over the earnest money deposit?",
     answer:
-      "Earnest money disputes are not uncommon in Illinois real estate transactions. If the buyer and seller disagree on who is entitled to the deposit, the escrow holder cannot release the funds until both parties agree or a court orders the disbursement. In many cases, the attorneys for each side negotiate a resolution. If no agreement is reached, the matter may require mediation or litigation to resolve.",
+      "Earnest money disputes are not uncommon in real estate transactions. If the buyer and seller disagree on who is entitled to the deposit, the escrow holder cannot release the funds until both parties agree or a court orders the disbursement. In many cases, the attorneys for each side negotiate a resolution. If no agreement is reached, the matter may require mediation or litigation to resolve.",
   },
 ];
 
-export default function EarnestMoneyDepositPage() {
+export default function EarnestMoneyFAQsPage() {
   return (
     <>
       <script
@@ -102,7 +87,7 @@ export default function EarnestMoneyDepositPage() {
           __html: JSON.stringify(
             generateBreadcrumbSchema([
               { name: "Home", url: "/" },
-              { name: "Earnest Money Deposits" },
+              { name: "Earnest Money FAQs" },
             ]),
           ),
         }}
@@ -111,19 +96,16 @@ export default function EarnestMoneyDepositPage() {
       <section className="page-hero">
         <div className="container-custom">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-            Earnest Money Deposits
+            Earnest Money FAQs
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl">
-            How good faith deposits work in Illinois real estate transactions.
+            How good-faith deposits work in real estate transactions.
           </p>
         </div>
       </section>
 
       <BreadcrumbNav
-        items={[
-          { label: "Home", href: "/" },
-          { label: "Earnest Money Deposits" },
-        ]}
+        items={[{ label: "Home", href: "/" }, { label: "Earnest Money FAQs" }]}
       />
 
       <section className="section-padding bg-white">
@@ -135,18 +117,16 @@ export default function EarnestMoneyDepositPage() {
             </h2>
             <div className="w-12 h-1 bg-secondary mb-8" />
             <p className="text-text-muted leading-relaxed mb-6">
-              An earnest money deposit — commonly referred to as EMD — is a good
-              faith payment made by a buyer when they enter into a contract to
-              purchase real property. The deposit signals to the seller that the
-              buyer is serious about completing the transaction and is willing
-              to put money on the line to prove it.
+              An earnest money deposit — commonly referred to as EMD — is a
+              good-faith payment made by a buyer when they enter into a contract
+              to purchase real property. The deposit signals to the seller that
+              the buyer is serious about completing the transaction.
             </p>
             <p className="text-text-muted leading-relaxed mb-6">
-              In Illinois, earnest money deposits are a standard part of
-              residential real estate transactions. The typical deposit ranges
-              from 1% to 3% of the purchase price, though the amount is
-              negotiable between the parties. On a $400,000 home in Chicagoland,
-              that translates to a deposit of $4,000 to $12,000.
+              Earnest money deposits are a standard part of residential real
+              estate transactions. The typical deposit ranges from 1% to 3% of
+              the purchase price, though the amount is negotiable. On a $400,000
+              home, that translates to a deposit of $4,000 to $12,000.
             </p>
             <p className="text-text-muted leading-relaxed">
               The earnest money is held in escrow throughout the transaction and
@@ -160,7 +140,7 @@ export default function EarnestMoneyDepositPage() {
           {/* How EMD Works */}
           <div className="mb-16">
             <h2 className="text-2xl md:text-3xl font-heading font-semibold mb-6">
-              How Earnest Money Works in Illinois
+              How Earnest Money Works
             </h2>
             <div className="w-12 h-1 bg-secondary mb-8" />
             <div className="bg-light-gold rounded-xl p-8">
@@ -170,11 +150,10 @@ export default function EarnestMoneyDepositPage() {
                     When It&apos;s Paid
                   </h3>
                   <p className="text-text-muted text-sm leading-relaxed">
-                    The earnest money deposit is typically due within one to
-                    three business days after the seller accepts the
-                    buyer&apos;s offer. The exact deadline is written into the
-                    purchase contract. The deposit is usually made by personal
-                    check or certified funds.
+                    The earnest money deposit is typically due 1-3 days after
+                    the contract is accepted. The deadline is generally written
+                    into the purchase contract. The deposit is usually made by
+                    wire transfer.
                   </p>
                 </div>
                 <div className="gold-border-left pl-6">
@@ -182,13 +161,10 @@ export default function EarnestMoneyDepositPage() {
                     Who Holds It
                   </h3>
                   <p className="text-text-muted text-sm leading-relaxed">
-                    In Illinois, the earnest money is held in escrow by the
-                    seller&apos;s attorney or a title company. The funds sit in
-                    a dedicated trust account and are not accessible to either
-                    party until the transaction closes or both sides agree to a
-                    release. This protects the buyer from a seller spending the
-                    deposit prematurely and protects the seller by ensuring the
-                    funds are secured.
+                    Earnest money is held in escrow by the listing agent or the
+                    title company. The funds are not accessible to either party
+                    until the transaction closes or both sides agree to a
+                    release.
                   </p>
                 </div>
                 <div className="gold-border-left pl-6">
@@ -198,25 +174,22 @@ export default function EarnestMoneyDepositPage() {
                   <p className="text-text-muted text-sm leading-relaxed">
                     When the transaction closes successfully, the earnest money
                     is applied as a credit toward the buyer&apos;s total amount
-                    due at closing. It reduces the cash the buyer needs to bring
-                    to the closing table.
+                    due at closing.
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* When You Can Get EMD Back */}
+          {/* When Refundable */}
           <div className="mb-16">
             <h2 className="text-2xl md:text-3xl font-heading font-semibold mb-6">
-              When You Can Get Your Earnest Money Back
+              When Your Earnest Money Is Refundable
             </h2>
             <div className="w-12 h-1 bg-secondary mb-8" />
             <p className="text-text-muted leading-relaxed mb-8">
-              Illinois purchase contracts include several contingencies that
-              protect a buyer&apos;s earnest money deposit. If any of these
-              contingencies are properly invoked, the buyer is entitled to a
-              full refund:
+              Purchase contracts typically include contingencies that protect
+              the buyer&apos;s earnest money.
             </p>
             <div className="space-y-4">
               {refundReasons.map((reason, i) => (
@@ -238,17 +211,12 @@ export default function EarnestMoneyDepositPage() {
             </div>
           </div>
 
-          {/* When You Might Lose EMD */}
+          {/* When Forfeited */}
           <div className="mb-16">
             <h2 className="text-2xl md:text-3xl font-heading font-semibold mb-6">
               When You Might Lose Your Earnest Money
             </h2>
             <div className="w-12 h-1 bg-secondary mb-8" />
-            <p className="text-text-muted leading-relaxed mb-8">
-              There are circumstances where a buyer&apos;s earnest money deposit
-              is at risk. Understanding these situations helps you avoid costly
-              mistakes:
-            </p>
             <div className="space-y-4">
               {forfeitReasons.map((reason, i) => (
                 <div
@@ -276,10 +244,9 @@ export default function EarnestMoneyDepositPage() {
             </h2>
             <div className="w-12 h-1 bg-secondary mb-8" />
             <p className="text-text-muted leading-relaxed mb-6">
-              The right amount of earnest money depends on the local market, the
-              property, and how competitive you want your offer to be. In
-              Chicagoland, the standard range is 1% to 3% of the purchase price.
-              Here is a general guideline:
+              The right amount depends on the local market, the property, and
+              how competitive you want your offer to be. In Chicagoland, the
+              standard range is 1% to 3% of the purchase price.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
               <div className="bg-background rounded-xl p-6 border border-border text-center">
@@ -311,11 +278,11 @@ export default function EarnestMoneyDepositPage() {
               </div>
             </div>
             <p className="text-text-muted leading-relaxed">
-              Putting down a larger earnest money deposit can make your offer
-              stand out in a competitive situation, but it also means more money
-              is at risk if the deal falls apart outside of a contingency. Your
-              attorney at REAL Law Group can help you determine an amount that
-              strengthens your offer while keeping your risk manageable.
+              A larger earnest money deposit can make your offer stand out in a
+              competitive situation, but it also means more money is at risk if
+              the deal falls apart outside of a contingency. Your attorney at
+              REAL Law Group can help you determine an amount that strengthens
+              your offer while keeping your risk manageable.
             </p>
           </div>
 
@@ -332,7 +299,7 @@ export default function EarnestMoneyDepositPage() {
 
       <CTABanner
         heading="Questions about earnest money? Contact us."
-        text="REAL Law Group protects buyers and sellers throughout Chicagoland real estate transactions. Call (630) 299-7600 or schedule a consultation."
+        text="REAL Law Group represents buyers and sellers throughout Chicagoland real estate transactions. Call (630) 299-7600 or schedule a consultation."
         buttonText="Schedule a Consultation"
       />
     </>

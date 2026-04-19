@@ -1,9 +1,10 @@
 const CREDENTIALS = [
   { name: "Top Rated — Expertise.com", year: "2024" },
+  { name: "Super Lawyers" },
   { name: "Illinois State Bar Association" },
   { name: "Chicago Bar Association" },
   { name: "DuPage County Bar Association" },
-  { name: "IL Real Estate Lawyers Association" },
+  { name: "Illinois Real Estate Lawyers Association" },
   { name: "Justinian Society of Lawyers" },
 ];
 

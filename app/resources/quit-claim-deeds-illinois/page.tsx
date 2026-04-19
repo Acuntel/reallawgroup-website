@@ -3,9 +3,9 @@ import CTABanner from "@/components/sections/CTABanner";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Illinois Quit Claim Deeds",
+  title: "Quit Claim Deeds",
   description:
-    "Complete guide to quit claim deeds in Illinois. Learn what they are, when to use them, and their legal implications from REAL Law Group. Call (630) 299-7600 for a free consultation.",
+    "Complete guide to quit claim deeds. Learn what they are, when to use them, and their legal implications from REAL Law Group. Call (630) 299-7600 for a free consultation.",
   path: "/resources/quit-claim-deeds-illinois",
 });
 
@@ -15,10 +15,10 @@ export default function QuitClaimDeedsPage() {
       <section className="page-hero">
         <div className="container-custom">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-            Illinois Quit Claim Deeds
+            Quit Claim Deeds
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl">
-            Understanding quit claim deeds and how they work in Illinois.
+            Understanding quit claim deeds and how they are used.
           </p>
         </div>
       </section>
@@ -27,7 +27,7 @@ export default function QuitClaimDeedsPage() {
         items={[
           { label: "Home", href: "/" },
           { label: "Resources", href: "/resources" },
-          { label: "Illinois Quit Claim Deeds" },
+          { label: "Quit Claim Deeds" },
         ]}
       />
 
@@ -54,7 +54,7 @@ export default function QuitClaimDeedsPage() {
           </p>
 
           <h2 className="text-2xl font-heading font-semibold mb-6">
-            When Are Quit Claim Deeds Used in Illinois?
+            When Are Quit Claim Deeds Used?
           </h2>
           <div className="w-12 h-1 bg-secondary mb-8" />
 
@@ -91,18 +91,6 @@ export default function QuitClaimDeedsPage() {
                 living trust. A quit claim deed facilitates this by conveying
                 the property from the individual to the trust for asset
                 management and probate avoidance.
-              </p>
-            </div>
-
-            <div className="gold-border-left pl-6">
-              <h3 className="text-lg font-semibold text-primary mb-2">
-                Clearing Title Issues
-              </h3>
-              <p className="text-text-muted text-sm leading-relaxed">
-                Quit claim deeds can resolve title defects or cloud on title
-                issues. If a previous owner has a potential claim, they can
-                execute a quit claim deed to remove any interest and clear the
-                title for the current owner.
               </p>
             </div>
 

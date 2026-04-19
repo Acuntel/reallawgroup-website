@@ -53,7 +53,7 @@ export const NAV_LINKS = [
       },
       { label: "For Sale By Owner", href: "/resources/for-sale-by-owner" },
       { label: "Inherited Property", href: "/resources/inherited-property" },
-      { label: "Earnest Money Deposits", href: "/emd" },
+      { label: "Earnest Money FAQs", href: "/emd" },
       { label: "Transfer Stamps", href: "/resources/transfer-stamps" },
       {
         label: "Real Estate Contract",
@@ -61,12 +61,15 @@ export const NAV_LINKS = [
       },
       { label: "Prevent Wire Fraud", href: "/resources/prevent-wire-fraud" },
       {
-        label: "Illinois Quit Claim Deeds",
+        label: "Quit Claim Deeds",
         href: "/resources/quit-claim-deeds-illinois",
       },
       { label: "Title Insurance FAQ", href: "/resources/title-insurance-faq" },
-      { label: "Videos", href: "/resources/videos" },
     ],
+  },
+  {
+    label: "Real Estate Investors",
+    href: "/real-estate-investors",
   },
   { label: "Contact Us", href: "/contact" },
 ];

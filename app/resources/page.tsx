@@ -31,7 +31,7 @@ const resources = [
     href: "/resources/inherited-property",
   },
   {
-    title: "Earnest Money Deposits",
+    title: "Earnest Money FAQs",
     excerpt:
       "What is earnest money, how much should you put down, and when can you get it back? Everything Illinois buyers need to know.",
     href: "/emd",
@@ -55,10 +55,16 @@ const resources = [
     href: "/resources/prevent-wire-fraud",
   },
   {
-    title: "Illinois Quit Claim Deeds",
+    title: "Quit Claim Deeds",
     excerpt:
-      "Everything you need to know about quit claim deeds in Illinois, including when and how they are used.",
+      "Everything you need to know about quit claim deeds, including when and how they are used.",
     href: "/resources/quit-claim-deeds-illinois",
+  },
+  {
+    title: "Real Estate Investors",
+    excerpt:
+      "Legal support for investors buying, selling, and holding Chicagoland real estate — acquisitions, entity formation, title, and closings.",
+    href: "/real-estate-investors",
   },
   {
     title: "Data Breach Prevention",

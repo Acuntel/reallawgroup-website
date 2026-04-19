@@ -46,13 +46,13 @@ const teamMembers = [
     name: "Eva Boozer",
     title: "Legal Assistant",
     initials: "EB",
-    bio: "Eva serves as the Legal Assistant at REAL Law Group, P.C., providing essential administrative and organizational support to attorneys, helping ensure the efficient operation of a legal office. This role involves preparing and reviewing legal documents, managing case files, scheduling appointments and court dates, and maintaining accurate records.",
+    bio: "Eva serves as the Legal Assistant at REAL Law Group, P.C., providing essential administrative and organizational support to attorneys, helping ensure the efficient operation of a legal office. This role involves preparing and reviewing legal documents, managing case files, scheduling appointments and court dates, and maintaining accurate records. Mówię po polsku.",
   },
   {
     name: "Gina Zardetto",
-    title: "Paralegal & Social Media Manager",
+    title: "Paralegal",
     initials: "GZ",
-    bio: "Gina Zardetto is a paralegal and social media manager for REAL Law Group, P.C. She attended DePaul University and studied political science, mass media, and marketing. She assists with paralegal duties and manages the firm's marketing and social media presence.",
+    bio: "Gina Zardetto is a paralegal for REAL Law Group, P.C. She attended DePaul University and studied political science, mass media, and marketing. She assists with paralegal duties supporting the firm's real estate and estate planning practices.",
   },
 ];
 

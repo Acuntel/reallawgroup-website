@@ -73,17 +73,12 @@ const faqs = [
     question:
       "Is it legal to sell a house without a real estate agent in Illinois?",
     answer:
-      "Yes. Illinois does not require you to use a real estate agent to sell your home. However, Illinois law does require attorney involvement in residential real estate transactions. Whether you use an agent or not, you will need a real estate attorney to handle the legal aspects of the sale.",
+      "Yes. Illinois does not require you to use a real estate agent to sell your home. Whether or not you use a realtor, you will likely benefit from hiring a real estate attorney.",
   },
   {
-    question: "What does a real estate attorney do for a FSBO seller?",
+    question: "What does a real estate attorney do?",
     answer:
       "Your attorney drafts or reviews the purchase contract, negotiates modifications with the buyer's attorney, orders and reviews the title search, prepares closing documents including the deed and settlement statement, coordinates with the buyer's lender and title company, and ensures all legal requirements are met through closing.",
-  },
-  {
-    question: "How much can I save by selling my home FSBO?",
-    answer:
-      "By not paying a listing agent commission — typically 2.5% to 3% of the sale price — you keep more of your equity. On a $400,000 home, that translates to $10,000 to $12,000 in savings. Attorney fees for handling the legal side of the transaction are a fraction of that amount.",
   },
   {
     question: "Do I still have to pay the buyer's agent commission?",
@@ -189,17 +184,14 @@ export default function ForSaleByOwnerPage() {
             </h2>
             <div className="w-12 h-1 bg-secondary mb-8" />
             <p className="text-text-muted leading-relaxed mb-6">
-              The primary financial advantage of selling FSBO is eliminating the
-              listing agent&apos;s commission — typically 2.5% to 3% of the sale
-              price. On a $400,000 home, that&apos;s $10,000 to $12,000 you keep
-              in your pocket instead of paying to an agent.
+              The primary advantage of selling by owner is eliminating the
+              realtor commission.
             </p>
             <p className="text-text-muted leading-relaxed mb-8">
-              Attorney fees for handling the legal side of a FSBO transaction
-              are a fraction of that cost. You get full legal representation
+              Attorney fees for handling the legal side of the transaction are
+              billed on a flat-fee basis. You get full legal representation
               through every stage of the sale — contract review, title work,
-              negotiations, and closing — while retaining the vast majority of
-              the savings from not using a listing agent.
+              negotiations, and closing.
             </p>
           </div>
 

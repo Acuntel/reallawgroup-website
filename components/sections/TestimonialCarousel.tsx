@@ -13,16 +13,6 @@ const testimonials = [
     context: "Real Estate Client, Naperville",
   },
   {
-    text: "They handled our LLC formation quickly and explained everything in plain language. First-class service from start to finish.",
-    author: "L.S.",
-    context: "Business Formation Client",
-  },
-  {
-    text: "As first-time homebuyers, we had a million questions. Vince was patient, thorough, and made us feel confident every step of the way.",
-    author: "K.D.",
-    context: "First-Time Home Buyer, Chicago",
-  },
-  {
     text: "Sarah and the team were incredible during our commercial closing. The attention to detail on the loan documents saved us from a costly mistake.",
     author: "R.T.",
     context: "Commercial Real Estate Client",
