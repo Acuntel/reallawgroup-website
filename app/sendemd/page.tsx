@@ -100,17 +100,14 @@ export default function SendEMDPage() {
 
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <Phone className="w-6 h-6 text-secondary shrink-0 mt-1" />
+                <Hash className="w-6 h-6 text-secondary shrink-0 mt-1" />
                 <div>
                   <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-1">
-                    Need Our Account Number?
+                    Account Number
                   </p>
-                  <a
-                    href={CONTACT.phoneHref}
-                    className="text-lg md:text-xl font-heading font-bold text-primary hover:text-secondary transition-colors"
-                  >
-                    Call {CONTACT.phone}
-                  </a>
+                  <p className="text-2xl md:text-3xl font-heading font-bold text-primary tracking-wider">
+                    939106337
+                  </p>
                 </div>
               </div>
 
@@ -144,11 +141,8 @@ export default function SendEMDPage() {
                   <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-1">
                     Reference on the Wire or Check
                   </p>
-                  <p className="text-base text-text-muted leading-relaxed mb-2">
-                    The property address you are purchasing.
-                  </p>
                   <p className="text-lg md:text-xl font-heading font-bold text-primary">
-                    432 Ridgeland Avenue, Elmhurst, IL 60126
+                    The property address you are purchasing.
                   </p>
                 </div>
               </div>
