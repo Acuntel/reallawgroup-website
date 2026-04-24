@@ -1,6 +1,7 @@
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import CTABanner from "@/components/sections/CTABanner";
 import { generatePageMetadata } from "@/lib/metadata";
+import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 
 export const metadata = generatePageMetadata({
   title: "Title Insurance FAQ",
@@ -56,6 +57,24 @@ const faqs = [
 export default function TitleInsuranceFaqPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateFAQSchema(faqs)),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              { name: "Home", url: "/" },
+              { name: "Resources", url: "/resources" },
+              { name: "Title Insurance FAQ" },
+            ]),
+          ),
+        }}
+      />
       <section className="page-hero">
         <div className="container-custom">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
