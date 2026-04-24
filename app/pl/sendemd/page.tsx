@@ -103,17 +103,14 @@ export default function SendEMDPagePL() {
 
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <Phone className="w-6 h-6 text-secondary shrink-0 mt-1" />
+                <Hash className="w-6 h-6 text-secondary shrink-0 mt-1" />
                 <div>
                   <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-1">
-                    Potrzebują Państwo naszego numeru konta?
+                    Numer konta
                   </p>
-                  <a
-                    href={CONTACT.phoneHref}
-                    className="text-lg md:text-xl font-heading font-bold text-primary hover:text-secondary transition-colors"
-                  >
-                    Zadzwoń {CONTACT.phone}
-                  </a>
+                  <p className="text-2xl md:text-3xl font-heading font-bold text-primary tracking-wider">
+                    939106337
+                  </p>
                 </div>
               </div>
 
@@ -147,11 +144,8 @@ export default function SendEMDPagePL() {
                   <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-1">
                     Tytuł przelewu lub czeku
                   </p>
-                  <p className="text-base text-text-muted leading-relaxed mb-2">
-                    Adres nieruchomości, którą Państwo kupują.
-                  </p>
                   <p className="text-lg md:text-xl font-heading font-bold text-primary">
-                    432 Ridgeland Avenue, Elmhurst, IL 60126
+                    Adres nieruchomości, którą Państwo kupują.
                   </p>
                 </div>
               </div>
