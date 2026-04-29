@@ -49,6 +49,12 @@ const resources = [
     href: "/resources/real-estate-contract",
   },
   {
+    title: "Illinois Real Estate Forms & Disclosures",
+    excerpt:
+      "Plain-English guide to the standard forms in a Chicagoland home sale — Multi-Board Contract, Property Disclosure, Radon, and Lead-Based Paint.",
+    href: "/resources/illinois-real-estate-forms",
+  },
+  {
     title: "Prevent Wire Fraud",
     excerpt:
       "Learn how to protect yourself from wire fraud during real estate transactions with these essential tips.",
