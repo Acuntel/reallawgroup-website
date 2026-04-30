@@ -33,15 +33,15 @@ export default function Header() {
           scrolled ? "shadow-md" : "shadow-none"
         }`}
       >
-        <div className="container-custom flex items-center justify-between h-20">
+        <div className="container-custom flex items-center justify-between h-24 md:h-28">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <Image
               src="/images/logo-banner.png"
               alt="REAL Law Group"
-              width={200}
-              height={50}
-              className="h-10 md:h-12 w-auto"
+              width={280}
+              height={70}
+              className="h-14 md:h-20 w-auto"
               priority
             />
           </Link>
