@@ -11,12 +11,6 @@ const nextConfig = {
         destination: "https://www.atgf.com/tax-ordinance/all",
         permanent: false,
       },
-      {
-        source: "/resources/real-estate-contract",
-        destination:
-          "https://chicagorealtor.com/wp-content/uploads/wp-private-media/2025/01/01/8.0-Multi-Board-Residential-Contract.pdf",
-        permanent: false,
-      },
     ];
   },
   async headers() {
