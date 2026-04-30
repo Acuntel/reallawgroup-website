@@ -43,16 +43,10 @@ const resources = [
     href: "/resources/transfer-stamps",
   },
   {
-    title: "Real Estate Contract",
+    title: "Real Estate Contract & Disclosures",
     excerpt:
-      "Access the Multi-Board Residential Real Estate Contract used in Chicagoland transactions.",
+      "Download the standard Chicagoland forms — Multi-Board Contract 8.0, Illinois Property Disclosure, Radon Disclosure, and Lead-Based Paint Disclosure.",
     href: "/resources/real-estate-contract",
-  },
-  {
-    title: "Illinois Real Estate Forms & Disclosures",
-    excerpt:
-      "Plain-English guide to the standard forms in a Chicagoland home sale — Multi-Board Contract, Property Disclosure, Radon, and Lead-Based Paint.",
-    href: "/resources/illinois-real-estate-forms",
   },
   {
     title: "Prevent Wire Fraud",
