@@ -237,8 +237,8 @@ export default function IllinoisRealEstateFormsPage() {
             <p className="text-sm text-text-muted leading-relaxed">
               REAL Law Group represents buyers and sellers across the Chicago
               area from contract review through closing. If you have a contract
-              in hand or a question about any form on this page, we are happy to
-              look at it.
+              in hand, are being asked to sign one, or have a question about any
+              form on this page, we are happy to speak with you.
             </p>
           </div>
         </div>
