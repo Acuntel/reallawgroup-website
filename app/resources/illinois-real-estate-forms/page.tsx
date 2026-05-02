@@ -68,7 +68,7 @@ const forms: FormItem[] = [
     action: {
       kind: "download",
       href: PROPERTY_DISCLOSURE_PDF_URL,
-      label: "Open Disclosure PDF",
+      label: "Open Property Disclosure PDF",
     },
   },
   {
@@ -80,7 +80,7 @@ const forms: FormItem[] = [
     action: {
       kind: "download",
       href: RADON_DISCLOSURE_PDF_URL,
-      label: "Open Disclosure PDF",
+      label: "Open Radon Disclosure PDF",
     },
   },
   {
@@ -91,7 +91,7 @@ const forms: FormItem[] = [
     action: {
       kind: "download",
       href: LEAD_PAINT_DISCLOSURE_PDF_URL,
-      label: "Open Disclosure PDF",
+      label: "Open Lead-Based Paint Disclosure PDF",
     },
   },
   {
