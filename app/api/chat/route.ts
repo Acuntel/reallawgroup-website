@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import Anthropic from "@anthropic-ai/sdk";
 import { checkRateLimit } from "@/lib/rate-limit";
+import { ChatLocale, LANGUAGE_INSTRUCTION } from "@/lib/chat-translations";
 
 const SYSTEM_PROMPT = `You are the AI assistant for REAL Law Group, P.C. — a Chicago-area law firm founded in 2016 by Vincent Anthony Incopero. You are embedded on their website to help potential clients learn about services and guide them toward scheduling a consultation.
 
@@ -159,7 +160,9 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { messages, leadInfo } = await req.json();
+    const { messages, leadInfo, locale } = await req.json();
+    const chatLocale: ChatLocale =
+      locale === "es" || locale === "pl" ? locale : "en";
 
     if (!messages || !Array.isArray(messages)) {
       return new Response(JSON.stringify({ error: "Messages are required." }), {
@@ -190,6 +193,7 @@ export async function POST(req: NextRequest) {
 
     // Build context-aware system prompt with lead info
     let contextPrompt = SYSTEM_PROMPT;
+    contextPrompt += `\n\nLANGUAGE:\n${LANGUAGE_INSTRUCTION[chatLocale]}`;
     if (leadInfo) {
       contextPrompt += `\n\nCURRENT USER INFO:\n- Name: ${leadInfo.name}\n- Email: ${leadInfo.email}`;
       if (leadInfo.phone) contextPrompt += `\n- Phone: ${leadInfo.phone}`;

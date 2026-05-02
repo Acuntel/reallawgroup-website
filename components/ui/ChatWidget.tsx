@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, FormEvent } from "react";
+import { usePathname } from "next/navigation";
 import {
   MessageCircle,
   X,
@@ -11,6 +12,12 @@ import {
   Paperclip,
 } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
+import {
+  CHAT_LOCALES,
+  CHAT_STRINGS,
+  ChatLocale,
+  detectLocaleFromPath,
+} from "@/lib/chat-translations";
 
 interface Message {
   role: "user" | "assistant";
@@ -26,14 +33,17 @@ interface LeadInfo {
 
 type WidgetState = "closed" | "lead-form" | "chatting";
 
-const serviceOptions = [
-  "Real Estate Transaction",
-  "Business Law",
-  "Estate Planning",
-  "Other / Not Sure",
-];
-
 export default function ChatWidget() {
+  const pathname = usePathname();
+  const [locale, setLocale] = useState<ChatLocale>(() =>
+    detectLocaleFromPath(pathname),
+  );
+  const t = CHAT_STRINGS[locale];
+
+  useEffect(() => {
+    setLocale(detectLocaleFromPath(pathname));
+  }, [pathname]);
+
   const [state, setState] = useState<WidgetState>("closed");
   const [leadInfo, setLeadInfo] = useState<LeadInfo>({
     name: "",
@@ -86,11 +96,11 @@ export default function ChatWidget() {
 
   const validateLeadForm = () => {
     const errors: Record<string, string> = {};
-    if (!leadInfo.name.trim()) errors.name = "Name is required";
+    if (!leadInfo.name.trim()) errors.name = t.nameRequired;
     if (!leadInfo.email.trim()) {
-      errors.email = "Email is required";
+      errors.email = t.emailRequired;
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(leadInfo.email)) {
-      errors.email = "Enter a valid email";
+      errors.email = t.emailInvalid;
     }
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
@@ -107,6 +117,7 @@ export default function ChatWidget() {
           size: `${(f.size / 1024).toFixed(1)} KB`,
         }));
       }
+      payload.locale = locale;
       await fetch("/api/chat/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -126,13 +137,9 @@ export default function ChatWidget() {
 
     // Generate greeting
     const firstName = leadInfo.name.split(" ")[0];
-    const serviceText = leadInfo.service
-      ? ` I see you're interested in ${leadInfo.service.toLowerCase()}.`
-      : "";
-
     const greeting: Message = {
       role: "assistant",
-      content: `Hi ${firstName}! I'm the REAL Law Group virtual assistant.${serviceText} How can I help you today?`,
+      content: t.greeting(firstName, leadInfo.service || null),
     };
 
     setMessages([greeting]);
@@ -163,6 +170,7 @@ export default function ChatWidget() {
             content: m.content,
           })),
           leadInfo,
+          locale,
         }),
       });
 
@@ -194,9 +202,7 @@ export default function ChatWidget() {
         });
       }
     } catch {
-      setChatError(
-        "Something went wrong. Please try again or call us directly.",
-      );
+      setChatError(t.errorMessage);
       // Remove the empty assistant message
       setMessages((prev) => {
         if (prev[prev.length - 1]?.content === "") {
@@ -257,34 +263,60 @@ export default function ChatWidget() {
       {isOpen && (
         <div
           role="dialog"
-          aria-label="Chat with REAL Law Group"
+          aria-label={t.headerTitle}
           aria-modal="true"
           className="absolute bottom-16 right-0 w-[calc(100vw-2rem)] sm:w-[380px] bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden mb-2 flex flex-col max-h-[min(520px,calc(100vh-160px))] max-lg:max-h-[min(520px,calc(100vh-180px))]"
         >
           {/* Header */}
           <div className="bg-[#1B2D4F] px-4 py-3 flex items-center justify-between shrink-0">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-[#C8A96E]/20 flex items-center justify-center">
+            <div className="flex items-center gap-2.5 min-w-0">
+              <div className="w-8 h-8 rounded-full bg-[#C8A96E]/20 flex items-center justify-center shrink-0">
                 <MessageCircle className="w-4 h-4 text-[#C8A96E]" />
               </div>
-              <div>
-                <h3 className="text-white font-semibold text-sm leading-tight">
-                  REAL Law Group
+              <div className="min-w-0">
+                <h3 className="text-white font-semibold text-sm leading-tight truncate">
+                  {t.headerTitle}
                 </h3>
-                <p className="text-gray-400 text-[11px]">
+                <p className="text-gray-400 text-[11px] truncate">
                   {state === "chatting"
-                    ? "Online - Typically replies instantly"
-                    : "Virtual Assistant"}
+                    ? t.headerSubtitleOnline
+                    : t.headerSubtitleAssistant}
                 </p>
               </div>
             </div>
-            <button
-              onClick={handleToggle}
-              className="text-white/60 hover:text-white transition-colors p-2"
-              aria-label="Close chat"
-            >
-              <X className="w-4 h-4" />
-            </button>
+            <div className="flex items-center gap-1 shrink-0">
+              <div
+                role="group"
+                aria-label={t.languageAriaLabel}
+                className="flex items-center bg-white/10 rounded-full p-0.5"
+              >
+                {CHAT_LOCALES.map(({ code, label }) => {
+                  const active = locale === code;
+                  return (
+                    <button
+                      key={code}
+                      type="button"
+                      onClick={() => setLocale(code)}
+                      aria-pressed={active}
+                      className={`px-2 py-0.5 text-[10px] font-semibold rounded-full transition-colors ${
+                        active
+                          ? "bg-[#C8A96E] text-white"
+                          : "text-white/70 hover:text-white"
+                      }`}
+                    >
+                      {label}
+                    </button>
+                  );
+                })}
+              </div>
+              <button
+                onClick={handleToggle}
+                className="text-white/60 hover:text-white transition-colors p-2"
+                aria-label={t.closeChatAria}
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
           </div>
 
           {/* Lead Form */}
@@ -293,15 +325,13 @@ export default function ChatWidget() {
               onSubmit={handleLeadSubmit}
               className="p-4 space-y-3 overflow-y-auto"
             >
-              <p className="text-sm text-gray-600 mb-1">
-                Quick intro so we can help you better:
-              </p>
+              <p className="text-sm text-gray-600 mb-1">{t.leadFormIntro}</p>
 
               <div>
                 <input
                   type="text"
-                  placeholder="Your name *"
-                  aria-label="Your name"
+                  placeholder={t.namePlaceholder}
+                  aria-label={t.nameAriaLabel}
                   autoComplete="name"
                   value={leadInfo.name}
                   onChange={(e) => handleLeadChange("name", e.target.value)}
@@ -319,8 +349,8 @@ export default function ChatWidget() {
               <div>
                 <input
                   type="email"
-                  placeholder="Email address *"
-                  aria-label="Your email"
+                  placeholder={t.emailPlaceholder}
+                  aria-label={t.emailAriaLabel}
                   autoComplete="email"
                   value={leadInfo.email}
                   onChange={(e) => handleLeadChange("email", e.target.value)}
@@ -337,8 +367,8 @@ export default function ChatWidget() {
 
               <input
                 type="tel"
-                placeholder="Phone (optional)"
-                aria-label="Your phone number"
+                placeholder={t.phonePlaceholder}
+                aria-label={t.phoneAriaLabel}
                 autoComplete="tel"
                 value={leadInfo.phone}
                 onChange={(e) => handleLeadChange("phone", e.target.value)}
@@ -347,12 +377,12 @@ export default function ChatWidget() {
 
               <select
                 value={leadInfo.service}
-                aria-label="Select a service"
+                aria-label={t.serviceAriaLabel}
                 onChange={(e) => handleLeadChange("service", e.target.value)}
                 className="w-full px-3 py-2.5 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#C8A96E]/50 focus:border-[#C8A96E] text-gray-600"
               >
-                <option value="">What can we help with?</option>
-                {serviceOptions.map((opt) => (
+                <option value="">{t.servicePlaceholder}</option>
+                {t.serviceOptions.map((opt) => (
                   <option key={opt} value={opt}>
                     {opt}
                   </option>
@@ -363,7 +393,7 @@ export default function ChatWidget() {
                 type="submit"
                 className="w-full bg-[#C8A96E] hover:bg-[#b8994e] text-white font-medium py-2.5 rounded-lg text-sm transition-colors flex items-center justify-center gap-2"
               >
-                Start Chat
+                {t.startChat}
                 <ArrowRight className="w-4 h-4" />
               </button>
 
@@ -372,7 +402,7 @@ export default function ChatWidget() {
                   href={CONTACT.phoneHref}
                   className="text-[11px] text-gray-400 hover:text-[#1B2D4F] transition-colors"
                 >
-                  Prefer to talk? Call {CONTACT.phone}
+                  {t.preferToCall(CONTACT.phone)}
                 </a>
               </div>
             </form>
@@ -430,14 +460,14 @@ export default function ChatWidget() {
                   }
                   className="flex-1 text-center text-xs font-medium py-2.5 rounded-full border border-[#1B2D4F] text-[#1B2D4F] hover:bg-[#1B2D4F] hover:text-white transition-colors"
                 >
-                  Schedule Consultation
+                  {t.scheduleConsultation}
                 </a>
                 <a
                   href={CONTACT.phoneHref}
                   className="flex-1 text-center text-xs font-medium py-2.5 rounded-full bg-[#1B2D4F] text-white hover:bg-[#0F1923] transition-colors flex items-center justify-center gap-1"
                 >
                   <Phone className="w-3.5 h-3.5" />
-                  Call Now
+                  {t.callNow}
                 </a>
               </div>
 
@@ -456,7 +486,7 @@ export default function ChatWidget() {
                       <button
                         onClick={() => removeAttachment(i)}
                         className="text-gray-400 hover:text-red-500 ml-0.5"
-                        aria-label={`Remove ${file.name}`}
+                        aria-label={t.removeAttachment(file.name)}
                       >
                         <X className="w-3 h-3" />
                       </button>
@@ -480,8 +510,8 @@ export default function ChatWidget() {
                     onClick={() => fileInputRef.current?.click()}
                     disabled={isStreaming || attachments.length >= 3}
                     className="w-11 h-11 rounded-full text-gray-400 hover:text-[#1B2D4F] hover:bg-gray-100 flex items-center justify-center transition-colors disabled:opacity-40 disabled:cursor-not-allowed shrink-0"
-                    aria-label="Attach file"
-                    title="Attach a file (PDF, image, or document)"
+                    aria-label={t.attachFile}
+                    title={t.attachFileTitle}
                   >
                     <Paperclip className="w-4 h-4" />
                   </button>
@@ -491,8 +521,8 @@ export default function ChatWidget() {
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={handleKeyDown}
-                    placeholder="Type your question..."
-                    aria-label="Type your question"
+                    placeholder={t.inputPlaceholder}
+                    aria-label={t.inputAriaLabel}
                     disabled={isStreaming}
                     className="flex-1 px-3 py-2 rounded-full border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#C8A96E]/50 focus:border-[#C8A96E] disabled:opacity-50"
                   />
@@ -500,7 +530,7 @@ export default function ChatWidget() {
                     onClick={handleSendMessage}
                     disabled={!input.trim() || isStreaming}
                     className="w-11 h-11 rounded-full bg-[#C8A96E] text-white flex items-center justify-center hover:bg-[#b8994e] transition-colors disabled:opacity-40 disabled:cursor-not-allowed shrink-0"
-                    aria-label="Send message"
+                    aria-label={t.sendMessage}
                   >
                     {isStreaming ? (
                       <Loader2 className="w-4 h-4 animate-spin" />
@@ -524,13 +554,11 @@ export default function ChatWidget() {
               sessionStorage.setItem("rlg-chat-dismissed", "1");
             }}
             className="absolute -top-2 -right-2 w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center text-xs"
-            aria-label="Dismiss"
+            aria-label={t.dismiss}
           >
             x
           </button>
-          <p className="text-sm text-text">
-            Questions about your closing? Chat with us!
-          </p>
+          <p className="text-sm text-text">{t.proactiveBubble}</p>
         </div>
       )}
 
@@ -538,7 +566,7 @@ export default function ChatWidget() {
       <button
         onClick={handleToggle}
         className="w-14 h-14 rounded-full bg-[#C8A96E] text-white shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center hover:scale-105"
-        aria-label={isOpen ? "Close chat" : "Open chat"}
+        aria-label={isOpen ? t.closeChatAria : t.openChat}
       >
         {isOpen ? (
           <X className="w-6 h-6" />
