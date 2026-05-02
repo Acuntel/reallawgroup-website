@@ -1,8 +1,20 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useEffect, useState, useMemo, useCallback } from "react";
+import { X } from "lucide-react";
 
 type Mode = "buyer" | "seller";
+
+// 2025 Chicago Title Metro escrow services rate card.
+// Source: cmetro.ctic.com — "ESCROW SERVICES" closing fee table.
+const ESCROW_RATE_CARD: { range: string; fee: string }[] = [
+  { range: "$150,000 or less", fee: "$1,850" },
+  { range: "$150,001 to $200,000", fee: "$1,950" },
+  { range: "$200,001 to $250,000", fee: "$2,000" },
+  { range: "$250,001 to $300,000", fee: "$2,050" },
+  { range: "$300,001 to $400,000", fee: "$2,100" },
+  { range: "$400,001 to $500,000", fee: "$2,150" },
+];
 
 function formatCurrency(value: number): string {
   return new Intl.NumberFormat("en-US", {
@@ -43,6 +55,21 @@ export default function ClosingCostCalculator() {
   const [priceInput, setPriceInput] = useState("350,000");
   const [commissionPercent, setCommissionPercent] = useState("5");
   const [mortgagePayoffInput, setMortgagePayoffInput] = useState("");
+  const [showRateCard, setShowRateCard] = useState(false);
+
+  useEffect(() => {
+    if (!showRateCard) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setShowRateCard(false);
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", handleKey);
+    };
+  }, [showRateCard]);
 
   const salePrice = parseNumberInput(priceInput);
   const commission = parseFloat(commissionPercent) || 0;
@@ -65,6 +92,11 @@ export default function ClosingCostCalculator() {
   // Buyer: static list of flat/ranged costs. No totals, no price-driven math.
   const buyerItems: CostLineItem[] = [
     {
+      label: "Escrow Fee",
+      amount: 1950,
+      note: "Sliding scale based on the title insurance amount",
+    },
+    {
       label: "Lender Policy (Title Insurance)",
       amount: 595,
       note: "Billed at $595",
@@ -78,11 +110,6 @@ export default function ClosingCostCalculator() {
       label: "Recording Fees",
       amount: null,
       note: "$100 per document",
-    },
-    {
-      label: "Property Tax Proration",
-      amount: null,
-      note: "105-110% of last year's tax bill",
     },
   ];
 
@@ -198,12 +225,34 @@ export default function ClosingCostCalculator() {
                 className="flex items-start justify-between gap-4 py-2 border-b border-secondary/20 last:border-0"
               >
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-primary">
-                    {item.label}
-                  </p>
+                  {item.label === "Escrow Fee" ? (
+                    <button
+                      type="button"
+                      onClick={() => setShowRateCard(true)}
+                      className="text-sm font-medium text-primary underline decoration-secondary/50 underline-offset-2 hover:decoration-secondary transition-colors"
+                    >
+                      {item.label}
+                    </button>
+                  ) : (
+                    <p className="text-sm font-medium text-primary">
+                      {item.label}
+                    </p>
+                  )}
                   {item.note && (
                     <p className="text-xs text-text-muted mt-0.5">
                       {item.note}
+                      {item.label === "Escrow Fee" && (
+                        <>
+                          {" "}
+                          <button
+                            type="button"
+                            onClick={() => setShowRateCard(true)}
+                            className="text-secondary hover:underline font-medium"
+                          >
+                            View rate card
+                          </button>
+                        </>
+                      )}
                     </p>
                   )}
                 </div>
@@ -215,6 +264,14 @@ export default function ClosingCostCalculator() {
               </div>
             ))}
           </div>
+
+          <p className="text-xs text-text-muted mt-6 leading-relaxed">
+            These figures are an estimate based on a $200,000 transaction with a
+            buyer financing the purchase with a loan. Not every line item
+            applies to every closing, and your actual costs will vary based on
+            lender requirements, county recording fees, and negotiated terms.
+            Contact REAL Law Group for an estimate specific to your transaction.
+          </p>
         </div>
       ) : (
         <>
@@ -340,6 +397,93 @@ export default function ClosingCostCalculator() {
             </div>
           )}
         </>
+      )}
+
+      {showRateCard && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="rate-card-title"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 py-8"
+          onClick={() => setShowRateCard(false)}
+        >
+          <div
+            className="relative bg-white rounded-xl shadow-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setShowRateCard(false)}
+              aria-label="Close rate card"
+              className="absolute top-4 right-4 p-1.5 rounded-md text-text-muted hover:bg-slate-100 hover:text-primary transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="p-6 md:p-8">
+              <h3
+                id="rate-card-title"
+                className="text-xl font-heading font-semibold text-primary mb-1"
+              >
+                2025 Escrow Services Rate Card
+              </h3>
+              <p className="text-xs text-text-muted mb-5">
+                Chicago Title — Metro Illinois closing fees
+              </p>
+
+              <div className="overflow-hidden rounded-lg border border-border">
+                <table className="w-full text-sm">
+                  <thead className="bg-primary text-white">
+                    <tr>
+                      <th className="text-left px-4 py-2.5 font-semibold">
+                        Amount of Insurance
+                      </th>
+                      <th className="text-right px-4 py-2.5 font-semibold">
+                        Closing Fee
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {ESCROW_RATE_CARD.map((row, i) => (
+                      <tr
+                        key={row.range}
+                        className={i % 2 === 0 ? "bg-white" : "bg-slate-50"}
+                      >
+                        <td className="px-4 py-2.5 text-primary">
+                          {row.range}
+                        </td>
+                        <td className="px-4 py-2.5 text-right font-semibold text-primary">
+                          {row.fee}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              <ul className="mt-5 space-y-2 text-xs text-text-muted leading-relaxed">
+                <li>
+                  • Insurance amounts over $500,000: add $50 for each $50,000
+                  increment.
+                </li>
+                <li>
+                  • Multiple loans: additional $225 per lender closing
+                  statement.
+                </li>
+                <li>
+                  • Closings outside the normal workday: additional $150 minimum
+                  fee.
+                </li>
+              </ul>
+
+              <p className="mt-5 text-xs text-text-muted leading-relaxed">
+                Rate card current as of 2025 and subject to change. Title
+                company and policy may vary by transaction — confirm with your
+                attorney before closing.
+              </p>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
