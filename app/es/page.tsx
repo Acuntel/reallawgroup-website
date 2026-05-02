@@ -1,4 +1,3 @@
-import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -19,19 +18,15 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
+import { generatePageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Abogados de Bienes Raíces de Confianza en Chicago | REAL Law Group",
+export const metadata = generatePageMetadata({
+  title:
+    "Abogado de Cierres de Bienes Raíces en Elmhurst y Chicago | REAL Law Group",
   description:
-    "Asesoría legal personalizada para bienes raíces, negocios y planificación patrimonial. Al servicio del área de Chicago desde 2016. Más de 300 reseñas de cinco estrellas. Llame al (630) 299-7600 para una consulta gratuita.",
-  alternates: { canonical: "https://reallawgroup.com/es" },
-  openGraph: {
-    title: "Abogados de Bienes Raíces de Confianza en Chicago | REAL Law Group",
-    description:
-      "Asesoría legal personalizada para bienes raíces, negocios y planificación patrimonial. Al servicio del área de Chicago desde 2016.",
-    url: "https://reallawgroup.com/es",
-  },
-};
+    "Abogados hispanohablantes de bienes raíces en Elmhurst y Chicago: cierres, FSBO, HUD, fideicomisos de tierra, derecho empresarial y planificación patrimonial. Más de 300 reseñas de cinco estrellas. Llame al (630) 299-7600.",
+  path: "/es",
+});
 
 const credentials = [
   { name: "Mejor Calificado — Expertise.com 2024" },

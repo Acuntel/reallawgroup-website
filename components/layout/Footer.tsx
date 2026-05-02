@@ -80,9 +80,9 @@ export default function Footer() {
               <img
                 src="/images/logo-banner-white.png"
                 alt="REAL Law Group"
-                width={180}
-                height={45}
-                className="h-10 w-auto"
+                width={360}
+                height={90}
+                className="h-20 w-auto"
               />
             </Link>
             <p className="mt-3 text-sm text-secondary font-medium tracking-wide">

@@ -11,6 +11,14 @@ import {
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import CTABanner from "@/components/sections/CTABanner";
 import { generatePageMetadata } from "@/lib/metadata";
+import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
+
+const ARTICLE_META = {
+  title: "Data Breach Prevention for Real Estate Clients",
+  description:
+    "Practical cybersecurity and data breach prevention steps for real estate transactions, including password hygiene, MFA, phishing awareness, and Illinois-specific privacy laws.",
+  path: "/resources/data-breach-prevention",
+};
 
 export const metadata = generatePageMetadata({
   title: "Data Breach Prevention",
@@ -73,6 +81,24 @@ const strategies = [
 export default function DataBreachPreventionPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateArticleSchema(ARTICLE_META)),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              { name: "Home", url: "/" },
+              { name: "Resources", url: "/resources" },
+              { name: "Data Breach Prevention" },
+            ]),
+          ),
+        }}
+      />
       <section className="page-hero">
         <div className="container-custom">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">

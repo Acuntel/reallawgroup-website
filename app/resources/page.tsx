@@ -5,7 +5,7 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Resources & Guides",
+  title: "Illinois Real Estate Resources & Closing Guides",
   description:
     "Legal resources and guides from REAL Law Group covering wire fraud prevention, quit claim deeds, data breach prevention, and title insurance. Call (630) 299-7600 for a free consultation.",
   path: "/resources",

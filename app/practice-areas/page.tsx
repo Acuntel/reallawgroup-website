@@ -14,9 +14,9 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Practice Areas",
+  title: "Practice Areas — Real Estate, Business & Estate Law in Chicagoland",
   description:
-    "REAL Law Group provides expert legal services in real estate law, business law, and estate planning throughout Chicagoland. Call (630) 299-7600 for a free consultation.",
+    "Full-service Elmhurst law firm: real estate closings, business formation, estate planning, HUD closings, land trusts, building violations, and personal injury referrals. Free consultation — (630) 299-7600.",
   path: "/practice-areas",
 });
 

@@ -2,7 +2,11 @@ import { CheckCircle } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import CTABanner from "@/components/sections/CTABanner";
 import FAQAccordion from "@/components/ui/FAQAccordion";
-import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import {
+  generateFAQSchema,
+  generateBreadcrumbSchema,
+  generateServiceSchema,
+} from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
@@ -55,6 +59,20 @@ const faqs = [
 export default function BusinessLawPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateServiceSchema({
+              name: "Illinois Business Formation & Corporate Law",
+              description:
+                "Entity formation (LLC, corporation), operating agreements, bylaws, shareholder and employment agreements, succession planning, and corporate governance for Chicagoland businesses.",
+              path: "/practice-areas/business-law",
+              serviceType: "Business Law",
+            }),
+          ),
+        }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

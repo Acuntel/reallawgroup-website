@@ -5,7 +5,7 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Recursos y Guías",
+  title: "Recursos y Guías de Bienes Raíces en Illinois",
   description:
     "Recursos y guías legales de REAL Law Group sobre prevención de fraude por transferencia, escrituras de renuncia, prevención de violaciones de datos y seguro de título. Llame al (630) 299-7600 para una consulta gratuita.",
   path: "/es/resources",

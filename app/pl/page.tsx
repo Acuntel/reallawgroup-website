@@ -1,4 +1,3 @@
-import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -19,19 +18,14 @@ import {
   MapPin,
 } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
+import { generatePageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Zaufani adwokaci ds. nieruchomości w Chicago | REAL Law Group",
+export const metadata = generatePageMetadata({
+  title: "Adwokat ds. nieruchomości Elmhurst i Chicago | REAL Law Group",
   description:
-    "Indywidualne doradztwo prawne w zakresie nieruchomości, biznesu i planowania spadkowego. Obsługujemy region Chicagoland od 2016 roku. Ponad 300 pięciogwiazdkowych opinii. Zadzwoń (630) 299-7600, aby umówić bezpłatną konsultację.",
-  alternates: { canonical: "https://reallawgroup.com/pl/" },
-  openGraph: {
-    title: "Zaufani adwokaci ds. nieruchomości w Chicago | REAL Law Group",
-    description:
-      "Indywidualne doradztwo prawne w zakresie nieruchomości, biznesu i planowania spadkowego. Obsługujemy region Chicagoland od 2016 roku.",
-    url: "https://reallawgroup.com/pl/",
-  },
-};
+    "Polskojęzyczni adwokaci ds. nieruchomości w Elmhurst i Chicago: zamknięcia, FSBO, HUD, trusty gruntowe, prawo biznesowe i planowanie spadkowe. Ponad 300 pięciogwiazdkowych opinii. Zadzwoń (630) 299-7600.",
+  path: "/pl",
+});
 
 const credentials = [
   { name: "Najwyżej oceniana — Expertise.com", year: "2024" },

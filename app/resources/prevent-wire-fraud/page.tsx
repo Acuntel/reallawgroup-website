@@ -2,6 +2,14 @@ import { ShieldAlert, AlertTriangle } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import CTABanner from "@/components/sections/CTABanner";
 import { generatePageMetadata } from "@/lib/metadata";
+import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
+
+const ARTICLE_META = {
+  title: "How to Prevent Wire Fraud in Real Estate Transactions",
+  description:
+    "Essential tips for protecting yourself from wire fraud during real estate closings. Verification steps, warning signs, and what to do if you are targeted.",
+  path: "/resources/prevent-wire-fraud",
+};
 
 export const metadata = generatePageMetadata({
   title: "Prevent Wire Fraud",
@@ -62,6 +70,24 @@ const tips = [
 export default function PreventWireFraudPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateArticleSchema(ARTICLE_META)),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              { name: "Home", url: "/" },
+              { name: "Resources", url: "/resources" },
+              { name: "Prevent Wire Fraud" },
+            ]),
+          ),
+        }}
+      />
       <section className="page-hero">
         <div className="container-custom">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">

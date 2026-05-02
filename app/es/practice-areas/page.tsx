@@ -14,7 +14,7 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Áreas de Práctica",
+  title: "Áreas de Práctica — Bienes Raíces, Negocios y Sucesiones en Chicago",
   description:
     "REAL Law Group ofrece servicios legales expertos en derecho inmobiliario, derecho comercial y planificación patrimonial en todo Chicagoland. Llame al (630) 299-7600 para una consulta gratuita.",
   path: "/es/practice-areas",

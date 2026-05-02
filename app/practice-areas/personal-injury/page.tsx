@@ -2,7 +2,11 @@ import { CheckCircle } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import CTABanner from "@/components/sections/CTABanner";
 import FAQAccordion from "@/components/ui/FAQAccordion";
-import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import {
+  generateFAQSchema,
+  generateBreadcrumbSchema,
+  generateServiceSchema,
+} from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
@@ -80,6 +84,20 @@ const faqs = [
 export default function PersonalInjuryPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateServiceSchema({
+              name: "Personal Injury Attorney Referrals — Chicago & Suburbs",
+              description:
+                "Free consultations and trusted referrals to experienced personal injury attorneys for car accidents, slip-and-fall, and other negligence claims throughout Chicagoland.",
+              path: "/practice-areas/personal-injury",
+              serviceType: "Personal Injury Referrals",
+            }),
+          ),
+        }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

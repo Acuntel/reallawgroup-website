@@ -5,7 +5,7 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Materiały i poradniki",
+  title: "Materiały i poradniki dot. nieruchomości w Illinois",
   description:
     "Materiały prawne i poradniki od REAL Law Group obejmujące zapobieganie oszustwom przelewowym, akty zrzeczenia (quit claim), zapobieganie naruszeniom danych oraz ubezpieczenia tytułu własności. Zadzwoń (630) 299-7600, aby umówić bezpłatną konsultację.",
   path: "/pl/resources",

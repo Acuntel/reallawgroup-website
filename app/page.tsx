@@ -1,4 +1,3 @@
-import { Metadata } from "next";
 import HeroSection from "@/components/sections/HeroSection";
 import TrustBar from "@/components/sections/TrustBar";
 import StatsBar from "@/components/sections/StatsBar";
@@ -9,18 +8,14 @@ import TestimonialCarousel from "@/components/sections/TestimonialCarousel";
 import AboutPreview from "@/components/sections/AboutPreview";
 import CTABanner from "@/components/sections/CTABanner";
 import ServiceAreas from "@/components/sections/ServiceAreas";
-export const metadata: Metadata = {
-  title: "Chicago's Trusted Real Estate Attorneys | REAL Law Group",
+import { generatePageMetadata } from "@/lib/metadata";
+
+export const metadata = generatePageMetadata({
+  title: "Elmhurst Real Estate Closing Attorney | REAL Law Group",
   description:
-    "Personalized legal guidance for real estate, business, and estate planning. Serving Chicagoland since 2016. 300+ five star reviews. Call (630) 299-7600 for a free consultation.",
-  alternates: { canonical: "https://reallawgroup.com/" },
-  openGraph: {
-    title: "Chicago's Trusted Real Estate Attorneys | REAL Law Group",
-    description:
-      "Personalized legal guidance for real estate, business, and estate planning. Serving Chicagoland since 2016.",
-    url: "https://reallawgroup.com/",
-  },
-};
+    "Top-rated Elmhurst & Chicago real estate attorneys for home closings, FSBO, HUD, land trusts, business law, and estate planning. 300+ five-star reviews. Call (630) 299-7600 for a free consultation.",
+  path: "/",
+});
 
 export default function HomePage() {
   return (

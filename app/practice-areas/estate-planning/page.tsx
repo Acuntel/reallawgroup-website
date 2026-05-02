@@ -2,7 +2,11 @@ import { CheckCircle } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import CTABanner from "@/components/sections/CTABanner";
 import FAQAccordion from "@/components/ui/FAQAccordion";
-import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import {
+  generateFAQSchema,
+  generateBreadcrumbSchema,
+  generateServiceSchema,
+} from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
@@ -54,6 +58,20 @@ const faqs = [
 export default function EstatePlanningPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateServiceSchema({
+              name: "Illinois Estate Planning — Wills, Trusts & Probate",
+              description:
+                "Wills, living trusts, powers of attorney, land trusts, trust and probate administration, and asset-protection planning for Illinois families.",
+              path: "/practice-areas/estate-planning",
+              serviceType: "Estate Planning",
+            }),
+          ),
+        }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

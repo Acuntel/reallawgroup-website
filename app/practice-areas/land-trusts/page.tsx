@@ -2,7 +2,11 @@ import { CheckCircle } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import CTABanner from "@/components/sections/CTABanner";
 import FAQAccordion from "@/components/ui/FAQAccordion";
-import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import {
+  generateFAQSchema,
+  generateBreadcrumbSchema,
+  generateServiceSchema,
+} from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
@@ -95,6 +99,20 @@ const faqs = [
 export default function LandTrustsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateServiceSchema({
+              name: "Illinois Land Trust Formation & Administration",
+              description:
+                "Establish and manage Illinois land trusts for privacy, asset protection, and simplified estate planning. Trustee selection, beneficial interest assignments, and ongoing administration.",
+              path: "/practice-areas/land-trusts",
+              serviceType: "Land Trust Services",
+            }),
+          ),
+        }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

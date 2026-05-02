@@ -14,7 +14,8 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Obszary praktyki",
+  title:
+    "Obszary praktyki — prawo nieruchomości, biznesowe i spadkowe (Chicago)",
   description:
     "REAL Law Group świadczy profesjonalne usługi prawne w zakresie prawa nieruchomości, prawa gospodarczego oraz planowania spadkowego na terenie całego Chicagoland. Zadzwoń pod (630) 299-7600, aby umówić bezpłatną konsultację.",
   path: "/pl/practice-areas",

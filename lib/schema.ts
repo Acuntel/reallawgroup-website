@@ -49,15 +49,82 @@ export function generateLocalBusinessSchema() {
       name: "Vincent Anthony Incopero",
       url: "https://reallawgroup.com/about",
     },
-    areaServed: {
-      "@type": "GeoCircle",
-      geoMidpoint: {
-        "@type": "GeoCoordinates",
-        latitude: 41.8781,
-        longitude: -87.6298,
+    areaServed: [
+      {
+        "@type": "City",
+        name: "Elmhurst",
+        "@id": "https://en.wikipedia.org/wiki/Elmhurst,_Illinois",
       },
-      geoRadius: "50000",
-    },
+      {
+        "@type": "City",
+        name: "Chicago",
+        "@id": "https://en.wikipedia.org/wiki/Chicago",
+      },
+      { "@type": "City", name: "Naperville" },
+      { "@type": "City", name: "Hinsdale" },
+      { "@type": "City", name: "Lisle" },
+      { "@type": "City", name: "Woodridge" },
+      { "@type": "City", name: "Skokie" },
+      { "@type": "City", name: "Niles" },
+      { "@type": "City", name: "Oak Brook" },
+      { "@type": "City", name: "Downers Grove" },
+      { "@type": "City", name: "Wheaton" },
+      { "@type": "AdministrativeArea", name: "DuPage County, Illinois" },
+      { "@type": "AdministrativeArea", name: "Cook County, Illinois" },
+      { "@type": "AdministrativeArea", name: "Will County, Illinois" },
+      { "@type": "AdministrativeArea", name: "Kane County, Illinois" },
+      { "@type": "AdministrativeArea", name: "Lake County, Illinois" },
+    ],
+    employee: [
+      {
+        "@type": "Person",
+        name: "Vincent Anthony Incopero",
+        jobTitle: "Managing Partner",
+      },
+      {
+        "@type": "Person",
+        name: "Sarah Marie Roth",
+        jobTitle: "Director of Operations",
+      },
+      {
+        "@type": "Person",
+        name: "Stephanie Milnamow",
+        jobTitle: "Managing Paralegal",
+      },
+      {
+        "@type": "Person",
+        name: "Gina Zardetto",
+        jobTitle: "Paralegal & Social Media Manager",
+      },
+      {
+        "@type": "Person",
+        name: "Alyssa Witnik",
+        jobTitle: "Purchase Coordinator",
+      },
+      { "@type": "Person", name: "Eva Boozer", jobTitle: "Legal Assistant" },
+    ],
+    knowsAbout: [
+      "Illinois real estate law",
+      "residential real estate closings",
+      "commercial real estate closings",
+      "HUD closings",
+      "FHA closings",
+      "attorney review",
+      "earnest money deposits",
+      "quit claim deeds",
+      "Illinois land trusts",
+      "for sale by owner (FSBO) transactions",
+      "1031 tax-deferred exchanges",
+      "title insurance",
+      "estate planning",
+      "wills and trusts",
+      "probate",
+      "business formation",
+      "LLC formation",
+      "Chicago building code violations",
+      "inherited property",
+      "wire fraud prevention",
+    ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Legal Services",
@@ -124,29 +191,82 @@ export function generateLocalBusinessSchema() {
 export function generateAttorneySchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "Person",
+    "@type": "Attorney",
     name: "Vincent Anthony Incopero",
+    honorificSuffix: "J.D.",
     jobTitle: "Managing Partner",
+    description:
+      "Vincent Anthony Incopero is the Managing Partner and founder of REAL Law Group, P.C., a Chicago-area law firm focused on real estate, business, and estate planning law. A Chicago native, he founded the firm in 2016 to deliver approachable, relatable legal services.",
     url: "https://reallawgroup.com/about",
     image: "https://reallawgroup.com/images/logo-banner.png",
     telephone: "+16302997600",
     email: "info@reallawgroup.com",
+    nationality: { "@type": "Country", name: "United States" },
+    workLocation: {
+      "@type": "Place",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "381 N York St Suite 1",
+        addressLocality: "Elmhurst",
+        addressRegion: "IL",
+        postalCode: "60126",
+        addressCountry: "US",
+      },
+    },
     worksFor: {
       "@type": "LegalService",
       name: "REAL Law Group, P.C.",
       url: "https://reallawgroup.com",
     },
+    hasOccupation: {
+      "@type": "Occupation",
+      name: "Attorney at Law",
+      occupationLocation: {
+        "@type": "State",
+        name: "Illinois",
+      },
+      skills:
+        "Real estate law, HUD closings, business law, estate planning, land trusts",
+    },
     alumniOf: [
       {
         "@type": "EducationalOrganization",
         name: "The John Marshall Law School",
+        sameAs:
+          "https://en.wikipedia.org/wiki/John_Marshall_Law_School_(Chicago)",
       },
       {
         "@type": "EducationalOrganization",
         name: "Elmhurst College",
+        sameAs: "https://en.wikipedia.org/wiki/Elmhurst_University",
       },
     ],
-    knowsAbout: ["Real Estate Law", "Business Law", "Estate Planning"],
+    hasCredential: [
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "degree",
+        educationalLevel: "Doctorate",
+        name: "Juris Doctor (J.D.)",
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "degree",
+        name: "B.S. Finance & Economics",
+      },
+    ],
+    knowsAbout: [
+      "Illinois real estate law",
+      "Residential and commercial closings",
+      "HUD and FHA closings",
+      "Attorney review in Illinois",
+      "Quit claim deeds",
+      "Illinois land trusts",
+      "1031 tax-deferred exchanges",
+      "Business formation and corporate law",
+      "Wills, trusts, and estate planning",
+      "Probate administration",
+      "Chicago building code violations",
+    ],
     memberOf: [
       { "@type": "Organization", name: "Chicago Bar Association" },
       { "@type": "Organization", name: "DuPage County Bar Association" },
@@ -203,5 +323,134 @@ export function generateFAQSchema(
         text: faq.answer,
       },
     })),
+  };
+}
+
+export function generateServiceSchema({
+  name,
+  description,
+  path,
+  serviceType,
+  inLanguage = "en-US",
+}: {
+  name: string;
+  description: string;
+  path: string;
+  serviceType: string;
+  inLanguage?: string;
+}) {
+  const url = `https://reallawgroup.com${path}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name,
+    description,
+    serviceType,
+    url,
+    inLanguage,
+    provider: {
+      "@type": "LegalService",
+      name: "REAL Law Group, P.C.",
+      url: "https://reallawgroup.com",
+      telephone: "+16302997600",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "381 N York St Suite 1",
+        addressLocality: "Elmhurst",
+        addressRegion: "IL",
+        postalCode: "60126",
+        addressCountry: "US",
+      },
+    },
+    areaServed: [
+      { "@type": "City", name: "Elmhurst" },
+      { "@type": "City", name: "Chicago" },
+      { "@type": "City", name: "Naperville" },
+      { "@type": "City", name: "Hinsdale" },
+      { "@type": "City", name: "Oak Brook" },
+      { "@type": "City", name: "Downers Grove" },
+      { "@type": "City", name: "Wheaton" },
+      { "@type": "AdministrativeArea", name: "DuPage County, Illinois" },
+      { "@type": "AdministrativeArea", name: "Cook County, Illinois" },
+    ],
+    audience: {
+      "@type": "Audience",
+      audienceType:
+        "Homebuyers, sellers, real estate investors, and business owners in Illinois",
+    },
+  };
+}
+
+export function generateTeamSchema(
+  members: {
+    name: string;
+    jobTitle: string;
+    description?: string;
+    image?: string;
+  }[],
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "REAL Law Group, P.C.",
+    url: "https://reallawgroup.com",
+    employee: members.map((m) => ({
+      "@type": "Person",
+      name: m.name,
+      jobTitle: m.jobTitle,
+      ...(m.description && { description: m.description }),
+      ...(m.image && { image: `https://reallawgroup.com${m.image}` }),
+      worksFor: {
+        "@type": "LegalService",
+        name: "REAL Law Group, P.C.",
+        url: "https://reallawgroup.com",
+      },
+    })),
+  };
+}
+
+export function generateArticleSchema({
+  title,
+  description,
+  path,
+  imagePath = "/images/logo-banner.png",
+}: {
+  title: string;
+  description: string;
+  path: string;
+  imagePath?: string;
+}) {
+  const url = `https://reallawgroup.com${path}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    image: `https://reallawgroup.com${imagePath}`,
+    url,
+    inLanguage: "en-US",
+    isAccessibleForFree: true,
+    author: {
+      "@type": "Organization",
+      name: "REAL Law Group, P.C.",
+      url: "https://reallawgroup.com",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "REAL Law Group, P.C.",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://reallawgroup.com/images/logo-banner.png",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": url,
+    },
+    about: {
+      "@type": "LegalService",
+      name: "REAL Law Group, P.C.",
+      url: "https://reallawgroup.com",
+    },
   };
 }

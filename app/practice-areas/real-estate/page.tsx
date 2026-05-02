@@ -2,7 +2,11 @@ import { CheckCircle } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import CTABanner from "@/components/sections/CTABanner";
 import FAQAccordion from "@/components/ui/FAQAccordion";
-import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import {
+  generateFAQSchema,
+  generateBreadcrumbSchema,
+  generateServiceSchema,
+} from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
@@ -69,6 +73,20 @@ const faqs = [
 export default function RealEstatePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateServiceSchema({
+              name: "Illinois Real Estate Closing & Transaction Law",
+              description:
+                "Residential and commercial real estate closings, contract review, FSBO closings, short sales, 1031 exchanges, and quit claim deeds in the Chicago metropolitan area.",
+              path: "/practice-areas/real-estate",
+              serviceType: "Real Estate Law",
+            }),
+          ),
+        }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

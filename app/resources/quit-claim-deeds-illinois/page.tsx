@@ -1,6 +1,14 @@
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import CTABanner from "@/components/sections/CTABanner";
 import { generatePageMetadata } from "@/lib/metadata";
+import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
+
+const ARTICLE_META = {
+  title: "Quit Claim Deeds in Illinois",
+  description:
+    "Complete guide to quit claim deeds in Illinois. Learn what they are, when to use them, tax and mortgage implications, and recording requirements.",
+  path: "/resources/quit-claim-deeds-illinois",
+};
 
 export const metadata = generatePageMetadata({
   title: "Quit Claim Deeds",
@@ -12,6 +20,24 @@ export const metadata = generatePageMetadata({
 export default function QuitClaimDeedsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateArticleSchema(ARTICLE_META)),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              { name: "Home", url: "/" },
+              { name: "Resources", url: "/resources" },
+              { name: "Quit Claim Deeds" },
+            ]),
+          ),
+        }}
+      />
       <section className="page-hero">
         <div className="container-custom">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">

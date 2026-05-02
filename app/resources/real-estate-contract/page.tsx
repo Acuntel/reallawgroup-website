@@ -2,9 +2,17 @@ import { FileText, ExternalLink } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import CTABanner from "@/components/sections/CTABanner";
 import { generatePageMetadata } from "@/lib/metadata";
+import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/schema";
 
 const CONTRACT_PDF_URL =
   "https://chicagorealtor.com/wp-content/uploads/wp-private-media/2025/01/8.0-Multi-Board-Residential-Contract.pdf";
+
+const ARTICLE_META = {
+  title: "Multi-Board Residential Real Estate Contract (Illinois)",
+  description:
+    "Overview of the Multi-Board Residential Real Estate Contract used across Chicagoland transactions, including how REAL Law Group helps clients review, negotiate, and close under this contract.",
+  path: "/resources/real-estate-contract",
+};
 
 export const metadata = generatePageMetadata({
   title: "Multi-Board Residential Real Estate Contract",
@@ -16,6 +24,24 @@ export const metadata = generatePageMetadata({
 export default function RealEstateContractPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateArticleSchema(ARTICLE_META)),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbSchema([
+              { name: "Home", url: "/" },
+              { name: "Resources", url: "/resources" },
+              { name: "Real Estate Contract" },
+            ]),
+          ),
+        }}
+      />
       <section className="page-hero">
         <div className="container-custom">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">

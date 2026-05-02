@@ -1,7 +1,7 @@
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import TeamMemberCard from "@/components/cards/TeamMemberCard";
 import CTABanner from "@/components/sections/CTABanner";
-import { generateBreadcrumbSchema } from "@/lib/schema";
+import { generateBreadcrumbSchema, generateTeamSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
@@ -59,6 +59,20 @@ const teamMembers = [
 export default function OurTeamPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateTeamSchema(
+              teamMembers.map((m) => ({
+                name: m.name,
+                jobTitle: m.title,
+                description: m.bio,
+              })),
+            ),
+          ),
+        }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
