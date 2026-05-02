@@ -52,7 +52,7 @@ const forms: FormItem[] = [
       "The seller's sworn statement about known material defects in the property.",
     body: "Required by the Illinois Residential Real Property Disclosure Act (765 ILCS 77) for most residential sales. The seller answers a fixed list of yes/no questions covering the roof, foundation, basement, plumbing, electrical, HVAC, environmental conditions, and known code violations. It is not a warranty, but a knowing misstatement can expose the seller to liability — buyers should read it carefully and follow up on anything flagged.",
     href: PROPERTY_DISCLOSURE_PDF_URL,
-    label: "Open Disclosure PDF",
+    label: "Open Property Disclosure PDF",
   },
   {
     icon: Wind,
@@ -61,7 +61,7 @@ const forms: FormItem[] = [
       "Required radon-awareness disclosure given to buyers before contract.",
     body: "Under the Illinois Radon Awareness Act (420 ILCS 46), sellers of most residential property must give buyers a disclosure form and the IEMA pamphlet describing the health risks of radon. Sellers must also disclose any radon test results and known elevated levels. Radon is a naturally occurring radioactive gas that can collect in basements and lower levels — the only way to know your level is to test.",
     href: RADON_DISCLOSURE_PDF_URL,
-    label: "Open Disclosure PDF",
+    label: "Open Radon Disclosure PDF",
   },
   {
     icon: Paintbrush,
@@ -69,7 +69,7 @@ const forms: FormItem[] = [
     blurb: "Required federal disclosure for any home built before 1978.",
     body: "The federal Residential Lead-Based Paint Hazard Reduction Act requires sellers (and landlords) of housing built before 1978 to disclose any known lead-based paint or hazards, share any reports they have, and give buyers a 10-day window to conduct a lead inspection. Buyers must also receive the EPA's lead pamphlet and sign the disclosure acknowledgment before the contract is binding.",
     href: LEAD_PAINT_DISCLOSURE_PDF_URL,
-    label: "Open Disclosure PDF",
+    label: "Open Lead-Based Paint Disclosure PDF",
   },
 ];
 
