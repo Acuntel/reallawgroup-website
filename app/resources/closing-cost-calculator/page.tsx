@@ -36,11 +36,11 @@ export default function ClosingCostCalculatorPage() {
         <div className="container-custom max-w-4xl">
           <p className="text-text-muted leading-relaxed mb-12 text-lg">
             Use this calculator to get a rough estimate of closing costs for
-            buying or selling property in the Chicago area and across Illinois.
-            Select your role, enter the sale price, and choose your county to
-            see an itemized breakdown of typical fees including transfer taxes,
-            title insurance, and attorney costs. For an exact estimate tailored
-            to your transaction, contact our team.
+            buying or selling property in the Chicagoland area. Select your role
+            and enter the sale price to see an itemized breakdown of typical
+            fees including transfer taxes, title insurance, and attorney costs.
+            For an exact estimate tailored to your transaction, contact our
+            team.
           </p>
 
           <ClosingCostCalculator />
