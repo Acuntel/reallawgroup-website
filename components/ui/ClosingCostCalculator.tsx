@@ -266,11 +266,9 @@ export default function ClosingCostCalculator() {
           </div>
 
           <p className="text-xs text-text-muted mt-6 leading-relaxed">
-            These figures are an estimate based on a $200,000 transaction with a
-            buyer financing the purchase with a loan. Not every line item
-            applies to every closing, and your actual costs will vary based on
-            lender requirements, county recording fees, and negotiated terms.
-            Contact REAL Law Group for an estimate specific to your transaction.
+            Rate calculations assume a $200k sale price and the buyer obtaining
+            a mortgage. This calculator uses the traditional costs paid by each
+            party and should not be construed as being exact or exhaustive.
           </p>
         </div>
       ) : (
