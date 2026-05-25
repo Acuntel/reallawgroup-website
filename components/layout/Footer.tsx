@@ -79,7 +79,7 @@ export default function Footer() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/logo-banner-white.png"
-                alt="REAL Law Group"
+                alt="REAL Law Group, P.C. — Elmhurst real estate attorneys"
                 width={180}
                 height={45}
                 className="h-10 w-auto"

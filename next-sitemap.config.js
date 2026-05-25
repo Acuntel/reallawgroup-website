@@ -7,11 +7,21 @@ module.exports = {
   sitemapSize: 5000,
   exclude: ["/api/*"],
   robotsTxtOptions: {
+    additionalSitemaps: ["https://reallawgroup.com/sitemap.xml"],
     policies: [
-      {
-        userAgent: "*",
-        allow: "/",
-      },
+      { userAgent: "*", allow: "/" },
+      // Explicitly welcome AI / answer-engine crawlers so REAL Law Group
+      // can be cited in Claude, ChatGPT, Perplexity, and Google AI Overviews.
+      { userAgent: "ClaudeBot", allow: "/" },
+      { userAgent: "Claude-Web", allow: "/" },
+      { userAgent: "anthropic-ai", allow: "/" },
+      { userAgent: "GPTBot", allow: "/" },
+      { userAgent: "OAI-SearchBot", allow: "/" },
+      { userAgent: "ChatGPT-User", allow: "/" },
+      { userAgent: "PerplexityBot", allow: "/" },
+      { userAgent: "Google-Extended", allow: "/" },
+      { userAgent: "Applebot-Extended", allow: "/" },
+      { userAgent: "CCBot", allow: "/" },
     ],
   },
   transform: async (config, path) => {

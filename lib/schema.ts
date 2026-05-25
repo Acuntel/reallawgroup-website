@@ -44,20 +44,40 @@ export function generateLocalBusinessSchema() {
       reviewCount: "300",
     },
     priceRange: "$$",
+    slogan: "Hard Work. Integrity. Reliability.",
+    foundingDate: "2016",
+    knowsLanguage: ["en", "es", "pl"],
     founder: {
       "@type": "Person",
       name: "Vincent Anthony Incopero",
       url: "https://reallawgroup.com/about",
     },
-    areaServed: {
-      "@type": "GeoCircle",
-      geoMidpoint: {
-        "@type": "GeoCoordinates",
-        latitude: 41.8781,
-        longitude: -87.6298,
+    areaServed: [
+      { "@type": "City", name: "Elmhurst" },
+      { "@type": "City", name: "Naperville" },
+      { "@type": "City", name: "Hinsdale" },
+      { "@type": "City", name: "Oak Brook" },
+      { "@type": "City", name: "Downers Grove" },
+      { "@type": "City", name: "Wheaton" },
+      { "@type": "City", name: "Lisle" },
+      { "@type": "City", name: "Woodridge" },
+      { "@type": "City", name: "Skokie" },
+      { "@type": "City", name: "Niles" },
+      { "@type": "AdministrativeArea", name: "DuPage County" },
+      { "@type": "AdministrativeArea", name: "Cook County" },
+      { "@type": "AdministrativeArea", name: "Will County" },
+      { "@type": "AdministrativeArea", name: "Kane County" },
+      { "@type": "AdministrativeArea", name: "Lake County" },
+      {
+        "@type": "GeoCircle",
+        geoMidpoint: {
+          "@type": "GeoCoordinates",
+          latitude: 41.8781,
+          longitude: -87.6298,
+        },
+        geoRadius: "50000",
       },
-      geoRadius: "50000",
-    },
+    ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Legal Services",
@@ -146,7 +166,23 @@ export function generateAttorneySchema() {
         name: "Elmhurst College",
       },
     ],
-    knowsAbout: ["Real Estate Law", "Business Law", "Estate Planning"],
+    knowsAbout: [
+      "Real Estate Law",
+      "Residential Real Estate Closings",
+      "Commercial Real Estate Closings",
+      "Illinois Attorney Review",
+      "HUD and FHA Closings",
+      "Illinois Land Trusts",
+      "Quit Claim Deeds",
+      "For Sale By Owner (FSBO) Transactions",
+      "1031 Tax-Deferred Exchanges",
+      "Inherited Property and Probate Real Estate",
+      "Business Law",
+      "LLC and Corporate Formation",
+      "Estate Planning",
+      "Wills and Trusts",
+      "Chicago Building Code Violation Defense",
+    ],
     memberOf: [
       { "@type": "Organization", name: "Chicago Bar Association" },
       { "@type": "Organization", name: "DuPage County Bar Association" },
@@ -186,6 +222,43 @@ export function generateBreadcrumbSchema(
       name: item.name,
       ...(item.url && { item: `https://reallawgroup.com${item.url}` }),
     })),
+  };
+}
+
+export function generateArticleSchema(article: {
+  title: string;
+  description: string;
+  path: string;
+  datePublished?: string;
+  dateModified?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.description,
+    url: `https://reallawgroup.com${article.path}`,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://reallawgroup.com${article.path}`,
+    },
+    image: "https://reallawgroup.com/images/logo-banner.png",
+    inLanguage: "en-US",
+    datePublished: article.datePublished ?? "2025-01-01",
+    dateModified: article.dateModified ?? new Date().toISOString().slice(0, 10),
+    author: {
+      "@type": "Person",
+      name: "Vincent Anthony Incopero",
+      url: "https://reallawgroup.com/about",
+    },
+    publisher: {
+      "@type": "LegalService",
+      name: "REAL Law Group, P.C.",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://reallawgroup.com/images/logo-banner.png",
+      },
+    },
   };
 }
 
