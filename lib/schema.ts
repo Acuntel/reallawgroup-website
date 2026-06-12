@@ -131,6 +131,15 @@ export function generateLocalBusinessSchema() {
             description: "Illinois land trust formation and administration",
           },
         },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Data Breach & Privacy Litigation",
+            description:
+              "Representation of Illinois residents in data breach, biometric privacy (BIPA), and consumer privacy claims",
+          },
+        },
       ],
     },
     sameAs: [
@@ -182,6 +191,10 @@ export function generateAttorneySchema() {
       "Estate Planning",
       "Wills and Trusts",
       "Chicago Building Code Violation Defense",
+      "Data Breach Litigation",
+      "Illinois Personal Information Protection Act (PIPA)",
+      "Illinois Biometric Information Privacy Act (BIPA)",
+      "Consumer Privacy Litigation",
     ],
     memberOf: [
       { "@type": "Organization", name: "Chicago Bar Association" },

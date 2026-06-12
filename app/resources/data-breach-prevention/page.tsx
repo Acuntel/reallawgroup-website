@@ -101,12 +101,36 @@ export default function DataBreachPreventionPage() {
             from personal identification data to financial records and
             proprietary business information.
           </p>
-          <p className="text-text-muted leading-relaxed mb-12">
+          <p className="text-text-muted leading-relaxed mb-6">
             Whether you are a homeowner protecting personal data during a real
             estate transaction or a business owner safeguarding client
             information, taking proactive steps to prevent data breaches is
             essential. Below are key strategies to help protect your data.
           </p>
+
+          <div className="bg-light-gold rounded-xl p-6 border border-secondary/30 mb-12">
+            <h3 className="text-lg font-semibold text-primary mb-1">
+              Was YOUR information exposed in someone else&apos;s breach?
+            </h3>
+            <p className="text-text-muted text-sm leading-relaxed">
+              This page is about prevention. If a company sent you a data breach
+              notification letter, you may have legal rights — start with our{" "}
+              <a
+                href="/resources/data-breach-notification-letter"
+                className="text-primary font-semibold underline hover:text-secondary"
+              >
+                step-by-step guide on what to do after a data breach letter
+              </a>{" "}
+              or learn about{" "}
+              <a
+                href="/practice-areas/data-breach"
+                className="text-primary font-semibold underline hover:text-secondary"
+              >
+                data breach and privacy litigation
+              </a>{" "}
+              for Illinois residents.
+            </p>
+          </div>
 
           <h2 className="text-2xl md:text-3xl font-heading font-semibold mb-8">
             Essential Data Protection Strategies
@@ -173,6 +197,12 @@ export default function DataBreachPreventionPage() {
             className="text-primary hover:text-secondary font-semibold underline"
           >
             Prevent Wire Fraud
+          </a>
+          <a
+            href="/practice-areas/data-breach"
+            className="text-primary hover:text-secondary font-semibold underline"
+          >
+            Data Breach & Privacy Litigation
           </a>
         </div>
       </section>

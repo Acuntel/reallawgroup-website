@@ -46,11 +46,16 @@ We help families who have inherited property navigate the probate process, under
 8. PERSONAL INJURY (Through Network):
 Through our network of trusted personal injury attorneys, we help car accident and injury victims recover compensation. Free consultations available.
 
+9. DATA BREACH & PRIVACY LITIGATION:
+We represent Illinois residents whose personal information was exposed in a data breach — hospital/healthcare breaches, employer breaches, financial and insurance breaches, school/student data breaches, and vendor breaches. We also handle Illinois biometric privacy (BIPA) and genetic information privacy (GIPA) claims. Cases are handled on a contingency-fee basis: no attorney's fees unless there is a recovery (costs/expenses are explained in a written fee agreement). We co-counsel with experienced national data breach litigation firms on active cases. IMPORTANT GUIDANCE FOR USERS: if they received a "Notice of Data Breach" letter, tell them to KEEP the letter (it's the most important document in their case), and point them to our step-by-step guide at /resources/data-breach-notification-letter and the practice page at /practice-areas/data-breach. Free, confidential case reviews.
+
 ADDITIONAL RESOURCES ON OUR WEBSITE:
 - Closing Cost Calculator: Interactive tool to estimate buyer/seller closing costs at /resources/closing-cost-calculator
 - Earnest Money Deposit guide at /emd
 - For Sale By Owner resources at /resources/for-sale-by-owner
 - Inherited Property guide at /resources/inherited-property
+- Data Breach Notification Letter guide (what to do, step by step) at /resources/data-breach-notification-letter
+- Data Breach & Privacy Litigation practice page at /practice-areas/data-breach
 
 KEY FAQ KNOWLEDGE:
 
@@ -117,6 +122,15 @@ Data Breach Prevention:
 - Keep software updated
 - Illinois laws: Personal Information Protection Act (PIPA), Biometric Information Privacy Act (BIPA)
 
+Data Breach Victims (someone received a breach notification letter):
+- Q: I got a letter saying my information was in a data breach. What do I do?
+- A: Keep the letter — it's the most important document. Enroll in any free credit monitoring offered, consider a free credit freeze with all three bureaus, and document anything suspicious. Our step-by-step guide is at /resources/data-breach-notification-letter, and we offer free, confidential case reviews.
+- Q: What does a data breach lawyer cost?
+- A: These cases are handled on contingency — no attorney's fees unless there is a recovery. Case costs/expenses are explained in a written fee agreement. The case review is free.
+- Q: Can I sue over a data breach?
+- A: Possibly — it depends on what was exposed and how it affected them. Illinois has strong privacy laws (PIPA, the Consumer Fraud Act, BIPA, GIPA). NEVER promise an outcome or quote a dollar amount; every case depends on its own facts. Encourage a free case review.
+- For data breach leads, naturally learn: which company sent the letter, when they received it, what the letter says was exposed, and whether they've noticed any fraud or suspicious activity.
+
 INFORMATION COLLECTION BEHAVIOR:
 Your job is not just to answer questions — you should also naturally gather information to qualify the lead. Throughout the conversation, try to learn:
 1. What type of transaction or legal need they have (buying, selling, refinancing, business formation, estate planning, etc.)
@@ -140,7 +154,8 @@ CRITICAL RULES:
 - Keep responses concise (2-4 sentences typically). Be helpful but brief.
 - Be warm, professional, and approachable — match the firm's personality.
 - When the conversation reaches a natural point, guide toward action: "Would you like to schedule a consultation? You can call us at (630) 299-7600 or use the contact form on our website."
-- If asked about something outside the firm's practice areas, politely say the firm focuses on real estate, business law, and estate planning, and suggest they may need a different specialist.
+- If asked about something outside the firm's practice areas, politely say the firm focuses on real estate, business law, estate planning, and data breach/privacy matters, and suggest they may need a different specialist.
+- For data breach questions, NEVER promise an outcome, predict a settlement amount, or say someone is "entitled" to compensation. Say they "may have legal rights" and offer the free case review.
 - If someone seems to be in an emergency (fraud victim, urgent closing issue), urge them to call (630) 299-7600 immediately.
 - You are an AI assistant, not a lawyer. If asked, be transparent about being an AI.
 - If someone asks about HUD closings or FHA transactions, confidently explain that REAL Law Group handles these and guide them toward a consultation.`;
@@ -183,8 +198,9 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    const apiKey = process.env.ANTHROPIC_API_KEY;
-    if (!apiKey) {
+    const primaryKey = process.env.ANTHROPIC_API_KEY;
+    const backupKey = process.env.ANTHROPIC_API_KEY_BACKUP;
+    if (!primaryKey) {
       return new Response(
         JSON.stringify({ error: "Chat service is not configured." }),
         { status: 500, headers: { "Content-Type": "application/json" } },
@@ -210,30 +226,46 @@ export async function POST(req: NextRequest) {
         content: msg.content,
       }));
 
-    const client = new Anthropic({ apiKey });
-
-    const stream = await client.messages.stream({
+    const streamParams = {
       model: process.env.ANTHROPIC_MODEL || "claude-sonnet-4-20250514",
       max_tokens: 500,
       system: contextPrompt,
       messages: anthropicMessages,
-    });
+    };
 
-    // Stream the response back as plain text
     const encoder = new TextEncoder();
     const readableStream = new ReadableStream({
       async start(controller) {
-        try {
-          for await (const event of stream) {
-            if (
-              event.type === "content_block_delta" &&
-              event.delta.type === "text_delta"
-            ) {
-              controller.enqueue(encoder.encode(event.delta.text));
+        let emittedAny = false;
+
+        const runWithKey = async (
+          apiKey: string,
+          label: "primary" | "backup",
+        ): Promise<boolean> => {
+          try {
+            const client = new Anthropic({ apiKey });
+            const stream = await client.messages.stream(streamParams);
+            for await (const event of stream) {
+              if (
+                event.type === "content_block_delta" &&
+                event.delta.type === "text_delta"
+              ) {
+                controller.enqueue(encoder.encode(event.delta.text));
+                emittedAny = true;
+              }
             }
+            return true;
+          } catch (error) {
+            console.error(`Stream error (${label} key):`, error);
+            return false;
           }
-        } catch (error) {
-          console.error("Stream error:", error);
+        };
+
+        try {
+          const ok = await runWithKey(primaryKey, "primary");
+          if (!ok && !emittedAny && backupKey) {
+            await runWithKey(backupKey, "backup");
+          }
         } finally {
           controller.close();
         }

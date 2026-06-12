@@ -5,6 +5,7 @@ import {
   Landmark,
   AlertTriangle,
   Shield,
+  Lock,
   Car,
 } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
@@ -62,6 +63,13 @@ const areas = [
     description:
       "Los fideicomisos de tierras de Illinois ofrecen privacidad, protección de activos y una planificación patrimonial simplificada para los propietarios. Ayudamos a nuestros clientes a establecer y administrar fideicomisos de tierras para proteger sus inversiones inmobiliarias.",
     href: "/es/practice-areas/land-trusts",
+  },
+  {
+    icon: Lock,
+    title: "Filtraciones de Datos y Privacidad",
+    description:
+      "¿Su información personal fue expuesta en una filtración de datos? Representamos a residentes de Illinois en reclamos de filtraciones de datos, privacidad biométrica (BIPA) y privacidad del consumidor con honorarios de contingencia — sin honorarios de abogado a menos que usted recupere. Evaluaciones de caso gratuitas y confidenciales.",
+    href: "/es/practice-areas/data-breach",
   },
   {
     icon: Car,

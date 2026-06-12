@@ -5,6 +5,7 @@ import {
   Landmark,
   AlertTriangle,
   Shield,
+  Lock,
   Car,
 } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
@@ -62,6 +63,13 @@ const areas = [
     description:
       "Illinois land trusts offer privacy, asset protection, and simplified estate planning for property owners. We help clients establish and manage land trusts to protect their real estate investments.",
     href: "/practice-areas/land-trusts",
+  },
+  {
+    icon: Lock,
+    title: "Data Breach & Privacy Litigation",
+    description:
+      "Was your personal information exposed in a data breach? We represent Illinois residents in data breach, biometric privacy (BIPA), and consumer privacy claims on a contingency basis — no attorney's fees unless you recover. Free, confidential case reviews.",
+    href: "/practice-areas/data-breach",
   },
   {
     icon: Car,

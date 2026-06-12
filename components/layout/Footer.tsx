@@ -26,6 +26,10 @@ const resourceLinks = [
   },
   { label: "Title Insurance FAQ", href: "/resources/title-insurance-faq" },
   { label: "Prevent Wire Fraud", href: "/resources/prevent-wire-fraud" },
+  {
+    label: "Data Breach Letter Guide",
+    href: "/resources/data-breach-notification-letter",
+  },
 ];
 
 const practiceLinks = [
@@ -35,6 +39,7 @@ const practiceLinks = [
   { label: "HUD Closings", href: "/practice-areas/hud-closings" },
   { label: "Building Violations", href: "/practice-areas/building-violations" },
   { label: "Land Trusts", href: "/practice-areas/land-trusts" },
+  { label: "Data Breach & Privacy", href: "/practice-areas/data-breach" },
   { label: "Personal Injury", href: "/practice-areas/personal-injury" },
 ];
 

@@ -67,6 +67,12 @@ const resources = [
     href: "/real-estate-investors",
   },
   {
+    title: "Data Breach Letter Guide",
+    excerpt:
+      "Received a data breach notification letter? The seven steps Illinois residents should take now — and the legal rights Illinois law gives you.",
+    href: "/resources/data-breach-notification-letter",
+  },
+  {
     title: "Data Breach Prevention",
     excerpt:
       "Essential strategies to protect your personal and business data from increasingly sophisticated cyber threats.",

@@ -5,6 +5,7 @@ import {
   Landmark,
   AlertTriangle,
   Shield,
+  Lock,
   Car,
 } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
@@ -62,6 +63,13 @@ const areas = [
     description:
       "Trusty gruntowe w stanie Illinois zapewniają prywatność, ochronę aktywów oraz uproszczone planowanie spadkowe dla właścicieli nieruchomości. Pomagamy klientom utworzyć i zarządzać trustami gruntowymi, aby chronić ich inwestycje w nieruchomości.",
     href: "/pl/practice-areas/land-trusts",
+  },
+  {
+    icon: Lock,
+    title: "Naruszenia danych i prywatność",
+    description:
+      "Czy Państwa dane osobowe zostały ujawnione w wyniku naruszenia danych? Reprezentujemy mieszkańców Illinois w sprawach naruszeń danych, prywatności biometrycznej (BIPA) i prywatności konsumentów na zasadzie wynagrodzenia warunkowego — bez honorarium adwokackiego, chyba że uzyskają Państwo odszkodowanie. Bezpłatne, poufne oceny sprawy.",
+    href: "/pl/practice-areas/data-breach",
   },
   {
     icon: Car,

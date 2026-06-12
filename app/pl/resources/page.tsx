@@ -67,6 +67,12 @@ const resources = [
     href: "/pl/real-estate-investors",
   },
   {
+    title: "Przewodnik: list o naruszeniu danych",
+    excerpt:
+      "Otrzymali Państwo list powiadamiający o naruszeniu danych? Siedem kroków, które mieszkańcy Illinois powinni podjąć teraz — oraz prawa, jakie daje im prawo stanu Illinois.",
+    href: "/pl/resources/data-breach-notification-letter",
+  },
+  {
     title: "Zapobieganie naruszeniom danych",
     excerpt:
       "Niezbędne strategie ochrony danych osobowych i biznesowych przed coraz bardziej zaawansowanymi zagrożeniami cybernetycznymi.",

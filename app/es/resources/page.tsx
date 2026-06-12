@@ -67,6 +67,12 @@ const resources = [
     href: "/es/real-estate-investors",
   },
   {
+    title: "Guía: Carta de Filtración de Datos",
+    excerpt:
+      "¿Recibió una carta de notificación de filtración de datos? Los siete pasos que los residentes de Illinois deben tomar ahora — y los derechos legales que les da la ley de Illinois.",
+    href: "/es/resources/data-breach-notification-letter",
+  },
+  {
     title: "Prevención de Violaciones de Datos",
     excerpt:
       "Estrategias esenciales para proteger sus datos personales y empresariales de amenazas cibernéticas cada vez más sofisticadas.",

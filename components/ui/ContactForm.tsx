@@ -8,6 +8,7 @@ const serviceOptions = [
   "Business Formation",
   "Estate Planning",
   "Property Tax Appeal",
+  "Data Breach / Privacy Claim",
   "Other",
 ];
 

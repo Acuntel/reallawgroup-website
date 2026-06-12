@@ -16,7 +16,7 @@ const teamMembers = [
     name: "Vincent Anthony Incopero",
     title: "Managing Partner",
     initials: "VI",
-    bio: "Vincent Anthony Incopero concentrates his practice in three complementary areas of law: real estate sales/purchases, business organizations, and estate planning. Vincent's educational background in finance and economics, coupled with his legal training and experience, has provided him with the analytical skills necessary to provide practical, cost-effective solutions. Prior to founding REAL Law Group, P.C., Vincent worked at Chicago's most recognized title company and practiced law with Chicago's largest Plaintiff's personal injury firm.",
+    bio: "Vincent Anthony Incopero concentrates his practice in three complementary areas of law: real estate sales/purchases, business organizations, and estate planning. He also leads the firm's data breach and privacy litigation practice, representing Illinois residents whose personal information was exposed in data breaches, co-counseling active cases with experienced national data breach litigation firms. Vincent's educational background in finance and economics, coupled with his legal training and experience, has provided him with the analytical skills necessary to provide practical, cost-effective solutions. Prior to founding REAL Law Group, P.C., Vincent worked at Chicago's most recognized title company and practiced law with Chicago's largest Plaintiff's personal injury firm.",
     education:
       "The John Marshall Law School, J.D. (2014) | Elmhurst College, B.S., Double Major, Finance & Economics (2010)",
     barAdmissions:
