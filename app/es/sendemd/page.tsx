@@ -1,4 +1,11 @@
-import { AlertTriangle, Phone, Building2, MapPin, Hash } from "lucide-react";
+import {
+  AlertTriangle,
+  Phone,
+  Building2,
+  MapPin,
+  Hash,
+  User,
+} from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import { generatePageMetadata } from "@/lib/metadata";
 import { CONTACT } from "@/lib/constants";
@@ -103,6 +110,18 @@ export default function SendEMDPageES() {
             <div className="w-16 h-1 bg-secondary mb-8" />
 
             <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <User className="w-6 h-6 text-secondary shrink-0 mt-1" />
+                <div>
+                  <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-1">
+                    Nombre del Beneficiario
+                  </p>
+                  <p className="text-2xl md:text-3xl font-heading font-bold text-primary">
+                    REAL Law Group PC IOLTA
+                  </p>
+                </div>
+              </div>
+
               <div className="flex items-start gap-4">
                 <Hash className="w-6 h-6 text-secondary shrink-0 mt-1" />
                 <div>
