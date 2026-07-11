@@ -3,6 +3,22 @@ import Anthropic from "@anthropic-ai/sdk";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { ChatLocale, LANGUAGE_INSTRUCTION } from "@/lib/chat-translations";
 
+// Only allow this endpoint to be called from our own site. Bots scan the web
+// for open LLM-proxy endpoints and pump paid requests through them; a matching
+// Origin/Referer is the real first-line gate (the per-IP limiter below is
+// best-effort only, since Vercel serverless does not share the in-memory Map).
+const ALLOWED_HOSTS = ["reallawgroup.com", "www.reallawgroup.com", "localhost"];
+function isAllowedOrigin(req: NextRequest): boolean {
+  const src = req.headers.get("origin") || req.headers.get("referer") || "";
+  if (!src) return false;
+  try {
+    const host = new URL(src).hostname;
+    return ALLOWED_HOSTS.includes(host) || host.endsWith(".vercel.app");
+  } catch {
+    return false;
+  }
+}
+
 const SYSTEM_PROMPT = `You are the AI assistant for REAL Law Group, P.C. — a Chicago-area law firm founded in 2016 by Vincent Anthony Incopero. You are embedded on their website to help potential clients learn about services and guide them toward scheduling a consultation.
 
 FIRM IDENTITY:
@@ -162,8 +178,13 @@ CRITICAL RULES:
 
 export async function POST(req: NextRequest) {
   try {
+    // Off-site callers (bots hitting the API directly) are rejected before any
+    // model call - this is the main defense against open-proxy abuse.
+    if (!isAllowedOrigin(req)) {
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    }
     const ip = req.headers.get("x-forwarded-for") || "unknown";
-    if (!checkRateLimit(ip, 10)) {
+    if (!checkRateLimit(ip, 8)) {
       return NextResponse.json({ error: "Too many requests" }, { status: 429 });
     }
 
@@ -184,6 +205,25 @@ export async function POST(req: NextRequest) {
         status: 400,
         headers: { "Content-Type": "application/json" },
       });
+    }
+
+    // Cap conversation size so a single request cannot balloon the token cost.
+    if (messages.length > 40) {
+      return NextResponse.json(
+        { error: "Conversation too long." },
+        { status: 400 },
+      );
+    }
+    const totalChars = messages.reduce(
+      (n: number, m: { content?: unknown }) =>
+        n + (typeof m.content === "string" ? m.content.length : 0),
+      0,
+    );
+    if (totalChars > 30000) {
+      return NextResponse.json(
+        { error: "Message payload too large." },
+        { status: 400 },
+      );
     }
 
     // Validate message content length
@@ -207,15 +247,17 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Build context-aware system prompt with lead info
-    let contextPrompt = SYSTEM_PROMPT;
-    contextPrompt += `\n\nLANGUAGE:\n${LANGUAGE_INSTRUCTION[chatLocale]}`;
+    // The big static SYSTEM_PROMPT is sent as a cached block (see streamParams);
+    // only this small, per-request part (language + lead info) varies, so the
+    // ~3.5k-token instructions are billed at the 90%-off cache rate on repeat
+    // turns instead of full price every message.
+    let volatilePrompt = `LANGUAGE:\n${LANGUAGE_INSTRUCTION[chatLocale]}`;
     if (leadInfo) {
-      contextPrompt += `\n\nCURRENT USER INFO:\n- Name: ${leadInfo.name}\n- Email: ${leadInfo.email}`;
-      if (leadInfo.phone) contextPrompt += `\n- Phone: ${leadInfo.phone}`;
+      volatilePrompt += `\n\nCURRENT USER INFO:\n- Name: ${leadInfo.name}\n- Email: ${leadInfo.email}`;
+      if (leadInfo.phone) volatilePrompt += `\n- Phone: ${leadInfo.phone}`;
       if (leadInfo.service)
-        contextPrompt += `\n- Interested in: ${leadInfo.service}`;
-      contextPrompt += `\nAddress the user by their first name. Tailor your responses to their stated interest.`;
+        volatilePrompt += `\n- Interested in: ${leadInfo.service}`;
+      volatilePrompt += `\nAddress the user by their first name. Tailor your responses to their stated interest.`;
     }
 
     // Convert messages to Anthropic format (no system role in messages array)
@@ -227,9 +269,19 @@ export async function POST(req: NextRequest) {
       }));
 
     const streamParams = {
-      model: process.env.ANTHROPIC_MODEL || "claude-sonnet-4-20250514",
+      // Haiku 4.5 is plenty for a website FAQ/lead bot and ~10-20x cheaper than
+      // Sonnet 4 (the prior default). Override via ANTHROPIC_MODEL if needed.
+      model: process.env.ANTHROPIC_MODEL || "claude-haiku-4-5-20251001",
       max_tokens: 500,
-      system: contextPrompt,
+      // Cache the static instructions; append the small volatile block uncached.
+      system: [
+        {
+          type: "text" as const,
+          text: SYSTEM_PROMPT,
+          cache_control: { type: "ephemeral" as const },
+        },
+        { type: "text" as const, text: volatilePrompt },
+      ],
       messages: anthropicMessages,
     };
 
