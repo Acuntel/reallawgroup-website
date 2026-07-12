@@ -178,6 +178,18 @@ CRITICAL RULES:
 
 export async function POST(req: NextRequest) {
   try {
+    // KILL SWITCH: the endpoint was being abused as an open proxy to Claude
+    // (the Origin header it gated on is client-spoofable). Hard-disabled until a
+    // non-spoofable gate (Turnstile-minted session token + edge rate limit) is
+    // in place. Set CHAT_ENABLED=true in Vercel only AFTER that lands.
+    if (process.env.CHAT_ENABLED !== "true") {
+      return NextResponse.json(
+        {
+          error: "Chat is temporarily unavailable. Please call (630) 299-7600.",
+        },
+        { status: 503 },
+      );
+    }
     // Off-site callers (bots hitting the API directly) are rejected before any
     // model call - this is the main defense against open-proxy abuse.
     if (!isAllowedOrigin(req)) {
