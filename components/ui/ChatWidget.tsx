@@ -19,6 +19,18 @@ import {
   detectLocaleFromPath,
 } from "@/lib/chat-translations";
 
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (el: HTMLElement, opts: Record<string, unknown>) => string;
+      execute: (id: string) => void;
+      reset: (id: string) => void;
+    };
+  }
+}
+
 interface Message {
   role: "user" | "assistant";
   content: string;
@@ -61,6 +73,79 @@ export default function ChatWidget() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Anti-abuse: a caller must solve Cloudflare Turnstile once, exchange it for a
+  // signed session token, and send that token with every message. Bots cannot
+  // cheaply solve Turnstile, so the server-side per-session/day cap holds.
+  const turnstileContainer = useRef<HTMLDivElement>(null);
+  const turnstileWidgetId = useRef<string | null>(null);
+  const turnstileResolver = useRef<((token: string | null) => void) | null>(
+    null,
+  );
+  const sessionTokenRef = useRef<string | null>(null);
+
+  // Load the Turnstile script once, only after the widget is opened.
+  useEffect(() => {
+    if (state === "closed" || !TURNSTILE_SITE_KEY) return;
+    if (document.getElementById("cf-turnstile-script")) return;
+    const s = document.createElement("script");
+    s.id = "cf-turnstile-script";
+    s.src =
+      "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+    s.async = true;
+    s.defer = true;
+    document.head.appendChild(s);
+  }, [state]);
+
+  const runTurnstile = (): Promise<string | null> =>
+    new Promise((resolve) => {
+      const ts = window.turnstile;
+      if (!ts || !TURNSTILE_SITE_KEY || !turnstileContainer.current) {
+        resolve(null);
+        return;
+      }
+      turnstileResolver.current = resolve;
+      const done = (token: string | null) => {
+        turnstileResolver.current?.(token);
+        turnstileResolver.current = null;
+      };
+      if (turnstileWidgetId.current === null) {
+        turnstileWidgetId.current = ts.render(turnstileContainer.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          size: "invisible",
+          callback: (token: string) => done(token),
+          "error-callback": () => done(null),
+          "expired-callback": () => done(null),
+        });
+      } else {
+        ts.reset(turnstileWidgetId.current);
+      }
+      ts.execute(turnstileWidgetId.current);
+      // Safety net so a stuck challenge never hangs the send.
+      setTimeout(() => {
+        if (turnstileResolver.current) done(null);
+      }, 15000);
+    });
+
+  // Returns a valid session token, minting one (Turnstile -> exchange) if needed.
+  const getSessionToken = async (): Promise<string | null> => {
+    if (sessionTokenRef.current) return sessionTokenRef.current;
+    const turnstileToken = await runTurnstile();
+    if (!turnstileToken) return null;
+    try {
+      const res = await fetch("/api/chat/session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ turnstileToken }),
+      });
+      if (!res.ok) return null;
+      const data = await res.json();
+      sessionTokenRef.current = data.token || null;
+      return sessionTokenRef.current;
+    } catch {
+      return null;
+    }
+  };
 
   // Auto-scroll to bottom when messages change
   useEffect(() => {
@@ -160,8 +245,8 @@ export default function ChatWidget() {
     // Add placeholder for assistant response
     setMessages((prev) => [...prev, { role: "assistant", content: "" }]);
 
-    try {
-      const response = await fetch("/api/chat", {
+    const doFetch = (token: string) =>
+      fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -171,8 +256,21 @@ export default function ChatWidget() {
           })),
           leadInfo,
           locale,
+          sessionToken: token,
         }),
       });
+
+    try {
+      let token = await getSessionToken();
+      if (!token) throw new Error("No session");
+      let response = await doFetch(token);
+      // Session expired mid-chat: mint a fresh one and retry once.
+      if (response.status === 401) {
+        sessionTokenRef.current = null;
+        token = await getSessionToken();
+        if (!token) throw new Error("No session");
+        response = await doFetch(token);
+      }
 
       if (!response.ok) {
         throw new Error("Failed to get response");
@@ -259,6 +357,8 @@ export default function ChatWidget() {
 
   return (
     <div className="fixed bottom-6 lg:bottom-6 max-lg:bottom-[72px] right-4 sm:right-6 z-50">
+      {/* Invisible Cloudflare Turnstile mount (renders nothing unless challenged) */}
+      <div ref={turnstileContainer} />
       {/* Widget Panel */}
       {isOpen && (
         <div

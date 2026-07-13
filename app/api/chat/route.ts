@@ -2,11 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import Anthropic from "@anthropic-ai/sdk";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { ChatLocale, LANGUAGE_INSTRUCTION } from "@/lib/chat-translations";
+import { verifySessionToken } from "@/lib/session-token";
+import { checkAndCountDaily } from "@/lib/usage-limit";
 
-// Only allow this endpoint to be called from our own site. Bots scan the web
-// for open LLM-proxy endpoints and pump paid requests through them; a matching
-// Origin/Referer is the real first-line gate (the per-IP limiter below is
-// best-effort only, since Vercel serverless does not share the in-memory Map).
+// Origin/Referer is a cheap first filter, but it is client-spoofable, so it is
+// NOT the real gate. The real gate is the signed session token below, which a
+// caller can only obtain by solving Turnstile (see /api/chat/session).
 const ALLOWED_HOSTS = ["reallawgroup.com", "www.reallawgroup.com", "localhost"];
 function isAllowedOrigin(req: NextRequest): boolean {
   const src = req.headers.get("origin") || req.headers.get("referer") || "";
@@ -178,10 +179,8 @@ CRITICAL RULES:
 
 export async function POST(req: NextRequest) {
   try {
-    // KILL SWITCH: the endpoint was being abused as an open proxy to Claude
-    // (the Origin header it gated on is client-spoofable). Hard-disabled until a
-    // non-spoofable gate (Turnstile-minted session token + edge rate limit) is
-    // in place. Set CHAT_ENABLED=true in Vercel only AFTER that lands.
+    // Master switch. Keep OFF until the Turnstile keys + CHAT_SESSION_SECRET are
+    // set in Vercel; then set CHAT_ENABLED=true. Fail-safe: off = 503.
     if (process.env.CHAT_ENABLED !== "true") {
       return NextResponse.json(
         {
@@ -190,12 +189,12 @@ export async function POST(req: NextRequest) {
         { status: 503 },
       );
     }
-    // Off-site callers (bots hitting the API directly) are rejected before any
-    // model call - this is the main defense against open-proxy abuse.
+    // Cheap first filter (spoofable, so not the real gate - the session token is).
     if (!isAllowedOrigin(req)) {
       return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }
-    const ip = req.headers.get("x-forwarded-for") || "unknown";
+    const ip =
+      req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
     if (!checkRateLimit(ip, 8)) {
       return NextResponse.json({ error: "Too many requests" }, { status: 429 });
     }
@@ -208,9 +207,30 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { messages, leadInfo, locale } = await req.json();
+    const { messages, leadInfo, locale, sessionToken } = await req.json();
     const chatLocale: ChatLocale =
       locale === "es" || locale === "pl" ? locale : "en";
+
+    // Non-spoofable gate: require a valid signed session token (minted only
+    // after solving Turnstile at /api/chat/session).
+    const session = verifySessionToken(sessionToken);
+    if (!session) {
+      return NextResponse.json(
+        { error: "Session expired. Please refresh the chat." },
+        { status: 401 },
+      );
+    }
+
+    // Shared daily ceilings (per session, per IP, and a global auto-shutoff).
+    // No-op if Upstash is unconfigured; the Anthropic spend cap still bounds cost.
+    const limit = await checkAndCountDaily(session.id, ip);
+    if (!limit.ok) {
+      const msg =
+        limit.reason === "global"
+          ? "Our assistant has hit today's usage limit. Please call (630) 299-7600."
+          : "You've reached today's message limit. Please call (630) 299-7600 to continue.";
+      return NextResponse.json({ error: msg }, { status: 429 });
+    }
 
     if (!messages || !Array.isArray(messages)) {
       return new Response(JSON.stringify({ error: "Messages are required." }), {
