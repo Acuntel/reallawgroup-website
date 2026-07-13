@@ -193,6 +193,10 @@ export default function ChatWidget() {
 
   const sendLeadNotification = async (includeTranscript = false) => {
     try {
+      // Solve Turnstile once here (lead-form submit) and reuse the session token
+      // for the notification and every chat message. Skip silently if none.
+      const token = await getSessionToken();
+      if (!token) return;
       const payload: Record<string, unknown> = { ...leadInfo };
       if (includeTranscript) payload.transcript = messages;
       if (attachments.length > 0) {
@@ -203,6 +207,7 @@ export default function ChatWidget() {
         }));
       }
       payload.locale = locale;
+      payload.sessionToken = token;
       await fetch("/api/chat/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

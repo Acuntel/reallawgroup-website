@@ -1,7 +1,19 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, useEffect, useRef, FormEvent } from "react";
 import { Send, CheckCircle } from "lucide-react";
+
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (el: HTMLElement, opts: Record<string, unknown>) => string;
+      execute: (id: string) => void;
+      reset: (id: string) => void;
+    };
+  }
+}
 
 const serviceOptions = [
   "Real Estate Transaction",
@@ -25,6 +37,45 @@ export default function ContactForm() {
     message: "",
   });
 
+  // Cloudflare Turnstile: a visible check that gates the form against bot spam
+  // (this endpoint sends email + forwards to intake). Renders only when a site
+  // key is configured, so the form still works during rollout.
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileRef = useRef<HTMLDivElement>(null);
+  const turnstileWidgetId = useRef<string | null>(null);
+
+  useEffect(() => {
+    if (!TURNSTILE_SITE_KEY) return;
+    if (!document.getElementById("cf-turnstile-script")) {
+      const s = document.createElement("script");
+      s.id = "cf-turnstile-script";
+      s.src =
+        "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+      s.async = true;
+      s.defer = true;
+      document.head.appendChild(s);
+    }
+    let cancelled = false;
+    const tryRender = () => {
+      if (cancelled || turnstileWidgetId.current !== null) return;
+      const ts = window.turnstile;
+      if (ts && turnstileRef.current) {
+        turnstileWidgetId.current = ts.render(turnstileRef.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          callback: (token: string) => setTurnstileToken(token),
+          "expired-callback": () => setTurnstileToken(null),
+          "error-callback": () => setTurnstileToken(null),
+        });
+      } else {
+        setTimeout(tryRender, 300);
+      }
+    };
+    tryRender();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   const validate = () => {
     const newErrors: Record<string, string> = {};
     if (!formData.name.trim()) newErrors.name = "Full name is required";
@@ -41,6 +92,10 @@ export default function ContactForm() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
+    if (TURNSTILE_SITE_KEY && !turnstileToken) {
+      setSubmitError("Please complete the verification below and try again.");
+      return;
+    }
     setSubmitting(true);
     setSubmitError("");
 
@@ -48,7 +103,7 @@ export default function ContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, turnstileToken }),
       });
 
       if (!res.ok) {
@@ -58,6 +113,11 @@ export default function ContactForm() {
 
       setSubmitted(true);
     } catch (err) {
+      // Turnstile tokens are single-use; refresh it so a retry has a fresh one.
+      if (turnstileWidgetId.current !== null) {
+        window.turnstile?.reset(turnstileWidgetId.current);
+        setTurnstileToken(null);
+      }
       setSubmitError(
         err instanceof Error
           ? err.message
@@ -222,6 +282,10 @@ export default function ContactForm() {
         <div className="bg-red-50 border border-red-200 rounded-lg p-3 text-red-700 text-sm">
           {submitError}
         </div>
+      )}
+
+      {TURNSTILE_SITE_KEY && (
+        <div ref={turnstileRef} className="flex justify-center" />
       )}
 
       <div className="flex items-center justify-center gap-4 text-xs text-text-muted mb-4">

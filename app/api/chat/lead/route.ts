@@ -1,9 +1,28 @@
 import { NextRequest, NextResponse } from "next/server";
 import { checkRateLimit } from "@/lib/rate-limit";
+import { verifySessionToken } from "@/lib/session-token";
+
+const ALLOWED_HOSTS = ["reallawgroup.com", "www.reallawgroup.com", "localhost"];
+function isAllowedOrigin(req: NextRequest): boolean {
+  const src = req.headers.get("origin") || req.headers.get("referer") || "";
+  if (!src) return false;
+  try {
+    const host = new URL(src).hostname;
+    return ALLOWED_HOSTS.includes(host) || host.endsWith(".vercel.app");
+  } catch {
+    return false;
+  }
+}
 
 export async function POST(req: NextRequest) {
   try {
-    const ip = req.headers.get("x-forwarded-for") || "unknown";
+    // This endpoint sends email (Resend). Gate it like the chat endpoint so it
+    // cannot be hammered to spam the firm's inbox / sending reputation.
+    if (!isAllowedOrigin(req)) {
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    }
+    const ip =
+      req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
     if (!checkRateLimit(ip, 5)) {
       return NextResponse.json({ error: "Too many requests" }, { status: 429 });
     }
@@ -16,8 +35,24 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { name, email, phone, service, transcript, attachments } =
-      await req.json();
+    const {
+      name,
+      email,
+      phone,
+      service,
+      transcript,
+      attachments,
+      sessionToken,
+    } = await req.json();
+
+    // Only accept lead notifications tied to a verified chat session (the widget
+    // mints the token via Turnstile when the lead form is submitted).
+    if (!verifySessionToken(sessionToken)) {
+      return NextResponse.json(
+        { error: "Session expired. Please refresh." },
+        { status: 401 },
+      );
+    }
 
     if (!name || !email) {
       return NextResponse.json(
