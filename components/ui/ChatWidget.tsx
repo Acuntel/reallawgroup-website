@@ -20,6 +20,9 @@ import {
 } from "@/lib/chat-translations";
 
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+// When no Turnstile key is configured, run in graceful mode: skip the session
+// token and rely on the server's Origin gate + cost caps + prepaid balance.
+const TURNSTILE_ENABLED = !!TURNSTILE_SITE_KEY;
 
 declare global {
   interface Window {
@@ -195,8 +198,8 @@ export default function ChatWidget() {
     try {
       // Solve Turnstile once here (lead-form submit) and reuse the session token
       // for the notification and every chat message. Skip silently if none.
-      const token = await getSessionToken();
-      if (!token) return;
+      const token = TURNSTILE_ENABLED ? await getSessionToken() : "";
+      if (TURNSTILE_ENABLED && !token) return;
       const payload: Record<string, unknown> = { ...leadInfo };
       if (includeTranscript) payload.transcript = messages;
       if (attachments.length > 0) {
@@ -266,13 +269,13 @@ export default function ChatWidget() {
       });
 
     try {
-      let token = await getSessionToken();
-      if (!token) throw new Error("No session");
+      let token = (TURNSTILE_ENABLED ? await getSessionToken() : "") || "";
+      if (TURNSTILE_ENABLED && !token) throw new Error("No session");
       let response = await doFetch(token);
-      // Session expired mid-chat: mint a fresh one and retry once.
-      if (response.status === 401) {
+      // Session expired mid-chat (Turnstile mode only): re-mint and retry once.
+      if (TURNSTILE_ENABLED && response.status === 401) {
         sessionTokenRef.current = null;
-        token = await getSessionToken();
+        token = (await getSessionToken()) || "";
         if (!token) throw new Error("No session");
         response = await doFetch(token);
       }

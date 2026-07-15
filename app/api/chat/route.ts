@@ -211,19 +211,21 @@ export async function POST(req: NextRequest) {
     const chatLocale: ChatLocale =
       locale === "es" || locale === "pl" ? locale : "en";
 
-    // Non-spoofable gate: require a valid signed session token (minted only
-    // after solving Turnstile at /api/chat/session).
+    // When Turnstile is configured, require the signed session token (the full
+    // non-spoofable gate). When it is not, run in graceful mode: Origin + Haiku
+    // + payload/token caps + the account's prepaid balance are the bound. The
+    // gate auto-upgrades the moment Turnstile keys are added - no code change.
     const session = verifySessionToken(sessionToken);
-    if (!session) {
+    if (process.env.TURNSTILE_SECRET_KEY && !session) {
       return NextResponse.json(
         { error: "Session expired. Please refresh the chat." },
         { status: 401 },
       );
     }
 
-    // Shared daily ceilings (per session, per IP, and a global auto-shutoff).
-    // No-op if Upstash is unconfigured; the Anthropic spend cap still bounds cost.
-    const limit = await checkAndCountDaily(session.id, ip);
+    // Shared daily ceilings (per session/IP + global auto-shutoff). No-op unless
+    // Upstash is configured; keyed by session when present, else by IP.
+    const limit = await checkAndCountDaily(session?.id || ip, ip);
     if (!limit.ok) {
       const msg =
         limit.reason === "global"

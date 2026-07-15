@@ -45,9 +45,9 @@ export async function POST(req: NextRequest) {
       sessionToken,
     } = await req.json();
 
-    // Only accept lead notifications tied to a verified chat session (the widget
-    // mints the token via Turnstile when the lead form is submitted).
-    if (!verifySessionToken(sessionToken)) {
+    // When Turnstile is configured, require the verified session token; else the
+    // Origin gate above is the bound (graceful mode, same as /api/chat).
+    if (process.env.TURNSTILE_SECRET_KEY && !verifySessionToken(sessionToken)) {
       return NextResponse.json(
         { error: "Session expired. Please refresh." },
         { status: 401 },
