@@ -76,5 +76,6 @@ export const NAV_LINKS = [
     label: "Real Estate Investors",
     href: "/real-estate-investors",
   },
+  { label: "Selling Your Home?", href: "https://soldeasier.com" },
   { label: "Contact Us", href: "/contact" },
 ];
