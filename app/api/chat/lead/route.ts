@@ -1,6 +1,50 @@
 import { NextRequest, NextResponse } from "next/server";
+import Anthropic from "@anthropic-ai/sdk";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { verifySessionToken } from "@/lib/session-token";
+
+// Short AI summary of the chat so the team can scan the lead without reading
+// the whole transcript. Best-effort: any failure (no key, API error) returns
+// null and the email still goes out with the full transcript.
+async function summarizeTranscript(
+  transcript: { role: string; content: string }[],
+  lead: { name: string; phone?: string; service?: string },
+): Promise<string | null> {
+  const apiKey =
+    process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_API_KEY_BACKUP;
+  if (!apiKey) return null;
+  try {
+    const convo = transcript
+      .map(
+        (m) =>
+          `${m.role === "user" ? "Visitor" : "Assistant"}: ${typeof m.content === "string" ? m.content : ""}`,
+      )
+      .join("\n")
+      .slice(0, 12000);
+    const client = new Anthropic({ apiKey });
+    const res = await client.messages.create({
+      model: process.env.ANTHROPIC_MODEL || "claude-haiku-4-5-20251001",
+      max_tokens: 300,
+      system:
+        "You summarize website chatbot conversations for a law firm's intake team. Reply with 3-5 plain-text bullet points (each starting with '- '): what the visitor needs, key facts they shared (property, deal type, timeline, urgency), and the suggested follow-up. No preamble, no markdown headers.",
+      messages: [
+        {
+          role: "user",
+          content: `Visitor: ${lead.name}${lead.service ? ` (interested in: ${lead.service})` : ""}\n\nConversation:\n${convo}`,
+        },
+      ],
+    });
+    const text = res.content
+      .filter((b) => b.type === "text")
+      .map((b) => (b.type === "text" ? b.text : ""))
+      .join("")
+      .trim();
+    return text || null;
+  } catch (err) {
+    console.error("Lead summary generation failed:", err);
+    return null;
+  }
+}
 
 const ALLOWED_HOSTS = ["reallawgroup.com", "www.reallawgroup.com", "localhost"];
 function isAllowedOrigin(req: NextRequest): boolean {
@@ -69,7 +113,12 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const isFollowUp = !!transcript;
+    const isFollowUp = Array.isArray(transcript) && transcript.length > 0;
+
+    // Summarize the conversation for the follow-up email (best-effort).
+    const summary = isFollowUp
+      ? await summarizeTranscript(transcript, { name, phone, service })
+      : null;
 
     const emailBody = [
       isFollowUp
@@ -81,6 +130,7 @@ export async function POST(req: NextRequest) {
       phone ? `Phone: ${phone}` : null,
       service ? `Interested In: ${service}` : null,
       "",
+      ...(summary ? ["--- Summary ---", "", summary, ""] : []),
       ...(isFollowUp
         ? [
             "--- Conversation Transcript ---",
@@ -119,7 +169,11 @@ export async function POST(req: NextRequest) {
         },
         body: JSON.stringify({
           from: "REAL Law Group Website <noreply@reallawgroup.com>",
-          to: ["info@reallawgroup.com"],
+          to: [
+            "info@reallawgroup.com",
+            "vincent@reallawgroup.com",
+            "sarah@reallawgroup.com",
+          ],
           reply_to: email,
           subject: isFollowUp
             ? `AI Chat Complete: ${name} — ${service || "General"}`

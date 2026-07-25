@@ -17,24 +17,24 @@ import { generatePageMetadata } from "@/lib/metadata";
 export const metadata = generatePageMetadata({
   title: "Obszary praktyki",
   description:
-    "REAL Law Group świadczy profesjonalne usługi prawne w zakresie prawa nieruchomości, prawa gospodarczego oraz planowania spadkowego na terenie całego Chicagoland. Zadzwoń pod (630) 299-7600, aby umówić bezpłatną konsultację.",
+    "REAL Law Group świadczy profesjonalne usługi prawne w zakresie zamknięć transakcji nieruchomości, obsługi inwestorów nieruchomości oraz planowania spadkowego na terenie całego Chicagoland. Zadzwoń pod (630) 299-7600, aby umówić bezpłatną konsultację.",
   path: "/pl/practice-areas",
 });
 
 const areas = [
   {
     icon: Home,
-    title: "Prawo nieruchomości",
+    title: "Zamknięcia transakcji nieruchomości",
     description:
-      "Obsługujemy mieszkaniowe i komercyjne transakcje na nieruchomościach dla klientów z północnego Illinois. Od umowy aż po zamknięcie transakcji chronimy interesy naszych klientów, pomagając im zrozumieć biznesowe, podatkowe i prawne konsekwencje związane z ich transakcją.",
+      "Reprezentujemy kupujących i sprzedających w północnym Illinois — w tym przy krótkiej sprzedaży, cesji umowy oraz finansowaniu przez sprzedającego. Od umowy aż po zamknięcie transakcji chronimy interesy naszych klientów, pomagając im zrozumieć biznesowe, podatkowe i prawne konsekwencje transakcji.",
     href: "/pl/practice-areas/real-estate",
   },
   {
     icon: Building,
-    title: "Prawo gospodarcze",
+    title: "Inwestorzy nieruchomości",
     description:
-      "REAL Law Group doradza małym i średnim firmom działającym w różnych branżach. Opierając się na naszym doświadczeniu finansowym i biznesowym, wspieramy klientów w wyzwaniach, przed którymi stają właściciele firm, i oferujemy proaktywne rozwiązania.",
-    href: "/pl/practice-areas/business-law",
+      "Obsługa prawna dopasowana do tempa pracy inwestorów — akwizycje i sprzedaż, zakładanie spółek, trusty gruntowe, wymiany 1031 oraz sprawne zamknięcia. Współpracujemy także z agentami, hurtownikami i pożyczkodawcami oraz przygotowujemy umowy partnerskie między współinwestorami.",
+    href: "/pl/real-estate-investors",
   },
   {
     icon: FileText,

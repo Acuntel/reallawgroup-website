@@ -36,6 +36,76 @@ const commercialServices = [
   "Joint ventures",
 ];
 
+const closingCategories = [
+  {
+    id: "buyers",
+    title: "Kupujący",
+    intro:
+      "Zakup domu lub nieruchomości inwestycyjnej to jedna z największych transakcji w życiu. Reprezentujemy kupujących od podpisania umowy aż do stołu zamknięcia, dbając o to, aby warunki, na które się umówiłeś, były tymi, które faktycznie otrzymasz.",
+    points: [
+      "Przegląd adwokacki i modyfikacje umowy",
+      "Negocjowanie napraw i kredytów po inspekcji",
+      "Analiza tytułu własności, pomiarów (survey) i obciążeń",
+      "Przegląd dokumentów kredytowych i zamknięcia",
+      "Koordynacja zamknięcia z kredytodawcą, firmą tytułową i agentem",
+      "Rozwiązywanie problemów przy inspekcji końcowej (walk-through)",
+    ],
+  },
+  {
+    id: "sellers",
+    title: "Sprzedający",
+    intro:
+      "Gdy sprzedajesz, naszym zadaniem jest doprowadzenie do sprawnego, terminowego zamknięcia z ochroną Twoich środków. Zajmujemy się stroną prawną, abyś Ty i Twój agent mogli skupić się na samej sprzedaży — wspieramy także sprzedających bez agenta (FSBO).",
+    points: [
+      "Przygotowanie umowy i przegląd adwokacki",
+      "Odpowiedzi na żądania napraw po inspekcji",
+      "Zaświadczenia o spłacie i porządkowanie tytułu własności",
+      "Opłaty skarbowe (transfer stamps) i wymogi gminne",
+      "Przygotowanie aktu własności i dokumentów zamknięcia",
+      "Reprezentacja przy sprzedaży bez pośrednika (FSBO)",
+    ],
+  },
+  {
+    id: "short-sales",
+    title: "Krótka sprzedaż (Short Sale)",
+    intro:
+      "Jeśli Twój dług przekracza wartość domu, krótka sprzedaż może być alternatywą dla egzekucji hipotecznej. Negocjujemy bezpośrednio z Twoim kredytodawcą i prowadzimy proces zatwierdzenia od pakietu trudności finansowych aż do zamknięcia.",
+    points: [
+      "Negocjacje z kredytodawcą i zatwierdzenie krótkiej sprzedaży",
+      "Przygotowanie pakietu trudności finansowych (hardship)",
+      "Negocjowanie zrzeczenia się roszczenia o niedobór (deficiency waiver)",
+      "Koordynacja wielu wierzycieli hipotecznych",
+      "Realistyczne terminy i koordynacja obrony przed egzekucją",
+    ],
+  },
+  {
+    id: "assignment-of-contract",
+    title: "Cesja umowy",
+    intro:
+      "Hurtownicy (wholesalers) i inwestorzy dokonujący cesji umów zakupu potrzebują dokumentów, które naprawdę ich chronią. Sporządzamy i weryfikujemy umowy cesji, potwierdzamy, że umowa bazowa podlega cesji, i strukturyzujemy zamknięcie tak, aby pozycja każdej strony była zabezpieczona.",
+    points: [
+      "Sporządzanie i weryfikacja umów cesji",
+      "Analiza zbywalności i zapisów umowy",
+      "Obsługa opłat za cesję i wadium (earnest money)",
+      "Podwójne zamknięcia, gdy cesja nie wchodzi w grę",
+      "Zgodność z obowiązkami informacyjnymi dla cedentów i nabywców końcowych",
+    ],
+  },
+  {
+    id: "seller-financing",
+    title: "Finansowanie przez sprzedającego",
+    intro:
+      "Finansowanie przez sprzedającego może otworzyć sprzedaż na większą liczbę kupujących i zapewnić sprzedającemu dochód — ale tylko wtedy, gdy jest właściwie udokumentowane. Strukturyzujemy i dokumentujemy sprzedaż ratalną oraz hipoteki sprzedającego dla obu stron transakcji.",
+    points: [
+      "Umowy sprzedaży ratalnej (articles of agreement for deed)",
+      "Weksle własne i hipoteki utrzymywane przez sprzedającego",
+      "Zaliczki, oprocentowanie i płatności balonowe",
+      "Rejestracja i depozyt aktu własności (escrow)",
+      "Środki na wypadek niewykonania umowy i kwestie zgodności",
+    ],
+  },
+];
+
 const faqs = [
   {
     question:
@@ -82,7 +152,7 @@ export default function RealEstatePage() {
             generateBreadcrumbSchema([
               { name: "Strona główna", url: "/pl" },
               { name: "Obszary praktyki", url: "/pl/practice-areas" },
-              { name: "Prawo nieruchomości" },
+              { name: "Zamknięcia transakcji nieruchomości" },
             ]),
           ),
         }}
@@ -91,7 +161,7 @@ export default function RealEstatePage() {
       <section className="page-hero">
         <div className="container-custom">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-            Prawo nieruchomości
+            Zamknięcia transakcji nieruchomości
           </h1>
         </div>
       </section>
@@ -100,7 +170,7 @@ export default function RealEstatePage() {
         items={[
           { label: "Strona główna", href: "/pl" },
           { label: "Obszary praktyki", href: "/pl/practice-areas" },
-          { label: "Prawo nieruchomości" },
+          { label: "Zamknięcia transakcji nieruchomości" },
         ]}
       />
 
@@ -151,6 +221,30 @@ export default function RealEstatePage() {
             </div>
           </div>
 
+          {closingCategories.map((category) => (
+            <div
+              key={category.id}
+              id={category.id}
+              className="mb-16 scroll-mt-32"
+            >
+              <h2 className="text-2xl md:text-3xl font-heading font-semibold mb-6">
+                {category.title}
+              </h2>
+              <div className="w-12 h-1 bg-secondary mb-8" />
+              <p className="text-text-muted leading-relaxed mb-8">
+                {category.intro}
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {category.points.map((point, i) => (
+                  <div key={i} className="flex items-start gap-3 py-2">
+                    <CheckCircle className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
+                    <span className="text-sm text-text">{point}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+
           {/* FAQ */}
           <div>
             <h2 className="text-2xl md:text-3xl font-heading font-semibold mb-6">
@@ -175,6 +269,12 @@ export default function RealEstatePage() {
             Powiązane obszary praktyki
           </h2>
           <div className="flex flex-wrap gap-4">
+            <a
+              href="/pl/real-estate-investors"
+              className="text-primary hover:text-secondary font-semibold underline"
+            >
+              Inwestorzy nieruchomości
+            </a>
             <a
               href="/pl/practice-areas/land-trusts"
               className="text-primary hover:text-secondary font-semibold underline"

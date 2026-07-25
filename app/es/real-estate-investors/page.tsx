@@ -1,4 +1,28 @@
-import { Building2, Handshake, ShieldCheck, Landmark } from "lucide-react";
+import {
+  Building2,
+  Handshake,
+  ShieldCheck,
+  Landmark,
+  Star,
+} from "lucide-react";
+
+const testimonials = [
+  {
+    text: "Vince y su equipo hicieron que nuestro cierre fuera completamente fluido. Profesionales, receptivos y siempre disponibles cuando teníamos preguntas. ¡Altamente recomendados!",
+    author: "M.R.",
+    context: "Compradora de vivienda, Elmhurst",
+  },
+  {
+    text: "El mejor abogado de bienes raíces del área de Chicago. Se encargaron de todo, desde el contrato hasta el cierre, y explicaron cada paso con claridad.",
+    author: "J.P.",
+    context: "Cliente de bienes raíces, Naperville",
+  },
+  {
+    text: "Sarah y el equipo fueron increíbles durante nuestro cierre comercial. La atención al detalle en los documentos del préstamo nos salvó de un error costoso.",
+    author: "R.T.",
+    context: "Cliente de bienes raíces comerciales",
+  },
+];
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import CTABanner from "@/components/sections/CTABanner";
 import { generateBreadcrumbSchema } from "@/lib/schema";
@@ -117,6 +141,45 @@ export default function RealEstateInvestorsPageES() {
             })}
           </div>
 
+          <div id="partners" className="mb-16 scroll-mt-32">
+            <p className="section-label">Socios de Bienes Raíces</p>
+            <h2 className="text-2xl md:text-3xl font-heading font-semibold mb-6">
+              Asóciese con REAL Law Group
+            </h2>
+            <div className="w-12 h-1 bg-secondary mb-8" />
+            <p className="text-text-muted leading-relaxed mb-8 max-w-3xl">
+              Los buenos negocios se construyen sobre buenas relaciones.
+              Trabajamos junto a las personas en las que los inversionistas ya
+              confían — y documentamos las asociaciones que los inversionistas
+              forman entre sí.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-background rounded-xl p-6 border border-border">
+                <h3 className="text-lg font-semibold text-primary mb-2">
+                  Socios de Inversión
+                </h3>
+                <p className="text-sm text-text-muted leading-relaxed">
+                  Acuerdos de empresa conjunta (joint venture), acuerdos de
+                  sociedad y acuerdos operativos entre co-inversionistas,
+                  estructuras de tenencia en común y documentación de capital
+                  privado — para que cada socio sepa exactamente dónde está
+                  parado antes del cierre.
+                </p>
+              </div>
+              <div className="bg-background rounded-xl p-6 border border-border">
+                <h3 className="text-lg font-semibold text-primary mb-2">
+                  Socios de la Industria
+                </h3>
+                <p className="text-sm text-text-muted leading-relaxed">
+                  Agentes, corredores, mayoristas, prestamistas, compañías de
+                  título y administradores de propiedades: somos el abogado de
+                  cierres con el que sus clientes pueden contar. Si busca un
+                  socio legal confiable para sus transacciones, hablemos.
+                </p>
+              </div>
+            </div>
+          </div>
+
           <div className="bg-light-gold rounded-xl p-8">
             <h3 className="text-xl font-heading font-semibold text-primary mb-3">
               ¿Cierra con frecuencia? Hablemos de un acuerdo de trabajo.
@@ -134,6 +197,49 @@ export default function RealEstateInvestorsPageES() {
             >
               Agendar una Consulta
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="testimonials"
+        className="section-padding bg-background scroll-mt-32"
+      >
+        <div className="container-custom max-w-5xl">
+          <div className="text-center mb-14">
+            <p className="section-label">Testimonios</p>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+              Lo que dicen nuestros clientes
+            </h2>
+            <div className="w-16 h-1 bg-secondary mx-auto" />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, i) => (
+              <div
+                key={i}
+                className="bg-white rounded-xl p-8 border border-border h-full"
+              >
+                <div
+                  aria-label="5 de 5 estrellas"
+                  role="img"
+                  className="flex gap-1 mb-4"
+                >
+                  {[...Array(5)].map((_, j) => (
+                    <Star
+                      key={j}
+                      className="w-4 h-4 fill-secondary text-secondary"
+                    />
+                  ))}
+                </div>
+                <p className="text-text-muted text-sm leading-relaxed mb-6 italic">
+                  &ldquo;{testimonial.text}&rdquo;
+                </p>
+                <p className="text-sm font-semibold text-primary">
+                  {testimonial.author}
+                </p>
+                <p className="text-xs text-text-muted">{testimonial.context}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -11,7 +11,7 @@ interface CTABannerProps {
 
 export default function CTABanner({
   heading = "Ready to take the next step?",
-  text = "Get trusted, local legal support from a team that knows Chicago real estate and business law inside and out.",
+  text = "Get trusted, local legal support from a team that knows Chicago real estate inside and out.",
   buttonText = "Contact Us Now",
   buttonHref = "/contact",
 }: CTABannerProps) {

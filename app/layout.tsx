@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     template: "%s | REAL Law Group",
   },
   description:
-    "Chicago real estate attorneys providing personalized legal guidance for real estate transactions, business law, and estate planning. Serving Chicagoland since 2016.",
+    "Chicago real estate attorneys providing personalized legal guidance for real estate closings, real estate investors, and estate planning. Serving Chicagoland since 2016.",
   metadataBase: new URL("https://reallawgroup.com"),
   authors: [{ name: "REAL Law Group, P.C." }],
   robots: { index: true, follow: true },

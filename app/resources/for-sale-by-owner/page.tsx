@@ -241,7 +241,7 @@ export default function ForSaleByOwnerPage() {
             href="/practice-areas/real-estate"
             className="text-primary hover:text-secondary font-semibold underline"
           >
-            Real Estate Law
+            Real Estate Closings
           </a>
           <a
             href="/resources/closing-cost-calculator"

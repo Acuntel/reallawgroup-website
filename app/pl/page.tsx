@@ -23,12 +23,12 @@ import { CONTACT } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Zaufani adwokaci ds. nieruchomości w Chicago | REAL Law Group",
   description:
-    "Indywidualne doradztwo prawne w zakresie nieruchomości, biznesu i planowania spadkowego. Obsługujemy region Chicagoland od 2016 roku. Ponad 300 pięciogwiazdkowych opinii. Zadzwoń (630) 299-7600, aby umówić bezpłatną konsultację.",
+    "Indywidualne doradztwo prawne w zakresie nieruchomości, inwestycji w nieruchomości i planowania spadkowego. Obsługujemy region Chicagoland od 2016 roku. Ponad 300 pięciogwiazdkowych opinii. Zadzwoń (630) 299-7600, aby umówić bezpłatną konsultację.",
   alternates: { canonical: "https://reallawgroup.com/pl/" },
   openGraph: {
     title: "Zaufani adwokaci ds. nieruchomości w Chicago | REAL Law Group",
     description:
-      "Indywidualne doradztwo prawne w zakresie nieruchomości, biznesu i planowania spadkowego. Obsługujemy region Chicagoland od 2016 roku.",
+      "Indywidualne doradztwo prawne w zakresie nieruchomości, inwestycji w nieruchomości i planowania spadkowego. Obsługujemy region Chicagoland od 2016 roku.",
     url: "https://reallawgroup.com/pl/",
   },
 };
@@ -60,17 +60,17 @@ const stats = [
 const areas = [
   {
     icon: Home,
-    title: "Prawo nieruchomości",
+    title: "Zamknięcia transakcji nieruchomości",
     description:
-      "Transakcje mieszkaniowe i komercyjne, zamknięcia, negocjacje umów, krótka sprzedaż i wiele więcej.",
+      "Kupujący, sprzedający, krótka sprzedaż, cesja umowy, finansowanie przez sprzedającego oraz transakcje komercyjne.",
     href: "/pl/practice-areas/real-estate",
   },
   {
     icon: Building,
-    title: "Prawo biznesowe",
+    title: "Inwestorzy nieruchomości",
     description:
-      "Zakładanie spółek, umowy operacyjne, ład korporacyjny, planowanie sukcesji oraz transakcje biznesowe.",
-    href: "/pl/practice-areas/business-law",
+      "Akwizycje, zakładanie spółek, trusty gruntowe, wymiany 1031, umowy partnerskie oraz sprawne zamknięcia dla inwestorów.",
+    href: "/pl/real-estate-investors",
   },
   {
     icon: FileText,
@@ -239,9 +239,9 @@ export default function HomePagePL() {
             </h1>
 
             <p className="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed max-w-2xl">
-              Indywidualne doradztwo prawne w zakresie nieruchomości, biznesu i
-              planowania spadkowego. Obsługujemy region Chicagoland od 2016
-              roku.
+              Indywidualne doradztwo prawne w zakresie zamknięć transakcji
+              nieruchomości, inwestycji w nieruchomości i planowania spadkowego.
+              Obsługujemy region Chicagoland od 2016 roku.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -626,7 +626,7 @@ export default function HomePagePL() {
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
               Zapewniamy zaufane, lokalne wsparcie prawne od zespołu, który
-              doskonale zna rynek nieruchomości i prawo biznesowe w Chicago.
+              doskonale zna rynek nieruchomości w Chicago.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link

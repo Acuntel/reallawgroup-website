@@ -128,7 +128,11 @@ export async function POST(req: NextRequest) {
         },
         body: JSON.stringify({
           from: "REAL Law Group Website <noreply@reallawgroup.com>",
-          to: ["info@reallawgroup.com"],
+          to: [
+            "info@reallawgroup.com",
+            "vincent@reallawgroup.com",
+            "sarah@reallawgroup.com",
+          ],
           reply_to: email,
           subject: `New Contact: ${name} - ${service || "General Inquiry"}`,
           text: emailBody,

@@ -33,8 +33,8 @@ const resourceLinks = [
 ];
 
 const practiceLinks = [
-  { label: "Real Estate Law", href: "/practice-areas/real-estate" },
-  { label: "Business Law", href: "/practice-areas/business-law" },
+  { label: "Real Estate Closings", href: "/practice-areas/real-estate" },
+  { label: "Real Estate Investors", href: "/real-estate-investors" },
   { label: "Estate Planning", href: "/practice-areas/estate-planning" },
   { label: "HUD Closings", href: "/practice-areas/hud-closings" },
   { label: "Building Violations", href: "/practice-areas/building-violations" },

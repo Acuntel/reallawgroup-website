@@ -241,10 +241,10 @@ export default function PersonalInjuryPage() {
               Derecho Inmobiliario
             </a>
             <a
-              href="/es/practice-areas/business-law"
+              href="/es/real-estate-investors"
               className="text-primary hover:text-secondary font-semibold underline"
             >
-              Derecho Comercial
+              Inversionistas de Bienes Raíces
             </a>
           </div>
         </div>

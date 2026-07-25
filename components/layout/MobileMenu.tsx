@@ -139,7 +139,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
                     <Link
                       key={child.href}
                       href={child.href}
-                      className={`block pl-10 pr-6 py-3 text-sm transition-colors ${
+                      className={`block ${child.sub ? "pl-14" : "pl-10"} pr-6 py-3 text-sm transition-colors ${
                         isActive(child.href)
                           ? "text-secondary"
                           : "text-text-muted hover:text-secondary"

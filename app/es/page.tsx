@@ -23,12 +23,12 @@ import { CONTACT } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Abogados de Bienes Raíces de Confianza en Chicago | REAL Law Group",
   description:
-    "Asesoría legal personalizada para bienes raíces, negocios y planificación patrimonial. Al servicio del área de Chicago desde 2016. Más de 300 reseñas de cinco estrellas. Llame al (630) 299-7600 para una consulta gratuita.",
+    "Asesoría legal personalizada para bienes raíces, inversiones inmobiliarias y planificación patrimonial. Al servicio del área de Chicago desde 2016. Más de 300 reseñas de cinco estrellas. Llame al (630) 299-7600 para una consulta gratuita.",
   alternates: { canonical: "https://reallawgroup.com/es" },
   openGraph: {
     title: "Abogados de Bienes Raíces de Confianza en Chicago | REAL Law Group",
     description:
-      "Asesoría legal personalizada para bienes raíces, negocios y planificación patrimonial. Al servicio del área de Chicago desde 2016.",
+      "Asesoría legal personalizada para bienes raíces, inversiones inmobiliarias y planificación patrimonial. Al servicio del área de Chicago desde 2016.",
     url: "https://reallawgroup.com/es",
   },
 };
@@ -56,17 +56,17 @@ const stats = [
 const areas = [
   {
     icon: Home,
-    title: "Derecho de Bienes Raíces",
+    title: "Cierres de Bienes Raíces",
     description:
-      "Transacciones residenciales y comerciales, cierres, negociación de contratos, ventas cortas y más.",
+      "Compradores, vendedores, ventas cortas, cesión de contrato, financiamiento del vendedor y transacciones comerciales.",
     href: "/es/practice-areas/real-estate",
   },
   {
     icon: Building,
-    title: "Derecho Empresarial",
+    title: "Inversionistas de Bienes Raíces",
     description:
-      "Formación de entidades, acuerdos operativos, gobernanza corporativa, planificación de sucesión y transacciones comerciales.",
-    href: "/es/practice-areas/business-law",
+      "Adquisiciones, formación de entidades, fideicomisos de tierras, intercambios 1031, asociaciones y cierres ágiles para inversionistas.",
+    href: "/es/real-estate-investors",
   },
   {
     icon: FileText,
@@ -234,9 +234,9 @@ export default function HomePageES() {
             </h1>
 
             <p className="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed max-w-2xl">
-              Asesoría legal personalizada para bienes raíces, negocios y
-              planificación patrimonial. Al servicio del área de Chicago desde
-              2016.
+              Asesoría legal personalizada para cierres de bienes raíces,
+              inversiones inmobiliarias y planificación patrimonial. Al servicio
+              del área de Chicago desde 2016.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -612,7 +612,7 @@ export default function HomePageES() {
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
               Obtenga apoyo legal confiable y local de un equipo que conoce a
-              fondo el derecho de bienes raíces y empresarial de Chicago.
+              fondo el mercado de bienes raíces de Chicago.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link

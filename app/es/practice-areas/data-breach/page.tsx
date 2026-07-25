@@ -289,10 +289,10 @@ export default function DataBreachPage() {
               Prevención de filtraciones de datos para empresas
             </Link>
             <Link
-              href="/es/practice-areas/business-law"
+              href="/es/real-estate-investors"
               className="text-primary hover:text-secondary font-semibold underline"
             >
-              Derecho Comercial
+              Inversionistas de Bienes Raíces
             </Link>
           </div>
         </div>

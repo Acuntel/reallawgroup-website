@@ -150,10 +150,10 @@ export default function EstatePlanningPage() {
               Trusty gruntowe
             </a>
             <a
-              href="/pl/practice-areas/business-law"
+              href="/pl/real-estate-investors"
               className="text-primary hover:text-secondary font-semibold underline"
             >
-              Prawo gospodarcze
+              Inwestorzy nieruchomości
             </a>
           </div>
           <h3 className="font-heading text-lg text-primary mt-6 mb-3">

@@ -36,6 +36,76 @@ const commercialServices = [
   "Empresas Conjuntas (Joint Ventures)",
 ];
 
+const closingCategories = [
+  {
+    id: "buyers",
+    title: "Compradores",
+    intro:
+      "Comprar una casa o una propiedad de inversión es una de las transacciones más grandes que la mayoría de las personas realizará en su vida. Representamos a compradores desde la firma del contrato hasta la mesa de cierre, asegurando que el trato que acordó sea el trato que realmente recibe.",
+    points: [
+      "Revisión de abogado y modificaciones al contrato",
+      "Negociación de reparaciones y créditos por inspección",
+      "Revisión de título, plano (survey) y gravámenes",
+      "Revisión de documentos hipotecarios y de cierre",
+      "Coordinación del cierre con prestamista, título y agente",
+      "Resolución de problemas en la inspección final (walk-through)",
+    ],
+  },
+  {
+    id: "sellers",
+    title: "Vendedores",
+    intro:
+      "Cuando usted vende, nuestro trabajo es llevarlo a un cierre limpio y puntual con sus ganancias protegidas. Nos encargamos de la parte legal para que usted y su agente puedan enfocarse en la venta — y también apoyamos a vendedores por dueño (FSBO) que no tienen agente.",
+    points: [
+      "Preparación del contrato y revisión de abogado",
+      "Respuesta a demandas de inspección y reparación",
+      "Cartas de liquidación y resolución de problemas de título",
+      "Sellos de transferencia y requisitos municipales",
+      "Preparación de escritura y documentos de cierre",
+      "Representación en venta por dueño (FSBO)",
+    ],
+  },
+  {
+    id: "short-sales",
+    title: "Ventas Cortas (Short Sales)",
+    intro:
+      "Si debe más de lo que vale su casa, una venta corta puede ser una alternativa a la ejecución hipotecaria. Negociamos directamente con su prestamista y gestionamos el proceso de aprobación desde el paquete de dificultades económicas hasta el cierre.",
+    points: [
+      "Negociación con el prestamista y aprobación de la venta corta",
+      "Preparación del paquete de dificultades económicas (hardship)",
+      "Negociación de la exención de deficiencia",
+      "Coordinación de múltiples acreedores",
+      "Plazos realistas y coordinación con defensa de ejecución hipotecaria",
+    ],
+  },
+  {
+    id: "assignment-of-contract",
+    title: "Cesión de Contrato",
+    intro:
+      "Los mayoristas e inversionistas que ceden contratos de compra necesitan documentos que realmente los protejan. Redactamos y revisamos acuerdos de cesión, confirmamos que el contrato subyacente sea cedible y estructuramos el cierre para proteger la posición de cada parte.",
+    points: [
+      "Redacción y revisión de acuerdos de cesión",
+      "Revisión de cedibilidad y lenguaje del contrato",
+      "Manejo de honorarios de cesión y depósito de garantía",
+      "Cierres dobles cuando la cesión no es una opción",
+      "Cumplimiento de divulgación para cedentes y compradores finales",
+    ],
+  },
+  {
+    id: "seller-financing",
+    title: "Financiamiento del Vendedor",
+    intro:
+      "El financiamiento del vendedor puede abrir la venta a más compradores y generar ingresos para el vendedor — pero solo si se documenta correctamente. Estructuramos y documentamos ventas a plazos e hipotecas del vendedor para ambas partes del trato.",
+    points: [
+      "Contratos de venta a plazos (articles of agreement for deed)",
+      "Pagarés e hipotecas del vendedor",
+      "Pagos iniciales, intereses y pagos globales (balloon)",
+      "Registro y depósito en custodia (escrow) de la escritura",
+      "Remedios por incumplimiento y consideraciones de cumplimiento",
+    ],
+  },
+];
+
 const faqs = [
   {
     question:
@@ -82,7 +152,7 @@ export default function RealEstatePage() {
             generateBreadcrumbSchema([
               { name: "Inicio", url: "/es" },
               { name: "Áreas de Práctica", url: "/es/practice-areas" },
-              { name: "Derecho Inmobiliario" },
+              { name: "Cierres de Bienes Raíces" },
             ]),
           ),
         }}
@@ -91,7 +161,7 @@ export default function RealEstatePage() {
       <section className="page-hero">
         <div className="container-custom">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-            Derecho Inmobiliario
+            Cierres de Bienes Raíces
           </h1>
         </div>
       </section>
@@ -100,7 +170,7 @@ export default function RealEstatePage() {
         items={[
           { label: "Inicio", href: "/es" },
           { label: "Áreas de Práctica", href: "/es/practice-areas" },
-          { label: "Derecho Inmobiliario" },
+          { label: "Cierres de Bienes Raíces" },
         ]}
       />
 
@@ -152,6 +222,30 @@ export default function RealEstatePage() {
             </div>
           </div>
 
+          {closingCategories.map((category) => (
+            <div
+              key={category.id}
+              id={category.id}
+              className="mb-16 scroll-mt-32"
+            >
+              <h2 className="text-2xl md:text-3xl font-heading font-semibold mb-6">
+                {category.title}
+              </h2>
+              <div className="w-12 h-1 bg-secondary mb-8" />
+              <p className="text-text-muted leading-relaxed mb-8">
+                {category.intro}
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {category.points.map((point, i) => (
+                  <div key={i} className="flex items-start gap-3 py-2">
+                    <CheckCircle className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
+                    <span className="text-sm text-text">{point}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+
           {/* FAQ */}
           <div>
             <h2 className="text-2xl md:text-3xl font-heading font-semibold mb-6">
@@ -175,6 +269,12 @@ export default function RealEstatePage() {
             Áreas de Práctica Relacionadas
           </h2>
           <div className="flex flex-wrap gap-4">
+            <a
+              href="/es/real-estate-investors"
+              className="text-primary hover:text-secondary font-semibold underline"
+            >
+              Inversionistas de Bienes Raíces
+            </a>
             <a
               href="/es/practice-areas/land-trusts"
               className="text-primary hover:text-secondary font-semibold underline"

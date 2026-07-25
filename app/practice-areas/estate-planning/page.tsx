@@ -138,7 +138,7 @@ export default function EstatePlanningPage() {
               href="/practice-areas/real-estate"
               className="text-primary hover:text-secondary font-semibold underline"
             >
-              Real Estate Law
+              Real Estate Closings
             </a>
             <a
               href="/practice-areas/land-trusts"
@@ -147,10 +147,10 @@ export default function EstatePlanningPage() {
               Land Trusts
             </a>
             <a
-              href="/practice-areas/business-law"
+              href="/real-estate-investors"
               className="text-primary hover:text-secondary font-semibold underline"
             >
-              Business Law
+              Real Estate Investors
             </a>
           </div>
           <h3 className="font-heading text-lg text-primary mt-6 mb-3">

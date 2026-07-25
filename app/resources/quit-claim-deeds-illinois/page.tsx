@@ -192,7 +192,7 @@ export default function QuitClaimDeedsPage() {
             href="/practice-areas/real-estate"
             className="text-primary hover:text-secondary font-semibold underline"
           >
-            Real Estate Law
+            Real Estate Closings
           </a>
           <a
             href="/practice-areas/estate-planning"

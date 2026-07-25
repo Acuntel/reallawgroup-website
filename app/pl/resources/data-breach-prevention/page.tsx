@@ -167,10 +167,10 @@ export default function DataBreachPreventionPage() {
       <section className="py-8 bg-light-gold">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap gap-4">
           <a
-            href="/pl/practice-areas/business-law"
+            href="/pl/real-estate-investors"
             className="text-primary hover:text-secondary font-semibold underline"
           >
-            Prawo gospodarcze
+            Inwestorzy nieruchomości
           </a>
           <a
             href="/pl/resources/prevent-wire-fraud"

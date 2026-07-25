@@ -17,24 +17,24 @@ import { generatePageMetadata } from "@/lib/metadata";
 export const metadata = generatePageMetadata({
   title: "Practice Areas",
   description:
-    "REAL Law Group provides expert legal services in real estate law, business law, and estate planning throughout Chicagoland. Call (630) 299-7600 for a free consultation.",
+    "REAL Law Group provides expert legal services in real estate closings, real estate investor representation, and estate planning throughout Chicagoland. Call (630) 299-7600 for a free consultation.",
   path: "/practice-areas",
 });
 
 const areas = [
   {
     icon: Home,
-    title: "Real Estate Law",
+    title: "Real Estate Closings",
     description:
-      "We serve the residential and commercial real estate needs of clients located in Northern Illinois. From contract through the closing, we protect our clients' interests while helping them understand the business, tax, and legal implications pertaining to their real estate transaction.",
+      "We represent buyers and sellers across Northern Illinois — including short sales, assignment of contract, and seller financing. From contract through the closing, we protect our clients' interests while helping them understand the business, tax, and legal implications of their transaction.",
     href: "/practice-areas/real-estate",
   },
   {
     icon: Building,
-    title: "Business Law",
+    title: "Real Estate Investors",
     description:
-      "REAL Law Group advises small to medium-sized businesses operating in a variety of industries. Drawing on our financial and business backgrounds, we assist our clients with challenges faced by business owners and offer proactive solutions.",
-    href: "/practice-areas/business-law",
+      "Legal representation built around investor workflows — acquisitions and dispositions, entity formation, land trusts, 1031 exchanges, and efficient closings. We also partner with agents, wholesalers, and lenders, and structure partnerships between co-investors.",
+    href: "/real-estate-investors",
   },
   {
     icon: FileText,

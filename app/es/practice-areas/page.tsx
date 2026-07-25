@@ -17,24 +17,24 @@ import { generatePageMetadata } from "@/lib/metadata";
 export const metadata = generatePageMetadata({
   title: "Áreas de Práctica",
   description:
-    "REAL Law Group ofrece servicios legales expertos en derecho inmobiliario, derecho comercial y planificación patrimonial en todo Chicagoland. Llame al (630) 299-7600 para una consulta gratuita.",
+    "REAL Law Group ofrece servicios legales expertos en cierres de bienes raíces, representación de inversionistas inmobiliarios y planificación patrimonial en todo Chicagoland. Llame al (630) 299-7600 para una consulta gratuita.",
   path: "/es/practice-areas",
 });
 
 const areas = [
   {
     icon: Home,
-    title: "Derecho Inmobiliario",
+    title: "Cierres de Bienes Raíces",
     description:
-      "Atendemos las necesidades inmobiliarias residenciales y comerciales de clientes ubicados en el norte de Illinois. Desde el contrato hasta el cierre, protegemos los intereses de nuestros clientes y les ayudamos a comprender las implicaciones comerciales, fiscales y legales relacionadas con su transacción inmobiliaria.",
+      "Representamos a compradores y vendedores en el norte de Illinois — incluyendo ventas cortas, cesión de contrato y financiamiento del vendedor. Desde el contrato hasta el cierre, protegemos los intereses de nuestros clientes y les ayudamos a comprender las implicaciones comerciales, fiscales y legales de su transacción.",
     href: "/es/practice-areas/real-estate",
   },
   {
     icon: Building,
-    title: "Derecho Comercial",
+    title: "Inversionistas de Bienes Raíces",
     description:
-      "REAL Law Group asesora a pequeñas y medianas empresas que operan en diversas industrias. Apoyándonos en nuestra experiencia financiera y comercial, ayudamos a nuestros clientes con los desafíos que enfrentan los propietarios de negocios y ofrecemos soluciones proactivas.",
-    href: "/es/practice-areas/business-law",
+      "Representación legal diseñada para el ritmo de los inversionistas — adquisiciones y ventas, formación de entidades, fideicomisos de tierras, intercambios 1031 y cierres eficientes. También trabajamos con agentes, mayoristas y prestamistas, y estructuramos asociaciones entre co-inversionistas.",
+    href: "/es/real-estate-investors",
   },
   {
     icon: FileText,

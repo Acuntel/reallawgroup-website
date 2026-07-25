@@ -111,7 +111,7 @@ export default function Header() {
                                 setOpenDropdown(null);
                               }
                             }}
-                            className={`block px-5 py-2.5 text-sm transition-colors duration-150
+                            className={`block ${child.sub ? "pl-9 pr-5 py-2 text-[13px]" : "px-5 py-2.5 text-sm"} transition-colors duration-150
                               ${isActive(child.href) ? "text-secondary bg-light-gold" : "text-text hover:text-secondary hover:bg-gray-50"}
                             `}
                           >

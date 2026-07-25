@@ -1,6 +1,7 @@
 import { Building2, Handshake, ShieldCheck, Landmark } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import CTABanner from "@/components/sections/CTABanner";
+import TestimonialCarousel from "@/components/sections/TestimonialCarousel";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
@@ -114,6 +115,43 @@ export default function RealEstateInvestorsPage() {
             })}
           </div>
 
+          <div id="partners" className="mb-16 scroll-mt-32">
+            <p className="section-label">Real Estate Partners</p>
+            <h2 className="text-2xl md:text-3xl font-heading font-semibold mb-6">
+              Partner with REAL Law Group
+            </h2>
+            <div className="w-12 h-1 bg-secondary mb-8" />
+            <p className="text-text-muted leading-relaxed mb-8 max-w-3xl">
+              Strong deals are built on strong relationships. We work alongside
+              the people investors already rely on — and we paper the
+              partnerships investors form with each other.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-background rounded-xl p-6 border border-border">
+                <h3 className="text-lg font-semibold text-primary mb-2">
+                  Investment Partners
+                </h3>
+                <p className="text-sm text-text-muted leading-relaxed">
+                  Joint venture agreements, partnership and operating agreements
+                  between co-investors, tenancy-in-common structures, and
+                  private capital documentation — so every partner knows exactly
+                  where they stand before the deal closes.
+                </p>
+              </div>
+              <div className="bg-background rounded-xl p-6 border border-border">
+                <h3 className="text-lg font-semibold text-primary mb-2">
+                  Industry Partners
+                </h3>
+                <p className="text-sm text-text-muted leading-relaxed">
+                  Agents, brokers, wholesalers, lenders, title companies, and
+                  property managers: we&apos;re the closing attorney your
+                  clients can count on. If you&apos;d like a reliable legal
+                  partner for your transactions, let&apos;s connect.
+                </p>
+              </div>
+            </div>
+          </div>
+
           <div className="bg-light-gold rounded-xl p-8">
             <h3 className="text-xl font-heading font-semibold text-primary mb-3">
               Closing frequently? Let&apos;s talk about a working arrangement.
@@ -133,6 +171,10 @@ export default function RealEstateInvestorsPage() {
           </div>
         </div>
       </section>
+
+      <div id="testimonials" className="scroll-mt-32">
+        <TestimonialCarousel />
+      </div>
 
       <CTABanner
         heading="Working on your next acquisition?"

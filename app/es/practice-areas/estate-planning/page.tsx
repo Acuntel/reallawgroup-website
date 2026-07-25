@@ -151,10 +151,10 @@ export default function EstatePlanningPage() {
               Fideicomisos de Tierras
             </a>
             <a
-              href="/es/practice-areas/business-law"
+              href="/es/real-estate-investors"
               className="text-primary hover:text-secondary font-semibold underline"
             >
-              Derecho Comercial
+              Inversionistas de Bienes Raíces
             </a>
           </div>
           <h3 className="font-heading text-lg text-primary mt-6 mb-3">

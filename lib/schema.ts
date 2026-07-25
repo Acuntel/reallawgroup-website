@@ -4,7 +4,7 @@ export function generateLocalBusinessSchema() {
     "@type": "LegalService",
     name: "REAL Law Group, P.C.",
     description:
-      "REAL Law Group provides personalized legal guidance for real estate transactions, business law, and estate planning. Serving Chicagoland since 2016.",
+      "REAL Law Group provides personalized legal guidance for real estate closings, real estate investors, and estate planning. Serving Chicagoland since 2016.",
     image: "https://reallawgroup.com/images/logo-banner.png",
     logo: "https://reallawgroup.com/images/logo-banner.png",
     "@id": "https://reallawgroup.com",
@@ -86,17 +86,18 @@ export function generateLocalBusinessSchema() {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Real Estate Law",
+            name: "Real Estate Closings",
             description:
-              "Residential and commercial real estate transactions, closings, and contract review",
+              "Residential and commercial real estate closings for buyers and sellers, including short sales, assignment of contract, and seller financing",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Business Law",
-            description: "Business formation, contracts, and corporate counsel",
+            name: "Real Estate Investor Services",
+            description:
+              "Acquisitions and dispositions, entity formation, land trusts, 1031 exchanges, partnership structuring, and investor closings",
           },
         },
         {
@@ -176,7 +177,7 @@ export function generateAttorneySchema() {
       },
     ],
     knowsAbout: [
-      "Real Estate Law",
+      "Real Estate Closings",
       "Residential Real Estate Closings",
       "Commercial Real Estate Closings",
       "Illinois Attorney Review",
@@ -186,7 +187,10 @@ export function generateAttorneySchema() {
       "For Sale By Owner (FSBO) Transactions",
       "1031 Tax-Deferred Exchanges",
       "Inherited Property and Probate Real Estate",
-      "Business Law",
+      "Short Sales",
+      "Assignment of Contract and Wholesale Transactions",
+      "Seller Financing and Installment Agreements",
+      "Real Estate Investor Representation",
       "LLC and Corporate Formation",
       "Estate Planning",
       "Wills and Trusts",

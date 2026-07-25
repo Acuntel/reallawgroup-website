@@ -5,17 +5,17 @@ import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 const areas = [
   {
     icon: Home,
-    title: "Real Estate Law",
+    title: "Real Estate Closings",
     description:
-      "Residential and commercial transactions, closings, contract negotiation, short sales, and more.",
+      "Buyers, sellers, short sales, assignment of contract, seller financing, and commercial transactions.",
     href: "/practice-areas/real-estate",
   },
   {
     icon: Building,
-    title: "Business Law",
+    title: "Real Estate Investors",
     description:
-      "Entity formation, operating agreements, corporate governance, succession planning, and business transactions.",
-    href: "/practice-areas/business-law",
+      "Acquisitions, entity formation, land trusts, 1031 exchanges, partnerships, and investor-speed closings.",
+    href: "/real-estate-investors",
   },
   {
     icon: FileText,

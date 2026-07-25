@@ -24,15 +24,53 @@ export const CONTACT = {
   linkedin: "https://www.linkedin.com/company/reallawgroup",
 };
 
-export const NAV_LINKS = [
+export type NavChild = { label: string; href: string; sub?: boolean };
+export type NavLink = { label: string; href: string; children?: NavChild[] };
+
+export const NAV_LINKS: NavLink[] = [
   { label: "About", href: "/about" },
   { label: "Our Team", href: "/our-team" },
   {
     label: "Practice Areas",
     href: "/practice-areas",
     children: [
-      { label: "Real Estate Law", href: "/practice-areas/real-estate" },
-      { label: "Business Law", href: "/practice-areas/business-law" },
+      { label: "Real Estate Closings", href: "/practice-areas/real-estate" },
+      {
+        label: "Buyers",
+        href: "/practice-areas/real-estate#buyers",
+        sub: true,
+      },
+      {
+        label: "Sellers",
+        href: "/practice-areas/real-estate#sellers",
+        sub: true,
+      },
+      {
+        label: "Short Sales",
+        href: "/practice-areas/real-estate#short-sales",
+        sub: true,
+      },
+      {
+        label: "Assignment of Contract",
+        href: "/practice-areas/real-estate#assignment-of-contract",
+        sub: true,
+      },
+      {
+        label: "Seller Financing",
+        href: "/practice-areas/real-estate#seller-financing",
+        sub: true,
+      },
+      { label: "Real Estate Investors", href: "/real-estate-investors" },
+      {
+        label: "Real Estate Partners",
+        href: "/real-estate-investors#partners",
+        sub: true,
+      },
+      {
+        label: "Testimonials",
+        href: "/real-estate-investors#testimonials",
+        sub: true,
+      },
       { label: "Estate Planning", href: "/practice-areas/estate-planning" },
       { label: "HUD Closings", href: "/practice-areas/hud-closings" },
       {
@@ -75,6 +113,13 @@ export const NAV_LINKS = [
   {
     label: "Real Estate Investors",
     href: "/real-estate-investors",
+    children: [
+      {
+        label: "Real Estate Partners",
+        href: "/real-estate-investors#partners",
+      },
+      { label: "Testimonials", href: "/real-estate-investors#testimonials" },
+    ],
   },
   { label: "Selling Your Home?", href: "https://soldeasier.com" },
   { label: "Contact Us", href: "/contact" },

@@ -283,10 +283,10 @@ export default function DataBreachPage() {
               Data Breach Prevention for Businesses
             </Link>
             <Link
-              href="/practice-areas/business-law"
+              href="/real-estate-investors"
               className="text-primary hover:text-secondary font-semibold underline"
             >
-              Business Law
+              Real Estate Investors
             </Link>
           </div>
         </div>

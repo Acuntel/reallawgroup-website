@@ -11,6 +11,22 @@ const nextConfig = {
         destination: "https://www.atgf.com/tax-ordinance/all",
         permanent: false,
       },
+      // Business Law was retired in favor of Real Estate Investors (July 2026).
+      {
+        source: "/practice-areas/business-law",
+        destination: "/real-estate-investors",
+        permanent: true,
+      },
+      {
+        source: "/es/practice-areas/business-law",
+        destination: "/es/real-estate-investors",
+        permanent: true,
+      },
+      {
+        source: "/pl/practice-areas/business-law",
+        destination: "/pl/real-estate-investors",
+        permanent: true,
+      },
     ];
   },
   async headers() {

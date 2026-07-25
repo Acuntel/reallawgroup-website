@@ -16,8 +16,12 @@ declare global {
 }
 
 const serviceOptions = [
-  "Real Estate Transaction",
-  "Business Formation",
+  "Real Estate Closing (Buying)",
+  "Real Estate Closing (Selling)",
+  "Short Sale",
+  "Assignment of Contract",
+  "Seller Financing",
+  "Real Estate Investor Services",
   "Estate Planning",
   "Property Tax Appeal",
   "Data Breach / Privacy Claim",

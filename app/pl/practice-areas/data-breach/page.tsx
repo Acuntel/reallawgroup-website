@@ -290,10 +290,10 @@ export default function DataBreachPage() {
               Zapobieganie naruszeniom danych dla firm
             </Link>
             <Link
-              href="/pl/practice-areas/business-law"
+              href="/pl/real-estate-investors"
               className="text-primary hover:text-secondary font-semibold underline"
             >
-              Prawo gospodarcze
+              Inwestorzy nieruchomości
             </Link>
           </div>
         </div>

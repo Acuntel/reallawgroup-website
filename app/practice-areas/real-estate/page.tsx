@@ -36,6 +36,76 @@ const commercialServices = [
   "Joint Ventures",
 ];
 
+const closingCategories = [
+  {
+    id: "buyers",
+    title: "Buyers",
+    intro:
+      "Buying a home or investment property is one of the largest transactions most people ever make. We represent buyers from the signed contract through the closing table, making sure the deal you agreed to is the deal you actually get.",
+    points: [
+      "Attorney review & contract modifications",
+      "Negotiating inspection repairs & credits",
+      "Title, survey & lien review",
+      "Mortgage & closing document review",
+      "Closing coordination with lender, title & agent",
+      "Final walk-through issue resolution",
+    ],
+  },
+  {
+    id: "sellers",
+    title: "Sellers",
+    intro:
+      "When you sell, our job is to get you to a clean, on-time closing with your proceeds protected. We handle the legal side so you and your agent can focus on the sale itself — and we also support For Sale By Owner sellers who don't have an agent.",
+    points: [
+      "Contract preparation & attorney review",
+      "Responding to inspection & repair demands",
+      "Payoff letters & clearing title issues",
+      "Transfer stamps & municipal requirements",
+      "Deed preparation & closing documents",
+      "For Sale By Owner (FSBO) representation",
+    ],
+  },
+  {
+    id: "short-sales",
+    title: "Short Sales",
+    intro:
+      "If you owe more than your home is worth, a short sale can be an alternative to foreclosure. We negotiate directly with your lender and manage the approval process from hardship package to closing.",
+    points: [
+      "Lender negotiation & short sale approval",
+      "Hardship package preparation",
+      "Negotiating deficiency waiver language",
+      "Coordinating multiple lienholders",
+      "Realistic timelines & foreclosure defense coordination",
+    ],
+  },
+  {
+    id: "assignment-of-contract",
+    title: "Assignment of Contract",
+    intro:
+      "Wholesalers and investors assigning purchase contracts need paperwork that actually holds up. We draft and review assignment agreements, confirm the underlying contract is assignable, and structure the closing so every party's position is protected.",
+    points: [
+      "Drafting & reviewing assignment agreements",
+      "Assignability & contract language review",
+      "Assignment fees & earnest money handling",
+      "Double closings when assignment isn't an option",
+      "Disclosure compliance for assignors & end buyers",
+    ],
+  },
+  {
+    id: "seller-financing",
+    title: "Seller Financing",
+    intro:
+      "Seller financing can open a sale to more buyers and generate income for the seller — but only if it's documented correctly. We structure and paper installment sales and seller-held mortgages for both sides of the deal.",
+    points: [
+      "Articles of agreement for deed (installment contracts)",
+      "Promissory notes & seller-held mortgages",
+      "Down payments, interest & balloon terms",
+      "Recording & escrow of deed",
+      "Default remedies & compliance considerations",
+    ],
+  },
+];
+
 const faqs = [
   {
     question:
@@ -82,7 +152,7 @@ export default function RealEstatePage() {
             generateBreadcrumbSchema([
               { name: "Home", url: "/" },
               { name: "Practice Areas", url: "/practice-areas" },
-              { name: "Real Estate Law" },
+              { name: "Real Estate Closings" },
             ]),
           ),
         }}
@@ -91,7 +161,7 @@ export default function RealEstatePage() {
       <section className="page-hero">
         <div className="container-custom">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-            Real Estate Law
+            Real Estate Closings
           </h1>
         </div>
       </section>
@@ -100,7 +170,7 @@ export default function RealEstatePage() {
         items={[
           { label: "Home", href: "/" },
           { label: "Practice Areas", href: "/practice-areas" },
-          { label: "Real Estate Law" },
+          { label: "Real Estate Closings" },
         ]}
       />
 
@@ -151,6 +221,30 @@ export default function RealEstatePage() {
             </div>
           </div>
 
+          {closingCategories.map((category) => (
+            <div
+              key={category.id}
+              id={category.id}
+              className="mb-16 scroll-mt-32"
+            >
+              <h2 className="text-2xl md:text-3xl font-heading font-semibold mb-6">
+                {category.title}
+              </h2>
+              <div className="w-12 h-1 bg-secondary mb-8" />
+              <p className="text-text-muted leading-relaxed mb-8">
+                {category.intro}
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {category.points.map((point, i) => (
+                  <div key={i} className="flex items-start gap-3 py-2">
+                    <CheckCircle className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
+                    <span className="text-sm text-text">{point}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+
           {/* FAQ */}
           <div>
             <h2 className="text-2xl md:text-3xl font-heading font-semibold mb-6">
@@ -174,6 +268,12 @@ export default function RealEstatePage() {
             Related Practice Areas
           </h2>
           <div className="flex flex-wrap gap-4">
+            <a
+              href="/real-estate-investors"
+              className="text-primary hover:text-secondary font-semibold underline"
+            >
+              Real Estate Investors
+            </a>
             <a
               href="/practice-areas/land-trusts"
               className="text-primary hover:text-secondary font-semibold underline"
