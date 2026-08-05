@@ -157,6 +157,22 @@ export default function ForSaleByOwnerPage() {
               gap. We provide the legal guidance and transactional support FSBO
               sellers need to close confidently and protect their equity.
             </p>
+            <div className="border-l-4 border-secondary bg-light-gold rounded-r-xl p-6">
+              <p className="text-text leading-relaxed">
+                <span className="font-semibold">
+                  Did a cash home buyer make you an offer?
+                </span>{" "}
+                If Grandview Homes, Kendall Partners, Big Door Home Buyers, or
+                any other company that buys houses directly has sent you a
+                written offer, have an attorney review it before you sign it.{" "}
+                <a
+                  href="/resources/cash-offer-review"
+                  className="text-secondary font-semibold underline hover:text-primary"
+                >
+                  Start with our cash offer review guide.
+                </a>
+              </p>
+            </div>
           </div>
 
           <div className="mb-16">

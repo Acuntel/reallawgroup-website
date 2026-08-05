@@ -25,6 +25,12 @@ const resources = [
     href: "/resources/for-sale-by-owner",
   },
   {
+    title: "Cash Offer Review",
+    excerpt:
+      "Did you get an offer from Grandview Homes, Kendall Partners, or Big Door Home Buyers? Have an attorney review it before you sign it.",
+    href: "/resources/cash-offer-review",
+  },
+  {
     title: "Inherited Property Guide",
     excerpt:
       "Lost a loved one and inherited property? Understand your options for probate, selling, or keeping an inherited home in Illinois.",
