@@ -5,9 +5,12 @@ export type County = {
   recorderCity: string;
   nearestOfficeSlug: "elmhurst" | "chicago" | "park-ridge";
   cities: string[];
+  // Far from the offices: page leads with remote/mail-away closing instead
+  // of an in-person meeting location.
+  remote?: boolean;
 };
 
-export const COUNTIES: County[] = [
+const CORE_COUNTIES: County[] = [
   {
     slug: "cook-county",
     name: "Cook County",
@@ -139,6 +142,197 @@ export const COUNTIES: County[] = [
     ],
   },
 ];
+
+const EXPANSION_COUNTIES: County[] = [
+  {
+    slug: "kendall-county",
+    name: "Kendall County",
+    seat: "Yorkville",
+    recorderCity: "Yorkville",
+    nearestOfficeSlug: "elmhurst",
+    cities: [
+      "Yorkville",
+      "Oswego",
+      "Plano",
+      "Montgomery",
+      "Aurora",
+      "Newark",
+      "Plattville",
+      "Lisbon",
+    ],
+  },
+  {
+    slug: "grundy-county",
+    name: "Grundy County",
+    seat: "Morris",
+    recorderCity: "Morris",
+    nearestOfficeSlug: "elmhurst",
+    cities: [
+      "Morris",
+      "Minooka",
+      "Channahon",
+      "Coal City",
+      "Diamond",
+      "Gardner",
+      "Mazon",
+    ],
+  },
+  {
+    slug: "dekalb-county",
+    name: "DeKalb County",
+    seat: "Sycamore",
+    recorderCity: "Sycamore",
+    nearestOfficeSlug: "elmhurst",
+    cities: [
+      "DeKalb",
+      "Sycamore",
+      "Genoa",
+      "Cortland",
+      "Sandwich",
+      "Kirkland",
+      "Maple Park",
+    ],
+  },
+  {
+    slug: "kankakee-county",
+    name: "Kankakee County",
+    seat: "Kankakee",
+    recorderCity: "Kankakee",
+    nearestOfficeSlug: "elmhurst",
+    cities: [
+      "Kankakee",
+      "Bourbonnais",
+      "Bradley",
+      "Manteno",
+      "Momence",
+      "Herscher",
+      "St. Anne",
+    ],
+  },
+  {
+    slug: "lasalle-county",
+    name: "LaSalle County",
+    seat: "Ottawa",
+    recorderCity: "Ottawa",
+    nearestOfficeSlug: "elmhurst",
+    remote: true,
+    cities: [
+      "Ottawa",
+      "Peru",
+      "LaSalle",
+      "Streator",
+      "Mendota",
+      "Marseilles",
+      "Oglesby",
+      "Utica",
+    ],
+  },
+  {
+    slug: "winnebago-county",
+    name: "Winnebago County",
+    seat: "Rockford",
+    recorderCity: "Rockford",
+    nearestOfficeSlug: "elmhurst",
+    remote: true,
+    cities: [
+      "Rockford",
+      "Loves Park",
+      "Machesney Park",
+      "Roscoe",
+      "Rockton",
+      "Cherry Valley",
+      "Winnebago",
+    ],
+  },
+  {
+    slug: "peoria-county",
+    name: "Peoria County",
+    seat: "Peoria",
+    recorderCity: "Peoria",
+    nearestOfficeSlug: "elmhurst",
+    remote: true,
+    cities: [
+      "Peoria",
+      "Peoria Heights",
+      "Bartonville",
+      "Chillicothe",
+      "Dunlap",
+      "Bellevue",
+      "Brimfield",
+    ],
+  },
+  {
+    slug: "sangamon-county",
+    name: "Sangamon County",
+    seat: "Springfield",
+    recorderCity: "Springfield",
+    nearestOfficeSlug: "elmhurst",
+    remote: true,
+    cities: [
+      "Springfield",
+      "Chatham",
+      "Sherman",
+      "Rochester",
+      "Auburn",
+      "Riverton",
+      "Williamsville",
+    ],
+  },
+  {
+    slug: "champaign-county",
+    name: "Champaign County",
+    seat: "Urbana",
+    recorderCity: "Urbana",
+    nearestOfficeSlug: "elmhurst",
+    remote: true,
+    cities: [
+      "Champaign",
+      "Urbana",
+      "Savoy",
+      "Mahomet",
+      "Rantoul",
+      "St. Joseph",
+      "Tolono",
+    ],
+  },
+  {
+    slug: "mclean-county",
+    name: "McLean County",
+    seat: "Bloomington",
+    recorderCity: "Bloomington",
+    nearestOfficeSlug: "elmhurst",
+    remote: true,
+    cities: [
+      "Bloomington",
+      "Normal",
+      "Towanda",
+      "Heyworth",
+      "Le Roy",
+      "Lexington",
+      "Danvers",
+    ],
+  },
+  {
+    slug: "madison-county",
+    name: "Madison County",
+    seat: "Edwardsville",
+    recorderCity: "Edwardsville",
+    nearestOfficeSlug: "elmhurst",
+    remote: true,
+    cities: [
+      "Edwardsville",
+      "Alton",
+      "Collinsville",
+      "Granite City",
+      "Glen Carbon",
+      "Troy",
+      "Bethalto",
+      "Wood River",
+    ],
+  },
+];
+
+export const COUNTIES: County[] = [...CORE_COUNTIES, ...EXPANSION_COUNTIES];
 
 export function getCounty(slug: string): County | undefined {
   return COUNTIES.find((county) => county.slug === slug);

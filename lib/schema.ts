@@ -1,3 +1,4 @@
+import { COUNTIES } from "./counties";
 import { OFFICES, type Office } from "./locations";
 
 function officeAddressSchema(office: Office) {
@@ -86,12 +87,11 @@ export function generateLocalBusinessSchema() {
       { "@type": "City", name: "Woodridge" },
       { "@type": "City", name: "Skokie" },
       { "@type": "City", name: "Niles" },
-      { "@type": "AdministrativeArea", name: "DuPage County" },
-      { "@type": "AdministrativeArea", name: "Cook County" },
-      { "@type": "AdministrativeArea", name: "Will County" },
-      { "@type": "AdministrativeArea", name: "Kane County" },
-      { "@type": "AdministrativeArea", name: "Lake County" },
-      { "@type": "AdministrativeArea", name: "McHenry County" },
+      { "@type": "State", name: "Illinois" },
+      ...COUNTIES.map((county) => ({
+        "@type": "AdministrativeArea",
+        name: county.name,
+      })),
       {
         "@type": "GeoCircle",
         geoMidpoint: {

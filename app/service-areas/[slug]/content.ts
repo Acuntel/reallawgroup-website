@@ -1,3 +1,5 @@
+import { COUNTY_CONTENT_EXPANSION } from "./content-expansion";
+
 export type CountyContent = {
   metaTitle: string;
   metaDescription: string;
@@ -262,4 +264,5 @@ export const COUNTY_CONTENT: Record<string, CountyContent> = {
       },
     ],
   },
+  ...COUNTY_CONTENT_EXPANSION,
 };

@@ -190,7 +190,29 @@ export default function CountyPage({ params }: { params: { slug: string } }) {
                 </ul>
               </div>
 
-              {office && (
+              {county.remote ? (
+                <div className="rounded-xl border border-border p-6 mb-6">
+                  <p className="text-xs uppercase tracking-wider text-text-muted font-medium mb-3">
+                    Closings Handled Remotely
+                  </p>
+                  <p className="text-sm text-text-muted leading-relaxed mb-3">
+                    We represent {county.name} clients without anyone driving
+                    across the state. Attorney review and title work happen
+                    electronically, signing is by e-sign or mail-away package,
+                    and the closing funds through a title company office near
+                    you.
+                  </p>
+                  <p className="text-sm text-text-muted leading-relaxed">
+                    Firm headquarters:{" "}
+                    <Link
+                      href="/locations/elmhurst"
+                      className="text-secondary font-medium hover:underline"
+                    >
+                      381 N York St Suite 1, Elmhurst, IL 60126
+                    </Link>
+                  </p>
+                </div>
+              ) : office ? (
                 <div className="rounded-xl border border-border p-6 mb-6">
                   <p className="text-xs uppercase tracking-wider text-text-muted font-medium mb-3">
                     Nearest Meeting Location
@@ -214,7 +236,7 @@ export default function CountyPage({ params }: { params: { slug: string } }) {
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
-              )}
+              ) : null}
 
               <div className="rounded-xl bg-light-gold p-6 text-center">
                 <p className="text-primary font-medium mb-4">
