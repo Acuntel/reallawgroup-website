@@ -167,10 +167,15 @@ export function generateLocalBusinessSchema() {
         },
       ],
     },
+    // sameAs consolidates the firm's identity across the web so Google and the
+    // AI retrieval layers resolve every mention to one entity. Only profiles whose
+    // NAP matches this site exactly belong here: BBB and FindLaw currently list
+    // "Suite 18" and are deliberately withheld until that is reconciled.
     sameAs: [
       "https://www.facebook.com/reallawgroup",
       "https://www.instagram.com/reallawgroup/",
       "https://www.linkedin.com/company/reallawgroup",
+      "https://profiles.superlawyers.com/illinois/elmhurst/lawfirm/real-law-group-pc/ca50d00b-c918-4298-8be5-1dd0352cea95.html",
     ],
   };
 }
@@ -234,6 +239,19 @@ export function generateAttorneySchema() {
       },
       { "@type": "Organization", name: "Justinian Society of Lawyers" },
     ],
+    // Verified third-party profile. Person-level sameAs is the strongest E-E-A-T
+    // signal available for an individual attorney.
+    sameAs: [
+      "https://profiles.superlawyers.com/illinois/elmhurst/lawyer/vincent-anthony-incopero/0a6b965e-7427-407e-a7f7-2186ad0cc591.html",
+    ],
+    hasCredential: {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "Attorney at Law",
+      recognizedBy: {
+        "@type": "Organization",
+        name: "Supreme Court of Illinois",
+      },
+    },
   };
 }
 
