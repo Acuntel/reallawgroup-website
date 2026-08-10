@@ -39,8 +39,9 @@ export default function Header() {
             <Image
               src="/images/logo-banner.png"
               alt="REAL Law Group"
-              width={280}
-              height={70}
+              width={240}
+              height={80}
+              quality={100}
               className="h-14 md:h-20 w-auto"
               priority
             />

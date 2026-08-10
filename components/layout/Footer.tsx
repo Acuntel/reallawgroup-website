@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Facebook,
   Instagram,
@@ -88,12 +89,12 @@ export default function Footer() {
           {/* Col 1: Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/images/logo-banner-white.png"
                 alt="REAL Law Group, P.C. — Elmhurst real estate attorneys"
-                width={180}
-                height={45}
+                width={120}
+                height={40}
+                quality={100}
                 className="h-10 w-auto"
               />
             </Link>
