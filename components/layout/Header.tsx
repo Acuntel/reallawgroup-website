@@ -37,12 +37,12 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <Image
-              src="/images/logo-banner.png"
+              src="/images/logo-banner-tight.png"
               alt="REAL Law Group"
-              width={240}
-              height={80}
+              width={144}
+              height={45}
               quality={100}
-              className="h-14 md:h-20 w-auto"
+              className="h-[35px] md:h-[45px] w-auto"
               priority
             />
           </Link>

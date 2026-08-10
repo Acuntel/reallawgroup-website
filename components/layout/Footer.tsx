@@ -90,12 +90,12 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block">
               <Image
-                src="/images/logo-banner-white.png"
+                src="/images/logo-banner-white-tight.png"
                 alt="REAL Law Group, P.C. — Elmhurst real estate attorneys"
-                width={120}
-                height={40}
+                width={96}
+                height={30}
                 quality={100}
-                className="h-10 w-auto"
+                className="h-[30px] w-auto"
               />
             </Link>
             <p className="mt-3 text-sm text-secondary font-medium tracking-wide">
