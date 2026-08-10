@@ -18,6 +18,7 @@ const quickLinks = [
   { label: "Practice Areas", href: "/practice-areas" },
   { label: "Resources", href: "/resources" },
   { label: "Locations", href: "/locations" },
+  { label: "Service Areas", href: "/service-areas" },
   { label: "Contact", href: "/contact" },
 ];
 

@@ -96,6 +96,7 @@ export function generateLocalBusinessSchema() {
       { "@type": "AdministrativeArea", name: "Will County" },
       { "@type": "AdministrativeArea", name: "Kane County" },
       { "@type": "AdministrativeArea", name: "Lake County" },
+      { "@type": "AdministrativeArea", name: "McHenry County" },
       {
         "@type": "GeoCircle",
         geoMidpoint: {

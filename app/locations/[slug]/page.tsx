@@ -13,6 +13,7 @@ import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import GoogleMapsEmbed from "@/components/ui/GoogleMapsEmbed";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import { CONTACT } from "@/lib/constants";
+import { COUNTY_SLUG_BY_NAME } from "@/lib/counties";
 import { OFFICES, getOffice } from "@/lib/locations";
 import {
   generateBreadcrumbSchema,
@@ -164,6 +165,15 @@ export default function LocationPage({ params }: { params: { slug: string } }) {
                   </span>
                 ))}
               </div>
+              {COUNTY_SLUG_BY_NAME[office.county] && (
+                <Link
+                  href={`/service-areas/${COUNTY_SLUG_BY_NAME[office.county]}`}
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-secondary hover:underline"
+                >
+                  How we work across {office.county}
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              )}
             </div>
 
             <div>

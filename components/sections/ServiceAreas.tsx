@@ -1,4 +1,6 @@
-import { MapPin } from "lucide-react";
+import Link from "next/link";
+import { MapPin, ArrowRight } from "lucide-react";
+import { COUNTIES } from "@/lib/counties";
 
 const areas = [
   "Chicago",
@@ -20,7 +22,6 @@ const areas = [
   "Schaumburg",
   "Arlington Heights",
   "Park Ridge",
-  "DuPage County",
 ];
 
 export default function ServiceAreas() {
@@ -39,12 +40,32 @@ export default function ServiceAreas() {
             across Cook County, DuPage County, and the greater Chicagoland area.
           </p>
         </div>
+        <div className="flex flex-wrap justify-center gap-3 mb-6">
+          {COUNTIES.map((county) => (
+            <Link
+              key={county.slug}
+              href={`/service-areas/${county.slug}`}
+              className="text-sm font-medium text-primary bg-light-gold rounded-full px-4 py-1.5 hover:text-secondary transition-colors"
+            >
+              {county.name}
+            </Link>
+          ))}
+        </div>
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
           {areas.map((area) => (
             <span key={area} className="text-sm text-text-muted font-medium">
               {area}
             </span>
           ))}
+        </div>
+        <div className="flex justify-center mt-8">
+          <Link
+            href="/service-areas"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-secondary hover:underline"
+          >
+            See every county we serve
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </section>
