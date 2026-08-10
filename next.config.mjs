@@ -7,6 +7,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/review",
+        destination: "https://g.page/reallawgroup/review",
+        permanent: false,
+      },
+      {
         source: "/resources/transfer-stamps",
         destination: "https://www.atgf.com/tax-ordinance/all",
         permanent: false,
