@@ -28,7 +28,7 @@ export function generatePageMetadata({
       type: "website",
       images: [
         {
-          url: "/images/logo-banner.png",
+          url: "/images/og-default.png",
           width: 1200,
           height: 630,
           alt: "REAL Law Group",
@@ -39,7 +39,7 @@ export function generatePageMetadata({
       card: "summary_large_image",
       title: `${title} | REAL Law Group`,
       description,
-      images: ["/images/logo-banner.png"],
+      images: ["/images/og-default.png"],
     },
   };
 }

@@ -2,12 +2,10 @@
 module.exports = {
   siteUrl: "https://reallawgroup.com",
   generateRobotsTxt: true,
-  changefreq: "weekly",
-  priority: 0.7,
+  autoLastmod: false,
   sitemapSize: 5000,
   exclude: ["/api/*"],
   robotsTxtOptions: {
-    additionalSitemaps: ["https://reallawgroup.com/sitemap.xml"],
     policies: [
       { userAgent: "*", allow: "/" },
       // Explicitly welcome AI / answer-engine crawlers so REAL Law Group
@@ -24,22 +22,7 @@ module.exports = {
       { userAgent: "CCBot", allow: "/" },
     ],
   },
-  transform: async (config, path) => {
-    // Set higher priority for key pages
-    let priority = config.priority;
-    if (path === "/") priority = 1.0;
-    else if (path === "/contact") priority = 0.9;
-    else if (path.startsWith("/locations")) priority = 0.8;
-    else if (path.startsWith("/service-areas")) priority = 0.8;
-    else if (path.startsWith("/practice-areas")) priority = 0.8;
-    else if (path === "/about") priority = 0.8;
-    else if (path === "/privacy-policy") priority = 0.3;
-
-    return {
-      loc: path,
-      changefreq: config.changefreq,
-      priority,
-      lastmod: new Date().toISOString(),
-    };
-  },
+  // Google ignores changefreq and priority, and an inaccurate build-time
+  // lastmod gets lastmod discarded domain-wide — so emit bare URLs only.
+  transform: async (config, path) => ({ loc: path }),
 };

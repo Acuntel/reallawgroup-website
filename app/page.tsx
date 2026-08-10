@@ -19,6 +19,14 @@ export const metadata: Metadata = {
     description:
       "Personalized legal guidance for real estate, business, and estate planning. Serving Chicagoland since 2016.",
     url: "https://reallawgroup.com/",
+    images: [
+      {
+        url: "/images/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "REAL Law Group",
+      },
+    ],
   },
 };
 

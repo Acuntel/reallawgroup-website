@@ -11,6 +11,8 @@ const nextConfig = {
         destination: "https://g.page/reallawgroup/review",
         permanent: false,
       },
+      { source: "/team", destination: "/our-team", permanent: true },
+      { source: "/attorneys", destination: "/our-team", permanent: true },
       {
         source: "/resources/transfer-stamps",
         destination: "https://www.atgf.com/tax-ordinance/all",

@@ -51,11 +51,6 @@ export function generateLocalBusinessSchema() {
         closes: "15:00",
       },
     ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "300",
-    },
     priceRange: "$$",
     slogan: "Hard Work. Integrity. Reliability.",
     foundingDate: "2016",
