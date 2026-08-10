@@ -12,12 +12,12 @@ import ServiceAreas from "@/components/sections/ServiceAreas";
 export const metadata: Metadata = {
   title: "Illinois Real Estate Closing Attorneys | REAL Law Group",
   description:
-    "Real estate closing attorneys serving all of Chicagoland from Elmhurst, Chicago, and Park Ridge. 300+ five-star Google reviews. Flat-fee closings for buyers, sellers, and investors since 2016. Call (630) 299-7600.",
+    "The all-in-one Illinois real estate law firm: closings, wholesale and assignment deals, land trusts, investor LLCs, 1031 exchanges, and estate planning under one roof. 300+ five-star Google reviews since 2016. Call (630) 299-7600.",
   alternates: { canonical: "https://reallawgroup.com/" },
   openGraph: {
     title: "Illinois Real Estate Closing Attorneys | REAL Law Group",
     description:
-      "Real estate closing attorneys serving all of Chicagoland. 300+ five-star Google reviews. Flat-fee closings for buyers, sellers, and investors since 2016.",
+      "The all-in-one Illinois real estate law firm: closings, wholesale and assignment deals, land trusts, investor LLCs, 1031 exchanges, and estate planning under one roof. 300+ five-star Google reviews since 2016.",
     url: "https://reallawgroup.com/",
     images: [
       {

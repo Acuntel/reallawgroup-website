@@ -36,6 +36,10 @@ const resourceLinks = [
 ];
 
 const practiceLinks = [
+  {
+    label: "All-in-One Real Estate Firm",
+    href: "/all-in-one-real-estate-firm",
+  },
   { label: "Real Estate Closings", href: "/practice-areas/real-estate" },
   { label: "Real Estate Investors", href: "/real-estate-investors" },
   { label: "Estate Planning", href: "/practice-areas/estate-planning" },

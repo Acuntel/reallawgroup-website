@@ -34,6 +34,10 @@ export const NAV_LINKS: NavLink[] = [
     label: "Practice Areas",
     href: "/practice-areas",
     children: [
+      {
+        label: "All-in-One: Why REAL Law",
+        href: "/all-in-one-real-estate-firm",
+      },
       { label: "Real Estate Closings", href: "/practice-areas/real-estate" },
       {
         label: "Buyers",

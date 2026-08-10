@@ -18,7 +18,7 @@ export function generateLocalBusinessSchema() {
     "@type": "LegalService",
     name: "REAL Law Group, P.C.",
     description:
-      "REAL Law Group provides personalized legal guidance for real estate closings, real estate investors, and estate planning. Serving Chicagoland since 2016.",
+      "REAL Law Group is an all-in-one Illinois real estate law firm: residential and commercial closings, wholesale and assignment of contract deals, seller financing, Illinois land trusts, LLC and series LLC formation, 1031 exchanges, short sales, HUD closings, Chicago building violation defense, and estate planning, all under one roof. Serving all of Illinois since 2016.",
     image: "https://reallawgroup.com/images/logo-banner.png",
     logo: "https://reallawgroup.com/images/logo-banner.png",
     "@id": "https://reallawgroup.com",
