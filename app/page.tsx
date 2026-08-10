@@ -10,14 +10,14 @@ import AboutPreview from "@/components/sections/AboutPreview";
 import CTABanner from "@/components/sections/CTABanner";
 import ServiceAreas from "@/components/sections/ServiceAreas";
 export const metadata: Metadata = {
-  title: "Chicago's Trusted Real Estate Attorneys | REAL Law Group",
+  title: "Illinois Real Estate Closing Attorneys | REAL Law Group",
   description:
-    "Personalized legal guidance for real estate, business, and estate planning. Serving Chicagoland since 2016. 300+ five star reviews. Call (630) 299-7600 for a free consultation.",
+    "Real estate closing attorneys serving all of Chicagoland from Elmhurst, Chicago, and Park Ridge. 300+ five-star Google reviews. Flat-fee closings for buyers, sellers, and investors since 2016. Call (630) 299-7600.",
   alternates: { canonical: "https://reallawgroup.com/" },
   openGraph: {
-    title: "Chicago's Trusted Real Estate Attorneys | REAL Law Group",
+    title: "Illinois Real Estate Closing Attorneys | REAL Law Group",
     description:
-      "Personalized legal guidance for real estate, business, and estate planning. Serving Chicagoland since 2016.",
+      "Real estate closing attorneys serving all of Chicagoland. 300+ five-star Google reviews. Flat-fee closings for buyers, sellers, and investors since 2016.",
     url: "https://reallawgroup.com/",
     images: [
       {

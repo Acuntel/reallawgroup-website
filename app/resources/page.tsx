@@ -13,6 +13,12 @@ export const metadata = generatePageMetadata({
 
 const resources = [
   {
+    title: "Choosing the Best Real Estate Attorney",
+    excerpt:
+      "The six criteria that separate the best Illinois real estate lawyers from the rest, the questions to ask before hiring, and the red flags to avoid.",
+    href: "/resources/best-real-estate-attorney-illinois",
+  },
+  {
     title: "Closing Cost Calculator",
     excerpt:
       "Estimate your buyer or seller closing costs for Chicagoland real estate transactions with our interactive calculator.",

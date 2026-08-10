@@ -87,6 +87,10 @@ export const NAV_LINKS: NavLink[] = [
     href: "/resources",
     children: [
       {
+        label: "Choosing a Real Estate Attorney",
+        href: "/resources/best-real-estate-attorney-illinois",
+      },
+      {
         label: "Closing Cost Calculator",
         href: "/resources/closing-cost-calculator",
       },
