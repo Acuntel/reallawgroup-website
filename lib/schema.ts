@@ -1,3 +1,16 @@
+import { OFFICES, type Office } from "./locations";
+
+function officeAddressSchema(office: Office) {
+  return {
+    "@type": "PostalAddress",
+    streetAddress: office.streetAddress,
+    addressLocality: office.locality,
+    addressRegion: office.region,
+    postalCode: office.postalCode,
+    addressCountry: "US",
+  };
+}
+
 export function generateLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
@@ -52,8 +65,23 @@ export function generateLocalBusinessSchema() {
       name: "Vincent Anthony Incopero",
       url: "https://reallawgroup.com/about",
     },
+    location: OFFICES.map((office) => ({
+      "@type": "Place",
+      name:
+        office.type === "main"
+          ? "REAL Law Group Main Office (Elmhurst)"
+          : `REAL Law Group Satellite Office (${office.shortName})`,
+      address: officeAddressSchema(office),
+      hasMap: office.mapsLinkUrl,
+      ...(office.type === "satellite" && {
+        description: "Satellite office available by appointment only.",
+      }),
+    })),
     areaServed: [
       { "@type": "City", name: "Elmhurst" },
+      { "@type": "City", name: "Chicago" },
+      { "@type": "City", name: "Park Ridge" },
+      { "@type": "City", name: "Des Plaines" },
       { "@type": "City", name: "Naperville" },
       { "@type": "City", name: "Hinsdale" },
       { "@type": "City", name: "Oak Brook" },
@@ -209,6 +237,68 @@ export function generateAttorneySchema() {
         name: "Illinois Real Estate Lawyers Association",
       },
       { "@type": "Organization", name: "Justinian Society of Lawyers" },
+    ],
+  };
+}
+
+export function generateLocationSchema(office: Office) {
+  const path = `/locations/${office.slug}`;
+  const isMain = office.type === "main";
+  return {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "@id": `https://reallawgroup.com${path}#office`,
+    name: isMain
+      ? "REAL Law Group, P.C."
+      : `REAL Law Group, P.C. (${office.shortName} Office)`,
+    description: isMain
+      ? "Main office of REAL Law Group, P.C. in Elmhurst, Illinois. Real estate closings, real estate investor services, and estate planning for DuPage County and all of Chicagoland."
+      : `Satellite office of REAL Law Group, P.C. in ${office.locality}, Illinois, available by appointment only. Client meetings are scheduled in advance; mail is handled at the firm's main office in Elmhurst.`,
+    image: "https://reallawgroup.com/images/logo-banner.png",
+    url: `https://reallawgroup.com${path}`,
+    telephone: "+16302997600",
+    email: "info@reallawgroup.com",
+    address: officeAddressSchema(office),
+    hasMap: office.mapsLinkUrl,
+    priceRange: "$$",
+    ...(isMain
+      ? {
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+              ],
+              opens: "08:00",
+              closes: "19:00",
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: "Saturday",
+              opens: "08:00",
+              closes: "15:00",
+            },
+          ],
+        }
+      : {
+          branchOf: {
+            "@type": "LegalService",
+            "@id": "https://reallawgroup.com",
+            name: "REAL Law Group, P.C.",
+          },
+          parentOrganization: {
+            "@type": "LegalService",
+            "@id": "https://reallawgroup.com",
+            name: "REAL Law Group, P.C.",
+          },
+        }),
+    areaServed: [
+      { "@type": "AdministrativeArea", name: office.county },
+      ...office.areaServed.map((name) => ({ "@type": "City", name })),
     ],
   };
 }

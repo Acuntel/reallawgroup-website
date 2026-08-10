@@ -29,6 +29,7 @@ module.exports = {
     let priority = config.priority;
     if (path === "/") priority = 1.0;
     else if (path === "/contact") priority = 0.9;
+    else if (path.startsWith("/locations")) priority = 0.8;
     else if (path.startsWith("/practice-areas")) priority = 0.8;
     else if (path === "/about") priority = 0.8;
     else if (path === "/privacy-policy") priority = 0.3;

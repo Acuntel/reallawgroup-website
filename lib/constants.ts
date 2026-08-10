@@ -122,5 +122,23 @@ export const NAV_LINKS: NavLink[] = [
     ],
   },
   { label: "Selling Your Home?", href: "https://soldeasier.com" },
-  { label: "Contact Us", href: "/contact" },
+  {
+    label: "Contact Us",
+    href: "/contact",
+    children: [
+      { label: "Contact Form", href: "/contact" },
+      { label: "Our Locations", href: "/locations" },
+      {
+        label: "Elmhurst (Main Office)",
+        href: "/locations/elmhurst",
+        sub: true,
+      },
+      {
+        label: "Chicago (Logan Square)",
+        href: "/locations/chicago",
+        sub: true,
+      },
+      { label: "Park Ridge", href: "/locations/park-ridge", sub: true },
+    ],
+  },
 ];

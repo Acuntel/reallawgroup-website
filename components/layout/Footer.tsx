@@ -9,6 +9,7 @@ import {
   Clock,
 } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
+import { OFFICES } from "@/lib/locations";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -16,6 +17,7 @@ const quickLinks = [
   { label: "Our Team", href: "/our-team" },
   { label: "Practice Areas", href: "/practice-areas" },
   { label: "Resources", href: "/resources" },
+  { label: "Locations", href: "/locations" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -187,17 +189,23 @@ export default function Footer() {
               Contact
             </h3>
             <ul className="space-y-3">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 mt-0.5 text-secondary shrink-0" />
-                <a
-                  href="https://g.page/reallawgroup?share"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm hover:text-secondary transition-colors"
-                >
-                  {CONTACT.address}
-                </a>
-              </li>
+              {OFFICES.map((office) => (
+                <li key={office.slug} className="flex items-start gap-3">
+                  <MapPin className="w-4 h-4 mt-0.5 text-secondary shrink-0" />
+                  <Link
+                    href={`/locations/${office.slug}`}
+                    className="text-sm hover:text-secondary transition-colors"
+                  >
+                    <span className="block text-gray-200">
+                      {office.shortName}
+                      {office.type === "satellite" ? " (by appointment)" : ""}
+                    </span>
+                    <span className="block text-gray-400">
+                      {office.fullAddress}
+                    </span>
+                  </Link>
+                </li>
+              ))}
               <li>
                 <a
                   href={CONTACT.phoneHref}

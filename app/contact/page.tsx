@@ -1,8 +1,10 @@
+import Link from "next/link";
 import { Phone, Mail, MapPin, Clock, Users } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import ContactForm from "@/components/ui/ContactForm";
 import GoogleMapsEmbed from "@/components/ui/GoogleMapsEmbed";
 import { CONTACT } from "@/lib/constants";
+import { OFFICES } from "@/lib/locations";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
@@ -130,6 +132,41 @@ export default function ContactPage() {
               {/* Map */}
               <div className="rounded-xl overflow-hidden border border-border mb-8">
                 <GoogleMapsEmbed />
+              </div>
+
+              {/* Satellite offices */}
+              <div className="rounded-xl border border-border p-6 mb-8">
+                <p className="text-xs uppercase tracking-wider text-text-muted font-medium mb-3">
+                  Satellite Offices (By Appointment)
+                </p>
+                <ul className="space-y-2.5 mb-4">
+                  {OFFICES.filter((office) => office.type === "satellite").map(
+                    (office) => (
+                      <li key={office.slug} className="flex items-start gap-3">
+                        <MapPin className="w-4 h-4 mt-1 text-secondary shrink-0" />
+                        <Link
+                          href={`/locations/${office.slug}`}
+                          className="text-sm text-primary font-medium hover:text-secondary transition-colors"
+                        >
+                          {office.shortName}
+                          <span className="block font-normal text-text-muted">
+                            {office.fullAddress}
+                          </span>
+                        </Link>
+                      </li>
+                    ),
+                  )}
+                </ul>
+                <p className="text-sm text-text-muted">
+                  Meetings at these locations are scheduled in advance. Please
+                  call us before visiting.{" "}
+                  <Link
+                    href="/locations"
+                    className="text-secondary font-medium hover:underline"
+                  >
+                    See all locations
+                  </Link>
+                </p>
               </div>
 
               {/* Referral note */}
