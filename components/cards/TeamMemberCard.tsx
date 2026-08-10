@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 interface TeamMemberCardProps {
   name: string;
@@ -9,6 +11,7 @@ interface TeamMemberCardProps {
   education?: string;
   barAdmissions?: string;
   affiliations?: string;
+  href?: string;
 }
 
 export default function TeamMemberCard({
@@ -20,6 +23,7 @@ export default function TeamMemberCard({
   education,
   barAdmissions,
   affiliations,
+  href,
 }: TeamMemberCardProps) {
   return (
     <div className="card-hover-border bg-white rounded-xl border border-border overflow-hidden hover:shadow-lg transition-shadow duration-300">
@@ -43,7 +47,18 @@ export default function TeamMemberCard({
       </div>
 
       <div className="p-6 md:p-8">
-        <h3 className="text-xl font-heading font-semibold mb-1">{name}</h3>
+        <h3 className="text-xl font-heading font-semibold mb-1">
+          {href ? (
+            <Link
+              href={href}
+              className="hover:text-secondary transition-colors"
+            >
+              {name}
+            </Link>
+          ) : (
+            name
+          )}
+        </h3>
         <p className="text-secondary font-medium text-sm mb-4">{title}</p>
         <p className="text-text-muted text-sm leading-relaxed mb-4">{bio}</p>
 
@@ -78,6 +93,16 @@ export default function TeamMemberCard({
               {affiliations}
             </p>
           </div>
+        )}
+
+        {href && (
+          <Link
+            href={href}
+            className="mt-5 inline-flex items-center gap-1.5 text-secondary font-semibold text-sm hover:underline"
+          >
+            Read full profile
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         )}
       </div>
     </div>

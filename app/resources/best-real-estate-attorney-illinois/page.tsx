@@ -61,7 +61,7 @@ const FAQS = [
   {
     question: "How much does the best real estate attorney cost in Illinois?",
     answer:
-      "Top closing attorneys are rarely the most expensive. Most quote flat fees for residential closings, commonly a few hundred to roughly a thousand dollars, with commercial and investor work priced by scope. Be more cautious of a lawyer with no set fee than one with a clear one.",
+      "Top closing attorneys are rarely the most expensive. Most quote flat fees for residential closings, commonly a few hundred to roughly a thousand dollars, with commercial and investor work priced by scope. Be more cautious of a lawyer with no set fee than one with a clear one. Our full breakdown of Illinois attorney fees, including what the flat fee covers and what the title company and county bill separately, is at /resources/real-estate-attorney-cost-illinois.",
   },
   {
     question:

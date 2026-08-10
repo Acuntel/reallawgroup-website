@@ -23,6 +23,7 @@ const teamMembers = [
       "Illinois | U.S. District Court for the Northern District of Illinois",
     affiliations:
       "Chicago Bar Association, DuPage County Bar Association, Illinois State Bar Association, Illinois Real Estate Lawyers Association, Justinian Society of Lawyers",
+    href: "/our-team/vincent-incopero",
   },
   {
     name: "Sarah Marie Roth",
@@ -77,7 +78,7 @@ export default function OurTeamPage() {
             Our Team
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl">
-            The people behind REAL Law Group — dedicated to serving you.
+            The people behind REAL Law Group, dedicated to serving you.
           </p>
         </div>
       </section>

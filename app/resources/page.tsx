@@ -19,6 +19,12 @@ const resources = [
     href: "/resources/best-real-estate-attorney-illinois",
   },
   {
+    title: "How Much Does a Real Estate Attorney Cost in Illinois?",
+    excerpt:
+      "What Illinois closing attorneys charge, what the flat fee covers, what is billed separately by the title company and the county, and what pushes a quote higher.",
+    href: "/resources/real-estate-attorney-cost-illinois",
+  },
+  {
     title: "Closing Cost Calculator",
     excerpt:
       "Estimate your buyer or seller closing costs for Chicagoland real estate transactions with our interactive calculator.",

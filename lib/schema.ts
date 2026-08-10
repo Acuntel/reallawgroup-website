@@ -184,12 +184,19 @@ export function generateAttorneySchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://reallawgroup.com/our-team/vincent-incopero#person",
     name: "Vincent Anthony Incopero",
     jobTitle: "Managing Partner",
-    url: "https://reallawgroup.com/about",
-    image: "https://reallawgroup.com/images/logo-banner.png",
+    url: "https://reallawgroup.com/our-team/vincent-incopero",
+    image: "https://reallawgroup.com/images/logo-banner-tight.png",
     telephone: "+16302997600",
     email: "info@reallawgroup.com",
+    award: [
+      "Super Lawyers Rising Stars, Real Estate, 2021",
+      "Super Lawyers Rising Stars, Real Estate, 2022",
+      "Super Lawyers Rising Stars, Real Estate, 2023",
+      "Super Lawyers Rising Stars, Real Estate, 2024",
+    ],
     worksFor: {
       "@type": "LegalService",
       name: "REAL Law Group, P.C.",
