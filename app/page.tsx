@@ -13,7 +13,15 @@ export const metadata: Metadata = {
   title: "Illinois Real Estate Closing Attorneys | REAL Law Group",
   description:
     "The all-in-one Illinois real estate law firm: closings, wholesale and assignment deals, land trusts, investor LLCs, 1031 exchanges, and estate planning under one roof. 300+ five-star Google reviews since 2016. Call (630) 299-7600.",
-  alternates: { canonical: "https://reallawgroup.com/" },
+  alternates: {
+    canonical: "https://reallawgroup.com/",
+    languages: {
+      "en-US": "https://reallawgroup.com/",
+      "es-US": "https://reallawgroup.com/es",
+      "pl-PL": "https://reallawgroup.com/pl",
+      "x-default": "https://reallawgroup.com/",
+    },
+  },
   openGraph: {
     title: "Illinois Real Estate Closing Attorneys | REAL Law Group",
     description:

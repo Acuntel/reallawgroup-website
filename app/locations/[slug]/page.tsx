@@ -27,6 +27,11 @@ export function generateStaticParams() {
   return OFFICES.map((office) => ({ slug: office.slug }));
 }
 
+// Every slug for this route is enumerated above. Without this, Next renders
+// unknown slugs on demand and answers 200 with the not-found shell, which gives
+// crawlers an infinite soft-404 URL space. false makes unknown slugs a real 404.
+export const dynamicParams = false;
+
 export function generateMetadata({ params }: { params: { slug: string } }) {
   const office = getOffice(params.slug);
   const content = LOCATION_CONTENT[params.slug];

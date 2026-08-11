@@ -24,7 +24,15 @@ export const metadata: Metadata = {
   title: "Abogados de Bienes Raíces de Confianza en Chicago | REAL Law Group",
   description:
     "Asesoría legal personalizada para bienes raíces, inversiones inmobiliarias y planificación patrimonial. Al servicio del área de Chicago desde 2016. Más de 300 reseñas de cinco estrellas. Llame al (630) 299-7600 para una consulta gratuita.",
-  alternates: { canonical: "https://reallawgroup.com/es" },
+  alternates: {
+    canonical: "https://reallawgroup.com/es",
+    languages: {
+      "en-US": "https://reallawgroup.com/",
+      "es-US": "https://reallawgroup.com/es",
+      "pl-PL": "https://reallawgroup.com/pl",
+      "x-default": "https://reallawgroup.com/",
+    },
+  },
   openGraph: {
     title: "Abogados de Bienes Raíces de Confianza en Chicago | REAL Law Group",
     description:

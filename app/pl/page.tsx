@@ -24,7 +24,15 @@ export const metadata: Metadata = {
   title: "Zaufani adwokaci ds. nieruchomości w Chicago | REAL Law Group",
   description:
     "Indywidualne doradztwo prawne w zakresie nieruchomości, inwestycji w nieruchomości i planowania spadkowego. Obsługujemy region Chicagoland od 2016 roku. Ponad 300 pięciogwiazdkowych opinii. Zadzwoń (630) 299-7600, aby umówić bezpłatną konsultację.",
-  alternates: { canonical: "https://reallawgroup.com/pl/" },
+  alternates: {
+    canonical: "https://reallawgroup.com/pl",
+    languages: {
+      "en-US": "https://reallawgroup.com/",
+      "es-US": "https://reallawgroup.com/es",
+      "pl-PL": "https://reallawgroup.com/pl",
+      "x-default": "https://reallawgroup.com/",
+    },
+  },
   openGraph: {
     title: "Zaufani adwokaci ds. nieruchomości w Chicago | REAL Law Group",
     description:
