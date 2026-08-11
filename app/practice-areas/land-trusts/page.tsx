@@ -6,7 +6,7 @@ import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Illinois Land Trust Attorney — Formation & Administration",
+  title: "Illinois Land Trust Attorney: Formation and Administration",
   description:
     "Protect your property with an Illinois land trust. REAL Law Group helps property owners establish land trusts for privacy, asset protection, and simplified estate planning in Chicagoland. Call (630) 299-7600 for a free consultation.",
   path: "/practice-areas/land-trusts",

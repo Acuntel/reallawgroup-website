@@ -14,7 +14,7 @@ import {
 } from "./content";
 
 export const metadata = generatePageMetadata({
-  title: "Abogados de Filtraciones de Datos en Illinois — Chicago y DuPage",
+  title: "Abogados de Filtraciones de Datos en Illinois: Chicago y DuPage",
   description:
     "¿Recibió una carta de notificación de filtración de datos? REAL Law Group representa a residentes de Illinois en reclamos de filtraciones de datos y privacidad. Evaluación gratuita. (630) 299-7600.",
   path: "/es/practice-areas/data-breach",

@@ -14,7 +14,7 @@ import {
 } from "./content";
 
 export const metadata = generatePageMetadata({
-  title: "Illinois Data Breach Lawyers — Chicago & DuPage County",
+  title: "Illinois Data Breach Lawyers: Chicago and DuPage County",
   description:
     "Received a data breach notification letter? REAL Law Group represents Illinois residents in data breach and privacy claims. Free case review. (630) 299-7600.",
   path: "/practice-areas/data-breach",

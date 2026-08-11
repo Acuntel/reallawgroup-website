@@ -5,7 +5,7 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "O REAL Law Group — adwokaci ds. nieruchomości z Elmhurst",
+  title: "O naszych adwokatach ds. nieruchomości z Elmhurst",
   description:
     "Poznaj REAL Law Group, P.C. — kancelarię założoną w 2016 roku na zasadach ciężkiej pracy, uczciwości i rzetelności. Doświadczeni adwokaci ds. nieruchomości w Chicago. Zadzwoń (630) 299-7600, aby umówić bezpłatną konsultację.",
   path: "/pl/about",

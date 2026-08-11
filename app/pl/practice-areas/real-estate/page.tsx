@@ -6,7 +6,7 @@ import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Prawnik ds. zamknięć nieruchomości — Elmhurst i Chicago",
+  title: "Prawnik ds. zamknięć nieruchomości: Elmhurst i Chicago",
   description:
     "Doświadczeni prawnicy ds. nieruchomości prowadzący transakcje mieszkaniowe i komercyjne, zamknięcia, negocjacje umów, krótką sprzedaż i inne sprawy na terenie Chicagoland. Zadzwoń pod (630) 299-7600, aby umówić bezpłatną konsultację.",
   path: "/pl/practice-areas/real-estate",

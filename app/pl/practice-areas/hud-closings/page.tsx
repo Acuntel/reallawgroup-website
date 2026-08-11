@@ -6,7 +6,7 @@ import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Prawnik ds. zamknięć HUD i nieruchomości rządowych — Chicago",
+  title: "Prawnik ds. zamknięć HUD i nieruchomości rządowych: Chicago",
   description:
     "REAL Law Group prowadzi zamknięcia domów HUD na terenie Chicagoland. Doświadczeni prawnicy prowadzący kupujących przez specyficzne dla HUD terminy, umowy i wymagania zamknięcia. Zadzwoń pod (630) 299-7600, aby umówić bezpłatną konsultację.",
   path: "/pl/practice-areas/hud-closings",

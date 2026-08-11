@@ -6,7 +6,7 @@ import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Referencias de Abogados de Lesiones Personales — Chicago y Suburbios",
+  title: "Referencias de Abogados de Lesiones Personales: Chicago y Suburbios",
   description:
     "¿Lesionado en un accidente automovilístico? REAL Law Group lo conecta con abogados experimentados en lesiones personales que luchan por la compensación que usted merece. Consulta gratuita. Llame al (630) 299-7600.",
   path: "/es/practice-areas/personal-injury",

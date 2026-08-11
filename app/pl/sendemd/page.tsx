@@ -11,7 +11,7 @@ import { generatePageMetadata } from "@/lib/metadata";
 import { CONTACT } from "@/lib/constants";
 
 export const metadata = generatePageMetadata({
-  title: "Instrukcje wpłaty zadatku — REAL Law Group",
+  title: "Jak wpłacić zadatek",
   description:
     "Instrukcje wpłaty zadatku (earnest money) dla klientów REAL Law Group, P.C. Szczegóły przelewu i wpłaty w Chase Bank, numer routingowy ABA oraz ochrona przed oszustwami przelewowymi.",
   path: "/pl/sendemd",

@@ -5,7 +5,7 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "About REAL Law Group — Elmhurst Real Estate Attorneys",
+  title: "About Our Elmhurst Real Estate Attorneys",
   description:
     "Learn about REAL Law Group, P.C. - founded in 2016 on hard work, integrity, and reliability. Experienced Chicago real estate attorneys. Call (630) 299-7600 for a free consultation.",
   path: "/about",

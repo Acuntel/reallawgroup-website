@@ -14,7 +14,7 @@ import {
 } from "./content";
 
 export const metadata = generatePageMetadata({
-  title: "Prawnicy ds. naruszeń danych w Illinois — Chicago i DuPage County",
+  title: "Prawnicy ds. naruszeń danych w Illinois: Chicago i DuPage County",
   description:
     "Otrzymali Państwo list o naruszeniu danych? REAL Law Group reprezentuje mieszkańców Illinois w sprawach naruszeń danych i prywatności. Bezpłatna ocena sprawy. (630) 299-7600.",
   path: "/pl/practice-areas/data-breach",

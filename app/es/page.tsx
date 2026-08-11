@@ -21,7 +21,7 @@ import {
 import { CONTACT } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Abogados de Bienes Raíces de Confianza en Chicago | REAL Law Group",
+  title: "Abogados de Bienes Raíces de Confianza en Chicago",
   description:
     "Asesoría legal personalizada para bienes raíces, inversiones inmobiliarias y planificación patrimonial. Al servicio del área de Chicago desde 2016. Más de 300 reseñas de cinco estrellas. Llame al (630) 299-7600 para una consulta gratuita.",
   alternates: {

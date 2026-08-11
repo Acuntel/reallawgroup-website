@@ -6,7 +6,7 @@ import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Abogado de Cierres Inmobiliarios — Elmhurst y Chicago",
+  title: "Abogado de Cierres Inmobiliarios: Elmhurst y Chicago",
   description:
     "Abogados expertos en bienes raíces que manejan transacciones residenciales y comerciales, cierres, negociación de contratos, ventas cortas y más en Chicagoland. Llame al (630) 299-7600 para una consulta gratuita.",
   path: "/es/practice-areas/real-estate",

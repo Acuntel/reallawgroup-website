@@ -6,7 +6,7 @@ import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "HUD & Government Property Closing Attorney — Chicago",
+  title: "HUD and Government Property Closing Attorney: Chicago",
   description:
     "REAL Law Group handles HUD home closings throughout Chicagoland. Experienced attorneys guiding buyers through HUD-specific timelines, contracts, and closing requirements. Call (630) 299-7600 for a free consultation.",
   path: "/practice-areas/hud-closings",

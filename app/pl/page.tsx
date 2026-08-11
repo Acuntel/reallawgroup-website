@@ -21,7 +21,7 @@ import {
 import { CONTACT } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Zaufani adwokaci ds. nieruchomości w Chicago | REAL Law Group",
+  title: "Zaufani adwokaci ds. nieruchomości w Chicago",
   description:
     "Indywidualne doradztwo prawne w zakresie nieruchomości, inwestycji w nieruchomości i planowania spadkowego. Obsługujemy region Chicagoland od 2016 roku. Ponad 300 pięciogwiazdkowych opinii. Zadzwoń (630) 299-7600, aby umówić bezpłatną konsultację.",
   alternates: {

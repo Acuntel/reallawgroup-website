@@ -6,7 +6,7 @@ import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Prawnik ds. trustów gruntowych w Illinois — tworzenie i obsługa",
+  title: "Prawnik ds. trustów gruntowych w Illinois: tworzenie i obsługa",
   description:
     "Chroń swoją nieruchomość za pomocą trustu gruntowego w Illinois. REAL Law Group pomaga właścicielom nieruchomości tworzyć trusty gruntowe zapewniające prywatność, ochronę aktywów oraz uproszczone planowanie spadkowe na terenie Chicagoland. Zadzwoń pod (630) 299-7600, aby umówić bezpłatną konsultację.",
   path: "/pl/practice-areas/land-trusts",

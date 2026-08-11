@@ -11,7 +11,7 @@ import { generatePageMetadata } from "@/lib/metadata";
 import { CONTACT } from "@/lib/constants";
 
 export const metadata = generatePageMetadata({
-  title: "Instrucciones para Enviar Arras — REAL Law Group",
+  title: "Cómo Enviar su Depósito de Arras",
   description:
     "Instrucciones para enviar el depósito de arras para clientes de REAL Law Group, P.C. Información de transferencia bancaria y depósito en Chase Bank, número de ruta ABA y prevención de fraude por transferencia.",
   path: "/es/sendemd",

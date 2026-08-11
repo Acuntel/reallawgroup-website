@@ -11,7 +11,7 @@ import { generatePageMetadata } from "@/lib/metadata";
 import { CONTACT } from "@/lib/constants";
 
 export const metadata = generatePageMetadata({
-  title: "Earnest Money Deposit Instructions — REAL Law Group",
+  title: "How to Send Your Earnest Money Deposit",
   description:
     "Earnest money deposit instructions for REAL Law Group, P.C. clients. Wire transfer and Chase Bank deposit details, ABA routing number, and wire fraud prevention.",
   path: "/sendemd",

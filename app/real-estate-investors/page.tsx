@@ -6,7 +6,7 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Real Estate Investors — REAL Law Group",
+  title: "Real Estate Investor Attorney in Illinois",
   description:
     "Legal services for real estate investors in Chicagoland — acquisitions, dispositions, entity formation, land trusts, 1031 exchanges, and closings. Call (630) 299-7600.",
   path: "/real-estate-investors",

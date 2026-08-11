@@ -6,7 +6,7 @@ import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Earnest Money FAQs — REAL Law Group",
+  title: "Earnest Money Deposit FAQs for Illinois Buyers",
   description:
     "Earnest money FAQs from REAL Law Group: how earnest money works, when it is refundable, and when it is forfeited. Call (630) 299-7600 for a free consultation.",
   path: "/emd",

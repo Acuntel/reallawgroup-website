@@ -6,7 +6,7 @@ import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Polecenia prawników ds. szkód osobowych — Chicago i okolice",
+  title: "Polecenia prawników ds. szkód osobowych: Chicago i okolice",
   description:
     "Odnieśli Państwo obrażenia w wypadku samochodowym? REAL Law Group łączy Państwa z doświadczonymi prawnikami ds. szkód osobowych, którzy walczą o należne odszkodowanie. Bezpłatna konsultacja. Zadzwoń pod (630) 299-7600.",
   path: "/pl/practice-areas/personal-injury",

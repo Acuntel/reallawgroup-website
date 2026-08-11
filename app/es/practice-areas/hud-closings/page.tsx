@@ -6,7 +6,7 @@ import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Abogado de Cierres HUD y Propiedades Gubernamentales — Chicago",
+  title: "Abogado de Cierres HUD y Propiedades Gubernamentales: Chicago",
   description:
     "REAL Law Group maneja cierres de viviendas HUD en todo Chicagoland. Abogados experimentados que guían a los compradores a través de los plazos, contratos y requisitos de cierre específicos de HUD. Llame al (630) 299-7600 para una consulta gratuita.",
   path: "/es/practice-areas/hud-closings",

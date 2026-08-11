@@ -6,7 +6,7 @@ import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Personal Injury Attorney Referrals — Chicago & Suburbs",
+  title: "Personal Injury Attorney Referrals: Chicago and Suburbs",
   description:
     "Injured in a car accident? REAL Law Group connects you with experienced personal injury attorneys who fight for the compensation you deserve. Free consultation. Call (630) 299-7600.",
   path: "/practice-areas/personal-injury",

@@ -6,7 +6,7 @@ import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Real Estate Closing Attorney — Elmhurst & Chicago",
+  title: "Real Estate Closing Attorney: Elmhurst and Chicago",
   description:
     "Expert real estate attorneys handling residential and commercial transactions, closings, contract negotiation, short sales, and more in Chicagoland. Call (630) 299-7600 for a free consultation.",
   path: "/practice-areas/real-estate",

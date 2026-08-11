@@ -29,7 +29,7 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Inwestorzy w nieruchomości — REAL Law Group",
+  title: "Prawnik dla inwestorów w nieruchomości w Illinois",
   description:
     "Usługi prawne dla inwestorów w nieruchomości w regionie Chicagoland — zakupy, sprzedaż, zakładanie spółek, trusty gruntowe, wymiany 1031 oraz zamknięcia transakcji. Zadzwoń (630) 299-7600.",
   path: "/pl/real-estate-investors",

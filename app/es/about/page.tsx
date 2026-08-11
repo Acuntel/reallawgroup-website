@@ -5,7 +5,7 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Sobre REAL Law Group — Abogados de Bienes Raíces en Elmhurst",
+  title: "Sobre Nuestros Abogados de Bienes Raíces en Elmhurst",
   description:
     "Conozca a REAL Law Group, P.C. — fundada en 2016 sobre el trabajo duro, la integridad y la confiabilidad. Abogados de bienes raíces con experiencia en Chicago. Llame al (630) 299-7600 para una consulta gratuita.",
   path: "/es/about",

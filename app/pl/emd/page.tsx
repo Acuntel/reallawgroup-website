@@ -6,7 +6,7 @@ import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Zadatek (Earnest Money) — najczęstsze pytania | REAL Law Group",
+  title: "Zadatek (Earnest Money): najczęstsze pytania",
   description:
     "Najczęstsze pytania dotyczące zadatku (earnest money) w REAL Law Group: jak działa zadatek, kiedy podlega zwrotowi, a kiedy przepada. Zadzwoń (630) 299-7600, aby umówić bezpłatną konsultację.",
   path: "/pl/emd",

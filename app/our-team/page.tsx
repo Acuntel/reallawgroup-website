@@ -5,7 +5,7 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Our Team — REAL Law Group Attorneys & Staff",
+  title: "Our Attorneys and Staff",
   description:
     "Meet the REAL Law Group team — experienced attorneys, paralegals, and staff serving Chicagoland real estate closing, investor, and estate planning clients. Call (630) 299-7600.",
   path: "/our-team",

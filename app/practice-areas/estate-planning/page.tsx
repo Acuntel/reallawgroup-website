@@ -6,7 +6,7 @@ import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Estate Planning Attorney — Wills & Trusts in Illinois",
+  title: "Estate Planning Attorney: Wills and Trusts in Illinois",
   description:
     "Estate planning services including wills, trusts, powers of attorney, probate administration, and asset protection in Chicagoland. Call (630) 299-7600 for a free consultation.",
   path: "/practice-areas/estate-planning",

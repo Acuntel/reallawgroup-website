@@ -6,7 +6,7 @@ import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Preguntas Frecuentes sobre Arras — REAL Law Group",
+  title: "Preguntas Frecuentes sobre Arras en Illinois",
   description:
     "Preguntas frecuentes sobre el depósito en garantía (arras) de REAL Law Group: cómo funciona, cuándo es reembolsable y cuándo se pierde. Llame al (630) 299-7600 para una consulta gratuita.",
   path: "/es/emd",

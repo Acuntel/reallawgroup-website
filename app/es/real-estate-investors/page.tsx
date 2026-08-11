@@ -29,7 +29,7 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Inversionistas de Bienes Raíces — REAL Law Group",
+  title: "Abogado para Inversionistas de Bienes Raíces en Illinois",
   description:
     "Servicios legales para inversionistas de bienes raíces en el área de Chicago: adquisiciones, ventas, formación de entidades, fideicomisos de tierra, intercambios 1031 y cierres. Llame al (630) 299-7600.",
   path: "/es/real-estate-investors",

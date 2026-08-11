@@ -6,7 +6,7 @@ import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Prawnik ds. planowania spadkowego — testamenty i trusty w Illinois",
+  title: "Prawnik ds. planowania spadkowego: testamenty i trusty w Illinois",
   description:
     "Usługi planowania spadkowego obejmujące testamenty, trusty, pełnomocnictwa, postępowanie spadkowe oraz ochronę aktywów na terenie Chicagoland. Zadzwoń pod (630) 299-7600, aby umówić bezpłatną konsultację.",
   path: "/pl/practice-areas/estate-planning",

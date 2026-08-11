@@ -5,7 +5,7 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Nasz zespół — Adwokaci i pracownicy REAL Law Group",
+  title: "Nasi adwokaci i pracownicy",
   description:
     "Poznaj zespół REAL Law Group — doświadczonych adwokatów, asystentów prawnych i pracowników obsługujących klientów w Chicagoland w zakresie nieruchomości, prawa biznesowego i planowania spadkowego. Zadzwoń (630) 299-7600.",
   path: "/pl/our-team",
