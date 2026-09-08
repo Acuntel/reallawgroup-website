@@ -221,6 +221,8 @@ export function generateAttorneySchema() {
       "Illinois Land Trusts",
       "Quit Claim Deeds",
       "For Sale By Owner (FSBO) Transactions",
+      "Cash Offer and Direct Home Buyer Contract Review",
+      "Illinois Residential Real Property Disclosure Act",
       "1031 Tax-Deferred Exchanges",
       "Inherited Property and Probate Real Estate",
       "Short Sales",

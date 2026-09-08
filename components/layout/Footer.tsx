@@ -28,6 +28,8 @@ const resourceLinks = [
     label: "Closing Cost Calculator",
     href: "/resources/closing-cost-calculator",
   },
+  { label: "For Sale By Owner", href: "/resources/for-sale-by-owner" },
+  { label: "Cash Offer Review", href: "/resources/cash-offer-review" },
   { label: "Title Insurance FAQ", href: "/resources/title-insurance-faq" },
   { label: "Prevent Wire Fraud", href: "/resources/prevent-wire-fraud" },
   {

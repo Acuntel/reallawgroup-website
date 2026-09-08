@@ -1,18 +1,29 @@
-import { CheckCircle, Phone } from "lucide-react";
+import { CheckCircle, Phone, AlertTriangle } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import CTABanner from "@/components/sections/CTABanner";
 import FAQAccordion from "@/components/ui/FAQAccordion";
-import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import ThirdPartyDisclaimer, {
+  NAMED_HOME_BUYERS,
+} from "@/components/ui/ThirdPartyDisclaimer";
+import {
+  generateFAQSchema,
+  generateBreadcrumbSchema,
+  generateArticleSchema,
+} from "@/lib/schema";
 import { generatePageMetadata } from "@/lib/metadata";
 import { CONTACT } from "@/lib/constants";
 
 export const metadata = generatePageMetadata({
   title: "Cash Home Buyer Offer Review in Illinois",
   description:
-    "Did you get an offer from Grandview Homes, Kendall Partners, or Big Door Home Buyers? Have an Illinois real estate attorney review the contract before you sign it. Call (630) 299-7600.",
+    "Did you get a written cash offer for your house from a company that buys homes directly? Have an Illinois real estate attorney review the purchase agreement before you sign it. Call (630) 299-7600.",
   path: "/resources/cash-offer-review",
 });
 
+// Named companies appear ONLY in interrogative or conditional sentences, never
+// as the subject of a declarative statement of fact. Generic observations about
+// buyer-drafted contracts live in their own sections, outside these blocks.
+// See components/ui/ThirdPartyDisclaimer.tsx for why.
 const buyerQuestions = [
   {
     company: "Grandview Homes",
@@ -22,36 +33,62 @@ const buyerQuestions = [
   {
     company: "Kendall Partners",
     question: "Did you get an offer from Kendall Partners?",
-    note: "If Kendall Partners has made you an offer, the contract behind it was prepared by the buyer. Know exactly what it says before you commit.",
+    note: "If Kendall Partners has made you an offer, ask us to walk you through the agreement line by line so you know exactly what you are agreeing to.",
+  },
+  {
+    company: "Direct Property Aid",
+    question: "Did you get an offer from Direct Property Aid?",
+    note: "If Direct Property Aid has offered to purchase your home, an attorney review tells you what the contract permits and what you would actually walk away with.",
   },
   {
     company: "Big Door Home Buyers",
     question: "Did you get an offer from Big Door Home Buyers?",
-    note: "If Big Door Home Buyers has offered to purchase your home, an attorney review tells you what you are agreeing to and what you will actually walk away with.",
+    note: "If Big Door Home Buyers has offered to purchase your home, we will read the agreement with you before your signature goes on the page.",
   },
 ];
 
 const reviewPoints = [
   "The purchase price versus your actual net proceeds at closing",
   "Assignment clauses that let the buyer transfer your contract to someone else",
+  "Marketing and resale rights the contract may grant the buyer",
   "Inspection terms and who has the right to cancel, and when",
   "Earnest money: how much is deposited and who holds it",
   "As-is language, repair credits, and post-inspection renegotiation",
+  "How property taxes are prorated, including your exemptions",
   "The closing date, possession terms, and any leaseback provisions",
   "Fees, credits, and deductions taken out at the closing table",
   "Whether the contract includes an attorney review and modification period",
+];
+
+const netProceedsItems = [
+  "The mortgage payoff, including any second mortgage or home equity line",
+  "Property tax prorations, and whether your homeowner exemptions are counted",
+  "Recorded liens, judgments, and unpaid utility or municipal balances",
+  "Transfer stamps owed to the state, county, and your municipality",
+  "Any credits or deductions the contract allows the buyer to take at closing",
+  "Title and settlement charges assigned to the seller by the agreement",
 ];
 
 const faqs = [
   {
     question: "Is it a bad idea to sell my house to a cash home buyer?",
     answer:
-      "Not necessarily. Selling to a cash buyer is a legitimate option, and for some sellers the speed and convenience are worth it. The key is understanding exactly what the contract says, what you will net after every deduction, and whether the terms are fair before you are legally bound by them.",
+      "Not necessarily. Selling to a cash buyer is a legitimate option, and for some sellers the speed and convenience are worth accepting less than a listed sale might bring. The key is understanding exactly what the contract says, what you will net after every deduction, and whether the terms are fair before you are legally bound by them.",
+  },
+  {
+    question: "Does my cash offer contract have an attorney review period?",
+    answer:
+      "It may not. The five business day attorney review period that most Illinois sellers have heard of comes from the standard residential contract forms used in brokered transactions. A purchase agreement drafted by a company that buys houses directly is its own document, and it contains only the protections written into it. Do not assume a review period exists because it usually does. Send us the agreement and we will tell you what it actually gives you.",
   },
   {
     question: "What should I look for in a cash offer contract?",
     answer:
-      "Pay close attention to the net amount you will receive after all fees and credits, any clause that lets the buyer assign the contract to another party, the earnest money terms, who can cancel and under what conditions, and the closing timeline. These contracts are prepared by the buyer, so the default terms tend to favor the buyer.",
+      "Pay close attention to the net amount you will receive after all fees, prorations, and credits, any clause that lets the buyer assign the contract or market the property to another party, the earnest money terms, who can cancel and under what conditions, and the closing timeline. These contracts are prepared by the buyer, so the default terms tend to favor the buyer.",
+  },
+  {
+    question: "Can the company sell my contract to someone else?",
+    answer:
+      "Many buyer-drafted agreements permit it. An assignment clause lets the company transfer its rights under your contract to a different buyer, often for a fee, and some agreements go further and allow the buyer to market the property before closing. That is legal when the contract allows it. Whether it is what you intended when you signed is a different question, which is why the assignment language is one of the first things we read.",
   },
   {
     question: "How much does it cost to have an attorney review a cash offer?",
@@ -61,7 +98,17 @@ const faqs = [
   {
     question: "What if I already signed the contract?",
     answer:
-      "Call us right away. Many Illinois residential contracts include an attorney review period, typically five business days, during which your attorney can propose modifications or disapprove the contract. Whether you have that window depends on the language in your specific contract, so time matters.",
+      "Call us right away. Some Illinois residential contracts include an attorney review period, typically five business days, during which your attorney can propose modifications or disapprove the contract. Whether you have that window depends on the language in your specific contract, so time matters.",
+  },
+  {
+    question: "The buyer wants an answer today. Do I have to decide now?",
+    answer:
+      "A written offer is a proposal, and you decide when to accept it. If a deadline is real, it will be stated in the document, and we can read it with you quickly. Before you sign under time pressure, it is worth the phone call to understand what you are signing.",
+  },
+  {
+    question: "Do people who buy houses this way need a license in Illinois?",
+    answer:
+      "It depends on what they do and how often. The Real Estate License Act of 2000, as amended by Public Act 101-0357 in 2019, treats a person or entity that deals in contracts, including assignable contracts for the purchase or sale of real estate, as a broker when they engage in a pattern of business. The statute defines that pattern as two or more such occasions in any 12-month period, and it counts occasions across affiliated individuals and entities with common owners. Whether any particular buyer needs a license is a fact question we can look at with you.",
   },
 ];
 
@@ -72,6 +119,20 @@ export default function CashOfferReviewPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(generateFAQSchema(faqs)),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateArticleSchema({
+              title: "Cash Home Buyer Offer Review in Illinois",
+              description:
+                "What an Illinois real estate attorney checks in a cash offer purchase agreement before you sign it, including assignment clauses, net proceeds, and attorney review periods.",
+              path: "/resources/cash-offer-review",
+              datePublished: "2025-08-05",
+            }),
+          ),
         }}
       />
       <script
@@ -132,19 +193,57 @@ export default function CashOfferReviewPage() {
           </div>
 
           <div className="mb-16">
+            <div className="rounded-xl border-l-4 border-secondary bg-light-gold p-8">
+              <div className="flex items-start gap-4">
+                <AlertTriangle className="w-6 h-6 text-secondary shrink-0 mt-1" />
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-heading font-semibold text-primary mb-4">
+                    Your Contract May Have No Attorney Review Period At All
+                  </h2>
+                  <p className="text-text leading-relaxed mb-4">
+                    Most Illinois sellers have heard that they get five business
+                    days to have a lawyer look things over. That window comes
+                    from the standard contract forms used when a real estate
+                    broker is involved. It is not a rule that attaches to every
+                    sale.
+                  </p>
+                  <p className="text-text leading-relaxed">
+                    A company that buys houses directly usually presents its own
+                    purchase agreement. That document contains the protections
+                    written into it and no others. If it does not grant you an
+                    attorney review period, you do not have one, and your
+                    signature is the end of the negotiation rather than the
+                    beginning. This is the single most important reason to call
+                    before you sign instead of after.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-heading font-semibold mb-6">
+              Send Us the Offer You Received
+            </h2>
+            <div className="w-12 h-1 bg-secondary mb-8" />
             <div className="space-y-6">
               {buyerQuestions.map((item) => (
                 <div
                   key={item.company}
                   className="border border-border rounded-xl p-8 bg-background"
                 >
-                  <h2 className="text-xl md:text-2xl font-heading font-semibold text-primary mb-3">
+                  <h3 className="text-xl md:text-2xl font-heading font-semibold text-primary mb-3">
                     {item.question}
-                  </h2>
+                  </h3>
                   <p className="text-text-muted leading-relaxed">{item.note}</p>
                 </div>
               ))}
             </div>
+            <p className="text-sm text-text-muted leading-relaxed mt-6">
+              Received an offer from a company not listed here? We review
+              purchase agreements from any direct home buyer. Call{" "}
+              {CONTACT.phone} and we will read it with you.
+            </p>
             <div className="mt-8 rounded-xl bg-primary p-8 text-center">
               <p className="text-white text-xl md:text-2xl font-heading font-semibold mb-4">
                 Call us to review it before you sign it.
@@ -156,6 +255,9 @@ export default function CashOfferReviewPage() {
                 <Phone className="w-5 h-5" />
                 {CONTACT.phone}
               </a>
+            </div>
+            <div className="mt-8">
+              <ThirdPartyDisclaimer companies={NAMED_HOME_BUYERS} />
             </div>
           </div>
 
@@ -175,6 +277,99 @@ export default function CashOfferReviewPage() {
                   <span className="text-sm text-text">{point}</span>
                 </div>
               ))}
+            </div>
+          </div>
+
+          <div className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-heading font-semibold mb-6">
+              The Offer Price Is Not What You Walk Away With
+            </h2>
+            <div className="w-12 h-1 bg-secondary mb-8" />
+            <p className="text-text-muted leading-relaxed mb-6">
+              The number on the first page is the purchase price. Your net
+              proceeds are what is left after everything the contract and the
+              closing statement take out. Those are different numbers, and the
+              gap between them is where sellers are most often surprised.
+            </p>
+            <p className="text-text-muted leading-relaxed mb-8">
+              Before you decide whether an offer is worth taking, you should
+              know how each of these lands in your specific transaction:
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+              {netProceedsItems.map((item, i) => (
+                <div key={i} className="flex items-start gap-3 py-2">
+                  <CheckCircle className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
+                  <span className="text-sm text-text">{item}</span>
+                </div>
+              ))}
+            </div>
+            <p className="text-text-muted leading-relaxed mb-6">
+              Watch the property tax language in particular. Illinois homeowner
+              exemptions, including the general homestead and senior exemptions,
+              reduce your tax bill. A proration clause written against the
+              non-exempt amount can shift real money back to you at closing even
+              when the marketing promised that the buyer covers all costs. It is
+              not hidden. It is in the contract, and it is the kind of term a
+              review catches.
+            </p>
+            <p className="text-text-muted leading-relaxed">
+              You can estimate the seller side of a closing yourself with our{" "}
+              <a
+                href="/resources/closing-cost-calculator"
+                className="text-secondary font-semibold underline hover:text-primary"
+              >
+                closing cost calculator
+              </a>
+              , then call us and we will check it against the actual agreement.
+            </p>
+          </div>
+
+          <div className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-heading font-semibold mb-6">
+              Assignment: Your Contract Can Be Sold to Somebody Else
+            </h2>
+            <div className="w-12 h-1 bg-secondary mb-8" />
+            <p className="text-text-muted leading-relaxed mb-6">
+              When you sign a purchase agreement, you create something with
+              value: the right to buy your house at the agreed price. An
+              assignment clause lets the buyer sell that right to a third party,
+              usually for a fee, and then step out of the deal. The person who
+              actually shows up at closing may not be the company whose name is
+              on the contract you signed.
+            </p>
+            <p className="text-text-muted leading-relaxed mb-6">
+              Some agreements go further and grant the buyer the right to market
+              the property before closing, including on the Multiple Listing
+              Service. That can sit alongside marketing materials telling you
+              the company does not list houses. Both can be true at once,
+              because the contract controls, and the contract is the document
+              that binds you.
+            </p>
+            <p className="text-text-muted leading-relaxed mb-6">
+              None of that is automatically improper, and assignment is a normal
+              part of real estate. REAL Law Group represents investors and
+              wholesalers on the other side of these transactions every week,
+              which is exactly why we know what the paperwork does. What matters
+              is that you know before you sign whether your contract can be
+              assigned, whether your house can be marketed, and what happens to
+              your earnest money and your closing date if it is.
+            </p>
+            <div className="rounded-xl border border-border bg-background p-6">
+              <h3 className="text-lg font-semibold text-primary mb-3">
+                Illinois has a licensing rule about this
+              </h3>
+              <p className="text-sm text-text-muted leading-relaxed">
+                Under the Real Estate License Act of 2000, amended by Public Act
+                101-0357 in 2019, a person or entity that deals in contracts,
+                including assignable contracts for the purchase or sale of real
+                estate, meets the definition of a broker once it engages in a
+                pattern of business. The statute defines that pattern as two or
+                more such occasions in any 12-month period, and it counts
+                occasions across affiliated individuals and entities with common
+                owners rather than entity by entity. Whether that applies to a
+                particular buyer depends on facts we would need to look at. It
+                is a fair question to ask, and the answer can matter to you.
+              </p>
             </div>
           </div>
 
@@ -222,6 +417,12 @@ export default function CashOfferReviewPage() {
             className="text-primary hover:text-secondary font-semibold underline"
           >
             For Sale By Owner Guide
+          </a>
+          <a
+            href="/resources/inherited-property"
+            className="text-primary hover:text-secondary font-semibold underline"
+          >
+            Inherited Property
           </a>
           <a
             href="/practice-areas/real-estate"

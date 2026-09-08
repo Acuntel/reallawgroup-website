@@ -99,6 +99,11 @@ export const NAV_LINKS: NavLink[] = [
         href: "/resources/closing-cost-calculator",
       },
       { label: "For Sale By Owner", href: "/resources/for-sale-by-owner" },
+      { label: "Cash Offer Review", href: "/resources/cash-offer-review" },
+      {
+        label: "Attorney Fees in Illinois",
+        href: "/resources/real-estate-attorney-cost-illinois",
+      },
       { label: "Inherited Property", href: "/resources/inherited-property" },
       { label: "Earnest Money FAQs", href: "/emd" },
       { label: "Transfer Stamps", href: "/resources/transfer-stamps" },

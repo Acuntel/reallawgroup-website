@@ -18,6 +18,8 @@ declare global {
 const serviceOptions = [
   "Real Estate Closing (Buying)",
   "Real Estate Closing (Selling)",
+  "Selling Without an Agent (FSBO)",
+  "Cash Offer Review",
   "Short Sale",
   "Assignment of Contract",
   "Seller Financing",

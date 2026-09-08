@@ -304,6 +304,18 @@ export default function RealEstatePage() {
               Closing Cost Calculator
             </a>
             <a
+              href="/resources/for-sale-by-owner"
+              className="text-primary hover:text-secondary font-semibold underline"
+            >
+              For Sale By Owner
+            </a>
+            <a
+              href="/resources/cash-offer-review"
+              className="text-primary hover:text-secondary font-semibold underline"
+            >
+              Cash Offer Review
+            </a>
+            <a
               href="/resources/title-insurance-faq"
               className="text-primary hover:text-secondary font-semibold underline"
             >

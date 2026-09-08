@@ -74,6 +74,8 @@ export const CHAT_STRINGS: Record<ChatLocale, ChatStrings> = {
     serviceOptions: [
       "Buying a Home",
       "Selling a Home",
+      "Selling Without an Agent (FSBO)",
+      "Cash Offer Review",
       "Short Sale",
       "Assignment of Contract",
       "Seller Financing",
@@ -122,6 +124,8 @@ export const CHAT_STRINGS: Record<ChatLocale, ChatStrings> = {
     serviceOptions: [
       "Comprar una Casa",
       "Vender una Casa",
+      "Vender sin Agente (FSBO)",
+      "Revisión de Oferta en Efectivo",
       "Venta Corta (Short Sale)",
       "Cesión de Contrato",
       "Financiamiento del Vendedor",
@@ -171,6 +175,8 @@ export const CHAT_STRINGS: Record<ChatLocale, ChatStrings> = {
     serviceOptions: [
       "Kupno domu",
       "Sprzedaż domu",
+      "Sprzedaż bez agenta (FSBO)",
+      "Przegląd oferty gotówkowej",
       "Krótka sprzedaż (Short Sale)",
       "Cesja umowy",
       "Finansowanie przez sprzedającego",

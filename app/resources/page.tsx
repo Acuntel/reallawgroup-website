@@ -39,7 +39,7 @@ const resources = [
   {
     title: "Cash Offer Review",
     excerpt:
-      "Did you get an offer from Grandview Homes, Kendall Partners, or Big Door Home Buyers? Have an attorney review it before you sign it.",
+      "Did you get an offer from Grandview Homes, Kendall Partners, Direct Property Aid, or another company that buys homes directly? Have an attorney review it before you sign it.",
     href: "/resources/cash-offer-review",
   },
   {

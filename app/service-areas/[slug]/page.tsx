@@ -18,6 +18,8 @@ import { COUNTY_CONTENT } from "./content";
 
 const SERVICES = [
   { label: "Real Estate Closings", href: "/practice-areas/real-estate" },
+  { label: "For Sale By Owner", href: "/resources/for-sale-by-owner" },
+  { label: "Cash Offer Review", href: "/resources/cash-offer-review" },
   { label: "Real Estate Investor Services", href: "/real-estate-investors" },
   { label: "Estate Planning", href: "/practice-areas/estate-planning" },
   { label: "HUD Closings", href: "/practice-areas/hud-closings" },

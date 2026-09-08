@@ -300,6 +300,18 @@ export default function InheritedPropertyPage() {
           >
             Land Trusts
           </a>
+          <a
+            href="/resources/cash-offer-review"
+            className="text-primary hover:text-secondary font-semibold underline"
+          >
+            Cash Offer Review
+          </a>
+          <a
+            href="/resources/for-sale-by-owner"
+            className="text-primary hover:text-secondary font-semibold underline"
+          >
+            For Sale By Owner
+          </a>
         </div>
       </section>
     </>
