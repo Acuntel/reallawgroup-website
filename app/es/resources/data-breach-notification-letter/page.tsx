@@ -285,7 +285,7 @@ export default function DataBreachLetterPage() {
                   menos que usted recupere. Tenga a mano su carta de
                   notificación y{" "}
                   <Link
-                    href="/es/contacto"
+                    href="/es/contact"
                     className="text-primary font-semibold underline hover:text-secondary"
                   >
                     contáctenos

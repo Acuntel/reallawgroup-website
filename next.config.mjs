@@ -19,8 +19,22 @@ const nextConfig = {
       },
       { source: "/team", destination: "/our-team", permanent: true },
       { source: "/attorneys", destination: "/our-team", permanent: true },
+      // Transfer stamps are handed off to ATG's tax-ordinance lookup rather
+      // than duplicated on this site. The Spanish and Polish resource indexes
+      // link locale-prefixed versions of this path, so those need the same
+      // redirect or they 404: only the English source existed before.
       {
         source: "/resources/transfer-stamps",
+        destination: "https://www.atgf.com/tax-ordinance/all",
+        permanent: false,
+      },
+      {
+        source: "/es/resources/transfer-stamps",
+        destination: "https://www.atgf.com/tax-ordinance/all",
+        permanent: false,
+      },
+      {
+        source: "/pl/resources/transfer-stamps",
         destination: "https://www.atgf.com/tax-ordinance/all",
         permanent: false,
       },

@@ -225,7 +225,7 @@ export default function VincentIncoperoPage() {
           </h2>
           <FAQAccordion items={FAQS} />
 
-          <div className="mt-14 bg-light-gray rounded-lg p-8 text-center">
+          <div className="mt-14 bg-light-gold rounded-lg p-8 text-center">
             <h2 className="text-2xl font-heading font-semibold mb-3">
               Talk to Vincent about your transaction
             </h2>
@@ -243,7 +243,7 @@ export default function VincentIncoperoPage() {
               </a>
               <Link
                 href="/contact"
-                className="btn-secondary inline-flex items-center justify-center"
+                className="btn-navy inline-flex items-center justify-center"
               >
                 Contact the Firm
               </Link>

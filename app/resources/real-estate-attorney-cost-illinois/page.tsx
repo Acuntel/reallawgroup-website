@@ -215,7 +215,7 @@ export default function RealEstateAttorneyCostIllinois() {
             ))}
           </div>
 
-          <div className="border-l-4 border-secondary bg-light-gray p-6 rounded-r-lg mb-14">
+          <div className="border-l-4 border-secondary bg-light-gold p-6 rounded-r-lg mb-14">
             <div className="flex items-start gap-3">
               <AlertTriangle className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
               <p className="text-text-muted leading-relaxed">
@@ -250,7 +250,7 @@ export default function RealEstateAttorneyCostIllinois() {
           </h2>
           <FAQAccordion items={FAQS} />
 
-          <div className="mt-14 bg-light-gray rounded-lg p-8 text-center">
+          <div className="mt-14 bg-light-gold rounded-lg p-8 text-center">
             <h2 className="text-2xl font-heading font-semibold mb-3">
               Get a quote for your transaction
             </h2>
@@ -269,7 +269,7 @@ export default function RealEstateAttorneyCostIllinois() {
               </a>
               <Link
                 href="/contact"
-                className="btn-secondary inline-flex items-center justify-center"
+                className="btn-navy inline-flex items-center justify-center"
               >
                 Contact the Firm
               </Link>

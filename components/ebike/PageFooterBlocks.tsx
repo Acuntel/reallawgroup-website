@@ -61,7 +61,7 @@ export function ConsultationCTA({
         </a>
         <Link
           href={contactHref}
-          className="btn-outline inline-flex items-center justify-center"
+          className="btn-navy inline-flex items-center justify-center"
         >
           {contactLabel}
         </Link>

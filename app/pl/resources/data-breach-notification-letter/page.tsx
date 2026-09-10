@@ -283,7 +283,7 @@ export default function DataBreachLetterPage() {
                   adwokackiego, chyba że uzyskają Państwo odszkodowanie. Prosimy
                   przygotować list powiadamiający i{" "}
                   <Link
-                    href="/pl/kontakt"
+                    href="/pl/contact"
                     className="text-primary font-semibold underline hover:text-secondary"
                   >
                     skontaktować się z nami
