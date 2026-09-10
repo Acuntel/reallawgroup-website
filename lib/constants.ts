@@ -84,12 +84,21 @@ export const NAV_LINKS: NavLink[] = [
       { label: "Land Trusts", href: "/practice-areas/land-trusts" },
       { label: "Data Breach & Privacy", href: "/practice-areas/data-breach" },
       { label: "Personal Injury", href: "/practice-areas/personal-injury" },
+      {
+        label: "E-Bike & Scooter Accidents",
+        href: "/practice-areas/e-bike-accidents",
+        sub: true,
+      },
     ],
   },
   {
     label: "Resources",
     href: "/resources",
     children: [
+      {
+        label: "Illinois E-Bike Law (2027)",
+        href: "/resources/illinois-e-bike-law",
+      },
       {
         label: "Choosing a Real Estate Attorney",
         href: "/resources/best-real-estate-attorney-illinois",

@@ -7,6 +7,7 @@ import {
   Shield,
   Lock,
   Car,
+  Bike,
 } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import PracticeAreaCard from "@/components/cards/PracticeAreaCard";
@@ -77,6 +78,13 @@ const areas = [
     description:
       "If you or a loved one has been injured in a car accident, we connect you with experienced personal injury attorneys through our trusted network. Free consultations available.",
     href: "/practice-areas/personal-injury",
+  },
+  {
+    icon: Bike,
+    title: "E-Bike & Scooter Accidents",
+    description:
+      "Illinois' new e-bike and e-scooter law takes effect January 1, 2027. Whether you were hurt in a crash, cited under the new rules, or sold a machine that is not street legal, we will tell you where you stand.",
+    href: "/practice-areas/e-bike-accidents",
   },
 ];
 

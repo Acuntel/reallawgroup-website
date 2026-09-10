@@ -102,6 +102,12 @@ const resources = [
       "Common questions about title insurance answered, including what it covers and why it matters.",
     href: "/resources/title-insurance-faq",
   },
+  {
+    title: "Illinois E-Bike Law: What Changes January 1, 2027",
+    excerpt:
+      "Public Act 104-0854 sets new minimum riding ages of 15 and 16, keeps e-bikes and scooters off sidewalks, and requires a license, title, and insurance for machines over 750 watts. What the enacted law actually says, and why the bill in the news never passed.",
+    href: "/resources/illinois-e-bike-law",
+  },
 ];
 
 export default function ResourcesPage() {

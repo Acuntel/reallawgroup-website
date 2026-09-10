@@ -7,6 +7,7 @@ import {
   Shield,
   Lock,
   Car,
+  Bike,
 } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import PracticeAreaCard from "@/components/cards/PracticeAreaCard";
@@ -77,6 +78,13 @@ const areas = [
     description:
       "Jeśli Państwo lub ktoś bliski odnieśli obrażenia w wypadku samochodowym, łączymy Państwa z doświadczonymi prawnikami zajmującymi się sprawami szkód osobowych poprzez naszą zaufaną sieć współpracowników. Bezpłatne konsultacje.",
     href: "/pl/practice-areas/personal-injury",
+  },
+  {
+    icon: Bike,
+    title: "Wypadki na Rowerze i Skuterze Elektrycznym",
+    description:
+      "Nowe prawo Illinois o rowerach elektrycznych wchodzi w życie 1 stycznia 2027 r. Jeżeli doszło do obrażeń w wypadku, mandatu na podstawie nowych przepisów albo sprzedaży maszyny niedopuszczonej do ruchu, wyjaśnimy Państwa sytuację.",
+    href: "/pl/practice-areas/e-bike-accidents",
   },
 ];
 

@@ -191,6 +191,30 @@ Representation of Illinois residents whose personal information was exposed in a
 
 Cases are handled on a contingency-fee basis — no attorney's fees unless there is a recovery (case costs and expenses are addressed in a written fee agreement). Free, confidential case reviews. The firm co-counsels active data breach cases with experienced national data breach litigation firms. Relevant Illinois law: the Personal Information Protection Act (PIPA, 815 ILCS 530) requires breach notification and reasonable data security, and a PIPA violation is an unlawful practice under the Illinois Consumer Fraud Act (815 ILCS 505).
 
+### 4.12 E-Bike, E-Scooter & E-Moto Law and Injury Claims
+
+**The law.** Illinois' statewide micromobility framework is **Public Act 104-0854**, enacted as SB 3484. The Governor approved it August 26, 2026 and it takes effect **January 1, 2027** (Section 99 of the Act).
+
+**Accuracy note that matters.** The bill that received the April 2026 news coverage was **SB 3336**, the e-bike bill championed by Secretary of State Alexi Giannoulias. It passed the Senate 54-0 on April 15, 2026 and the House 80-30 on May 27, 2026 with two floor amendments, the Senate never voted to concur, and on July 2, 2026 it was referred back to Assignments under Senate Rule 3-9(b). **SB 3336 is not law.** The provisions were placed onto SB 3484 by House Floor Amendment 1.
+
+**What the enacted law does.**
+- Minimum operator ages: **15** for Class 1 and Class 2 low-speed electric bicycles (new; Illinois previously set no floor for those classes), **16** for Class 3, **16** for every electric micromobility device including scooters, skateboards and unicycles, **16** for low-speed gas bicycles (625 ILCS 5/11-1517(h), 11-1435(d), 11-1516(a)).
+- A machine built to carry a passenger may not be operated by a person **under 18** carrying one unless the passenger is a sibling, stepsibling, child or stepchild of the operator. Micromobility devices allow no passenger at all unless designed for more than one person.
+- **No sidewalk riding** for e-bikes, gas bicycles, micromobility devices or motor driven cycles. Only "toy vehicles" (battery ride-ons for children under 8, capped at 10 mph) may use sidewalks, and their operators are treated as pedestrians.
+- **Reclassification.** An electric motor rated **over 750 watts and up to 8,000 watts** makes the machine a "motor driven cycle" (625 ILCS 5/1-145.001), which requires a certificate of title, registration, a VIN, a speedometer, a valid driver's license and mandatory liability insurance, and is barred from every sidewalk, bicycle lane, bicycle path, shared-use path and trail designated for bicycle use (625 ILCS 5/3-101(b-5), 11-1403.4).
+- **Real e-bikes stay exempt.** Low-speed electric bicycles are not motor vehicles (625 ILCS 5/1-146), and electric micromobility devices are expressly exempt from titling, registration, driver licensing and mandatory insurance (625 ILCS 5/3-102(11), 3-402(A)(11), 6-102(10), 7-601(b)(8)), even though the Act calls them motor vehicles for purposes of the Code.
+- Micromobility devices capable of and traveling over 28 mph are barred from every public highway regardless of speed limit, and from bicycle lanes and paths.
+- Police may **confiscate and impound** micromobility devices and motor driven cycles at their discretion and charge a release fee, waived on verifiable proof the machine was stolen.
+- **Dealer liability.** Marketing a motor driven cycle as though exempt from these rules is an unlawful practice under the Consumer Fraud and Deceptive Business Practices Act, enforceable by the Attorney General and State's Attorneys, with a civil penalty up to **$10,000 per unit** and each mislabeled machine a separate violation (625 ILCS 5/11-1403.4(i); 815 ILCS 505/2Z).
+- **Local ordinances preempted.** Home rule authority over these devices is denied, and 625 ILCS 5/11-208(a)(8) loses its e-bike and gas-bicycle language. Park districts, forest preserve districts, conservation districts and transit districts keep limited authority over bicycle paths they control; DNR and IDOT may adopt rules for their own facilities.
+- **No helmet mandate.** The word "helmet" does not appear in the Act.
+
+**What the firm does with it.** Injury claims arising from e-bike, e-scooter and e-moto crashes are handled through the network of personal injury attorneys REAL Law Group works with, on a contingency-fee basis. Consumer claims against retailers that sold a motor driven cycle as street legal run through the Consumer Fraud Act, the same statute the firm already uses in its data breach practice. The firm also advises on citations, impoundment, and parental exposure under 625 ILCS 5/11-1501(b).
+
+**Key deadlines for these claims.** Personal injury 2 years (735 ILCS 5/13-202); wrongful death 2 years (740 ILCS 180/2(d)); **claims against an Illinois local public entity 1 year** (745 ILCS 10/8-101(a)); minors generally 2 years after turning 18 (735 ILCS 5/13-211(a)); product liability outer limit 12 years from first sale or 10 years from delivery to the first user (735 ILCS 5/13-213(b)). Illinois bars recovery when the plaintiff's contributory fault exceeds 50% (735 ILCS 5/2-1116).
+
+**Pages.** Guide: https://reallawgroup.com/resources/illinois-e-bike-law Claims: https://reallawgroup.com/practice-areas/e-bike-accidents Both published in English, Spanish and Polish.
+
 ## 5. Service Area
 
 The firm serves clients throughout Chicagoland, including:

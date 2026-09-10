@@ -51,6 +51,10 @@ const practiceLinks = [
   { label: "Land Trusts", href: "/practice-areas/land-trusts" },
   { label: "Data Breach & Privacy", href: "/practice-areas/data-breach" },
   { label: "Personal Injury", href: "/practice-areas/personal-injury" },
+  {
+    label: "E-Bike & Scooter Accidents",
+    href: "/practice-areas/e-bike-accidents",
+  },
 ];
 
 export default function Footer() {

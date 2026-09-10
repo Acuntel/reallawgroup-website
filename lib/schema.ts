@@ -165,6 +165,15 @@ export function generateLocalBusinessSchema() {
               "Representation of Illinois residents in data breach, biometric privacy (BIPA), and consumer privacy claims",
           },
         },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "E-Bike & Scooter Accident Claims",
+            description:
+              "Injury claims for e-bike, e-scooter, and e-moto crashes in Illinois, plus consumer claims against retailers that sold a motor driven cycle as street legal, under Public Act 104-0854 effective January 1, 2027",
+          },
+        },
       ],
     },
     // sameAs consolidates the firm's identity across the web so Google and the
@@ -237,6 +246,10 @@ export function generateAttorneySchema() {
       "Illinois Personal Information Protection Act (PIPA)",
       "Illinois Biometric Information Privacy Act (BIPA)",
       "Consumer Privacy Litigation",
+      "Illinois E-Bike and Micromobility Law",
+      "Illinois Public Act 104-0854",
+      "E-Bike and Electric Scooter Accident Claims",
+      "Illinois Consumer Fraud and Deceptive Business Practices Act",
     ],
     memberOf: [
       { "@type": "Organization", name: "Chicago Bar Association" },
@@ -361,6 +374,13 @@ export function generateArticleSchema(article: {
   path: string;
   datePublished?: string;
   dateModified?: string;
+  /**
+   * BCP 47 tag for the language the article is written in. Defaults to
+   * en-US so existing English callers are unchanged. Spanish and Polish
+   * mirrors must pass their own tag, otherwise every translation claims to
+   * be English and the three versions look like duplicates.
+   */
+  inLanguage?: string;
 }) {
   return {
     "@context": "https://schema.org",
@@ -373,7 +393,7 @@ export function generateArticleSchema(article: {
       "@id": `https://reallawgroup.com${article.path}`,
     },
     image: "https://reallawgroup.com/images/logo-banner.png",
-    inLanguage: "en-US",
+    inLanguage: article.inLanguage ?? "en-US",
     datePublished: article.datePublished ?? "2025-01-01",
     dateModified: article.dateModified ?? new Date().toISOString().slice(0, 10),
     author: {

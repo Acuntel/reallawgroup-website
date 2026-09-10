@@ -7,6 +7,7 @@ import {
   Shield,
   Lock,
   Car,
+  Bike,
 } from "lucide-react";
 import BreadcrumbNav from "@/components/layout/BreadcrumbNav";
 import PracticeAreaCard from "@/components/cards/PracticeAreaCard";
@@ -77,6 +78,13 @@ const areas = [
     description:
       "Si usted o un ser querido ha sufrido una lesión en un accidente automovilístico, lo conectamos con abogados experimentados en lesiones personales a través de nuestra red de confianza. Consultas gratuitas disponibles.",
     href: "/es/practice-areas/personal-injury",
+  },
+  {
+    icon: Bike,
+    title: "Accidentes en Bicicleta y Patinete Eléctrico",
+    description:
+      "La nueva ley de bicicletas eléctricas de Illinois entra en vigor el 1 de enero de 2027. Si resultó lesionado en un choque, recibió una citación bajo las nuevas reglas o le vendieron una máquina que no es legal para la calle, le diremos en qué situación está.",
+    href: "/es/practice-areas/e-bike-accidents",
   },
 ];
 

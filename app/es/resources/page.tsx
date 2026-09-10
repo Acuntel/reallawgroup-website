@@ -84,6 +84,12 @@ const resources = [
       "Respuestas a preguntas comunes sobre el seguro de título, incluyendo qué cubre y por qué es importante.",
     href: "/es/resources/title-insurance-faq",
   },
+  {
+    title: "Ley de Bicicletas Eléctricas de Illinois: Qué Cambia el 1 de Enero de 2027",
+    excerpt:
+      "La Ley Pública 104-0854 fija edades mínimas de 15 y 16 años, mantiene las bicicletas eléctricas y los patinetes fuera de las aceras y exige licencia, título y seguro para máquinas de más de 750 vatios. Lo que dice el texto promulgado, y por qué el proyecto del que habló la prensa nunca se aprobó.",
+    href: "/es/resources/illinois-e-bike-law",
+  },
 ];
 
 export default function ResourcesPageES() {

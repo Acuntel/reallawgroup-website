@@ -84,6 +84,12 @@ const resources = [
       "Odpowiedzi na często zadawane pytania dotyczące ubezpieczenia tytułu własności, w tym co obejmuje i dlaczego ma znaczenie.",
     href: "/pl/resources/title-insurance-faq",
   },
+  {
+    title: "Prawo Illinois o Rowerach Elektrycznych: Co Zmienia Się 1 Stycznia 2027 r.",
+    excerpt:
+      "Ustawa Publiczna 104-0854 wprowadza minimalny wiek 15 i 16 lat, usuwa rowery elektryczne i skutery z chodników oraz wymaga prawa jazdy, tytułu własności i ubezpieczenia dla maszyn powyżej 750 watów. Co naprawdę mówi uchwalony tekst i dlaczego projekt z doniesień prasowych nigdy nie przeszedł.",
+    href: "/pl/resources/illinois-e-bike-law",
+  },
 ];
 
 export default function ResourcesPagePL() {
