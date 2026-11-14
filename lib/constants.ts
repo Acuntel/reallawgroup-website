@@ -19,6 +19,11 @@ export const CONTACT = {
   hours: "Mon-Fri: 8AM-7PM | Sat: 8AM-3PM",
   schedulingUrl: process.env.NEXT_PUBLIC_SCHEDULING_URL || "/contact",
   googleMapsUrl: "https://g.page/reallawgroup?share",
+  // Real Google listing: place ID ChIJF8Mww1CzD4gR0md1Ez7nmco = 0x880fb350c330c317:0xca99e73e137567d2. !9m1!1b1 opens the reviews.
+  googleReviewsUrl:
+    "https://www.google.com/maps/place/REAL+Law+Group,+P.C./data=!4m7!3m6!1s0x880fb350c330c317:0xca99e73e137567d2!8m2!3d41.9093295!4d-87.9395622!9m1!1b1",
+  googleMapsEmbedUrl:
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2967.6!2d-87.9395622!3d41.9093295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fb350c330c317%3A0xca99e73e137567d2!2sREAL%20Law%20Group!5e0!3m2!1sen!2sus!4v1731550000000",
   facebook: "https://www.facebook.com/reallawgroup",
   instagram: "https://www.instagram.com/reallawgroup/",
   linkedin: "https://www.linkedin.com/company/reallawgroup",

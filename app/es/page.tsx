@@ -468,7 +468,7 @@ export default function HomePageES() {
               Más de 300 reseñas de cinco estrellas en Google
             </p>
             <a
-              href="https://search.google.com/local/reviews?placeid=ChIJSTV-k-pODogRyKP49MSt_a8"
+              href={CONTACT.googleReviewsUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-secondary hover:text-primary font-semibold text-sm transition-colors"
