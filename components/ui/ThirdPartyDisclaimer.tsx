@@ -18,10 +18,10 @@ import { CONTACT } from "@/lib/constants";
  */
 
 export const NAMED_HOME_BUYERS = [
-  "Grandview Homes",
-  "Kendall Partners",
-  "Big Door Home Buyers",
-  "Direct Property Aid",
+  "Second City Renewal",
+  "Offer4Homes LLC",
+  "Second City Equity",
+  "Home Trade",
 ] as const;
 
 function formatList(names: readonly string[]): string {

@@ -26,24 +26,24 @@ export const metadata = generatePageMetadata({
 // See components/ui/ThirdPartyDisclaimer.tsx for why.
 const buyerQuestions = [
   {
-    company: "Grandview Homes",
-    question: "Did you get an offer from Grandview Homes?",
-    note: "If Grandview Homes has sent you a written cash offer for your house, have an attorney read the full purchase agreement before you sign anything.",
+    company: "Second City Renewal",
+    question: "Did you get an offer from Second City Renewal?",
+    note: "If Second City Renewal has sent you a written cash offer for your house, have an attorney read the full purchase agreement before you sign anything.",
   },
   {
-    company: "Kendall Partners",
-    question: "Did you get an offer from Kendall Partners?",
-    note: "If Kendall Partners has made you an offer, ask us to walk you through the agreement line by line so you know exactly what you are agreeing to.",
+    company: "Offer4Homes LLC",
+    question: "Did you get an offer from Offer4Homes LLC?",
+    note: "If Offer4Homes LLC has made you an offer, ask us to walk you through the agreement line by line so you know exactly what you are agreeing to.",
   },
   {
-    company: "Direct Property Aid",
-    question: "Did you get an offer from Direct Property Aid?",
-    note: "If Direct Property Aid has offered to purchase your home, an attorney review tells you what the contract permits and what you would actually walk away with.",
+    company: "Second City Equity",
+    question: "Did you get an offer from Second City Equity?",
+    note: "If Second City Equity has offered to purchase your home, an attorney review tells you what the contract permits and what you would actually walk away with.",
   },
   {
-    company: "Big Door Home Buyers",
-    question: "Did you get an offer from Big Door Home Buyers?",
-    note: "If Big Door Home Buyers has offered to purchase your home, we will read the agreement with you before your signature goes on the page.",
+    company: "Home Trade",
+    question: "Did you get an offer from Home Trade?",
+    note: "If Home Trade has offered to purchase your home, we will read the agreement with you before your signature goes on the page.",
   },
 ];
 

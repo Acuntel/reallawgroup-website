@@ -203,8 +203,8 @@ export default function ForSaleByOwnerPage() {
                 <span className="font-semibold">
                   Did a cash home buyer make you an offer?
                 </span>{" "}
-                If Grandview Homes, Kendall Partners, Direct Property Aid, Big
-                Door Home Buyers, or any other company that buys houses directly
+                If Second City Renewal, Offer4Homes LLC, Second City Equity, Home
+                Trade, or any other company that buys houses directly
                 has sent you a written offer, have an attorney review it before
                 you sign it.{" "}
                 <a
